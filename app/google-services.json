@@ -1,0 +1,65 @@
+{
+  "project_info": {
+    "project_number": "778926133465",
+    "firebase_url": "https://acsea-apps.firebaseio.com",
+    "project_id": "acsea-apps",
+    "storage_bucket": "acsea-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778926133465:android:74b196145fbe2068",
+        "android_client_info": {
+          "package_name": "ca.acsea.funstop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778926133465-idu94m62ud26408nuq6qj95hskhmmg47.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.acsea.funstop",
+            "certificate_hash": "5efca32d56413309036cb42897e76c0378075ed2"
+          }
+        },
+        {
+          "client_id": "778926133465-kja0ke9hq21t44vlg144u2shtjfirefc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.acsea.funstop",
+            "certificate_hash": "ff5d1cf86416b6adb409717e7b920464bd688d38"
+          }
+        },
+        {
+          "client_id": "778926133465-7mbuektipmhb7vo1tlihqei6n121es8t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT_2_jADhGx8JaKWW_YTYJ33S2V7cyJpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778926133465-7mbuektipmhb7vo1tlihqei6n121es8t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "778926133465-f9o5s7kj20gat2tf4cadr001c9bg0v6n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ca.acsea.app",
+                "app_store_id": "1476290487"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-1748064502558088~5824947291"
+    }
+  ],
+  "configuration_version": "1"
+}
