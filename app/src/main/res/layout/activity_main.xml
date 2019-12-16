@@ -5,6 +5,8 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context=".MainActivity"
     android:theme="@android:style/Theme.Black.NoTitleBar"  
     android:fitsSystemWindows="true"
@@ -33,4 +35,3 @@
         app:menu="@menu/activity_nav_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
-

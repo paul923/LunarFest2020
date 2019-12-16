@@ -24,7 +24,8 @@
             android:layout_marginRight="15dp"
             android:text="LunarFest 2020"
             android:textColor="@color/textColorWhite"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            app:fontFamily="@font/post_no_bills_colombo_regular" />
 
     </FrameLayout>
     //Content layout
@@ -79,7 +80,7 @@
                         android:layout_width="314dp"
                         android:layout_height="221dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
                 </LinearLayout>
 
                 //Linear layout for event title
