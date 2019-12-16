@@ -19,7 +19,7 @@ import android.widget.ImageView;
 
 public class Event extends Fragment {
 
-    ImageView imgTopLeft;
+    ImageView imgTopLeft, mapImg;
     FragmentManager fragmentManager;
     FragmentTransaction transaction;
     EventSub1 sub1;
@@ -55,7 +55,5 @@ public class Event extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
-
-
 
 }
