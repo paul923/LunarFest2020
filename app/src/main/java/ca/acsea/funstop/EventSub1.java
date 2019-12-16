@@ -34,7 +34,7 @@ public class EventSub1 extends Fragment {
     }
 
     /**
-     * Takes to the map application when map is clicked
+     * Redirects to the map application when map is clicked
      */
     public void onClickMap(){
         mapImg = view.findViewById(R.id.eventMap1);

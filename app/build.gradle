@@ -39,6 +39,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.1.0'
 
 
-
 }
 apply plugin: 'com.google.gms.google-services'
