@@ -16,6 +16,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,7 +37,7 @@ public class Login extends AppCompatActivity {
     private EditText emailInput;
     private EditText passwordInput;
     private Button submitBtn;
-    private Button googleSignInBtn;
+    private SignInButton googleSignInBtn;
     private GoogleSignInClient mGoogleSignInClient;
     private  String email;
     private String password;
