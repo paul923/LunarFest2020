@@ -6,4 +6,4 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@drawable/background"
-    android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"  />
+    android:theme="@android:style/Theme.Black.NoTitleBar"  />

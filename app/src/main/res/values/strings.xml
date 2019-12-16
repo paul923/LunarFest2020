@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">lunarFest</string>
+    <string name="title_activity_event_page">eventPage</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_temp">temp</string>
+    <string name="title_activity_event_sub1">eventSub1</string>
 </resources>
