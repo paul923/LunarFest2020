@@ -54,19 +54,22 @@ public class MainActivity extends AppCompatActivity
         //Actionbar hide
         getSupportActionBar().hide();
 
+
+        //Return the FragmentManager for interacting with fragments associated with this activity.
+        fragmentManager = getSupportFragmentManager();
+
         // Initialize page objects
-        event = new Event();
+        event = new Event(fragmentManager);
         map = new Map();
         funStop = new FunStop();
         quiz = new Quiz();
         myPoint = new MyPoint();
         about = new About();
 
-        //Return the FragmentManager for interacting with fragments associated with this activity.
-        fragmentManager = getSupportFragmentManager();
-
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
+
+
     }
 
     @Override
