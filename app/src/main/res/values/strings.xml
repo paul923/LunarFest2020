@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">lunarFest</string>
+    <string name="title_activity_login2">login2</string>
 </resources>
