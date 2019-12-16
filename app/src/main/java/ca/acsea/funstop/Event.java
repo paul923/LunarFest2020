@@ -32,37 +32,21 @@ public class Event extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event, container, false);
-    }
+        sub1 = new EventSub1();
+        View view = inflater.inflate(R.layout.fragment_event, container, false);
+        imgTopLeft=(ImageView) view.findViewById(R.id.topLeft);
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        imgTopLeft=(ImageView) getView().findViewById(R.id.topLeft);
-
-        imgTopLeft.setOnClickListener(new View.OnClickListener() {
+        imgTopLeft.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                sub1 = new EventSub1();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.eventsub1, sub1).commitAllowingStateLoss();
+                ((MainActivity) getActivity()).replaceFragment(sub1);
             }
         });
+
+        // Inflate the layout for this fragment
+        return view;
     }
 
-    //    public void onStart()
-//    @Override
-//    public void (@NonNull Menu menu) {
-//        super.onPrepareOptionsMenu(menu);
-//        imgTopLeft=(ImageView) getView().findViewById(R.id.topLeft);
-//
-//        imgTopLeft.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                sub1 = new EventSub1();
-//                transaction.replace(R.id.eventsub1, sub1).commitAllowingStateLoss();
-//            }
-//        });
-//    }
+
+
 }
