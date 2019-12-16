@@ -8,118 +8,144 @@
     tools:context=".EventSub1"
     android:id="@+id/eventsub1">
 
+    //Title layout
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            app:srcCompat="@color/colorMain" />
+        android:layout_height="150dp"
+        android:background="@color/colorMain"
+        android:layout_gravity="bottom">
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scrollbarSize="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right|bottom"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
             android:text="LunarFest 2020"
             android:textColor="@color/textColorWhite"
             android:textSize="25sp" />
 
     </FrameLayout>
+    //Content layout
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        //scroll View inside Contents
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            //General linearLayout for vertical orientation
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="1"
-
-                        android:gravity="center"
-                        android:text=" Oakridge Mall"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text=""
-                        android:textSize="15dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-
-                        android:gravity="center"
-                        android:text=" Jan 16 ~ Feb 25"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text=""
-                        android:textSize="15dp" />
-                </LinearLayout>
-
+                //Linear layout for date and location
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="300dp">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dec25~Jan15"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Oakridge Mall"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="20dp" />
+                </LinearLayout>
+
+
+                //Linear layout for event picture
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
 
 
                     <ImageView
-                        android:id="@+id/imageView15"
+                        android:id="@+id/eventPicture1"
                         android:layout_width="314dp"
                         android:layout_height="221dp"
-                        android:layout_margin="20dp"
                         android:layout_weight="1"
                         android:src="@drawable/event" />
                 </LinearLayout>
+
+                //Linear layout for event title
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="300dp">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp">
 
                    <TextView
+                       android:id="@+id/eventTitle1"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:textSize="30dp"
+                       android:textSize="25dp"
+                       android:textColor="@color/textColorBlack"
                        android:text="This is an event!"
                        android:gravity="center"/>
+                </LinearLayout>
+
+                //Linear layout for event description
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="30dp"
+                        android:text="About" />
+                    <TextView
+                        android:id="@+id/eventDescription1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="ACSEA’s signature events are spread
+                        throughout the year: the end of winter LunarFest,
+                        end of summer TAIWANfest and IPACI, and finally a
+                        brand new event in partnership with Canadian Heritage
+                        and Canada 150, We Are Canadians, Too!" />
+
+                </LinearLayout>
+
+
+                //Linear layout for event map
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="30dp"
+                        android:textColor="@color/textColorBlack"
+                        android:text="Location" />
+
+                    <ImageView
+                        android:id="@+id/eventMap1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:src="@drawable/map1" />
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
