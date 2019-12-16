@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".eventSub1">
+    tools:context=".EventSub1"
+    android:id="@+id/eventsub1">
 
     <FrameLayout
         android:layout_width="match_parent"
