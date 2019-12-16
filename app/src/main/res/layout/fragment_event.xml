@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,7 +31,8 @@
                 android:scrollbarSize="4dp"
                 android:text="LunarFest 2020"
                 android:textColor="@color/textColorWhite"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                app:fontFamily="@font/post_no_bills_colombo_medium" />
         </FrameLayout>
         <FrameLayout
             android:layout_width="match_parent"
@@ -52,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
 
                     <ImageView
                         android:id="@+id/topRight"
@@ -60,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -74,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
 
                     <ImageView
                         android:id="@+id/middleRight"
@@ -82,7 +84,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
 
                 </LinearLayout>
                 <LinearLayout
@@ -96,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
 
                     <ImageView
                         android:id="@+id/bottomRight"
@@ -104,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:src="@drawable/event" />
+                        app:srcCompat="@drawable/event" />
 
                 </LinearLayout>
 

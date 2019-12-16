@@ -3,12 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MyPoint">
+    tools:context=".MyPoint"
+    android:background="@color/colorMain">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/points"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/menu_point" />
+        android:text="@string/menu_point"
+        android:textColor="@color/textColorOrange" />
+
+    <TextView
+        android:id="@+id/MyPoints"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/menu_point"
+        android:textColor="@color/textColorOrange" />
 
 </FrameLayout>
