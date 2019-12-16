@@ -6,7 +6,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorSecondary</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
