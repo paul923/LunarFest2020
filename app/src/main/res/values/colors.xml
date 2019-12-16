@@ -7,5 +7,9 @@
     <color name="colorMain">#2F2C49</color>
     <color name="black_overlay">#66B6ABAB</color>
     <color name="textColorWhite">#ffffff</color>
+
+    <color name="textColorBlack">#000000</color>
+
     <color name="textColorOrange">#E6B773</color>
+
 </resources>

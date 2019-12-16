@@ -34,7 +34,7 @@ public class Event extends Fragment {
 
         sub1 = new EventSub1();
         View view = inflater.inflate(R.layout.fragment_event, container, false);
-        imgTopLeft=(ImageView) view.findViewById(R.id.topLeft);
+        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
 
         imgTopLeft.setOnClickListener(new View.OnClickListener(){
             @Override
