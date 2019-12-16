@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-        funStop = new FunStop();
+        funStop = new FunStop(fragmentManager);
         quiz = new Quiz();
         myPoint = new MyPoint();
         about = new About();
