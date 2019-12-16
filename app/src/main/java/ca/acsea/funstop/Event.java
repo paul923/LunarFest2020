@@ -27,6 +27,10 @@ public class Event extends Fragment {
         // Required empty public constructor
     }
 
+    public Event(FragmentManager fm){
+        fragmentManager = fm;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,12 +38,17 @@ public class Event extends Fragment {
 
         sub1 = new EventSub1();
         View view = inflater.inflate(R.layout.fragment_event, container, false);
-        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
 
+        transaction = fragmentManager.beginTransaction();
+
+        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
         imgTopLeft.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).replaceFragment(sub1);
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
             }
         });
 
