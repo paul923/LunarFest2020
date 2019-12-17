@@ -42,29 +42,29 @@ public class MyPoint extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_my_point, container, false);
 
-        //get reference to the list of users in database
-        databaseReference = FirebaseDatabase.getInstance().getReference(NODE_USERS);
-
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //get current user
-                user = FirebaseAuth.getInstance().getCurrentUser();
-                //get points of the user using user id
-                String value = dataSnapshot.child(NODE_USERS).child(user.getUid()).child("MyPoints").getValue(String.class);
-                //get the text view to set the points
-                TextView points = (TextView) getView().findViewById(R.id.points);
-                //set the number of points to text view
-                points.setText(value);
-                //Log.d("MyPoints", "Value is: " + value); //use for debug
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+//        //get reference to the list of users in database
+//        databaseReference = FirebaseDatabase.getInstance().getReference(NODE_USERS);
+//
+//
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                //get current user
+//                user = FirebaseAuth.getInstance().getCurrentUser();
+//                //get points of the user using user id
+//                String value = dataSnapshot.child(NODE_USERS).child(user.getUid()).child("MyPoints").getValue(String.class);
+//                //get the text view to set the points
+//                TextView points = (TextView) getView().findViewById(R.id.points);
+//                //set the number of points to text view
+//                points.setText(value);
+//                //Log.d("MyPoints", "Value is: " + value); //use for debug
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
         return view;
     }
 }

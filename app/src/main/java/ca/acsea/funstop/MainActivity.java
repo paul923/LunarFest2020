@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private Quiz quiz;
     private MyPoint myPoint;
     private About about;
+    private QrCodeScanner qrCodeScanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         funStop = new FunStop(fragmentManager);
         quiz = new Quiz();
         myPoint = new MyPoint();
+        qrCodeScanner=new QrCodeScanner();
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
