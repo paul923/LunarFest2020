@@ -50,7 +50,7 @@
         android:backgroundTint="@android:color/white"
         android:inputType="textEmailAddress"
         android:hint="Email"
-        android:textColorHint="@color/textColorWhite"/>
+        android:textColorHint="@color/colorMain"/>
 
     <TextView
         android:id="@+id/password"
@@ -84,7 +84,7 @@
         android:backgroundTint="@android:color/white"
         android:inputType="textPassword"
         android:hint="Password"
-        android:textColorHint="@color/textColorWhite"/>
+        android:textColorHint="@color/colorMain"/>
 
 
     <com.google.android.gms.common.SignInButton
