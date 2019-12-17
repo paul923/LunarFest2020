@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Quiz"
+    tools:context=".sponsorquiz.Quiz"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -28,43 +28,50 @@
             android:id="@+id/questionBox"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="Question"
+            android:text="Question Box"
+            android:textSize="15pt"
             android:gravity="center"/>
 
     </FrameLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/optionBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/option1"
+    </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="10dp"/>
-        <Button
-            android:id="@+id/option2"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintTop_toBottomOf="@id/option1"
-            android:layout_margin="10dp"/>
-        <Button
-            android:id="@+id/option3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintTop_toBottomOf="@id/option2"
-            android:layout_margin="10dp"/>
-        <Button
-            android:id="@+id/option4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintTop_toBottomOf="@id/option3"
-            android:layout_margin="10dp"/>
-
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/buttonA"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="10dp"
+                android:background="@color/textColorWhite"/>
+            <Button
+                android:id="@+id/buttonB"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/buttonA"
+                android:layout_margin="10dp"
+                android:background="@color/textColorWhite"/>
+            <Button
+                android:id="@+id/buttonC"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/buttonB"
+                android:layout_margin="10dp"
+                android:background="@color/textColorWhite"/>
+            <Button
+                android:id="@+id/buttonD"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/buttonC"
+                android:layout_margin="10dp"
+                android:background="@color/textColorWhite"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 </LinearLayout>

@@ -112,7 +112,7 @@ public class Login extends AppCompatActivity {
 
                             //move to next activity
                             Toast.makeText(Login.this, "Sign In Success", Toast.LENGTH_LONG).show();
-                            Intent submit_intent = new Intent(Login.this, Event.class);
+                            Intent submit_intent = new Intent(Login.this, MainActivity.class);
                             startActivity(submit_intent);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -161,8 +161,10 @@ public class Login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    System.out.println("create user / task is successful");
                     signIn(email, password);
                 }else{
+                    System.out.println("create user / task is failed");
                     signIn(email, password);
                     //Toast.makeText(Login.this, "CreateUser method is failed", Toast.LENGTH_LONG).show();
                 }
@@ -177,9 +179,14 @@ public class Login extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     // update user email in database
+                    System.out.println("signin task is successful");
 
-                    DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference();
+                    DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
                     dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
+
+                    System.out.println("database regislation is successful");
+                    Intent submit_intent = new Intent(Login.this, MainActivity.class);
+                    startActivity(submit_intent);
 
                 }else{
                     Toast.makeText(Login.this, "Sign in failed please try again", Toast.LENGTH_LONG).show();
