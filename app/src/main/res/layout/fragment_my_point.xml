@@ -37,6 +37,13 @@
                 android:text="125"
                 android:textColor="@color/colorImportant"
                 android:textSize="50sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/test"
+                android:text="120"
+                android:textSize="50sp"
+                android:textColor="@color/textColorWhite"></EditText>
         </LinearLayout>
 
 
