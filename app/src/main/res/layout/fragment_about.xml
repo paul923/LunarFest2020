@@ -1,14 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".About">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    //Title layout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/menu_about" />
+        android:layout_height="150dp"
+        android:background="@color/colorMain"
+        android:layout_gravity="bottom">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right|bottom"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="15dp"
+            android:text="LunarFest 2020"
+            android:textColor="@color/textColorWhite"
+            android:textSize="25sp" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="25dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="15sp"
+                android:text="Founded in March 2004, Asian-Canadian Special Events Association (ACSEA) continues to create sustainable projects in the areas of arts and culture, working with partners across British Columbia, Canada, and internationally following a threefold mandate:
+
+1. Community Engagement
+2. Fostering New Artistic and Cultural Expressions
+3. Platform to Learn and Share
+
+ACSEA’s signature events are spread throughout the year: the end of winter LunarFest, end of summer TAIWANfest and IPACI, and finally a brand new event in partnership with Canadian Heritage and Canada 150, We Are Canadians, Too!"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/aboutPicture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginTop="30dp"
+                app:srcCompat="@drawable/event" />
+
+
+        </LinearLayout>
+
+
+
+    </FrameLayout>
+
+</LinearLayout>

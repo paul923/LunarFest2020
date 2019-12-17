@@ -108,14 +108,17 @@
                 </LinearLayout>
 
 
-
             </RelativeLayout>
+
             <Button
                 android:id="@+id/btnStart"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Start"/>
+                android:text="Start"
+                android:background="@drawable/login_border"
+                android:textColor="#E6B773"
+                app:fontFamily="@font/"/>
 
 
         </LinearLayout>

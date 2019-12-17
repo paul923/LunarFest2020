@@ -2,11 +2,6 @@ package ca.acsea.funstop;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -24,6 +19,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
+import ca.acsea.funstop.sponsorquiz.Quiz;
+import ca.acsea.funstop.sponsorquiz.QuizStart;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,9 +30,10 @@ public class MainActivity extends AppCompatActivity
     private Event event;
     private Map map;
     private FunStop funStop;
-    private Quiz quiz;
+    private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
+    private QrCodeScanner qrCodeScanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +61,9 @@ public class MainActivity extends AppCompatActivity
         event = new Event(fragmentManager);
         map = new Map();
         funStop = new FunStop();
-        quiz = new Quiz();
+        quiz = new QuizStart(fragmentManager);
         myPoint = new MyPoint();
+        qrCodeScanner=new QrCodeScanner();
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
