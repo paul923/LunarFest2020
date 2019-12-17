@@ -19,12 +19,16 @@ import android.widget.ImageView;
 
 public class Event extends Fragment {
 
-    ImageView imgTopLeft;
+    ImageView imgTopLeft, mapImg;
     FragmentManager fragmentManager;
     FragmentTransaction transaction;
     EventSub1 sub1;
     public Event() {
         // Required empty public constructor
+    }
+
+    public Event(FragmentManager fm){
+        fragmentManager = fm;
     }
 
 
@@ -34,19 +38,22 @@ public class Event extends Fragment {
 
         sub1 = new EventSub1();
         View view = inflater.inflate(R.layout.fragment_event, container, false);
-        imgTopLeft=(ImageView) view.findViewById(R.id.topLeft);
 
+        transaction = fragmentManager.beginTransaction();
+
+        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
         imgTopLeft.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                ((MainActivity) getActivity()).replaceFragment(sub1);
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
             }
         });
 
         // Inflate the layout for this fragment
         return view;
     }
-
-
 
 }

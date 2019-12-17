@@ -33,5 +33,8 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_qr_code_sacnner">QrCodeSacnner</string>
 
+    <!-- Quiz Strings -->
+    <string name="quiz_completion_message">Quiz Completed!</string>
+
 
 </resources>

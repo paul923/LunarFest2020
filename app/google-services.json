@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "778926133465-sdgtoan976mksm2eiok78bengjh6dn9c.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "ca.acsea.funstop",
-            "certificate_hash": "8f7c5142b1ec3c8367bd4b2e2969cbdd9c1fcf76"
-          }
-        },
-        {
           "client_id": "778926133465-idu94m62ud26408nuq6qj95hskhmmg47.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

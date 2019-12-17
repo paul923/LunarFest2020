@@ -1,14 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorMain"
     tools:context=".FunStop">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    //Title layout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/menu_funstop" />
+        android:layout_height="150dp"
+        android:background="@color/colorMain"
+        android:layout_gravity="bottom">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center"
+            android:text="Fun stop"
+            android:textColor="@color/textColorWhite"
+            android:textSize="25sp" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/funstopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="How to Play:"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="20dp"
+                android:textColor="@color/textColorWhite"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:background="@color/colorGray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:text="1. Visit all location shown on the map  "
+                        android:textSize="15dp"
+                        android:layout_marginBottom="20dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginBottom="20dp"
+                        android:text="2. At each location ask a volunteer for Fun Stop  QR code"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginBottom="20dp"
+                        android:text="3. Scan the QR code"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginBottom="20dp"
+                        android:text="4.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginBottom="20dp"
+                        android:text="5.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textColorBlack"
+                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Start"
+                android:background="@drawable/login_border"
+                android:textColor="#E6B773"
+                app:fontFamily="@font/"/>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

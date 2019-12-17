@@ -1,7 +1,13 @@
 package ca.acsea.funstop;
 
 import android.os.Bundle;
+
 import android.view.Menu;
+
+
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+
 import android.view.MenuItem;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,6 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import ca.acsea.funstop.sponsorquiz.Quiz;
+import ca.acsea.funstop.sponsorquiz.QuizStart;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,9 +35,10 @@ public class MainActivity extends AppCompatActivity
     private Event event;
     private Map map;
     private FunStop funStop;
-    private Quiz quiz;
+    private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
+    private QrCodeScanner qrCodeScanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +58,22 @@ public class MainActivity extends AppCompatActivity
         //Actionbar hide
         getSupportActionBar().hide();
 
-        // Initialize page objects
-        event = new Event();
-        map = new Map();
-        funStop = new FunStop();
-        quiz = new Quiz();
-        myPoint = new MyPoint();
-        about = new About();
 
         //Return the FragmentManager for interacting with fragments associated with this activity.
         fragmentManager = getSupportFragmentManager();
 
+        // Initialize page objects
+        event = new Event(fragmentManager);
+        map = new Map();
+        funStop = new FunStop(fragmentManager);
+        quiz = new QuizStart(fragmentManager);
+        myPoint = new MyPoint();
+        qrCodeScanner=new QrCodeScanner();
+        about = new About();
+
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
         dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());

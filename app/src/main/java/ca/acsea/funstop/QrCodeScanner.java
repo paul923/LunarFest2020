@@ -9,23 +9,19 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
 
-public class QrCodeSacnner extends AppCompatActivity {
+public class QrCodeScanner extends AppCompatActivity {
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
@@ -38,7 +34,7 @@ public class QrCodeSacnner extends AppCompatActivity {
             case RequestCameraPermissionID: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(QrCodeSacnner.this,
+                        ActivityCompat.requestPermissions(QrCodeScanner.this,
                                 new String[]{Manifest.permission.CAMERA}, RequestCameraPermissionID);
                         return;
                     }
@@ -70,7 +66,7 @@ public class QrCodeSacnner extends AppCompatActivity {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(QrCodeSacnner.this,
+                    ActivityCompat.requestPermissions(QrCodeScanner.this,
                             new String[]{Manifest.permission.CAMERA}, RequestCameraPermissionID);
                     return;
                 }
@@ -103,7 +99,7 @@ public class QrCodeSacnner extends AppCompatActivity {
                         @Override
                         public void run() {
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-                            Intent intent = new Intent(QrCodeSacnner.this, FunStop.class);
+                            Intent intent = new Intent(QrCodeScanner.this, FunStop.class);
                             intent.putExtra("barcode", qrcodes.valueAt(0));
                             startActivity(intent);
                         }

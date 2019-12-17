@@ -49,11 +49,13 @@
         android:textColor="#E6B773"
         android:ems="10"
         android:inputType="textEmailAddress"
+
         android:hint="Input Email Here"
         android:selectAllOnFocus="true"
         android:background="@android:color/transparent"
         android:textColorHint="#E6B773"
         android:textColorHighlight="#E6B773"/>
+
 
     <TextView
         android:id="@+id/password"
@@ -85,9 +87,11 @@
         android:textColor="#E6B773"
         android:ems="10"
         android:inputType="textPassword"
+
         android:background="@android:color/transparent"
         android:hint="Input Password Here"
         android:textColorHint="#E6B773"/>
+
 
 
     <com.google.android.gms.common.SignInButton
