@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.Menu;
 
 import ca.acsea.funstop.sponsorquiz.Quiz;
+import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity
     private Event event;
     private Map map;
     private FunStop funStop;
-    private Quiz quiz;
+    private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
 
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         event = new Event(fragmentManager);
         map = new Map();
         funStop = new FunStop();
-        quiz = new Quiz();
+        quiz = new QuizStart(fragmentManager);
         myPoint = new MyPoint();
         about = new About();
 
