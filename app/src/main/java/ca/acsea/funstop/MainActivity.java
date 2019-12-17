@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +22,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 import ca.acsea.funstop.sponsorquiz.Quiz;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
@@ -39,6 +43,10 @@ public class MainActivity extends AppCompatActivity
     private MyPoint myPoint;
     private About about;
     private QrCodeScanner qrCodeScanner;
+    private FirebaseDatabase database;
+    private DatabaseReference ref;
+    TextView userName;
+    FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +65,9 @@ public class MainActivity extends AppCompatActivity
 
         //Actionbar hide
         getSupportActionBar().hide();
+
+
+
 
 
         //Return the FragmentManager for interacting with fragments associated with this activity.
@@ -94,7 +105,17 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.nav, menu);
+        userSideBar();
         return true;
+    }
+
+    public void userSideBar(){
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        userName = (TextView) findViewById(R.id.userName);
+
+        if(currentUser != null){
+            userName.setText(currentUser.getEmail());
+        }
     }
 
     @Override
