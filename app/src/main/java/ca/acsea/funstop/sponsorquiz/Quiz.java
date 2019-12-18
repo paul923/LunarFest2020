@@ -1,31 +1,29 @@
 package ca.acsea.funstop.sponsorquiz;
 
-import android.content.Context;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 import ca.acsea.funstop.R;
 
@@ -33,27 +31,33 @@ import ca.acsea.funstop.R;
 public class Quiz extends Fragment {
 
 
-    FragmentManager fragmentManager;
-    FragmentTransaction transaction;
-    Question currentQuestion;
-    List<Question> qList;
-    View view;
-    TextView questionBox;
-    Button buttonA, buttonB, buttonC, buttonD;
-    int index = 0;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+    private Question currentQuestion;
+    private List<Question> qList;
+    private View view;
+    private TextView questionBox;
+    private Button buttonA, buttonB, buttonC, buttonD;
+    private int index = 0;
+    private DatabaseReference ref;
+    private FirebaseUser currentUser;
+    private long point;
 
     public Quiz() {
         // Required empty public constructor
     }
 
-    public Quiz(FragmentManager fm){
+    public Quiz(FragmentManager fm, FirebaseUser user, DatabaseReference ref){
         this.fragmentManager = fm;
+        this.currentUser = user;
+        this.ref = ref;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
+        getPoint();
 
         transaction = fragmentManager.beginTransaction();
 
@@ -83,26 +87,6 @@ public class Quiz extends Fragment {
         handleClick();
     }
 
-    public void nextQuestion(){
-        try{
-            if(index < qList.size()-1){
-                index++;
-                currentQuestion = qList.get(index);
-                questionBox.setText(currentQuestion.getQuestion());
-                buttonA.setText(currentQuestion.getOptionList().get(0));
-                buttonB.setText(currentQuestion.getOptionList().get(1));
-                buttonC.setText(currentQuestion.getOptionList().get(2));
-                buttonD.setText(currentQuestion.getOptionList().get(3));
-            }else{
-                transaction.replace(R.id.frameLayout, new QuizEnd()).commit();
-            }
-        }catch (ArrayIndexOutOfBoundsException e){
-
-        }
-    }
-
-
-
     public void handleClick(){
         for(final Button btn: Arrays.asList(buttonA, buttonB, buttonC, buttonD)) {
             btn.setOnClickListener(new View.OnClickListener() {
@@ -112,15 +96,26 @@ public class Quiz extends Fragment {
                     if (btn.getText().equals(currentQuestion.getAnswer())) {
                         Toast.makeText(getContext(), "correct", Toast.LENGTH_SHORT).show();
                         colorButton(btn, Color.GREEN);
+                        addPoints(10);
                     } else {
                         Toast.makeText(getContext(), "WRONG!!!!", Toast.LENGTH_SHORT).show();
                         colorButton(btn, Color.RED);
+                        addPoints(5);
                     }
                 }
             });
         }
     }
 
+    public void addPoints(int value){
+        point += value;
+        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
+    }
+
+    /**
+     * Enabling or disabling all the buttons depends the value
+     * @param value true will enable, false will disable
+     */
     public void enableButton(boolean value){
         for(Button btn: Arrays.asList(buttonA, buttonB, buttonC, buttonD)){
             btn.setEnabled(value);
@@ -139,9 +134,10 @@ public class Quiz extends Fragment {
             public void run() {
                 btn.setBackgroundColor(Color.WHITE);
                 enableButton(true);
-                nextQuestion();
+//                nextQuestion();
+                transaction.replace(R.id.frameLayout, new QuizEnd()).commit();
             }
-        }, 3000);
+        }, 2000);
     }
 
     public ArrayList<Question> createQuestions(){
@@ -176,4 +172,40 @@ public class Quiz extends Fragment {
 
         return list;
     }
+
+    public void getPoint(){
+        ref.child("users").child(currentUser.getUid()).child("point").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                point = (long) dataSnapshot.getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("on cancelled");
+            }
+        });
+    }
+
+
+
+    public void nextQuestion(){
+        try{
+            if(index < qList.size()-1){
+                index++;
+                currentQuestion = qList.get(index);
+                questionBox.setText(currentQuestion.getQuestion());
+                buttonA.setText(currentQuestion.getOptionList().get(0));
+                buttonB.setText(currentQuestion.getOptionList().get(1));
+                buttonC.setText(currentQuestion.getOptionList().get(2));
+                buttonD.setText(currentQuestion.getOptionList().get(3));
+            }else{
+                transaction.replace(R.id.frameLayout, new QuizEnd()).commit();
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+
+        }
+    }
+
+
 }
