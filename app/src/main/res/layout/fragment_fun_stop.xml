@@ -67,7 +67,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
-                        android:text="1. Visit all location shown on the map  "
+                        android:text="1. Visit the various LunarFest locations and look for a Lunar Fun QR Code."
                         android:textSize="15dp"
                         android:layout_marginBottom="20dp"/>
 
@@ -76,34 +76,34 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="2. At each location ask a volunteer for Fun Stop  QR code"/>
+                        android:text="2. Tap the camera icon to scan the Lunar Fun QR Code."/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="3. Scan the QR code"/>
+                        android:text="3. Earn points an dqualify for the draw for a $200 Visa gift card."/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="4.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+                        android:text="4.Visit the MyPoints page to see your progress nad the list of prizes!"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:layout_marginBottom="20dp"
-                        android:text="5.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/textColorBlack"-->
+<!--                        android:layout_marginBottom="20dp"-->
+<!--                        android:text="5.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/textColorBlack"-->
+<!--                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>-->
 
                 </LinearLayout>
 
@@ -114,9 +114,10 @@
                 android:id="@+id/btnStart"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_centerInParent="true"
                 android:text="Start"
                 android:background="@drawable/login_border"
+                android:layout_marginLeft="36dp"
                 android:textColor="#E6B773"
                 app:fontFamily="@font/"/>
 

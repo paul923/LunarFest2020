@@ -30,6 +30,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         //General linearLayout for vertical orientation
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +90,7 @@
                     android:id="@+id/checkButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="event1"
+                    android:text="Station1"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_marginLeft="10dp"
@@ -97,7 +100,7 @@
                     android:id="@+id/checkButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="event2"
+                    android:text="Station2"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_marginLeft="10dp"
@@ -107,7 +110,97 @@
                     android:id="@+id/checkButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="event3"
+                    android:text="Station3"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station4"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station5"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station6"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station7"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station8"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station9"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station10"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station11"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Station12"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_marginLeft="10dp"
@@ -131,10 +224,37 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton4"
+                    android:id="@+id/checkButton13"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="event4"
+                    android:text="Korean"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+                <CheckBox
+                    android:id="@+id/checkButton14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Taiwanese"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+                <CheckBox
+                    android:id="@+id/checkButton15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Chinese"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+                <CheckBox
+                    android:id="@+id/checkButton16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Vietnamese"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_marginLeft="10dp"
@@ -146,7 +266,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Canada Line"
+                android:text="Jack Poole Plaza"
                 android:textColor="@color/textColorBlack"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
@@ -160,10 +280,80 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton5"
+                    android:id="@+id/checkButton17"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="event5"
+                    android:text="Salish Sea 1"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Salish Sea 2"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lone Wolf 1"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lone Wolf 2"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton21"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Red Fawn 1"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Red Fawn 2"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton23"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Protector of the Mountain 1"
+                    android:textSize="18dp"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/textColorBlack" />
+
+                <CheckBox
+                    android:id="@+id/checkButton24"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Protector of the Mountain 2"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_marginLeft="10dp"
@@ -175,7 +365,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Canada Broadway"
+                android:text="Lot19"
                 android:textColor="@color/textColorBlack"
                 android:layout_marginLeft="20dp"
                 android:textSize="20dp" />
@@ -188,10 +378,10 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton6"
+                    android:id="@+id/checkButton25"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="event6"
+                    android:text="Lady Hao Hao"
                     android:textSize="18dp"
                     android:layout_margin="5dp"
                     android:layout_marginLeft="10dp"
@@ -199,6 +389,7 @@
 
             </LinearLayout>
         </LinearLayout>
+        </ScrollView>
     </FrameLayout>
 
 </LinearLayout>
