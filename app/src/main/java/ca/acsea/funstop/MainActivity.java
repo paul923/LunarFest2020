@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity
 
         //Actionbar hide
         getSupportActionBar().hide();
-
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
 
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
         map = new Map();
         funStop = new FunStop(fragmentManager);
         quiz = new QuizStart(fragmentManager);
-        myPoint = new MyPoint();
+        myPoint = new MyPoint(currentUser);
         qrCodeScanner=new QrCodeScanner();
         about = new About();
 
@@ -110,7 +110,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         userName = (TextView) findViewById(R.id.userName);
 
         if(currentUser != null){
