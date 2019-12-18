@@ -48,23 +48,49 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="10dp">
+                    <!--                    android:orientation="vertical">-->
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_today_24px"
+                        android:layout_marginRight="10dp"
+                        tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dec25~Jan15"
-                        android:layout_marginBottom="10dp"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" />
 
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="20dp" >
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="1dp">
+                    <!--                    android:orientation="vertical">-->
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_my_location_24px"
+                        android:layout_marginRight="10dp"
+
+                        tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Oakridge Mall"
+                        android:text="Oakride Mall"
+                        android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" />
+                        android:textSize="20dp" >
+                    </TextView>
                 </LinearLayout>
 
 

@@ -2,27 +2,30 @@ package ca.acsea.funstop;
 
 import android.os.Bundle;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
 
-import android.view.View;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.view.Menu;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import ca.acsea.funstop.sponsorquiz.Quiz;
+import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity
     private Event event;
     private Map map;
     private FunStop funStop;
-    private Quiz quiz;
+    private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
     private QrCodeScanner qrCodeScanner;
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity
         event = new Event(fragmentManager);
         map = new Map();
         funStop = new FunStop(fragmentManager);
-        quiz = new Quiz();
+        quiz = new QuizStart(fragmentManager);
         myPoint = new MyPoint();
         qrCodeScanner=new QrCodeScanner();
         about = new About();
@@ -71,6 +74,9 @@ public class MainActivity extends AppCompatActivity
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
+        dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
 
     }
 
