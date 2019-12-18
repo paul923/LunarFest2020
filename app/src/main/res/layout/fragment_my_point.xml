@@ -29,15 +29,28 @@
                 android:textColor="@color/textColorWhite"
                 android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/textView2"
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="center"-->
+<!--                android:text="125"-->
+<!--                android:textColor="@color/colorImportant"-->
+<!--                android:textSize="50sp" />-->
+            <EditText
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/test"
+                android:text="120"
+                android:textSize="50sp"
                 android:gravity="center"
-                android:text="125"
-                android:textColor="@color/colorImportant"
-                android:textSize="50sp" />
+                android:textColor="@color/textColorWhite"></EditText>
         </LinearLayout>
+
+
+        '
+
+
 
 
     </FrameLayout>
