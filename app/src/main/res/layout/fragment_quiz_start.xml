@@ -11,7 +11,7 @@
     //Title layout
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorMain"
         android:layout_gravity="bottom">
 
@@ -48,13 +48,14 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorGray"
                 android:layout_marginBottom="20dp">
 
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
+                    android:layout_height="wrap_content"
                     android:background="@color/colorGray" />
 
                 <LinearLayout
@@ -112,12 +113,11 @@
 
             <Button
                 android:id="@+id/quiz_start_button"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Start"
                 android:background="@drawable/login_border"
-                android:layout_marginLeft="36dp"
                 android:textColor="#E6B773"
                 app:fontFamily="@font/"/>
 
