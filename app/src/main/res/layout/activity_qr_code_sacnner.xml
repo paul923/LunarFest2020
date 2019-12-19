@@ -4,13 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/qrCode"
     tools:context=".QrCodeScanner">
 
-    <include layout="@layout/content_qr_code_sacnner" />
+    <include layout="@layout/content_qr_code_sacnner"
+        android:id="@+id/qrcode"/>
 
-    <SurfaceView
-        android:id="@+id/cameraView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        >
+        <SurfaceView
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/txtdisplay"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:gravity="bottom|center"
+        android:text="test"
+        android:textColor="@color/textColorBlack"
+        android:textSize="25sp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
