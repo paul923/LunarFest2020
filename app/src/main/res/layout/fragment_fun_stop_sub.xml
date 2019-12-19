@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/funstopSub"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,7 +10,7 @@
     //Title layout
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorMain"
         android:layout_gravity="bottom">
 
@@ -87,7 +88,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton1"
+                    android:id="@+id/station1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station1"
@@ -97,7 +98,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton2"
+                    android:id="@+id/station2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station2"
@@ -107,7 +108,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton3"
+                    android:id="@+id/station3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station3"
@@ -117,7 +118,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton4"
+                    android:id="@+id/station4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station4"
@@ -127,7 +128,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton5"
+                    android:id="@+id/station5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station5"
@@ -137,7 +138,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton6"
+                    android:id="@+id/station6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station6"
@@ -147,7 +148,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton7"
+                    android:id="@+id/station7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station7"
@@ -157,7 +158,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton8"
+                    android:id="@+id/station8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station8"
@@ -167,7 +168,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton9"
+                    android:id="@+id/station9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station9"
@@ -177,7 +178,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton10"
+                    android:id="@+id/station10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station10"
@@ -187,7 +188,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton11"
+                    android:id="@+id/station11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station11"
@@ -197,7 +198,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton12"
+                    android:id="@+id/station12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Station12"
@@ -224,7 +225,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton13"
+                    android:id="@+id/korean"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Korean"
@@ -233,7 +234,7 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/textColorBlack" />
                 <CheckBox
-                    android:id="@+id/checkButton14"
+                    android:id="@+id/taiwanese"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Taiwanese"
@@ -242,7 +243,7 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/textColorBlack" />
                 <CheckBox
-                    android:id="@+id/checkButton15"
+                    android:id="@+id/chinese"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Chinese"
@@ -251,7 +252,7 @@
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/textColorBlack" />
                 <CheckBox
-                    android:id="@+id/checkButton16"
+                    android:id="@+id/vietnamese"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Vietnamese"
@@ -280,7 +281,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton17"
+                    android:id="@+id/salishSea1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Salish Sea 1"
@@ -290,7 +291,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton18"
+                    android:id="@+id/salishSea2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Salish Sea 2"
@@ -300,7 +301,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton19"
+                    android:id="@+id/loneWolf1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lone Wolf 1"
@@ -310,7 +311,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton20"
+                    android:id="@+id/loneWolf2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lone Wolf 2"
@@ -320,7 +321,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton21"
+                    android:id="@+id/redFawn1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Red Fawn 1"
@@ -330,7 +331,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton22"
+                    android:id="@+id/redFawn2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Red Fawn 2"
@@ -340,7 +341,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton23"
+                    android:id="@+id/protector1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Protector of the Mountain 1"
@@ -350,7 +351,7 @@
                     android:textColor="@color/textColorBlack" />
 
                 <CheckBox
-                    android:id="@+id/checkButton24"
+                    android:id="@+id/protector2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Protector of the Mountain 2"
@@ -378,7 +379,7 @@
                 android:orientation="vertical">
 
                 <CheckBox
-                    android:id="@+id/checkButton25"
+                    android:id="@+id/ladyHao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lady Hao Hao"

@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity
     private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
+    private FunStopSub funStopSub;
     private QrCodeScanner qrCodeScanner;
     private FirebaseDatabase database;
     private DatabaseReference ref;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity
         //Actionbar hide
         getSupportActionBar().hide();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
+        ref = FirebaseDatabase.getInstance().getReference();
 
 
 
@@ -76,8 +77,8 @@ public class MainActivity extends AppCompatActivity
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-        funStop = new FunStop(fragmentManager);
-        quiz = new QuizStart(fragmentManager);
+        funStop = new FunStop(fragmentManager, currentUser, ref);
+        quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
         qrCodeScanner=new QrCodeScanner();
         about = new About();

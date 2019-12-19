@@ -35,6 +35,7 @@
 
     <!-- Quiz Strings -->
     <string name="quiz_completion_message">Quiz Completed!</string>
+    <string name="test22">test</string>
 
 
 </resources>
