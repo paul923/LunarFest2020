@@ -26,13 +26,14 @@ public class FunStop extends Fragment {
     }
     public FunStop(FragmentManager fm) {
         fragmentManager=fm;
+        System.out.println("funstop constructor");
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        funstopSub=new FunStopSub();
+
         View view=inflater.inflate(R.layout.fragment_fun_stop, container, false);
 
         transaction2=fragmentManager.beginTransaction();
@@ -47,4 +48,5 @@ public class FunStop extends Fragment {
         // Inflate the layout for this fragment
         return view;
     }
+
 }
