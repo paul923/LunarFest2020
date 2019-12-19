@@ -111,6 +111,7 @@ public class QrCodeScanner extends AppCompatActivity {
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
 
 
+
                             QrCodeScanner.super.onBackPressed();
 
 

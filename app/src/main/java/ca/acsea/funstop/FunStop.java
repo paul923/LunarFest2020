@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+
 
 public class FunStop extends Fragment {
     Button btnStart;
@@ -24,8 +27,9 @@ public class FunStop extends Fragment {
     public FunStop() {
         // Required empty public constructor
     }
-    public FunStop(FragmentManager fm) {
+    public FunStop(FragmentManager fm, FirebaseUser user, DatabaseReference ref) {
         fragmentManager=fm;
+        funstopSub=new FunStopSub(fm, user, ref);
         System.out.println("funstop constructor");
     }
 
@@ -35,7 +39,6 @@ public class FunStop extends Fragment {
                              Bundle savedInstanceState) {
 
         View view=inflater.inflate(R.layout.fragment_fun_stop, container, false);
-
         transaction2=fragmentManager.beginTransaction();
 
         btnStart=(Button)view.findViewById(R.id.btnStart);
