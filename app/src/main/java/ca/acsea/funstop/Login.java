@@ -1,7 +1,9 @@
 package ca.acsea.funstop;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -28,6 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+
 public class Login extends AppCompatActivity {
     public static final String NODE_USERS = "users";
     private static String TAG = "LogIn";
@@ -37,7 +41,7 @@ public class Login extends AppCompatActivity {
     private Button submitBtn;
     private SignInButton googleSignInBtn;
     private GoogleSignInClient mGoogleSignInClient;
-    private  String email;
+    private String email;
     private String password;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
@@ -47,9 +51,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
-
 
         //set up google sign in options
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -80,15 +81,15 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 email = emailInput.getText().toString();
                 password = passwordInput.getText().toString();
-                if (email.isEmpty()) {
-                    emailInput.requestFocus();
-                    Toast.makeText(Login.this, "Please enter your email", Toast.LENGTH_LONG).show();
-                } else if (password.isEmpty()) {
-                    passwordInput.requestFocus();
-                    Toast.makeText(Login.this, "Please enter your password", Toast.LENGTH_LONG).show();
+
+                if(TextUtils.isEmpty(email)) {
+                    emailInput.setError("Please enter your email");
+                    return;
+                } else if(TextUtils.isEmpty(password)){
+                    passwordInput.setError("Please enter your password");
+                    return;
                 }
                 createUser(email,password);
-
             }
         });
 
@@ -160,9 +161,25 @@ public class Login extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                System.out.println("44444");
                 if(task.isSuccessful()){
                     System.out.println("create user / task is successful");
-                    signIn(email, password);
+                    new AlertDialog.Builder(Login.this).setTitle("Create New Account")
+                            .setMessage("There is no such account. Do you want to create new account with the input id and password?")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    // OK
+                                    Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
+                                    signIn(email, password);
+                                    finish();
+                                }})
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    // Cancel
+                                    Toast.makeText(Login.this, "It is canceled.", Toast.LENGTH_SHORT).show();
+                                }})
+                            .show();
+
                 }else{
                     System.out.println("create user / task is failed");
                     signIn(email, password);
