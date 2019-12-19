@@ -13,6 +13,8 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
@@ -22,6 +24,10 @@ import android.widget.TextView;
 import java.io.IOException;
 
 public class QrCodeScanner extends AppCompatActivity {
+    FunStop funStop;
+    public QrCodeScanner() {
+
+    }
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
@@ -53,7 +59,7 @@ public class QrCodeScanner extends AppCompatActivity {
         setContentView(R.layout.activity_qr_code_sacnner);
         Intent intent = getIntent();
         cameraPreview = (SurfaceView)findViewById(R.id.cameraView);
-       // txtResult = (TextView)findViewById(R.id.txtdisplay);
+        txtResult = (TextView)findViewById(R.id.txtdisplay);
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build();
@@ -61,6 +67,8 @@ public class QrCodeScanner extends AppCompatActivity {
                 .Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(640,480)
                 .build();
+
+
 
         cameraPreview.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
@@ -90,22 +98,30 @@ public class QrCodeScanner extends AppCompatActivity {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>(){
             @Override
             public void release() {
+                System.out.println("oncreate release()");
             }
             @Override
             public void receiveDetections(Detector.Detections < Barcode > detections) {
+                System.out.println("oncreate receiveDetections()");
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
                 if (qrcodes.size() != 0) {
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-                            Intent intent = new Intent(QrCodeScanner.this, FunStop.class);
-                            intent.putExtra("barcode", qrcodes.valueAt(0));
-                            startActivity(intent);
+
+
+
+                            QrCodeScanner.super.onBackPressed();
+
+
+
+
                         }
                     });
                 }
             }
         });
     }
+
 }
