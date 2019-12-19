@@ -11,7 +11,7 @@
     //Title layout
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorMain"
         android:layout_gravity="bottom">
 
@@ -33,7 +33,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/funstopTitle"
@@ -47,14 +47,15 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/colorGray"
                 android:layout_marginBottom="20dp">
 
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="wrap_content"
                     android:background="@color/colorGray" />
 
                 <LinearLayout
@@ -92,32 +93,21 @@
                         android:layout_marginBottom="20dp"
                         android:text="4.Visit the MyPoints page to see your progress nad the list of prizes!"/>
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="@color/textColorBlack"-->
-<!--                        android:layout_marginBottom="20dp"-->
-<!--                        android:text="5.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:textColor="@color/textColorBlack"-->
-<!--                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>-->
 
                 </LinearLayout>
 
 
             </RelativeLayout>
 
+
             <Button
                 android:id="@+id/btnStart"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="Start"
                 android:background="@drawable/login_border"
-                android:layout_marginLeft="36dp"
                 android:textColor="#E6B773"
                 app:fontFamily="@font/"/>
 

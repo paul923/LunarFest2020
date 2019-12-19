@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <item
-        android:bottom="1dp"
-        android:left="1dp"
-        android:right="1dp"
-        android:background="@android:color/transparent"
-        android:top="1dp">
-        <shape android:shape="rectangle" >
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <!-- Draw a 2dp width border around shape -->
             <stroke
-                android:width="1dp"
-                android:color="#E6B773"
+                android:color="#fff"
+                android:width="2dp"
                 />
-            <corners android:radius="2dp"/>
-
-            <!--        <solid android:color="#FFF" />-->
         </shape>
     </item>
-
+    <!-- Overlap the left, top and right border using background color  -->
+    <item
+        android:bottom="2dp"
+        >
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorMain"/>
+        </shape>
+    </item>
 </layer-list>
-
-

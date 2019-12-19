@@ -26,6 +26,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo2"
+        android:layout_marginTop="20dp"
         android:layout_width="300dp"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -41,20 +42,23 @@
         app:layout_constraintTop_toBottomOf="@id/email"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text=""
-        android:textSize="15sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="#E6B773"
         android:ems="10"
         android:inputType="textEmailAddress"
-
-        android:hint="Input Email Here"
+        android:hint="Input Email"
         android:selectAllOnFocus="true"
-        android:background="@android:color/transparent"
+
+        android:background="@drawable/edittext_bg"
         android:textColorHint="#E6B773"
-        android:textColorHighlight="#E6B773"/>
+        android:textColorHighlight="#FFF"
+        android:textCursorDrawable="@null"
+        />
 
 
     <TextView
@@ -80,25 +84,28 @@
         app:layout_constraintTop_toBottomOf="@id/password"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textSize="15sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:textColor="#E6B773"
         android:ems="10"
         android:inputType="textPassword"
+        android:hint="Input Password"
 
-        android:background="@android:color/transparent"
-        android:hint="Input Password Here"
-        android:textColorHint="#E6B773"/>
+        android:background="@drawable/edittext_bg"
+        android:textColorHint="#E6B773"
+        android:textColorHighlight="#FFF"
+        android:textCursorDrawable="@null" />
 
 
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/google_sign_in_button"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_input" />
@@ -106,11 +113,11 @@
     <Button
         android:id="@+id/submit"
         android:layout_width="300dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:background="@drawable/login_border"
-        android:text="submit"
+        android:text="Submit"
         android:textColor="#E6B773"
         android:textSize="20sp"
         android:visibility="visible"
