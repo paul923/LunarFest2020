@@ -58,13 +58,12 @@ public class QuizStart extends Fragment {
         transaction = fragmentManager.beginTransaction();
         startButton = view.findViewById(R.id.quiz_start_button);
 
-        // Data retrieve
-        getCutoff();
-        System.out.println(cutoff);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Data retrieve
+                getCutoff();
                 long currentTime = new Date().getTime();
                 //TODO: change 0 back to cutoff
                 if(currentTime > 0) {
@@ -100,7 +99,9 @@ public class QuizStart extends Fragment {
         ref.child("users").child(currentUser.getUid()).child("quiz").child("cutoff").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                cutoff = (long) dataSnapshot.getValue();
+                if(dataSnapshot != null){
+                    cutoff = (long) dataSnapshot.getValue();
+                }
             }
 
             @Override
