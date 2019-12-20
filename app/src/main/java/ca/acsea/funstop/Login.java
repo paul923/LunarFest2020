@@ -200,14 +200,14 @@ public class Login extends AppCompatActivity {
                     System.out.println("sign-in task is successful");
 
 
-                    InitValues();
 
-                    System.out.println("database registration is successful");
+                    InitValues();
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
 
                 }else{
-                    Toast.makeText(Login.this, "Sign in failed please try again", Toast.LENGTH_LONG).show();
+                    Log.println(Log.VERBOSE,"Login Error", task.getException().getMessage());
+                    Toast.makeText(Login.this, task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -96,6 +96,7 @@ public class QuizStart extends Fragment {
     }
 
     private void getCutoff() {
+
         ref.child("users").child(currentUser.getUid()).child("quiz").child("cutoff").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -104,11 +105,11 @@ public class QuizStart extends Fragment {
                 }
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("on cancelled");
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    System.out.println("on cancelled");
+                }
+            });
     }
 
 }

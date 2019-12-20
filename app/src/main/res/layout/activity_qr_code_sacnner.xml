@@ -23,7 +23,7 @@
 
     </LinearLayout>
     <TextView
-        android:id="@+id/txtdisplay"
+        android:id="@+id/txtResult"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:gravity="bottom|center"
