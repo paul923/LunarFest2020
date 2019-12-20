@@ -146,6 +146,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_event) {
             transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
         } else if (id == R.id.nav_map) {
+            //intent
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
             transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();

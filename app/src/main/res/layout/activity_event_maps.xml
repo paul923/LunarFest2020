@@ -4,13 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventMap01">
+    tools:context=".EventMaps">
 
-    <fragment
+<!--    <fragment-->
+<!--        android:id="@+id/googleMap"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        class="com.google.android.gms.maps.MapFragment"/>-->
+
+    <com.google.android.gms.maps.MapView
         android:id="@+id/googleMap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        class="com.google.android.gms.maps.MapFragment"/>
+        android:apiKey="AIzaSyA4xkaOBNHCJ2gSRI2kjtWsmRyQb02RVOA"
+        android:clickable="true"
+        android:enabled="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

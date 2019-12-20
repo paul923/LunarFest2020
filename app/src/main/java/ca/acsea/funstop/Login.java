@@ -245,10 +245,6 @@ public class Login extends AppCompatActivity {
         dbUsers.child(currentUser).child("QR").child("station10").setValue(false);
         dbUsers.child(currentUser).child("QR").child("station11").setValue(false);
         dbUsers.child(currentUser).child("QR").child("station12").setValue(false);
-
-
-
-
     }
 
     @Override
