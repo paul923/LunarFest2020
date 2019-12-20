@@ -69,10 +69,8 @@ public class MainActivity extends AppCompatActivity
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-
         quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
-//        qrCodeScanner=new QrCodeScanner(currentUser, ref);
         funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
