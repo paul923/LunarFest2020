@@ -102,6 +102,7 @@ public class FunStopSub extends Fragment {
             ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                     station1=(CheckBox)view.findViewById(R.id.station1);
                     station2=(CheckBox)view.findViewById(R.id.station2);
                     station3=(CheckBox)view.findViewById(R.id.station3);
