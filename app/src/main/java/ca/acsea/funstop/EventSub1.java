@@ -1,8 +1,5 @@
 package ca.acsea.funstop;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,25 +9,64 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
+
 public class EventSub1 extends Fragment {
 
     View view;
     ImageView mapImg;
+    private ImageView imageView;
+    private int state = 0;
+    private int numimg = 2;
+
 
     public EventSub1() {
-        // Required empty public constructor
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.activity_event_sub1, container, false);
-
         onClickMap();
-
         // Inflate the layout for this fragment
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view,  Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+
+
+        imageView = (ImageView) getView().findViewById(R.id.eventPicture1);
+
+        imageView.setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                state++;
+                state = state % numimg;
+
+                switch (state) {
+
+                 case 0:
+                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
+                    break;
+
+
+                 case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
+                    break;
+
+                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
+                }
+            }
+        });
+
+
+
     }
 
     /**

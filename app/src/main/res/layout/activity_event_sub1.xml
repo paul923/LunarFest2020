@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".EventSub1"
+
     android:id="@+id/eventsub1">
 
     //Title layout
@@ -86,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Oakride Mall"
+                        android:text="Vancouver Art Gallary"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -97,17 +98,28 @@
                 //Linear layout for event picture
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp">
+                    android:layout_height="210dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    >
 
 
                     <ImageView
                         android:id="@+id/eventPicture1"
-                        android:layout_width="314dp"
-                        android:layout_height="221dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/event" />
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        app:srcCompat="@drawable/vag1"
+                        >
+                    </ImageView>
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
                 //Linear layout for event title
                 <LinearLayout
@@ -121,7 +133,7 @@
                        android:layout_height="wrap_content"
                        android:textSize="25dp"
                        android:textColor="@color/textColorBlack"
-                       android:text="This is an event!"
+                       android:text="Vancouver Art Gallary"
                        android:gravity="center"/>
                 </LinearLayout>
 

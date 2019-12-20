@@ -1,13 +1,7 @@
 package ca.acsea.funstop;
 
 import android.os.Bundle;
-
 import android.view.Menu;
-
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -26,9 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
-import ca.acsea.funstop.sponsorquiz.Quiz;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 public class MainActivity extends AppCompatActivity
@@ -42,12 +33,11 @@ public class MainActivity extends AppCompatActivity
     private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
-    private FunStopSub funStopSub;
     private QrCodeScanner qrCodeScanner;
-    private FirebaseDatabase database;
     private DatabaseReference ref;
     TextView userName;
     FirebaseUser currentUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,16 +62,16 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
         //Return the FragmentManager for interacting with fragments associated with this activity.
         fragmentManager = getSupportFragmentManager();
 
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-        funStop = new FunStop(fragmentManager, currentUser, ref);
         quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
-        qrCodeScanner=new QrCodeScanner();
+        funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
@@ -90,6 +80,9 @@ public class MainActivity extends AppCompatActivity
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
         dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
+
+
+
 
     }
 
@@ -169,4 +162,6 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
 
     }
+
+
 }
