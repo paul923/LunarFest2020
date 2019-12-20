@@ -5,16 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 
 
+import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -23,12 +22,16 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
+import java.util.Date;
 
-import ca.acsea.funstop.sponsorquiz.Quiz;
+import ca.acsea.funstop.event.Event;
+import ca.acsea.funstop.sponsorquiz.QuizEnd;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 public class MainActivity extends AppCompatActivity
@@ -42,8 +45,10 @@ public class MainActivity extends AppCompatActivity
     private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
+    private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
+    private long cutoff;
     TextView userName;
     FirebaseUser currentUser;
 
@@ -80,7 +85,6 @@ public class MainActivity extends AppCompatActivity
 
         quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
-//        qrCodeScanner=new QrCodeScanner(currentUser, ref);
         funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
@@ -112,7 +116,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        userName = (TextView) findViewById(R.id.userName);
+        userName = (TextView) findViewById(R.id.userEmail);
 
         if(currentUser != null){
             userName.setText(currentUser.getEmail());
@@ -168,4 +172,6 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
 
     }
+
+
 }

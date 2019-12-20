@@ -1,4 +1,4 @@
-package ca.acsea.funstop;
+package ca.acsea.funstop.event;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import ca.acsea.funstop.R;
 
 public class EventSub1 extends Fragment {
 
@@ -25,6 +27,7 @@ public class EventSub1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event Sub 1");
         view = inflater.inflate(R.layout.activity_event_sub1, container, false);
 
         onClickMap();

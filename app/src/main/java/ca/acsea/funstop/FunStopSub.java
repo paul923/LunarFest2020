@@ -10,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -73,6 +74,9 @@ public class FunStopSub extends Fragment implements Serializable {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //Changes the actionbar's Title
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Fun Stop");
         view=inflater.inflate(R.layout.fragment_fun_stop_sub, container, false);
 
         init();
