@@ -42,9 +42,7 @@ public class MainActivity extends AppCompatActivity
     private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
-    private FunStopSub funStopSub;
     private QrCodeScanner qrCodeScanner;
-    private FirebaseDatabase database;
     private DatabaseReference ref;
     TextView userName;
     FirebaseUser currentUser;
@@ -71,16 +69,18 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
         //Return the FragmentManager for interacting with fragments associated with this activity.
         fragmentManager = getSupportFragmentManager();
 
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-        funStop = new FunStop(fragmentManager, currentUser, ref);
+
         quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
-        qrCodeScanner=new QrCodeScanner();
+//        qrCodeScanner=new QrCodeScanner(currentUser, ref);
+        funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
         transaction = fragmentManager.beginTransaction();

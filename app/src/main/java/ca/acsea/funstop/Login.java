@@ -202,11 +202,15 @@ public class Login extends AppCompatActivity {
                     dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
 
                     System.out.println("database regislation is successful");
+                    System.out.println("what is this?"+mAuth.getUid());
+                    System.out.println("what is this2?"+mDatabase.getReference().child("users").child(mAuth.getUid()).child("point"));
+
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
 
                 }else{
-                    Toast.makeText(Login.this, "Sign in failed please try again", Toast.LENGTH_LONG).show();
+                    Log.println(Log.VERBOSE,"Login Error", task.getException().getMessage());
+                    Toast.makeText(Login.this, task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });

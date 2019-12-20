@@ -9,6 +9,10 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,10 +26,18 @@ import android.view.SurfaceView;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public class QrCodeScanner extends AppCompatActivity {
-    FunStop funStop;
+public class QrCodeScanner extends AppCompatActivity implements Serializable {
+
+    FirebaseUser currentUser;
+    DatabaseReference ref;
+
     public QrCodeScanner() {
+    }
+    public QrCodeScanner(FirebaseUser user, DatabaseReference ref) {
+
+        this.currentUser=user;
 
     }
     SurfaceView cameraPreview;
@@ -55,11 +67,14 @@ public class QrCodeScanner extends AppCompatActivity {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.ref=FirebaseDatabase.getInstance().getReference();
+        this.currentUser= FirebaseAuth.getInstance().getCurrentUser();
+        System.out.println("on create method"+ref);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code_sacnner);
         Intent intent = getIntent();
         cameraPreview = (SurfaceView)findViewById(R.id.cameraView);
-        txtResult = (TextView)findViewById(R.id.txtdisplay);
+        txtResult = (TextView)findViewById(R.id.txtResult);
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build();
@@ -99,26 +114,34 @@ public class QrCodeScanner extends AppCompatActivity {
             @Override
             public void release() {
                 System.out.println("oncreate release()");
+                System.out.println("working in release method"+ref.child("users").child(currentUser.getUid()));
             }
             @Override
             public void receiveDetections(Detector.Detections < Barcode > detections) {
-                System.out.println("oncreate receiveDetections()");
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
+//                System.out.println("what is address"+ ref.child("users"));
                 if (qrcodes.size() != 0) {
+
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
+//                            String s=qrcodes.valueAt(0).displayValue;
+//                            firebase write
+//                            System.out.println("what is s"+ s);
+//                            System.out.println("what is address"+ ref.child("users").child(currentUser.getUid()));
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-
-
-
+                            System.out.println("working in receiveDetections method"+ref.child("users").child(currentUser.getUid()));
+                            boolean s=true;
+                            System.out.println("korean1"+ref.child("users").child(currentUser.getUid()).child("QR").child("Korean"));
+                            ref.child("users").child(currentUser.getUid()).child("QR").child("Korean").setValue(s);
+                            System.out.println("korean2"+ref.child("users").child(currentUser.getUid()).child("QR").child("Korean"));
                             QrCodeScanner.super.onBackPressed();
-
-
-
-
                         }
                     });
+
+//                    ref.child("users").child(currentUser.getUid()).child("QR").child("Korean").setValue("true");
+
+
                 }
             }
         });
