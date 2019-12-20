@@ -104,9 +104,6 @@ public class FunStopSub extends Fragment implements Serializable {
     }
 
     public void init() {
-        System.out.println("init working? initial");
-        System.out.println(ref.child("users").child(currentUser.getUid()));
-        System.out.println(ref.child("users").child(currentUser.getUid()).child("QR"));
             ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -137,15 +134,8 @@ public class FunStopSub extends Fragment implements Serializable {
                     protector2=(CheckBox)view.findViewById(R.id.protector2);
                     ladyHao=(CheckBox)view.findViewById(R.id.ladyHao);
 
-                    System.out.println("init working? inside");
-
-
                     List<CheckBox> arrayList= Arrays.asList(Korean, chinese, ladyHao, loneWolf1, loneWolf2, protector1, protector2, redFawn1, redFawn2, salishSea1, salishSea2, station1, station10, station11, station12, station2, station3, station4, station5, station6, station7, station8, station9, taiwanese, vietnamese);
 
-
-                    for(CheckBox c: arrayList) {
-                        System.out.println("arrayList?:"+c);
-                    }
                     int i=0;
                     for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
                         String value = snapshot.getValue().toString();
@@ -153,12 +143,9 @@ public class FunStopSub extends Fragment implements Serializable {
                             break;
                         }
                         if(value.equals("true")) {
-                            System.out.println(arrayList.get(i));
                             arrayList.get(i).setChecked(true);
-                            System.out.println("Done"+i);
                             i++;
                         }else {
-                            System.out.println("not Done"+i);
                             i++;
 
                         }

@@ -136,6 +136,7 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                             ref.child("users").child(currentUser.getUid()).child("QR").child("Korean").setValue(s);
                             System.out.println("korean2"+ref.child("users").child(currentUser.getUid()).child("QR").child("Korean"));
                             QrCodeScanner.super.onBackPressed();
+
                         }
                     });
 
