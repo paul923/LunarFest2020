@@ -217,11 +217,15 @@ public class Login extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null)
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(account != null || currentUser!= null){
 
             // move to next activity
+            Intent i = new Intent(Login.this, MainActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
 
         }else{
             Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_LONG).show();

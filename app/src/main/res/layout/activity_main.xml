@@ -13,17 +13,13 @@
     tools:openDrawer="start">
 
 
+
     <include
         layout="@layout/app_bar_nav"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
 
-    </FrameLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
