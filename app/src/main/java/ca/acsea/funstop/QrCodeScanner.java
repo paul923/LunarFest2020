@@ -119,28 +119,22 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
             @Override
             public void receiveDetections(Detector.Detections < Barcode > detections) {
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
-//                System.out.println("what is address"+ ref.child("users"));
+
                 if (qrcodes.size() != 0) {
 
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
-//                            String s=qrcodes.valueAt(0).displayValue;
-//                            firebase write
-//                            System.out.println("what is s"+ s);
-//                            System.out.println("what is address"+ ref.child("users").child(currentUser.getUid()));
+
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
                             System.out.println("working in receiveDetections method"+ref.child("users").child(currentUser.getUid()));
                             boolean s=true;
-                            System.out.println("korean1"+ref.child("users").child(currentUser.getUid()).child("QR").child("Korean"));
-                            ref.child("users").child(currentUser.getUid()).child("QR").child("Korean").setValue(s);
-                            System.out.println("korean2"+ref.child("users").child(currentUser.getUid()).child("QR").child("Korean"));
+                            ref.child("users").child(currentUser.getUid()).child("QR").child(qrcodes.valueAt(0).displayValue).setValue(s);
                             QrCodeScanner.super.onBackPressed();
 
                         }
                     });
 
-//                    ref.child("users").child(currentUser.getUid()).child("QR").child("Korean").setValue("true");
 
 
                 }
