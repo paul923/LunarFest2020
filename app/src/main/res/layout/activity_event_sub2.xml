@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub1"
+    tools:context=".EventSub2"
 
-    android:id="@+id/eventsub1">
+    android:id="@+id/eventsub2">
 
     //Title layout
     <FrameLayout
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vancouver Art Gallary"
+                        android:text="Oakridge"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -109,7 +109,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:gravity="center"
-                        app:srcCompat="@drawable/vag1"
+                        app:srcCompat="@drawable/oak1"
                         >
                     </ImageView>
                 </LinearLayout>
@@ -127,14 +127,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-                   <TextView
-                       android:id="@+id/eventTitle1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textSize="25dp"
-                       android:textColor="@color/textColorBlack"
-                       android:text="Vancouver Art Gallary"
-                       android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/eventTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textColor="@color/textColorBlack"
+                        android:text="Oakridge"
+                        android:gravity="center"/>
                 </LinearLayout>
 
                 //Linear layout for event description
