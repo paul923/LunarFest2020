@@ -110,7 +110,7 @@ public class FunStopSub extends Fragment implements Serializable {
             ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    System.out.println("What is dataSnapshot?"+dataSnapshot);
+
                     station1=(CheckBox)view.findViewById(R.id.station1);
                     station2=(CheckBox)view.findViewById(R.id.station2);
                     station3=(CheckBox)view.findViewById(R.id.station3);

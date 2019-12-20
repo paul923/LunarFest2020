@@ -63,7 +63,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.bringToFront();
 
         //Actionbar hide
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
 
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -132,6 +134,7 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+     */
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
