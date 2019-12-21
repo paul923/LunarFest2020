@@ -11,8 +11,11 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,18 +23,24 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.renderscript.Sampler;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.HashMap;
 
 public class QrCodeScanner extends AppCompatActivity implements Serializable {
 
     FirebaseUser currentUser;
     DatabaseReference ref;
+    long point;
+    HashMap<String, String> list=new HashMap<>();
+    int num=0;
 
     public QrCodeScanner() {
     }
@@ -68,9 +77,11 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         this.ref=FirebaseDatabase.getInstance().getReference();
         this.currentUser= FirebaseAuth.getInstance().getCurrentUser();
-        System.out.println("on create method"+ref);
+        point=getPoint();
+        getResult();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code_sacnner);
         Intent intent = getIntent();
@@ -126,21 +137,77 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
-
+                            for(String s: list.keySet()) {
+                                System.out.println(s);
+                            }
+                            if(num==1) {
+                                return;
+                            }
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-                            System.out.println("working in receiveDetections method"+ref.child("users").child(currentUser.getUid()));
+//                            System.out.println("working in receiveDetections method"+ref.child("users").child(currentUser.getUid()).child("qr").child(qrcodes.valueAt(0).displayValue));
+                            String key=qrcodes.valueAt(0).displayValue;
+                            System.out.println("string key from Qr code"+key);
                             boolean s=true;
-                            ref.child("users").child(currentUser.getUid()).child("QR").child(qrcodes.valueAt(0).displayValue).setValue(s);
+                            if(list.get(key).toString().equals("false")) {
+                                System.out.println("inside equal method");
+                                ref.child("users").child(currentUser.getUid()).child("QR").child(qrcodes.valueAt(0).displayValue).setValue(s);
+                                if(qrcodes.valueAt(0).displayValue.equals("ladyHao")) {
+                                    addPoints(40);
+                                }else {
+                                    addPoints(20);
+                                }
+                                num++;
+                            }else {
+                                Toast.makeText(QrCodeScanner.this, "You Already Did it!", Toast.LENGTH_SHORT).show();
+                                QrCodeScanner.super.onBackPressed();
+                                return;
+                            }
+                            System.out.println("how many times "+num);
                             QrCodeScanner.super.onBackPressed();
-
                         }
                     });
-
-
-
                 }
             }
         });
     }
+    public void addPoints(int value){
+        point += value;
+        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
+    }
+
+    public long getPoint(){
+        System.out.println("get Point start");
+        ref.child("users").child(currentUser.getUid()).child("point").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                point = (long) dataSnapshot.getValue();
+                System.out.println("getPoint point read from database");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("point reading failed");
+            }
+        });
+        return point;
+    }
+    public void getResult() {
+        System.out.println("get result start!");
+        ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    list.put(snapshot.getKey(), snapshot.getValue().toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("value reading failed");
+            }
+        });
+
+    }
+
 
 }

@@ -1,11 +1,9 @@
 package ca.acsea.funstop;
 
 import android.os.Bundle;
-
 import android.view.Menu;
 
 
-import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -28,7 +26,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Date;
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizEnd;
@@ -51,6 +48,7 @@ public class MainActivity extends AppCompatActivity
     private long cutoff;
     TextView userName;
     FirebaseUser currentUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +80,6 @@ public class MainActivity extends AppCompatActivity
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-
         quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
         funStop = new FunStop(fragmentManager, currentUser, ref);
@@ -94,6 +91,9 @@ public class MainActivity extends AppCompatActivity
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
         dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
+
+
+
 
     }
 
@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_event) {
             transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
         } else if (id == R.id.nav_map) {
+            //intent
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
             transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
