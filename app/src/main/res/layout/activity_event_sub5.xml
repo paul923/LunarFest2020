@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub1"
+    tools:context=".EventSub5"
 
-    android:id="@+id/eventsub1">
+    android:id="@+id/eventsub5">
 
     //Title layout
 <!--    <FrameLayout-->
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vancouver Art Gallary"
+                        android:text=" A Musical Banquet"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -109,17 +109,12 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:gravity="center"
-                        app:srcCompat="@drawable/vag1"
+                        app:srcCompat="@drawable/yvr1"
                         >
                     </ImageView>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:text="click image to change"
-                    android:gravity="center"/>
+
 
                 //Linear layout for event title
                 <LinearLayout
@@ -127,14 +122,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-                   <TextView
-                       android:id="@+id/eventTitle1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textSize="25dp"
-                       android:textColor="@color/textColorBlack"
-                       android:text="LUNARFEST CELEBRATIONS"
-                       android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/eventTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=" A Musical Banquet"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="25dp" />
                 </LinearLayout>
 
                 //Linear layout for event description
@@ -154,12 +149,16 @@
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:text="The Tunnel of Blessings"/>
+                    <TextView
+                        android:id="@+id/eventDescription11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="ACSEA’s signature events are spread
-                        throughout the year: the end of winter LunarFest,
-                        end of summer TAIWANfest and IPACI, and finally a
-                        brand new event in partnership with Canadian Heritage
-                        and Canada 150, We Are Canadians, Too!" />
+                        android:text="Sharing the same journey with others is part of the fate that we were born into; being together with loved ones is an important tradition for the Lunar New Year and crossing the Tunnel of Blessings is the best way to savour the memories for the new year to come. The Tunnel of Blessings, a concept first introduced by Taiwanese-Canadian artist Lady Hao Hao and designed by Taiwanese artist Yen-Chun Lu, returns at the Vancouver International Airport, wishing all families and
+                        friends safe travels in the Year of the Rat." />
 
                 </LinearLayout>
 

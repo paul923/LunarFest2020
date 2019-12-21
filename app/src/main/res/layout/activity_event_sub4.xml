@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub2"
+    tools:context=".EventSub4"
 
-    android:id="@+id/eventsub2">
+    android:id="@+id/eventsub4">
 
     //Title layout
 <!--    <FrameLayout-->
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Oakridge Center"
+                        android:text="Jack Poole Plaza/Lot19"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:textColor="@color/textColorBlack"
-                        android:text="LUNARFEST VISUAL ARTS"
+                        android:text="COASTAL LUNAR LANTERNS"
                         android:gravity="center"/>
                 </LinearLayout>
 
@@ -157,7 +157,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_margin="20dp">
 
@@ -174,21 +174,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Inspired by Redefining Oakridge and its incredible transformation that challenges the concept of a city, “The Castles and The Lifestyles” exhibits four artistic representations of the Chinese, Taiwanese, Korean, and Vietnamese cultures that form composite imagery of grand castles and are representative of the diverse lifestyles in Canada."/>
+                        android:text="In acknowledgement that we are fortunate to be able to gather on the unceded territory of the Coast Salish People, these eight gigantic lanterns were created with the designs of Indigenous artists from the Stó:lō, Dené, Musqueam, and Tsleil-Waututh nations to celebrate one of the most important traditions in Asia – the Lunar New Year. "/>
                     <TextView
                         android:id="@+id/eventDescription2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
                         android:textStyle="bold"
-                        android:text="Chinese"/>
+                        android:text="“Salish Sea” - Thomas Cannell (Musqueam/Vancouver)"/>
                     <TextView
                         android:id="@+id/eventDescription22"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all.
-"/>
+                        android:text="This design is a Salish Sea motif featuring the teachings and culture of the artist’s ancestors.
+This contemporary iconography of the Pacific Northwest includes representations of
+Black Fish, Dog Fish, Eagles, and Salmon."/>
 
                     <TextView
                         android:id="@+id/eventDescription3"
@@ -196,43 +197,59 @@
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:textStyle="bold"
-                        android:text="Taiwanese"/>
+                        android:text="“Lone Wolf” - John Velten (Dené)
+"/>
                     <TextView
                         android:id="@+id/eventDescription33"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Nothing brings family together the way Lunar New Year does - with delicious food and red envelopes!
-                        There is symbolism in every item on the dinner table - from the colour of the cloth, to the fish that’s present every year. Every member of the family, young and old, comes together for this special occasion that comes around once a year. "/>
+                        android:text="A lost lone wolf who’s been separated from its pack, calls out each night to communicate for
+others who may feel similar. During the day he hunts and travels seeking shelter to survive.
+This piece is a reflection of some people's lives, who are abandoned, separated or forgotten
+and as the world keeps moving without them, they keep fighting for themselves."/>
 
                     <TextView
                         android:id="@+id/eventDescription4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
                         android:textStyle="bold"
-                        android:text="Korean"/>
+                        android:text="“Red Fawn” - Carrielynn Victor, Xémontélót (Stó:lō)"/>
                     <TextView
                         android:id="@+id/eventDescription44"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”.
-"/>
+                        android:text="EThe piece is a combination of coast salish design principles, from hand drawn or carved mediums and also from woven textile patterns. The red fawn in this piece, is representative of the medicine that a fawn offers, in its curiosity, exuberance for life, and its gentleness. The zigzag patterns and coloring in the background depict paths travelled in the forests."/>
 
                     <TextView
                         android:id="@+id/eventDescription5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
                         android:textStyle="bold"
-                        android:text="Vietnamese"/>
+                        android:text="“Protector of the Mountain” - Zachary “SKOKAYLEM” George (Tsleil-Waututh/Vancouver) "/>
                     <TextView
                         android:id="@+id/eventDescription55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Decorating the house in red and yellow, lucky colours in Vietnamese culture, families prepare for Tết several days in advance. Houses are cleaned, and hair is cut in a symbolic renewal, to welcome another prosperous year to come. "/>
+                        android:text="The face on top is a represents the artist’s ancestors sending prayers out to cover the land and people. The mountains are shaped like salmon heads because the snowmelt is the water they swim in and represents a strong connection in the artist’s Salish culture."/>
+
+                    <TextView
+                        android:id="@+id/eventDescription6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:text="Doors Open"/>
+                    <TextView
+                        android:id="@+id/eventDescription66"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="Canada is a nation of immigrants. Settling down in a new home country can be extremely nerve-racking, similar to opening doors to strangers. The impressions offered by people on both sides of the door could dictate the relationship between them for years to come, whether they are the doors to welcoming places or to uncomfortable silos. Taiwanese-Canadian artist Lady Hao Hao wishes to use her couplet light installation to extend her greetings to everyone for a “Good” and “Fulfilled” Lunar New Year with lots of great “Fortune”; as a newcomer to Canada, she is hoping that her gesture is also well received by the rest of Canadians."/>
 
                 </LinearLayout>
                 </ScrollView>

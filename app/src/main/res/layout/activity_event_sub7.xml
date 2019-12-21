@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub1"
+    tools:context=".EventSub7"
 
-    android:id="@+id/eventsub1">
+    android:id="@+id/eventsub7">
 
     //Title layout
 <!--    <FrameLayout-->
@@ -63,7 +63,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dec25~Jan15"
+                        android:text="Feb 2, 2020, 11AM~4PM"
 
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vancouver Art Gallary"
+                        android:text="Varley Art Gallery, 216 Main St Unionville, Unionville, ON L3R 2H1"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -109,7 +109,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:gravity="center"
-                        app:srcCompat="@drawable/vag1"
+                        app:srcCompat="@drawable/oak1"
                         >
                     </ImageView>
                 </LinearLayout>
@@ -127,41 +127,52 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-                   <TextView
-                       android:id="@+id/eventTitle1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textSize="25dp"
-                       android:textColor="@color/textColorBlack"
-                       android:text="LUNARFEST CELEBRATIONS"
-                       android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/eventTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textColor="@color/textColorBlack"
+                        android:text="2020 LunarFest"
+                        android:gravity="center"/>
                 </LinearLayout>
 
-                //Linear layout for event description
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="30dp"
+                    android:text="About" />
+            </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
                     android:layout_margin="20dp">
 
+
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="30dp"
-                        android:text="About" />
-                    <TextView
-                        android:id="@+id/eventDescription1"
+                        android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="ACSEA’s signature events are spread
-                        throughout the year: the end of winter LunarFest,
-                        end of summer TAIWANfest and IPACI, and finally a
-                        brand new event in partnership with Canadian Heritage
-                        and Canada 150, We Are Canadians, Too!" />
+                        android:text="The rat symbolizes intelligence and flexibility - celebrate the Year of the Rat in Unionville like no other! Play as a cute rat as it races through the different foods of the world in “Kitchen Runners”! Try your hand at arts and crafts to make your very own lantern to take home, or bring good luck by decorating a personalized lucky charm! Get a taste of how different cultures celebrate the new year! Join us for a celebration like no other!
+"/>
+
 
                 </LinearLayout>
+                </ScrollView>
 
 
                 //Linear layout for event map
