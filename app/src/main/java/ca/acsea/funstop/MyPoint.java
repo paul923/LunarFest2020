@@ -3,6 +3,7 @@ package ca.acsea.funstop;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -35,6 +36,8 @@ public class MyPoint extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Changes the actionbar's Title
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("My Point");
         // Inflate the layout for this fragment
         db= FirebaseDatabase.getInstance().getReference();
         System.out.println("DONE??"+user.getUid());

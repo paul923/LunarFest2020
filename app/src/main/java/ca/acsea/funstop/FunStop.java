@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -37,7 +38,8 @@ public class FunStop extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        //Changes the actionbar's Title
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Fun Stop: How to play");
         View view=inflater.inflate(R.layout.fragment_fun_stop, container, false);
         transaction2=fragmentManager.beginTransaction();
 

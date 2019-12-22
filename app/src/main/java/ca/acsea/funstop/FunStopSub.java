@@ -2,6 +2,7 @@ package ca.acsea.funstop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -18,12 +20,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 
-public class FunStopSub extends Fragment {
+public class FunStopSub extends Fragment implements Serializable {
     View view;
     TextView textView;
     FragmentManager fragmentManager;
@@ -41,7 +44,7 @@ public class FunStopSub extends Fragment {
     CheckBox station10;
     CheckBox station11;
     CheckBox station12;
-    CheckBox korean;
+    CheckBox Korean;
     CheckBox taiwanese;
     CheckBox chinese;
     CheckBox vietnamese;
@@ -71,14 +74,17 @@ public class FunStopSub extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //Changes the actionbar's Title
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Fun Stop");
         view=inflater.inflate(R.layout.fragment_fun_stop_sub, container, false);
 
+        init();
         onClickQR();
         // Inflate the layout for this fragment
 
 
 
-        init();
 
         return view;
 
@@ -91,6 +97,9 @@ public class FunStopSub extends Fragment {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("current user"+currentUser);
+                System.out.println("ref"+ref);
+
                 Intent i=new Intent(getActivity(), QrCodeScanner.class);
                 startActivity(i);
 
@@ -102,6 +111,7 @@ public class FunStopSub extends Fragment {
             ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                     station1=(CheckBox)view.findViewById(R.id.station1);
                     station2=(CheckBox)view.findViewById(R.id.station2);
                     station3=(CheckBox)view.findViewById(R.id.station3);
@@ -114,7 +124,7 @@ public class FunStopSub extends Fragment {
                     station10=(CheckBox)view.findViewById(R.id.station10);
                     station11=(CheckBox)view.findViewById(R.id.station11);
                     station12=(CheckBox)view.findViewById(R.id.station12);
-                    korean=(CheckBox)view.findViewById(R.id.korean);
+                    Korean=(CheckBox)view.findViewById(R.id.korean);
                     taiwanese=(CheckBox)view.findViewById(R.id.taiwanese);
                     chinese=(CheckBox)view.findViewById(R.id.chinese);
                     vietnamese=(CheckBox)view.findViewById(R.id.vietnamese);
@@ -128,15 +138,8 @@ public class FunStopSub extends Fragment {
                     protector2=(CheckBox)view.findViewById(R.id.protector2);
                     ladyHao=(CheckBox)view.findViewById(R.id.ladyHao);
 
+                    List<CheckBox> arrayList= Arrays.asList(Korean, chinese, ladyHao, loneWolf1, loneWolf2, protector1, protector2, redFawn1, redFawn2, salishSea1, salishSea2, station1, station10, station11, station12, station2, station3, station4, station5, station6, station7, station8, station9, taiwanese, vietnamese);
 
-
-
-                    List<CheckBox> arrayList= Arrays.asList(chinese, korean, ladyHao, loneWolf1, loneWolf2, protector1, protector2, redFawn1, redFawn2, salishSea1, salishSea2, station1, station10, station11, station12, station2, station3, station4, station5, station6, station7, station8, station9, taiwanese, vietnamese);
-
-
-                    for(CheckBox c: arrayList) {
-                        System.out.println("arrayList?:"+c);
-                    }
                     int i=0;
                     for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
                         String value = snapshot.getValue().toString();
@@ -144,12 +147,9 @@ public class FunStopSub extends Fragment {
                             break;
                         }
                         if(value.equals("true")) {
-                            System.out.println(arrayList.get(i));
                             arrayList.get(i).setChecked(true);
-                            System.out.println("Done"+i);
                             i++;
                         }else {
-                            System.out.println("not Done"+i);
                             i++;
 
                         }

@@ -161,7 +161,7 @@ public class Login extends AppCompatActivity {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                System.out.println("44444");
+                System.out.println("createUser method starts");
                 if(task.isSuccessful()){
                     System.out.println("create user / task is successful");
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
@@ -191,25 +191,60 @@ public class Login extends AppCompatActivity {
 
     public void signIn(String email, String password){
         //sign in
+        System.out.println("\n start sign in \n");
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     // update user email in database
-                    System.out.println("signin task is successful");
+                    System.out.println("sign-in task is successful");
 
-                    DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
-                    dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
 
-                    System.out.println("database regislation is successful");
+
+                    InitValues();
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
 
                 }else{
-                    Toast.makeText(Login.this, "Sign in failed please try again", Toast.LENGTH_LONG).show();
+                    Log.println(Log.VERBOSE,"Login Error", task.getException().getMessage());
+                    Toast.makeText(Login.this, task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    private void InitValues() {
+        DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
+        String currentUser = mAuth.getCurrentUser().getUid();
+
+        dbUsers.child(currentUser).child("email").setValue(mAuth.getCurrentUser().getEmail());
+        dbUsers.child(currentUser).child("point").setValue(0); //initialize point
+        dbUsers.child(currentUser).child("quiz").child("cutoff").setValue(0);
+        dbUsers.child(currentUser).child("QR").child("korean").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("chinese").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("ladyHao").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("loneWolf1").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("loneWolf2").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("protector1").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("protector2").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("redFawn1").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("redFawn2").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("salishSea1").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("salishSea2").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("taiwanese").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("vietnamese").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station1").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station2").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station3").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station4").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station5").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station6").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station7").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station8").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station9").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station10").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station11").setValue(false);
+        dbUsers.child(currentUser).child("QR").child("station12").setValue(false);
     }
 
     @Override
@@ -217,11 +252,15 @@ public class Login extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null)
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(account != null || currentUser!= null){
 
             // move to next activity
+            Intent i = new Intent(Login.this, MainActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
 
         }else{
             Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_LONG).show();

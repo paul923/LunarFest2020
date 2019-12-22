@@ -1,7 +1,6 @@
 package ca.acsea.funstop;
 
 import android.os.Bundle;
-
 import android.view.Menu;
 
 
@@ -11,10 +10,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -23,12 +20,15 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
 
-import ca.acsea.funstop.sponsorquiz.Quiz;
+import ca.acsea.funstop.event.Event;
+import ca.acsea.funstop.sponsorquiz.QuizEnd;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 public class MainActivity extends AppCompatActivity
@@ -42,12 +42,13 @@ public class MainActivity extends AppCompatActivity
     private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
-    private FunStopSub funStopSub;
+    private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
-    private FirebaseDatabase database;
     private DatabaseReference ref;
+    private long cutoff;
     TextView userName;
     FirebaseUser currentUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +66,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.bringToFront();
 
         //Actionbar hide
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
+
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
+
 
 
 
@@ -77,10 +80,9 @@ public class MainActivity extends AppCompatActivity
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-        funStop = new FunStop(fragmentManager, currentUser, ref);
         quiz = new QuizStart(fragmentManager, currentUser, ref);
         myPoint = new MyPoint(currentUser);
-        qrCodeScanner=new QrCodeScanner();
+        funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
@@ -89,6 +91,9 @@ public class MainActivity extends AppCompatActivity
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
         dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
+
+
+
 
     }
 
@@ -111,13 +116,14 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        userName = (TextView) findViewById(R.id.userName);
+        userName = (TextView) findViewById(R.id.userEmail);
 
         if(currentUser != null){
             userName.setText(currentUser.getEmail());
         }
     }
 
+    /**
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -132,6 +138,7 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+     */
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -143,6 +150,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_event) {
             transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
         } else if (id == R.id.nav_map) {
+            //intent
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
             transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
@@ -165,4 +173,6 @@ public class MainActivity extends AppCompatActivity
         fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
 
     }
+
+
 }
