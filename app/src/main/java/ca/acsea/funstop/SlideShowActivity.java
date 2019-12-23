@@ -11,14 +11,14 @@ public class SlideShowActivity extends Activity {
     private ViewFlipper myViewFlipper;
     private float initialXPoint;
     int[] image = { R.drawable.foodrat, R.drawable.ctemple
-            };
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_sub1);
-      //  myViewFlipper = (ViewFlipper) findViewById(R.id.eventPicture1);
+        //  myViewFlipper = (ViewFlipper) findViewById(R.id.eventPicture1);
 
         for (int i = 0; i < image.length; i++) {
             ImageView imageView = new ImageView(SlideShowActivity.this);

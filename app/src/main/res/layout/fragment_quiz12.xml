@@ -56,9 +56,10 @@
 
         <TextView
             android:id="@+id/questionBox"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Question Box"
+            android:text="Which calendar does the Lunar New Year follow?"
             android:textSize="15pt"
             android:gravity="center"/>
 
@@ -86,6 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:text="a. The Lunar Calendar"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,24 +97,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:text="b. The Gregorian Calendar"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonA" />
 
-            <Button
-                android:id="@+id/buttonC"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_round"
-                app:layout_constraintTop_toBottomOf="@id/buttonB" />
+<!--            <Button-->
+<!--                android:id="@+id/buttonC"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:text="c. Dragon"-->
+<!--                android:textSize="16dp"-->
+<!--                android:background="@drawable/button_round"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/buttonB" />-->
 
-            <Button
-                android:id="@+id/buttonD"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_round"
-                app:layout_constraintTop_toBottomOf="@id/buttonC" />
+<!--            <Button-->
+<!--                android:id="@+id/buttonD"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:text="d. Lion"-->
+<!--                android:textSize="16dp"-->
+<!--                android:background="@drawable/button_round"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/buttonC" />-->
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"

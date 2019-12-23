@@ -38,13 +38,13 @@
 <!--                android:textColor="@color/colorImportant"-->
 <!--                android:textSize="50sp" />-->
             <EditText
+                android:id="@+id/test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/test"
-                android:text="120"
-                android:textSize="50sp"
                 android:gravity="center"
-                android:textColor="@color/textColorWhite"></EditText>
+                android:text="0"
+                android:textColor="@color/textColorWhite"
+                android:textSize="50sp"></EditText>
         </LinearLayout>
 
 
@@ -73,6 +73,16 @@
                 android:layout_marginBottom="20dp"
                 android:textSize="20dp"
                 android:textColor="@color/textColorWhite"/>
+
+            <Button
+                android:id="@+id/redeembtn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/login_border"
+                android:text="Redeem"
+                android:textColor="#E6B773"
+                app:fontFamily="@font/" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -139,15 +149,6 @@
 
 
             </RelativeLayout>
-            <Button
-                android:id="@+id/btnStart"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Start"
-                android:background="@drawable/login_border"
-                android:textColor="#E6B773"
-                app:fontFamily="@font/"/>
 
 
         </LinearLayout>
