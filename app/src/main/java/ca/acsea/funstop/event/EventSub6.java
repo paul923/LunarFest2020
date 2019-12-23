@@ -1,4 +1,4 @@
-package ca.acsea.funstop;
+package ca.acsea.funstop.event;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,7 +11,9 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
-public class EventSub3 extends Fragment {
+import ca.acsea.funstop.R;
+
+public class EventSub6 extends Fragment {
 
     View view;
     ImageView mapImg;
@@ -20,7 +22,7 @@ public class EventSub3 extends Fragment {
     private int numimg = 6;
 
 
-    public EventSub3() {
+    public EventSub6() {
     }
 
 
@@ -28,7 +30,7 @@ public class EventSub3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.activity_event_sub3, container, false);
+        view = inflater.inflate(R.layout.activity_event_sub6, container, false);
         onClickMap();
         // Inflate the layout for this fragment
 
@@ -41,7 +43,7 @@ public class EventSub3 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        imageView = (ImageView) getView().findViewById(R.id.eventPicture3);
+        imageView = (ImageView) getView().findViewById(R.id.eventPicture6);
 
         imageView.setOnClickListener(new  View.OnClickListener() {
             @Override

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub6"
+    tools:context=".event.EventSub6"
 
     android:id="@+id/eventsub6">
 
