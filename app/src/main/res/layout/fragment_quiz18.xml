@@ -34,20 +34,20 @@
 
 <!--    </FrameLayout>-->
 
-<!--    <FrameLayout-->
-<!--        android:layout_width="wrap_content"-->
+    <FrameLayout
+        android:layout_width="wrap_content"
 
-<!--        android:layout_height="wrap_content">-->
+        android:layout_height="wrap_content">
 
 
-<!--        <ImageView-->
-<!--            android:layout_width="180dp"-->
-<!--            android:layout_height="180dp"-->
-<!--            android:background="@color/colorAccent"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            />-->
-<!--    </FrameLayout>-->
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            />
+    </FrameLayout>
 
 
     <FrameLayout
@@ -56,9 +56,10 @@
 
         <TextView
             android:id="@+id/questionBox"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Question Box"
+            android:text="Which company does this logo belong to?"
             android:textSize="15pt"
             android:gravity="center"/>
 
@@ -86,6 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:text="a. Rat"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,6 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:text="b. Rabbit"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonA" />
 
@@ -102,6 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
+                android:text="c. Dragon"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonB" />
 
@@ -110,6 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
+                android:text="d. Lion"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonC" />
 

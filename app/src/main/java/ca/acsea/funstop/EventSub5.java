@@ -28,7 +28,7 @@ public class EventSub5 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.activity_event_sub1, container, false);
+        view = inflater.inflate(R.layout.activity_event_sub5, container, false);
         onClickMap();
         // Inflate the layout for this fragment
 
@@ -41,7 +41,7 @@ public class EventSub5 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        imageView = (ImageView) getView().findViewById(R.id.eventPicture1);
+        imageView = (ImageView) getView().findViewById(R.id.eventPicture5);
 
         imageView.setOnClickListener(new  View.OnClickListener() {
             @Override
