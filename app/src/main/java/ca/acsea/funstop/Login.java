@@ -233,6 +233,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // OK
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
+                                    InitValues(); // init values
                                     signIn(email, password);
                                     finish();
                                 }})
@@ -261,7 +262,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 if(task.isSuccessful()){
                     // update user email in database
                     System.out.println("sign-in task is successful");
-                    InitValues();
+
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
 
