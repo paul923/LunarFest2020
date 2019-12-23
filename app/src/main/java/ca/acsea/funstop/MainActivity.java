@@ -1,5 +1,6 @@
 package ca.acsea.funstop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -81,8 +82,8 @@ public class MainActivity extends AppCompatActivity
         event = new Event(fragmentManager);
         map = new Map();
         quiz = new QuizStart(fragmentManager, currentUser, ref);
-        myPoint = new MyPoint(currentUser);
-        funStop = new FunStop(fragmentManager, currentUser, ref);
+        //myPoint = new MyPoint(currentUser);
+        //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
@@ -153,11 +154,17 @@ public class MainActivity extends AppCompatActivity
             //intent
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
-            transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
+            Intent intent = new Intent(this, FunStop.class);
+            startActivity(intent);
+
+            //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
         } else if (id == R.id.nav_quiz) {
             transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
         } else if (id == R.id.nav_point) {
-            transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
+            Intent intent = new Intent(this, MyPoint.class);
+            intent.putExtra("source", "navbar");
+            startActivity(intent);
+          //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
         } else if (id == R.id.nav_about) {
             transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
         }

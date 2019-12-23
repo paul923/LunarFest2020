@@ -164,7 +164,7 @@ public class Login extends AppCompatActivity {
                 System.out.println("createUser method starts");
                 if(task.isSuccessful()){
                     System.out.println("create user / task is successful");
-                    new AlertDialog.Builder(Login.this).setTitle("Create New Account")
+                   /* new AlertDialog.Builder(Login.this).setTitle("Create New Account")
                             .setMessage("There is no such account. Do you want to create new account with the input id and password?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -176,9 +176,10 @@ public class Login extends AppCompatActivity {
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // Cancel
+                                    signIn(email,password);
                                     Toast.makeText(Login.this, "It is canceled.", Toast.LENGTH_SHORT).show();
                                 }})
-                            .show();
+                            .show();*/
 
                 }else{
                     System.out.println("create user / task is failed");
@@ -198,9 +199,7 @@ public class Login extends AppCompatActivity {
                 if(task.isSuccessful()){
                     // update user email in database
                     System.out.println("sign-in task is successful");
-
-
-
+                    DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
                     InitValues();
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
@@ -214,9 +213,9 @@ public class Login extends AppCompatActivity {
     }
 
     private void InitValues() {
+        System.out.println("initing values");
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
         String currentUser = mAuth.getCurrentUser().getUid();
-
         dbUsers.child(currentUser).child("email").setValue(mAuth.getCurrentUser().getEmail());
         dbUsers.child(currentUser).child("point").setValue(0); //initialize point
         dbUsers.child(currentUser).child("quiz").child("cutoff").setValue(0);

@@ -8,12 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
-<<<<<<< HEAD:app/src/main/java/ca/acsea/funstop/event/EventSub1.java
 import ca.acsea.funstop.R;
-=======
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
->>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05:app/src/main/java/ca/acsea/funstop/EventSub1.java
 
 public class EventSub1 extends Fragment {
 

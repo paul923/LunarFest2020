@@ -2,6 +2,7 @@ package ca.acsea.funstop;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -27,41 +28,39 @@ import android.renderscript.Sampler;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class QrCodeScanner extends AppCompatActivity implements Serializable {
-
-    FirebaseUser currentUser;
-    DatabaseReference ref;
-    long point;
-    HashMap<String, String> list=new HashMap<>();
-    int num=0;
-
-    public QrCodeScanner() {
-    }
-
-    public QrCodeScanner(FirebaseUser user, DatabaseReference ref) {
-
-        this.currentUser=user;
-
-    }
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
+    private FunStopSub funStopSub;
+    private MyPoint myPoint;
     public static final int RequestCameraPermissionID = 1001;
+    String previousActivity;
+    FragmentManager fragmentManager;
+    FragmentTransaction transaction;
+
+    int points;
+    String qrValue;
+
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
-        switch (requestCode) {
-            case RequestCameraPermissionID: {
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+    public void onRequestPermissionsResult(int requestCode, String[] permission, int[] grantResults){
+        switch (requestCode){
+            case RequestCameraPermissionID:{
+                if(grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
                         ActivityCompat.requestPermissions(QrCodeScanner.this,
                                 new String[]{Manifest.permission.CAMERA}, RequestCameraPermissionID);
                         return;
@@ -71,22 +70,23 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                 }
             }
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        this.ref=FirebaseDatabase.getInstance().getReference();
-        this.currentUser= FirebaseAuth.getInstance().getCurrentUser();
-        point=getPoint();
-        getResult();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_code_sacnner);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
+        previousActivity = intent.getStringExtra("previous");
         cameraPreview = (SurfaceView)findViewById(R.id.cameraView);
         txtResult = (TextView)findViewById(R.id.txtResult);
+        fragmentManager = this.getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        System.out.println("Current points: "+points);
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build();
@@ -94,8 +94,6 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                 .Builder(this, barcodeDetector)
                 .setRequestedPreviewSize(640,480)
                 .build();
-
-
 
         cameraPreview.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
@@ -125,89 +123,42 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>(){
             @Override
             public void release() {
-                System.out.println("oncreate release()");
-                System.out.println("working in release method"+ref.child("users").child(currentUser.getUid()));
             }
             @Override
             public void receiveDetections(Detector.Detections < Barcode > detections) {
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
-
                 if (qrcodes.size() != 0) {
+                    barcodeDetector.release();
+                    //cameraPreview.setVisibility(View.INVISIBLE);
 
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
-                            for(String s: list.keySet()) {
-                                System.out.println(s);
-                            }
-                            if(num==1) {
-                                return;
-                            }
+                            cameraSource.stop();
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-//                            System.out.println("working in receiveDetections method"+ref.child("users").child(currentUser.getUid()).child("qr").child(qrcodes.valueAt(0).displayValue));
-                            String key=qrcodes.valueAt(0).displayValue;
-                            System.out.println("string key from Qr code"+key);
-                            boolean s=true;
-                            if(list.get(key).toString().equals("false")) {
-                                System.out.println("inside equal method");
-                                ref.child("users").child(currentUser.getUid()).child("QR").child(qrcodes.valueAt(0).displayValue).setValue(s);
-                                if(qrcodes.valueAt(0).displayValue.equals("ladyHao")) {
-                                    addPoints(40);
-                                }else {
-                                    addPoints(20);
-                                }
-                                num++;
-                            }else {
-                                Toast.makeText(QrCodeScanner.this, "You Already Did it!", Toast.LENGTH_SHORT).show();
-                                QrCodeScanner.super.onBackPressed();
-                                return;
+                            qrValue = qrcodes.valueAt(0).displayValue;
+                            if(previousActivity.equals("MyPoints")){
+                               // checkQrValue();
+                                //detected = false;
+                                //save(sharedPreferences);
+                                Intent intent1  = new Intent(QrCodeScanner.this, MyPoint.class);
+                                intent1.putExtra("qrValue", qrValue);
+                                intent1.putExtra("source", "QrCodeScanner");
+                                startActivity(intent1);
+                                finish();
+                            }else if(previousActivity.equals("FunStopSub")){
+                                Intent intent1  = new Intent(QrCodeScanner.this, FunStopSub.class);
+                                intent1.putExtra("qrValue", qrValue);
+                                intent1.putExtra("source", "QrCodeScanner");
+                                startActivity(intent1);
+                                finish();
                             }
-                            System.out.println("how many times "+num);
-                            QrCodeScanner.super.onBackPressed();
+
                         }
                     });
                 }
             }
         });
     }
-    public void addPoints(int value){
-        point += value;
-        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
-    }
-
-    public long getPoint(){
-        System.out.println("get Point start");
-        ref.child("users").child(currentUser.getUid()).child("point").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                point = (long) dataSnapshot.getValue();
-                System.out.println("getPoint point read from database");
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("point reading failed");
-            }
-        });
-        return point;
-    }
-    public void getResult() {
-        System.out.println("get result start!");
-        ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    list.put(snapshot.getKey(), snapshot.getValue().toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("value reading failed");
-            }
-        });
-
-    }
-
-
 }
+
