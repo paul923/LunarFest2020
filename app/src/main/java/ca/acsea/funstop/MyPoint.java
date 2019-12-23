@@ -7,10 +7,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,109 +31,122 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
 
-public class MyPoint extends Fragment {
+public class MyPoint extends AppCompatActivity{
+    public static final String pointKey = "points";
+    public static final String sharePreKey = "prefs";
     FirebaseUser user;
     private DatabaseReference db;
     EditText test;
     Button redeembtn;
-    int points =150;
+    int points;
     boolean joinDraw;
-    String qrValue;
-    public MyPoint() {
-        // Required empty public constructor
-    }
-    public MyPoint(FirebaseUser u) {
-        // Required empty public constructor
-        this.user = u;
+    String qrValue= "";
+    SharedPreferences sharedPreferences;
+    public void onCreate(Bundle saveInstanceState){
+        super.onCreate(saveInstanceState);
 
-    }
+        Intent intent = getIntent();
+        sharedPreferences = this.getSharedPreferences(sharePreKey, Context.MODE_PRIVATE);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        //Changes the actionbar's Title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("My Point");
-        // Inflate the layout for this fragment
+        if(intent.getStringExtra("source").equals("QrCodeScanner")){
+            qrValue = intent.getStringExtra("qrValue");
+        }
+        // qrValue =  intent.getExtras().getString("qrValue");
+        setContentView(R.layout.fragment_my_point);
         db= FirebaseDatabase.getInstance().getReference();
-        System.out.println("DONE??"+user.getUid());
-        // read();
-        qrValue = getArguments().getString("qrValue");
+        test = findViewById(R.id.test);
+        getPoints();
         checkQrValue();
-        getPoints();
-        View view =inflater.inflate(R.layout.fragment_my_point, container, false);
-        return view;
+        checkPoint();
+        redeembtn = findViewById(R.id.redeembtn);
+        redeembtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(MyPoint.this, QrCodeScanner.class);
+                i.putExtra("previous", "MyPoints");
+                Bundle bundle = new Bundle();
+                startActivity(i);
+            }
+        });
     }
-    @Override
-    public void onResume(){
-        super.onResume();
-        getPoints();
-    }
-    @Override
-    public void onStop(){
-        super.onStop();
+
+    public void onPause(){
+        super.onPause();
         savePoint();
     }
+
     private void savePoint(){
-        SharedPreferences.Editor prefEditor = this.getActivity().getSharedPreferences("prefs",0).edit();
-        prefEditor.putInt("point", points);
+        SharedPreferences.Editor prefEditor = this.getSharedPreferences(sharePreKey,0).edit();
+        prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
         prefEditor.apply();
-        db.child(user.getUid()).child("point").setValue(points);
-        db.child(user.getUid()).child("joinDraw").setValue(joinDraw);
+        System.out.println("in save point addinh");
+        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
     }
 
     private void getPoints(){
-        SharedPreferences pref = this.getActivity().getSharedPreferences("prefs",0);
-        points = pref.getInt("point", points);
-        EditText pointText = getView().findViewById(R.id.text);
-        pointText.setText(String.valueOf(points));
+        SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
+        points = pref.getInt(pointKey, points);
+        System.out.println("Current points  in get points before adding: "+ points);
+        test.setText(String.valueOf(points));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
-
-    public void onClickQR(){
-        redeembtn = getView().findViewById(R.id.qrScanner);
-        Intent i=new Intent(getActivity(), QrCodeScanner.class);
-        startActivity(i);
-    }
-
     public void checkQrValue(){
+        getPoints();
         switch (qrValue){
             case "R_200OPT":
                 modifyPoints(200, "Reduce");
+                break;
             case "R_150PT":
                 modifyPoints(150, "Reduce");
+                break;
             case "R_100PT":
                 modifyPoints(100, "Reduce");
+                break;
             case "R_50PT":
                 modifyPoints(50, "Reduce");
+                break;
             case "R_20PT":
                 modifyPoints(20, "Reduce");
+                break;
             case "R_10PT":
                 modifyPoints(10, "Reduce");
+                break;
             case "A_50PT":
                 modifyPoints(50, "Add");
+                break;
             case "A_40PT":
                 modifyPoints(40, "Add");
+                break;
             case "A_10PT":
                 modifyPoints(10, "Add");
+                break;
             case "A_5PT":
                 modifyPoints(5, "Add");
+                break;
         }
     }
 
     private void modifyPoints(int point, String operation){
         if(operation.equalsIgnoreCase("Add")){
+            System.out.println("Before adding: "+points);
             points = points + point;
+            System.out.println("After adding: "+points);
+            test.setText(String.valueOf(points));
+
         }
-        if(operation.equalsIgnoreCase("Reduce")){
+        else if(operation.equalsIgnoreCase("Reduce")){
             points = points - point;
+            test.setText(String.valueOf(points));
         }
         savePoint();
     }
     private void checkPoint(){
         if(points >= 150 && !joinDraw){
-            new AlertDialog.Builder(MyPoint.this.getContext()).setTitle("Congrats")
+            new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
                     .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
                             "cost 150 points.")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -146,27 +162,11 @@ public class MyPoint extends Fragment {
     }
 
     private void addToPool(){
-        db.child(user.getUid()).child("JoinDraw").setValue("Yes");
+        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");
         joinDraw = true;
         modifyPoints(150, "Reduce");
-        db.child(user.getUid()).child("point").setValue(points);
+        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
- /*   private void read() {
-//        final String userId= FirebaseAuth.getInstance().getCurrentUser().getUid();
-        db.child("users").child(user.getUid()).child("point").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                System.out.println("datasnapshot"+dataSnapshot.getValue());
-                EditText test=getView().findViewById(R.id.test);
-                test.setText(dataSnapshot.getValue().toString());
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("working2");
-            }
-        });
-    }*/
 }

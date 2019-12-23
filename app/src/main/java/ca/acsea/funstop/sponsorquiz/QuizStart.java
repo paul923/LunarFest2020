@@ -121,11 +121,11 @@ public class QuizStart extends Fragment {
                 }
             }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    System.out.println("on cancelled");
-                }
-            });
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("on cancelled");
+            }
+        });
     }
     public void getIndex(){
         ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").addListenerForSingleValueEvent(new ValueEventListener() {

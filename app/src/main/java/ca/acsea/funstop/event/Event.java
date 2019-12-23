@@ -1,4 +1,5 @@
 package ca.acsea.funstop.event;
+
 import android.app.ActionBar;
 import android.os.Bundle;
 
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 
 
 import ca.acsea.funstop.R;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -46,16 +48,16 @@ public class Event extends Fragment {
 
         transaction = fragmentManager.beginTransaction();
 
-//        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
-//        imgTopLeft.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-////                ((MainActivity) getActivity()).replaceFragment(sub1);
-//
-//                //Add replacing fragment to backstack to allow back button
-//                transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
-//            }
-//        });
+        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
+        imgTopLeft.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
+            }
+        });
 
         // Inflate the layout for this fragment
         return view;

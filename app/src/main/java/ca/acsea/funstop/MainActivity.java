@@ -1,5 +1,6 @@
 package ca.acsea.funstop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -45,9 +46,6 @@ public class MainActivity extends AppCompatActivity
     private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
-
-    private FunStopSub funStopSub;
-
     private long cutoff;
     TextView userName;
     FirebaseUser currentUser;
@@ -74,6 +72,9 @@ public class MainActivity extends AppCompatActivity
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
 
+
+
+
         //Return the FragmentManager for interacting with fragments associated with this activity.
         fragmentManager = getSupportFragmentManager();
 
@@ -81,9 +82,8 @@ public class MainActivity extends AppCompatActivity
         event = new Event(fragmentManager);
         map = new Map();
         quiz = new QuizStart(fragmentManager, currentUser, ref);
-        myPoint = new MyPoint(currentUser);
-        funStop = new FunStop(fragmentManager, currentUser, ref);
-//        funStopSub=new FunStopSub(fragmentManager, currentUser, ref);
+        //myPoint = new MyPoint(currentUser);
+        //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
@@ -125,20 +125,20 @@ public class MainActivity extends AppCompatActivity
     }
 
     /**
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+     // Handle action bar item clicks here. The action bar will
+     // automatically handle clicks on the Home/Up button, so long
+     // as you specify a parent activity in AndroidManifest.xml.
+     int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+     //noinspection SimplifiableIfStatement
+     if (id == R.id.action_settings) {
+     return true;
+     }
 
-        return super.onOptionsItemSelected(item);
-    }
+     return super.onOptionsItemSelected(item);
+     }
      */
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -154,11 +154,17 @@ public class MainActivity extends AppCompatActivity
             //intent
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
-            transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
+            Intent intent = new Intent(this, FunStop.class);
+            startActivity(intent);
+
+            //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
         } else if (id == R.id.nav_quiz) {
             transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
         } else if (id == R.id.nav_point) {
-            transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
+            Intent intent = new Intent(this, MyPoint.class);
+            intent.putExtra("source", "navbar");
+            startActivity(intent);
+            //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
         } else if (id == R.id.nav_about) {
             transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
         }

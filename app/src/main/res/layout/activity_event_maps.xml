@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".EventMaps">
 
-<!--    <fragment-->
-<!--        android:id="@+id/googleMap"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        class="com.google.android.gms.maps.MapFragment"/>-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/googleMap"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        class="com.google.android.gms.maps.MapFragment"/>-->
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/googleMap"
