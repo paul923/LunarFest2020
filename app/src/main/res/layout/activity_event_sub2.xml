@@ -63,7 +63,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dec25~Jan15"
+                        android:text="Jan 16 ~ Feb 10"
 
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:textColor="@color/textColorBlack"
-                        android:text="LUNARFEST VISUAL ARTS"
+                        android:text="LunarFest Visual Arts"
                         android:gravity="center"/>
                 </LinearLayout>
 
