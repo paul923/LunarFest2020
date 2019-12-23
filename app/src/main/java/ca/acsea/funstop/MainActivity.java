@@ -3,33 +3,26 @@ package ca.acsea.funstop;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-
-import ca.acsea.funstop.event.Event;
-import ca.acsea.funstop.sponsorquiz.QuizEnd;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 public class MainActivity extends AppCompatActivity
@@ -43,11 +36,11 @@ public class MainActivity extends AppCompatActivity
     private QuizStart quiz;
     private MyPoint myPoint;
     private About about;
-    private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
-    private long cutoff;
+    ImageView userPicture;
     TextView userName;
+    TextView userEmail;
     FirebaseUser currentUser;
 
 
@@ -82,8 +75,8 @@ public class MainActivity extends AppCompatActivity
         event = new Event(fragmentManager);
         map = new Map();
         quiz = new QuizStart(fragmentManager, currentUser, ref);
-        //myPoint = new MyPoint(currentUser);
-        //funStop = new FunStop(fragmentManager, currentUser, ref);
+        myPoint = new MyPoint(currentUser);
+        funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
         transaction = fragmentManager.beginTransaction();
@@ -117,28 +110,36 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        userName = (TextView) findViewById(R.id.userEmail);
-
         if(currentUser != null){
-            userName.setText(currentUser.getEmail());
+            userEmail = findViewById(R.id.userEmail);
+            userEmail.setText(currentUser.getEmail());
+            if(currentUser.getDisplayName() != null) {
+                userName = findViewById(R.id.userName);
+                userName.setText(currentUser.getDisplayName());
+            }
+            if(currentUser.getPhotoUrl() != null) {
+                userPicture = findViewById(R.id.imageView);
+                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+            }
         }
+
     }
 
     /**
-     @Override
-     public boolean onOptionsItemSelected(MenuItem item) {
-     // Handle action bar item clicks here. The action bar will
-     // automatically handle clicks on the Home/Up button, so long
-     // as you specify a parent activity in AndroidManifest.xml.
-     int id = item.getItemId();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-     //noinspection SimplifiableIfStatement
-     if (id == R.id.action_settings) {
-     return true;
-     }
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
 
-     return super.onOptionsItemSelected(item);
-     }
+        return super.onOptionsItemSelected(item);
+    }
      */
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -154,17 +155,11 @@ public class MainActivity extends AppCompatActivity
             //intent
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
-            Intent intent = new Intent(this, FunStop.class);
-            startActivity(intent);
-
-            //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
+            transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
         } else if (id == R.id.nav_quiz) {
             transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
         } else if (id == R.id.nav_point) {
-            Intent intent = new Intent(this, MyPoint.class);
-            intent.putExtra("source", "navbar");
-            startActivity(intent);
-            //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
+            transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
         } else if (id == R.id.nav_about) {
             transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
         }
