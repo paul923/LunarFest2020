@@ -1,8 +1,10 @@
 package ca.acsea.funstop;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,7 +38,9 @@ public class MainActivity extends AppCompatActivity
     private About about;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
+    ImageView userPicture;
     TextView userName;
+    TextView userEmail;
     FirebaseUser currentUser;
 
 
@@ -105,11 +110,19 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        userName = (TextView) findViewById(R.id.userName);
-
         if(currentUser != null){
-            userName.setText(currentUser.getEmail());
+            userEmail = findViewById(R.id.userEmail);
+            userEmail.setText(currentUser.getEmail());
+            if(currentUser.getDisplayName() != null) {
+                userName = findViewById(R.id.userName);
+                userName.setText(currentUser.getDisplayName());
+            }
+            if(currentUser.getPhotoUrl() != null) {
+                userPicture = findViewById(R.id.imageView);
+                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+            }
         }
+
     }
 
     /**
