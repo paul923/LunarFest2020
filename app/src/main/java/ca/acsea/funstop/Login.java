@@ -208,8 +208,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     System.out.println("\n resultLogin : success\n");
                     Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    intent.putExtra("nickname", account.getDisplayName());
-                    intent.putExtra("photo", String.valueOf(account.getPhotoUrl()));
                     startActivity(intent);
                 } else {
                     Toast.makeText(Login.this, "google login fails", Toast.LENGTH_LONG).show();
