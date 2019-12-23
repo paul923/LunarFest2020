@@ -49,8 +49,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     TextView textView;
-    FirebaseUser currentUser;
-    DatabaseReference ref;
+    FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
+    DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     CheckBox station1;
     CheckBox station2;
     CheckBox station3;
@@ -316,12 +316,12 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station12B", station12B);
         prefsEditor.putInt("points", points);
         prefsEditor.apply();
-        FirebaseDatabase.getInstance().getReference().child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
             points = points + point;
-            FirebaseDatabase.getInstance().getReference().child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+            ref.child(currentUser.getUid()).child("point").setValue(points);
         }
 
     }
