@@ -46,7 +46,6 @@ public class MyPoint extends AppCompatActivity{
     SharedPreferences sharedPreferences;
     public void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
-
         Intent intent = getIntent();
         sharedPreferences = this.getSharedPreferences(sharePreKey, Context.MODE_PRIVATE);
 
@@ -56,6 +55,7 @@ public class MyPoint extends AppCompatActivity{
        // qrValue =  intent.getExtras().getString("qrValue");
         setContentView(R.layout.fragment_my_point);
         db= FirebaseDatabase.getInstance().getReference();
+
         test = findViewById(R.id.test);
         getPoints();
         checkQrValue();
@@ -75,6 +75,17 @@ public class MyPoint extends AppCompatActivity{
     public void onPause(){
         super.onPause();
         savePoint();
+
+    }
+
+
+
+    private void getPoints(){
+        SharedPreferences pref = this.getActivity().getSharedPreferences("prefs",0);
+        points = pref.getInt("point", points);
+        EditText pointText = getView().findViewById(R.id.text);
+        pointText.setText(String.valueOf(points));
+        joinDraw = pref.getBoolean("joinDraw", false);
     }
 
     private void savePoint(){
@@ -86,67 +97,45 @@ public class MyPoint extends AppCompatActivity{
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
     }
+   
 
-    private void getPoints(){
-        SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
-        points = pref.getInt(pointKey, points);
-        System.out.println("Current points  in get points before adding: "+ points);
-        test.setText(String.valueOf(points));
-        joinDraw = pref.getBoolean("joinDraw", false);
-    }
     public void checkQrValue(){
-        getPoints();
         switch (qrValue){
             case "R_200OPT":
                 modifyPoints(200, "Reduce");
-                break;
             case "R_150PT":
                 modifyPoints(150, "Reduce");
-                break;
             case "R_100PT":
                 modifyPoints(100, "Reduce");
-                break;
             case "R_50PT":
                 modifyPoints(50, "Reduce");
-                break;
             case "R_20PT":
                 modifyPoints(20, "Reduce");
-                break;
             case "R_10PT":
                 modifyPoints(10, "Reduce");
-                break;
             case "A_50PT":
                 modifyPoints(50, "Add");
-                break;
             case "A_40PT":
                 modifyPoints(40, "Add");
-                break;
             case "A_10PT":
                 modifyPoints(10, "Add");
-                break;
             case "A_5PT":
                 modifyPoints(5, "Add");
-                break;
         }
     }
 
     private void modifyPoints(int point, String operation){
         if(operation.equalsIgnoreCase("Add")){
-            System.out.println("Before adding: "+points);
             points = points + point;
-            System.out.println("After adding: "+points);
-            test.setText(String.valueOf(points));
-
         }
-        else if(operation.equalsIgnoreCase("Reduce")){
+        if(operation.equalsIgnoreCase("Reduce")){
             points = points - point;
-            test.setText(String.valueOf(points));
         }
         savePoint();
     }
     private void checkPoint(){
         if(points >= 150 && !joinDraw){
-            new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
+            new AlertDialog.Builder(MyPoint.this.getContext()).setTitle("Congrats")
                     .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
                             "cost 150 points.")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -162,11 +151,12 @@ public class MyPoint extends AppCompatActivity{
     }
 
     private void addToPool(){
-        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");
+        db.child(user.getUid()).child("JoinDraw").setValue("Yes");
         joinDraw = true;
         modifyPoints(150, "Reduce");
-        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+        db.child(user.getUid()).child("point").setValue(points);
     }
-
-
+  
 }
+
+

@@ -1,8 +1,10 @@
 package ca.acsea.funstop;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,9 +29,15 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class FunStopSub extends AppCompatActivity{
+
+// public class FunStopSub extends Fragment implements Serializable {
+//     HashMap<String, CheckBox> checkbox = new HashMap<>();
+//     HashMap<String, String> map=new HashMap<>();
+//     View view;
     TextView textView;
     FirebaseUser currentUser;
     DatabaseReference ref;
@@ -124,6 +132,23 @@ public class FunStopSub extends AppCompatActivity{
         protector2 = findViewById(R.id.protector2);
         ladyHao = findViewById(R.id.ladyHao);
 
+//     public FunStopSub() {
+// //        System.out.println("Working funstopsub?");
+
+//     }
+
+//     public FunStopSub(FragmentManager fm, FirebaseUser user, DatabaseReference ref) {
+//         this.fragmentManager=fm;
+//         this.currentUser=user;
+//         this.ref=ref;
+//         System.out.println("Working? fss constructor");
+//     }
+
+
+//     @Override
+//     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+//                              Bundle savedInstanceState) {
+
 
 
         // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
@@ -183,6 +208,9 @@ public class FunStopSub extends AppCompatActivity{
 
         setUp();
 
+       
+
+
         int i;
         for (i = 0; i < arrayList.size(); i++) {
             arrayList.get(i).setEnabled(false);
@@ -202,19 +230,15 @@ public class FunStopSub extends AppCompatActivity{
     public void onClickQR() {
         textView = findViewById(R.id.qrScanner);
         textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+          
                 System.out.println("current user" + currentUser);
                 System.out.println("ref" + ref);
 
                 Intent i = new Intent(FunStopSub.this, QrCodeScanner.class);
                 i.putExtra("previous", "FunStopSub");
                 startActivity(i);
-
-            }
         });
     }
-
 
     public void setUp(){
         System.out.println("Station one status:" + station1B);
