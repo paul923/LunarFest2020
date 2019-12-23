@@ -17,10 +17,7 @@
         <activity android:name=".MyPoint"/>
         <activity android:name=".FunStopSub"/>
         <activity android:name=".FunStop"/>
-<<<<<<< HEAD
-=======
 
->>>>>>> 5b15d995a1c4a0af7c7f30893e0d6e955efea72e
         <activity
             android:name=".QrCodeScanner"
             android:label="@string/title_activity_qr_code_sacnner"
