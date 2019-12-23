@@ -7,10 +7,6 @@
     android:orientation="vertical"
 
     tools:context=".event.EventSub1">
-<!--=======-->
-<!--    tools:context=".EventSub1"-->
-
-<!--&gt;>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05-->
 <!--    android:id="@+id/eventsub1">-->
 
     //Title layout
@@ -159,11 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="ACSEA’s signature events are spread
-                        throughout the year: the end of winter LunarFest,
-                        end of summer TAIWANfest and IPACI, and finally a
-                        brand new event in partnership with Canadian Heritage
-                        and Canada 150, We Are Canadians, Too!" />
+                        android:text="ACSEA’s signature events are spread throughout the year: the end of winter LunarFest, end of summer TAIWANfest and IPACI, and finally a brand new event in partnership with Canadian Heritage and Canada 150, We Are Canadians, Too!" />
 
                 </LinearLayout>
 

@@ -187,9 +187,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="This design is a Salish Sea motif featuring the teachings and culture of the artist’s ancestors.
-This contemporary iconography of the Pacific Northwest includes representations of
-Black Fish, Dog Fish, Eagles, and Salmon."/>
+                        android:text="This design is a Salish Sea motif featuring the teachings and culture of the artist’s ancestors. This contemporary iconography of the Pacific Northwest includes representations of Black Fish, Dog Fish, Eagles, and Salmon."/>
 
                     <TextView
                         android:id="@+id/eventDescription3"
@@ -204,10 +202,7 @@ Black Fish, Dog Fish, Eagles, and Salmon."/>
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="A lost lone wolf who’s been separated from its pack, calls out each night to communicate for
-others who may feel similar. During the day he hunts and travels seeking shelter to survive.
-This piece is a reflection of some people's lives, who are abandoned, separated or forgotten
-and as the world keeps moving without them, they keep fighting for themselves."/>
+                        android:text="A lost lone wolf who’s been separated from its pack, calls out each night to communicate for others who may feel similar. During the day he hunts and travels seeking shelter to survive. This piece is a reflection of some people's lives, who are abandoned, separated or forgotten and as the world keeps moving without them, they keep fighting for themselves."/>
 
                     <TextView
                         android:id="@+id/eventDescription4"

@@ -114,6 +114,13 @@
                     </ImageView>
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
+
 
 
                 //Linear layout for event title
@@ -157,8 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Sharing the same journey with others is part of the fate that we were born into; being together with loved ones is an important tradition for the Lunar New Year and crossing the Tunnel of Blessings is the best way to savour the memories for the new year to come. The Tunnel of Blessings, a concept first introduced by Taiwanese-Canadian artist Lady Hao Hao and designed by Taiwanese artist Yen-Chun Lu, returns at the Vancouver International Airport, wishing all families and
-                        friends safe travels in the Year of the Rat." />
+                        android:text="Sharing the same journey with others is part of the fate that we were born into; being together with loved ones is an important tradition for the Lunar New Year and crossing the Tunnel of Blessings is the best way to savour the memories for the new year to come. The Tunnel of Blessings, a concept first introduced by Taiwanese-Canadian artist Lady Hao Hao and designed by Taiwanese artist Yen-Chun Lu, returns at the Vancouver International Airport, wishing all families and friends safe travels in the Year of the Rat." />
 
                 </LinearLayout>
 
