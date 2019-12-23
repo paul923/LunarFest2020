@@ -6,9 +6,17 @@
     tools:context=".Map">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/menu_map" />-->
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/googleMap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/menu_map" />
+        android:apiKey="AIzaSyA4xkaOBNHCJ2gSRI2kjtWsmRyQb02RVOA"
+        android:clickable="true"
+        android:enabled="true" />
 
 </FrameLayout>

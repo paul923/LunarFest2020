@@ -19,7 +19,7 @@ public class EventSub2 extends Fragment {
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 6;
+    private int numimg = 10;
 
 
     public EventSub2() {
@@ -30,7 +30,7 @@ public class EventSub2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.activity_event_sub1, container, false);
+        view = inflater.inflate(R.layout.activity_event_sub2, container, false);
         onClickMap();
         // Inflate the layout for this fragment
 
@@ -43,7 +43,7 @@ public class EventSub2 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        imageView = (ImageView) getView().findViewById(R.id.eventPicture1);
+        imageView = (ImageView) getView().findViewById(R.id.eventPicture2);
 
         imageView.setOnClickListener(new  View.OnClickListener() {
             @Override
@@ -74,7 +74,24 @@ public class EventSub2 extends Fragment {
                     case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak6));
                         break;
 
-                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
+
+                    case 6:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag3));
+                        break;
+
+                    case 7:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag4));
+                        break;
+
+                    case 8:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag5));
+                        break;
+
+                    case 9:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag6));
+                        break;
+
+
+                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak1));
+
+               
+
                 }
             }
         });

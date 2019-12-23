@@ -24,8 +24,8 @@ import java.util.ArrayList;
 
 public class Map extends Fragment implements OnMapReadyCallback {
 
-    private FragmentManager fragmentManager;
-    private FragmentTransaction transaction;
+//    private FragmentManager fragmentManager;
+//    private FragmentTransaction transaction;
     //private Fragment mapFragment;
     private MapView mapView;
     private ArrayList<LatLng> locations = new ArrayList<>();
@@ -34,17 +34,17 @@ public class Map extends Fragment implements OnMapReadyCallback {
         // Required empty public constructor
     }
 
-    public Map(FragmentManager fm, FragmentTransaction transaction){
-        this.fragmentManager = fm;
-        this.transaction = transaction;
-    }
+//    public Map(FragmentManager fm, FragmentTransaction transaction){
+//        this.fragmentManager = fm;
+//        this.transaction = transaction;
+//    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.activity_event_maps, container, false);
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
 //        mapFragment = fragmentManager.findFragmentById(R.id.googleMap);
 //        mapFragment.get(this);
 
@@ -62,7 +62,6 @@ public class Map extends Fragment implements OnMapReadyCallback {
         MarkerOptions eventMarker = new MarkerOptions();
 
         LatLng centerLocation = new LatLng(49.231730, -123.116663);
-
         locations.add(new LatLng(49.231740, -123.116673));
         locations.add(new LatLng(49.241750, -123.126683));
         locations.add(new LatLng(49.251760, -123.136693));

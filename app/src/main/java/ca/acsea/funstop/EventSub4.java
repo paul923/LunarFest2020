@@ -17,7 +17,7 @@ public class EventSub4 extends Fragment {
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 6;
+    private int numimg = 3;
 
 
     public EventSub4() {
@@ -28,7 +28,7 @@ public class EventSub4 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.activity_event_sub1, container, false);
+        view = inflater.inflate(R.layout.activity_event_sub4, container, false);
         onClickMap();
         // Inflate the layout for this fragment
 
@@ -41,7 +41,7 @@ public class EventSub4 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        imageView = (ImageView) getView().findViewById(R.id.eventPicture1);
+        imageView = (ImageView) getView().findViewById(R.id.eventPicture4);
 
         imageView.setOnClickListener(new  View.OnClickListener() {
             @Override
@@ -53,26 +53,19 @@ public class EventSub4 extends Fragment {
                 switch (state) {
 
                     case 0:
-                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak1));
+                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
                         break;
 
 
-                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak2));
+                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack2));
                         break;
 
-                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak3));
+                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack3));
                         break;
 
-                    case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak4));
-                        break;
 
-                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak5));
-                        break;
 
-                    case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak6));
-                        break;
-
-                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
+                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
                 }
             }
         });
