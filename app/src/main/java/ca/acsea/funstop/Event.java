@@ -30,21 +30,21 @@ public class Event extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        sub1 = new EventSub1();
+//        sub1 = new EventSub1();
         View view = inflater.inflate(R.layout.fragment_event, container, false);
 
         transaction = fragmentManager.beginTransaction();
 
-        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
-        imgTopLeft.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-//                ((MainActivity) getActivity()).replaceFragment(sub1);
-
-                //Add replacing fragment to backstack to allow back button
-                transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
-            }
-        });
+//        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
+//        imgTopLeft.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view) {
+////                ((MainActivity) getActivity()).replaceFragment(sub1);
+//
+//                //Add replacing fragment to backstack to allow back button
+//                transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
+//            }
+//        });
 
         // Inflate the layout for this fragment
         return view;

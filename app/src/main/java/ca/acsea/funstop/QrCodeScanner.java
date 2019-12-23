@@ -124,8 +124,6 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>(){
             @Override
             public void release() {
-                System.out.println("oncreate release()");
-                System.out.println("working in release method"+ref.child("users").child(currentUser.getUid()));
             }
             @Override
             public void receiveDetections(Detector.Detections < Barcode > detections) {
@@ -143,12 +141,9 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                                 return;
                             }
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-//                            System.out.println("working in receiveDetections method"+ref.child("users").child(currentUser.getUid()).child("qr").child(qrcodes.valueAt(0).displayValue));
                             String key=qrcodes.valueAt(0).displayValue;
-                            System.out.println("string key from Qr code"+key);
                             boolean s=true;
                             if(list.get(key).toString().equals("false")) {
-                                System.out.println("inside equal method");
                                 ref.child("users").child(currentUser.getUid()).child("QR").child(qrcodes.valueAt(0).displayValue).setValue(s);
                                 if(qrcodes.valueAt(0).displayValue.equals("ladyHao")) {
                                     addPoints(40);
@@ -159,9 +154,14 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                             }else {
                                 Toast.makeText(QrCodeScanner.this, "You Already Did it!", Toast.LENGTH_SHORT).show();
                                 QrCodeScanner.super.onBackPressed();
+
+                                //        btnStart.setOnClickListener(new View.OnClickListener() {
+                                //            public void onClick(View v) {
+                                //                ((MainActivity)getActivity()).replaceFragment(new FunStopSub(fragmentManager, user, ref));
+                                //            }
+                                //        });
                                 return;
                             }
-                            System.out.println("how many times "+num);
                             QrCodeScanner.super.onBackPressed();
                         }
                     });
@@ -175,23 +175,19 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
     }
 
     public long getPoint(){
-        System.out.println("get Point start");
         ref.child("users").child(currentUser.getUid()).child("point").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 point = (long) dataSnapshot.getValue();
-                System.out.println("getPoint point read from database");
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("point reading failed");
             }
         });
         return point;
     }
     public void getResult() {
-        System.out.println("get result start!");
         ref.child("users").child(currentUser.getUid()).child("QR").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
