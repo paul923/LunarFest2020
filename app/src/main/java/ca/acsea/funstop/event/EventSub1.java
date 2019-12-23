@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import ca.acsea.funstop.R;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import ca.acsea.funstop.R;
 
 public class EventSub1 extends Fragment {
 
@@ -18,7 +22,7 @@ public class EventSub1 extends Fragment {
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 2;
+    private int numimg = 10;
 
 
     public EventSub1() {
@@ -61,6 +65,28 @@ public class EventSub1 extends Fragment {
 
                     case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
                         break;
+
+                 case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag3));
+                    break;
+
+                 case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag4));
+                     break;
+
+                 case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag5));
+                     break;
+
+                 case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag6));
+                     break;
+
+                 case 6:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag7));
+                     break;
+
+                 case 7:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag8));
+                     break;
+
+                 case 8:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag9));
+                     break;
+
 
                     default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
                 }

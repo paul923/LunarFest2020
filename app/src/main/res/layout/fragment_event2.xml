@@ -58,13 +58,14 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/event" />
+                        app:srcCompat="@drawable/iclac" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="This is an event asdkfj qew glkawe !"
+                        android:text="2020 LunarFest (Living Arts Centre)"
+                        android:textSize="20dp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
 
@@ -80,13 +81,14 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/event" />
+                        app:srcCompat="@drawable/icvvag" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="This is an event asdkfj qew glkawe !"
+                        android:text="2020 LunarFest (Varley Art Gallery)"
+                        android:textSize="20dp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
 

@@ -67,7 +67,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dec25~Jan15"
+                        android:text="Jan 25 ~ Jan 26"
 
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -91,7 +91,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vancouver Art Gallary"
+                        android:text="Vancouver Art Gallary Plaza"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -137,7 +137,7 @@
                        android:layout_height="wrap_content"
                        android:textSize="25dp"
                        android:textColor="@color/textColorBlack"
-                       android:text="LUNARFEST CELEBRATIONS"
+                       android:text="LunarFest Celebrations"
                        android:gravity="center"/>
                 </LinearLayout>
 

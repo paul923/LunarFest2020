@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:textColor="@color/textColorBlack"
-                        android:text="YVR"
+                        android:text="The Tunnel of Blessings"
                         android:gravity="center"/>
                 </LinearLayout>
 
