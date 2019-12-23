@@ -22,6 +22,8 @@ public class FunStop extends Fragment {
     Button btnStart;
     FragmentManager fragmentManager;
     FragmentTransaction transaction2;
+    DatabaseReference ref;
+    FirebaseUser user;
     FunStopSub funstopSub;
 
     public FunStop() {
@@ -29,15 +31,29 @@ public class FunStop extends Fragment {
     }
     public FunStop(FragmentManager fm, FirebaseUser user, DatabaseReference ref) {
         fragmentManager=fm;
-        funstopSub=new FunStopSub(fm, user, ref);
-        System.out.println("funstop constructor");
+        this.user=user;
+        this.ref=ref;
+
+
+//        System.out.println("funstop constructor");
     }
 
+    public void init() {
+        Runnable r=new Runnable() {
+            @Override
+            public void run() {
+                funstopSub=new FunStopSub(fragmentManager, user, ref);
+            }
+        };
+        Thread thread=new Thread(r);
+        thread.start();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        init();
         View view=inflater.inflate(R.layout.fragment_fun_stop, container, false);
         transaction2=fragmentManager.beginTransaction();
 
@@ -47,6 +63,11 @@ public class FunStop extends Fragment {
                 transaction2.replace(R.id.frameLayout, funstopSub).addToBackStack("tag2").commit();
             }
         });
+//        btnStart.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                ((MainActivity)getActivity()).replaceFragment(new FunStopSub(fragmentManager, user, ref));
+//            }
+//        });
 
         // Inflate the layout for this fragment
         return view;

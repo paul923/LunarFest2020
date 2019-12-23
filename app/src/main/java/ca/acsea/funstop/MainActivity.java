@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     private About about;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
+    private FunStopSub funStopSub;
     TextView userName;
     FirebaseUser currentUser;
 
@@ -60,19 +61,17 @@ public class MainActivity extends AppCompatActivity
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
 
-
-
-
         //Return the FragmentManager for interacting with fragments associated with this activity.
         fragmentManager = getSupportFragmentManager();
 
         // Initialize page objects
         event = new Event(fragmentManager);
-        map = new Map();
-        quiz = new QuizStart(fragmentManager, currentUser, ref);
-        myPoint = new MyPoint(currentUser);
+//        map = new Map();
+//        quiz = new QuizStart(fragmentManager, currentUser, ref);
+//        myPoint = new MyPoint(currentUser);
         funStop = new FunStop(fragmentManager, currentUser, ref);
-        about = new About();
+//        funStopSub=new FunStopSub(fragmentManager, currentUser, ref);
+//        about = new About();
 
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
