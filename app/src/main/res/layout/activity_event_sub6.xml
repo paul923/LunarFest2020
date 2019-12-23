@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".event.EventSub2"
+    tools:context=".EventSub6"
 
-    android:id="@+id/eventsub2">
+    android:id="@+id/eventsub6">
 
     //Title layout
 <!--    <FrameLayout-->
@@ -63,7 +63,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dec25~Jan15"
+                        android:text="Feb 1, 2020, 1PM~6PM"
 
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Oakridge Center"
+                        android:text="Living Arts Center, 4141 Living Arts Dr, Mississauga, ON L5B 4B8"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="25dp"
                         android:textColor="@color/textColorBlack"
-                        android:text="LUNARFEST VISUAL ARTS"
+                        android:text="2020 LunarFest"
                         android:gravity="center"/>
                 </LinearLayout>
 
@@ -161,78 +161,29 @@
                     android:orientation="vertical"
                     android:layout_margin="20dp">
 
+                    <TextView
+                        android:id="@+id/eventDescription0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="Celebrate the Year of the Rat like no other! Take part in the captivating and joyous performance “A Musical Banquet” by Chai Found Music Workshop as they combine traditional instrumentals with thrilling percussion using everyday household items! Join the cute rats in “Kitchen Runners” as they race around the diverse food cultures of the world in their teacup cars. Express creativity with arts and craft activities, and make your own lantern to take home!" />
+
 
                     <TextView
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
                         android:textStyle="bold"
-                        android:text="General"/>
+                        android:text="“A Musical Banquet” by Chai Found Music Workshop/ Time: Feb 1st  7:30 PM
+"/>
                     <TextView
                         android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Inspired by Redefining Oakridge and its incredible transformation that challenges the concept of a city, “The Castles and The Lifestyles” exhibits four artistic representations of the Chinese, Taiwanese, Korean, and Vietnamese cultures that form composite imagery of grand castles and are representative of the diverse lifestyles in Canada."/>
-                    <TextView
-                        android:id="@+id/eventDescription2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="Chinese"/>
-                    <TextView
-                        android:id="@+id/eventDescription22"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all.
-"/>
+                        android:text="One of the most important Lunar New Year celebrations is having a grand feast with your friends and family. In Taiwan, street banquets are known for being sumptuous and delicious. World-renowned Chai Found Music Workshop brings their chamber-music interpretation to Canada for the first time. Celebrate the Lunar New Year like no other with “A Musical Banquet: A Feast of Sumptuous Classical Music.”"/>
 
-                    <TextView
-                        android:id="@+id/eventDescription3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="Taiwanese"/>
-                    <TextView
-                        android:id="@+id/eventDescription33"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Nothing brings family together the way Lunar New Year does - with delicious food and red envelopes!
-                        There is symbolism in every item on the dinner table - from the colour of the cloth, to the fish that’s present every year. Every member of the family, young and old, comes together for this special occasion that comes around once a year. "/>
-
-                    <TextView
-                        android:id="@+id/eventDescription4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="Korean"/>
-                    <TextView
-                        android:id="@+id/eventDescription44"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”.
-"/>
-
-                    <TextView
-                        android:id="@+id/eventDescription5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="Vietnamese"/>
-                    <TextView
-                        android:id="@+id/eventDescription55"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Decorating the house in red and yellow, lucky colours in Vietnamese culture, families prepare for Tết several days in advance. Houses are cleaned, and hair is cut in a symbolic renewal, to welcome another prosperous year to come. "/>
 
                 </LinearLayout>
                 </ScrollView>

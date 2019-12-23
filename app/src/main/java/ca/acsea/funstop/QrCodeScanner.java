@@ -44,6 +44,7 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
 
     public QrCodeScanner() {
     }
+
     public QrCodeScanner(FirebaseUser user, DatabaseReference ref) {
 
         this.currentUser=user;

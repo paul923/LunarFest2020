@@ -1,14 +1,29 @@
-package ca.acsea.funstop;
+package ca.acsea.funstop.event;
 
+<<<<<<< HEAD:app/src/main/java/ca/acsea/funstop/event/Event.java
+import android.app.ActionBar;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+=======
+import android.os.Bundle;
+>>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05:app/src/main/java/ca/acsea/funstop/Event.java
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+<<<<<<< HEAD:app/src/main/java/ca/acsea/funstop/event/Event.java
+import ca.acsea.funstop.R;
+=======
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+>>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05:app/src/main/java/ca/acsea/funstop/Event.java
 
 
 public class Event extends Fragment {
@@ -30,7 +45,12 @@ public class Event extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+<<<<<<< HEAD:app/src/main/java/ca/acsea/funstop/Event.java
 //        sub1 = new EventSub1();
+=======
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event");
+        sub1 = new EventSub1();
+>>>>>>> 6dca986f6a0a78786adcea6f96f5c9ce73308c36:app/src/main/java/ca/acsea/funstop/event/Event.java
         View view = inflater.inflate(R.layout.fragment_event, container, false);
 
         transaction = fragmentManager.beginTransaction();
