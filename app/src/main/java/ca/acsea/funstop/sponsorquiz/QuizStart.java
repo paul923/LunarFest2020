@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -26,6 +27,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import ca.acsea.funstop.R;
 
@@ -38,6 +40,7 @@ public class QuizStart extends Fragment {
     FirebaseUser currentUser;
     DatabaseReference ref;
     long cutoff;
+    private int index;
 
 
     public QuizStart(){
@@ -54,6 +57,11 @@ public class QuizStart extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        //Changes the actionbar's Title
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz: How to play");
+
+        getIndex();
         view = inflater.inflate(R.layout.fragment_quiz_start, container, false);
         transaction = fragmentManager.beginTransaction();
         startButton = view.findViewById(R.id.quiz_start_button);
@@ -66,11 +74,16 @@ public class QuizStart extends Fragment {
                 getCutoff();
                 long currentTime = new Date().getTime();
                 //TODO: change 0 back to cutoff
-                if(currentTime > 0) {
+                if(currentTime > cutoff) {
                     recordTime();
-                    transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,currentUser, ref)).commit();
+                    transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,currentUser, ref, index)).commit();
                 }else {
-                    Toast.makeText(getContext(), "Try again tmrw", Toast.LENGTH_SHORT).show();
+                    long timeLeft = cutoff - new Date().getTime();
+                    String message = String.format("Try again in %d hr %d min %d sec",
+                            TimeUnit.MILLISECONDS.toHours(timeLeft),
+                            TimeUnit.MILLISECONDS.toMinutes(timeLeft),
+                            TimeUnit.MILLISECONDS.toSeconds(timeLeft));
+                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -83,11 +96,12 @@ public class QuizStart extends Fragment {
         Date nextdate = new Date();
         Calendar c = Calendar.getInstance();
         c.setTime(nextdate);
-        c.add(Calendar.DATE, 1);
-        c.set(Calendar.HOUR_OF_DAY,0);
-        c.set(Calendar.MINUTE,0);
-        c.set(Calendar.SECOND,0);
-        c.set(Calendar.MILLISECOND,0);
+        //c.add(Calendar.DATE, 1);
+        c.add(Calendar.MINUTE, 1);
+//        c.set(Calendar.HOUR_OF_DAY,0);
+//        c.set(Calendar.MINUTE,0);
+//        c.set(Calendar.SECOND,0);
+//        c.set(Calendar.MILLISECOND,0);
         nextdate = c.getTime();
 
         long nextdateTime = nextdate.getTime();
@@ -102,14 +116,30 @@ public class QuizStart extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot != null){
                     cutoff = (long) dataSnapshot.getValue();
+                } else {
+                    cutoff = 0;
                 }
             }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    System.out.println("on cancelled");
-                }
-            });
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("on cancelled");
+            }
+        });
+    }
+    public void getIndex(){
+        ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.getValue() != null)
+                    index = Long.valueOf((long)dataSnapshot.getValue()).intValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                System.out.println("on cancelled");
+            }
+        });
     }
 
 }

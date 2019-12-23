@@ -5,13 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    tools:context=".EventSub6"
 
-    tools:context=".event.EventSub1">
-<!--=======-->
-<!--    tools:context=".EventSub1"-->
-
-<!--&gt;>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05-->
-<!--    android:id="@+id/eventsub1">-->
+    android:id="@+id/eventsub6">
 
     //Title layout
 <!--    <FrameLayout-->
@@ -67,7 +63,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dec25~Jan15"
+                        android:text="Feb 1, 2020, 1PM~6PM"
 
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -91,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vancouver Art Gallary"
+                        android:text="Living Arts Center, 4141 Living Arts Dr, Mississauga, ON L5B 4B8"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -109,11 +105,11 @@
 
 
                     <ImageView
-                        android:id="@+id/eventPicture1"
+                        android:id="@+id/eventPicture6"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:gravity="center"
-                        app:srcCompat="@drawable/vag1"
+                        app:srcCompat="@drawable/oak1"
                         >
                     </ImageView>
                 </LinearLayout>
@@ -131,41 +127,66 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-                   <TextView
-                       android:id="@+id/eventTitle1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textSize="25dp"
-                       android:textColor="@color/textColorBlack"
-                       android:text="LUNARFEST CELEBRATIONS"
-                       android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/eventTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textColor="@color/textColorBlack"
+                        android:text="2020 LunarFest"
+                        android:gravity="center"/>
                 </LinearLayout>
 
-                //Linear layout for event description
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="20dp">
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="30dp"
+                    android:text="About" />
+            </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
                     android:layout_margin="20dp">
 
                     <TextView
+                        android:id="@+id/eventDescription0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="30dp"
-                        android:text="About" />
+                        android:textSize="15dp"
+                        android:text="Celebrate the Year of the Rat like no other! Take part in the captivating and joyous performance “A Musical Banquet” by Chai Found Music Workshop as they combine traditional instrumentals with thrilling percussion using everyday household items! Join the cute rats in “Kitchen Runners” as they race around the diverse food cultures of the world in their teacup cars. Express creativity with arts and craft activities, and make your own lantern to take home!" />
+
+
                     <TextView
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="ACSEA’s signature events are spread
-                        throughout the year: the end of winter LunarFest,
-                        end of summer TAIWANfest and IPACI, and finally a
-                        brand new event in partnership with Canadian Heritage
-                        and Canada 150, We Are Canadians, Too!" />
+                        android:textStyle="bold"
+                        android:text="“A Musical Banquet” by Chai Found Music Workshop/ Time: Feb 1st  7:30 PM
+"/>
+                    <TextView
+                        android:id="@+id/eventDescription11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:text="One of the most important Lunar New Year celebrations is having a grand feast with your friends and family. In Taiwan, street banquets are known for being sumptuous and delicious. World-renowned Chai Found Music Workshop brings their chamber-music interpretation to Canada for the first time. Celebrate the Lunar New Year like no other with “A Musical Banquet: A Feast of Sumptuous Classical Music.”"/>
+
 
                 </LinearLayout>
+                </ScrollView>
 
 
                 //Linear layout for event map

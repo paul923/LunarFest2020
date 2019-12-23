@@ -56,9 +56,10 @@
 
         <TextView
             android:id="@+id/questionBox"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Question Box"
+            android:text="How many months are in the Lunar Calendar?"
             android:textSize="15pt"
             android:gravity="center"/>
 
@@ -86,6 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:text="a. 12 or 13"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,6 +97,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:text="b. 10"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonA" />
 
@@ -102,6 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
+                android:text="c. 11"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonB" />
 
@@ -110,6 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
+                android:text="d. 6"
+                android:textSize="16dp"
                 android:background="@drawable/button_round"
                 app:layout_constraintTop_toBottomOf="@id/buttonC" />
 
