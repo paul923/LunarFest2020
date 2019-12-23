@@ -158,12 +158,16 @@ public class Login extends AppCompatActivity {
 
     public void createUser(final String email, final String password){
         // create user with email and password
+        final User user = new User(email);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 System.out.println("createUser method starts");
                 if(task.isSuccessful()){
                     System.out.println("create user / task is successful");
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    FirebaseUser mUser = mAuth.getCurrentUser();
+                    ref.child("users").child(mUser.getUid()).setValue(user);
                    /* new AlertDialog.Builder(Login.this).setTitle("Create New Account")
                             .setMessage("There is no such account. Do you want to create new account with the input id and password?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -200,7 +204,7 @@ public class Login extends AppCompatActivity {
                     // update user email in database
                     System.out.println("sign-in task is successful");
                     DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
-                    InitValues();
+                    //InitValues();
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
 
@@ -257,9 +261,9 @@ public class Login extends AppCompatActivity {
         if(account != null || currentUser!= null){
 
             // move to next activity
-            Intent i = new Intent(Login.this, MainActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
+//            Intent i = new Intent(Login.this, MainActivity.class);
+//            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(i);
 
         }else{
             Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_LONG).show();
