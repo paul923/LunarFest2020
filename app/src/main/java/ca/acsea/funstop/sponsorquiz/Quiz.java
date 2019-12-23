@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -38,7 +39,7 @@ public class Quiz extends Fragment {
     private View view;
     private TextView questionBox;
     private Button buttonA, buttonB, buttonC, buttonD;
-    private int index = 0;
+    private int index;
     private DatabaseReference ref;
     private FirebaseUser currentUser;
     private long point;
@@ -47,15 +48,19 @@ public class Quiz extends Fragment {
         // Required empty public constructor
     }
 
-    public Quiz(FragmentManager fm, FirebaseUser user, DatabaseReference ref){
+    public Quiz(FragmentManager fm, FirebaseUser user, DatabaseReference ref, int i){
         this.fragmentManager = fm;
         this.currentUser = user;
         this.ref = ref;
+        this.index = i;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //Changes the actionbar's Title
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
         getPoint();
 
@@ -110,6 +115,12 @@ public class Quiz extends Fragment {
     public void addPoints(int value){
         point += value;
         ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
+        //Question number decision
+        ++index;
+        if(index < qList.size() - 1)
+            ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").setValue(++index);
+        else
+            index = 0;
     }
 
     /**
@@ -186,6 +197,7 @@ public class Quiz extends Fragment {
             }
         });
     }
+
 
 
 
