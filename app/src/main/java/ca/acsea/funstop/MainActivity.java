@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity
     TextView userEmail;
     FirebaseUser currentUser;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
