@@ -19,7 +19,7 @@ public class EventSub2 extends Fragment {
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 6;
+    private int numimg = 10;
 
 
     public EventSub2() {
@@ -73,6 +73,19 @@ public class EventSub2 extends Fragment {
 
                     case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak6));
                         break;
+
+                    case 6:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag3));
+                        break;
+
+                    case 7:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag4));
+                        break;
+
+                    case 8:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag5));
+                        break;
+
+                    case 9:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag6));
+                        break;
+
 
                     default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak1));
                 }

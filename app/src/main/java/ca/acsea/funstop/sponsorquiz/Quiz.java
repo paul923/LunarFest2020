@@ -152,27 +152,80 @@ public class Quiz extends Fragment {
     }
 
     public ArrayList<Question> createQuestions(){
-        String question1 = "What is this question 1?";
-        List<String> answer1 = Arrays.asList("option1", "option2", "answer", "option4");
+        String question1 = "Which day is the Lunar New Year day in 2020?";
+        List<String> answer1 = Arrays.asList("January 25 th", "January 24 th", "January 27 th", "January 1 st");
 
-        String question2 = "What is this question 2. pick answer?";
-        List<String> answer2 = Arrays.asList("option1", "option2", "answer", "option4");
+        String question2 = "Which animal is not used as a zodiac animal for Lunar New Year?";
+        List<String> answer2 = Arrays.asList("Rat", "Rabbit", "Dragon", "Lion");
 
-        String question3 = "What is this question 3?";
-        List<String> answer3 = Arrays.asList("answer", "option2", "option3", "option4");
+        String question3 = "How many years are in one cycle of the Lunar New Year?";
+        List<String> answer3 = Arrays.asList("10", "50", "12", "100");
 
-        String question4 = "What is this question 4?";
-        List<String> answer4 = Arrays.asList("option1", "answer", "option3", "option4");
+        String question4 = "What determines the start of the Lunar New Year?";
+        List<String> answer4 = Arrays.asList("The new moon on the first day of the new year", "The first day of the year in the Gregorian Calendar", "Exactly 20 days after the first day of the year in the Gregorian Calendar", "It is determined randomly");
 
-        String question5 = "What is this question 5?";
-        List<String> answer5 = Arrays.asList("option1", "answer", "option3", "option4");
+        String question5 = "What was the zodiac animal sign for most of 2019?";
+        List<String> answer5 = Arrays.asList("Rat", "Dog", "Pig", "Monkey");
+
+        String question6 = "What is the zodiac animal sign for most of 2020??";
+        List<String> answer6 = Arrays.asList("Dog", "Pig", "Monkey", "Rat");
+
+        String question7 = "When was Lunar New Year in 2019?";
+        List<String> answer7 = Arrays.asList("February 6th", "January 1st", "January 25th", "February 5th");
+
+        String question8 = "How many zodiac animals does the Lunar New Year use?";
+        List<String> answer8 = Arrays.asList("12", "11", "6", "13");
+
+        String question9 = "What is Lunar New Year called in Korea?";
+        List<String> answer9 = Arrays.asList("Tết", "Seollal", "Tsagaan Sar", "Spring Festival");
+
+        String question10 = "What is Lunar New Year called in Vietnam?";
+        List<String> answer10 = Arrays.asList("Tết", "Seollal", "Tsagaan Sar", "Spring Festival");
+
+        String question11 = "What is Lunar New Year called in Mongolia?";
+        List<String> answer11 = Arrays.asList("Tết", "Seollal", "Tsagaan Sar", "Spring Festival");
+
+        String question12 = "Which calendar does the Lunar New Year follow?";
+        List<String> answer12 = Arrays.asList("The Lunar Calendar", "The Gregorian Calendar", "The Vancouver Calendar", "The Toronto Calendar");
+
+        String question13 = "How many months are in the Lunar Calendar?";
+        List<String> answer13 = Arrays.asList("12 or 13", "10", "11", "6");
+
+        String question14 = "Which day of the Lunar Calendar is Lunar New Year Celebrated?";
+        List<String> answer14 = Arrays.asList("Last day of the year", "First day of the year", "Second day of the year", "15 th day of the year");
+
+        String question15 = "What is the one event you should attend to celebrate Lunar New Year in Vancouver?";
+        List<String> answer15 = Arrays.asList("LunarFest", "I am not sure", "I don’t know", "None");
+
+        String question16 = "Which western holiday did Lunar New Year land on in the year 2010?";
+        List<String> answer16 = Arrays.asList("Valentine’s Day", "New Year’s Day", "Christmas Day", "Family Day");
+
+        String question17 = "What are the dates of the Lunar New Year celebration at Vancouver Art Gallery Plaza?";
+        List<String> answer17 = Arrays.asList("January 18th ~ January 19th", "January 25th ~ January 26th", "January 16th ~ February 10th", "February 17th ~ February 18th");
+
+        String question18 = "Which company does this logo belong to?";
+        List<String> answer18 = Arrays.asList("option1", "answer", "option3", "option4");
 
 
-        Question mQuestion1 = new Question(question1, answer1.get(2), answer1);
-        Question mQuestion2 = new Question(question2, answer2.get(2), answer2);
-        Question mQuestion3 = new Question(question3, answer3.get(0), answer3);
-        Question mQuestion4 = new Question(question4, answer4.get(1), answer4);
-        Question mQuestion5 = new Question(question5, answer5.get(1), answer5);
+
+        Question mQuestion1 = new Question(question1, answer1.get(0), answer1);
+        Question mQuestion2 = new Question(question2, answer2.get(3), answer2);
+        Question mQuestion3 = new Question(question3, answer3.get(2), answer3);
+        Question mQuestion4 = new Question(question4, answer4.get(0), answer4);
+        Question mQuestion5 = new Question(question5, answer5.get(2), answer5);
+        Question mQuestion6 = new Question(question6, answer6.get(3), answer6);
+        Question mQuestion7 = new Question(question7, answer7.get(3), answer7);
+        Question mQuestion8 = new Question(question8, answer8.get(0), answer8);
+        Question mQuestion9 = new Question(question9, answer9.get(1), answer9);
+        Question mQuestion10 = new Question(question10, answer10.get(0), answer10);
+        Question mQuestion11 = new Question(question11, answer11.get(2), answer11);
+        Question mQuestion12 = new Question(question12, answer12.get(0), answer12);
+        Question mQuestion13 = new Question(question13, answer13.get(0), answer13);
+        Question mQuestion14 = new Question(question14, answer14.get(1), answer14);
+        Question mQuestion15 = new Question(question15, answer15.get(0), answer15);
+        Question mQuestion16 = new Question(question16, answer16.get(0), answer16);
+        Question mQuestion17 = new Question(question17, answer17.get(1), answer17);
+        Question mQuestion18 = new Question(question18, answer18.get(1), answer18);
 
         ArrayList<Question> list = new ArrayList<>();
         list.add(mQuestion1);
