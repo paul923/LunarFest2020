@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import ca.acsea.funstop.R;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -56,13 +58,13 @@ public class EventSub1 extends Fragment {
 
                 switch (state) {
 
-                 case 0:
-                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
-                    break;
+                    case 0:
+                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
+                        break;
 
 
-                 case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
-                    break;
+                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
+                        break;
 
                  case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag3));
                     break;

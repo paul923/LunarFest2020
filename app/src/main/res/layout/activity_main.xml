@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     tools:context=".MainActivity"
-    android:theme="@android:style/Theme.Black.NoTitleBar"  
+    android:theme="@android:style/Theme.Black.NoTitleBar"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 

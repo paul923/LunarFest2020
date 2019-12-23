@@ -7,17 +7,20 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECIEVE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity"></activity>
-        <activity android:name=".EventMaps" />
+        <activity android:name=".MyPoint"/>
+        <activity android:name=".FunStopSub"/>
+        <activity android:name=".FunStop"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5b15d995a1c4a0af7c7f30893e0d6e955efea72e
         <activity
             android:name=".QrCodeScanner"
             android:label="@string/title_activity_qr_code_sacnner"
