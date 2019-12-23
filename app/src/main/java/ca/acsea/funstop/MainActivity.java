@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity
 
         // Initialize page objects
         event = new Event(fragmentManager);
-//        map = new Map();
-//        quiz = new QuizStart(fragmentManager, currentUser, ref);
-//        myPoint = new MyPoint(currentUser);
+        map = new Map();
+        quiz = new QuizStart(fragmentManager, currentUser, ref);
+        myPoint = new MyPoint(currentUser);
         funStop = new FunStop(fragmentManager, currentUser, ref);
 //        funStopSub=new FunStopSub(fragmentManager, currentUser, ref);
-//        about = new About();
+        about = new About();
 
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();

@@ -263,8 +263,8 @@ public class FunStopSub extends Fragment implements Serializable {
                 checkbox.put("protector1", (CheckBox)view.findViewById(R.id.protector1));
                 checkbox.put("protector2", (CheckBox)view.findViewById(R.id.protector2));
                 checkbox.put("ladyHao", (CheckBox)view.findViewById(R.id.ladyHao));
-//                System.out.println("result"+checkbox.get("station1"));
-//                System.out.println("result2"+checkbox.get("station2").toString());
+                System.out.println("result"+checkbox.get("station1"));
+                System.out.println("result2"+checkbox.get("station2").toString());
 
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     map.put(snapshot.getKey(), snapshot.getValue().toString());
