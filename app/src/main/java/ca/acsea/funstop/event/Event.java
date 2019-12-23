@@ -19,6 +19,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+<<<<<<< HEAD
+=======
+import ca.acsea.funstop.EventSub3;
+import ca.acsea.funstop.EventSub4;
+import ca.acsea.funstop.EventSub5;
+>>>>>>> c95954e1bdc461f8e1cbf00ef44770805f56847f
 import ca.acsea.funstop.R;
 
 import androidx.fragment.app.Fragment;
@@ -28,10 +34,19 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class Event extends Fragment {
 
-    ImageView imgTopLeft, mapImg;
+    ImageView event1;
+    ImageView event2;
+    ImageView event3;
+    ImageView event4;
+    ImageView event5;
+
     FragmentManager fragmentManager;
     FragmentTransaction transaction;
     EventSub1 sub1;
+    EventSub2 sub2;
+    EventSub3 sub3;
+    EventSub4 sub4;
+    EventSub5 sub5;
     public Event() {
         // Required empty public constructor
     }
@@ -47,18 +62,68 @@ public class Event extends Fragment {
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event");
         sub1 = new EventSub1();
+        sub2 = new EventSub2();
+        sub3 = new EventSub3();
+        sub4 = new EventSub4();
+        sub5 = new EventSub5();
+
+
         View view = inflater.inflate(R.layout.fragment_event, container, false);
 
         transaction = fragmentManager.beginTransaction();
 
-        imgTopLeft=(ImageView) view.findViewById(R.id.event1inList);
-        imgTopLeft.setOnClickListener(new View.OnClickListener(){
+        event1=(ImageView) view.findViewById(R.id.event1inList);
+        event1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
 //                ((MainActivity) getActivity()).replaceFragment(sub1);
 
                 //Add replacing fragment to backstack to allow back button
                 transaction.replace(R.id.frameLayout, sub1).addToBackStack("tag").commit();
+            }
+        });
+
+        event2=(ImageView) view.findViewById(R.id.event2inList);
+        event2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub2).addToBackStack("tag").commit();
+            }
+        });
+
+        event3=(ImageView) view.findViewById(R.id.event3inList);
+        event3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub3).addToBackStack("tag").commit();
+            }
+        });
+
+        event4=(ImageView) view.findViewById(R.id.event4inList);
+        event4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub4).addToBackStack("tag").commit();
+            }
+        });
+
+        event5=(ImageView) view.findViewById(R.id.event5inList);
+        event5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+//                ((MainActivity) getActivity()).replaceFragment(sub1);
+
+                //Add replacing fragment to backstack to allow back button
+                transaction.replace(R.id.frameLayout, sub5).addToBackStack("tag").commit();
             }
         });
 

@@ -7,32 +7,28 @@
     android:orientation="vertical"
 
     tools:context=".event.EventSub1">
-<!--=======-->
-<!--    tools:context=".EventSub1"-->
-
-<!--&gt;>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05-->
-<!--    android:id="@+id/eventsub1">-->
+    <!--    android:id="@+id/eventsub1">-->
 
     //Title layout
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorMain"-->
-<!--        android:layout_gravity="bottom">-->
+    <!--    <FrameLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/colorMain"-->
+    <!--        android:layout_gravity="bottom">-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:gravity="right|bottom"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:text="LunarFest 2020"-->
-<!--            android:textColor="@color/textColorWhite"-->
-<!--            android:textSize="25sp"-->
-<!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/textView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:gravity="right|bottom"-->
+    <!--            android:layout_marginBottom="15dp"-->
+    <!--            android:layout_marginRight="15dp"-->
+    <!--            android:text="LunarFest 2020"-->
+    <!--            android:textColor="@color/textColorWhite"-->
+    <!--            android:textSize="25sp"-->
+    <!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
 
-<!--    </FrameLayout>-->
+    <!--    </FrameLayout>-->
     //Content layout
     <FrameLayout
         android:layout_width="match_parent"
@@ -67,7 +63,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dec25~Jan15"
+                        android:text="Jan 25 ~ Jan 26"
 
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -91,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Vancouver Art Gallary"
+                        android:text="Vancouver Art Gallary Plaza"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp" >
@@ -131,14 +127,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-                   <TextView
-                       android:id="@+id/eventTitle1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textSize="25dp"
-                       android:textColor="@color/textColorBlack"
-                       android:text="LUNARFEST CELEBRATIONS"
-                       android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/eventTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textColor="@color/textColorBlack"
+                        android:text="LunarFest Celebrations"
+                        android:gravity="center"/>
                 </LinearLayout>
 
                 //Linear layout for event description
@@ -159,11 +155,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="ACSEA’s signature events are spread
-                        throughout the year: the end of winter LunarFest,
-                        end of summer TAIWANfest and IPACI, and finally a
-                        brand new event in partnership with Canadian Heritage
-                        and Canada 150, We Are Canadians, Too!" />
+                        android:text="ACSEA’s signature events are spread throughout the year: the end of winter LunarFest, end of summer TAIWANfest and IPACI, and finally a brand new event in partnership with Canadian Heritage and Canada 150, We Are Canadians, Too!" />
 
                 </LinearLayout>
 

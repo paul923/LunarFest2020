@@ -10,7 +10,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
+import androidx.core.view.GravityCompat;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -47,7 +52,9 @@ public class MainActivity extends AppCompatActivity
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
     private long cutoff;
+    ImageView userPicture;
     TextView userName;
+    TextView userEmail;
     FirebaseUser currentUser;
 
 
@@ -71,9 +78,6 @@ public class MainActivity extends AppCompatActivity
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         ref = FirebaseDatabase.getInstance().getReference();
-
-
-
 
         //Return the FragmentManager for interacting with fragments associated with this activity.
         fragmentManager = getSupportFragmentManager();
@@ -117,11 +121,19 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        userName = (TextView) findViewById(R.id.userEmail);
-
         if(currentUser != null){
-            userName.setText(currentUser.getEmail());
+            userEmail = findViewById(R.id.userEmail);
+            userEmail.setText(currentUser.getEmail());
+            if(currentUser.getDisplayName() != null) {
+                userName = findViewById(R.id.userName);
+                userName.setText(currentUser.getDisplayName());
+            }
+            if(currentUser.getPhotoUrl() != null) {
+                userPicture = findViewById(R.id.imageView);
+                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+            }
         }
+
     }
 
     /**
@@ -174,12 +186,11 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
-
-    }
-
+//    public void replaceFragment(Fragment fragment) {
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
+//
+//    }
 
 }

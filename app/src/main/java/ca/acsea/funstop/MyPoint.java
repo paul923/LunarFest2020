@@ -11,10 +11,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -33,17 +38,23 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 
-public class MyPoint extends AppCompatActivity{
+import ca.acsea.funstop.event.Event;
+import ca.acsea.funstop.sponsorquiz.QuizStart;
+public class MyPoint extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     public static final String pointKey = "points";
     public static final String sharePreKey = "prefs";
-    FirebaseUser user;
-    private DatabaseReference db;
+    FragmentTransaction transaction;
+    FragmentManager fragmentManager = getSupportFragmentManager();
+    //FirebaseUser user;
+    //private DatabaseReference db;
     EditText test;
     Button redeembtn;
     int points;
     boolean joinDraw;
     String qrValue= "";
     SharedPreferences sharedPreferences;
+
+
     public void onCreate(Bundle saveInstanceState){
         super.onCreate(saveInstanceState);
 
@@ -55,7 +66,20 @@ public class MyPoint extends AppCompatActivity{
         }
         // qrValue =  intent.getExtras().getString("qrValue");
         setContentView(R.layout.fragment_my_point);
-        db= FirebaseDatabase.getInstance().getReference();
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.bringToFront();
+
+
+
         test = findViewById(R.id.test);
         getPoints();
         checkQrValue();
@@ -77,6 +101,54 @@ public class MyPoint extends AppCompatActivity{
         savePoint();
     }
 
+
+
+
+
+
+    private void checkPoint(){
+        if(points >= 150 && !joinDraw){
+            new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
+                    .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
+                            "cost 150 points.")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            addToPool();
+                        }})
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // Cancel
+                        }})
+                    .show();
+        }
+    }
+
+
+    public void onBackPressed(){
+        Intent intent = new Intent(MyPoint.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
+
+    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
+
+    // Initialize page objects
+    Event event = new Event(fragmentManager);
+    Map map = new Map();
+    QuizStart quiz = new QuizStart(fragmentManager, user, db);
+    //myPoint = new MyPoint(currentUser);
+    //funStop = new FunStop(fragmentManager, currentUser, ref);
+    About about = new About();
+
+
+
+
+
     private void savePoint(){
         SharedPreferences.Editor prefEditor = this.getSharedPreferences(sharePreKey,0).edit();
         prefEditor.putInt(pointKey, points);
@@ -87,6 +159,7 @@ public class MyPoint extends AppCompatActivity{
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
     }
 
+
     private void getPoints(){
         SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
         points = pref.getInt(pointKey, points);
@@ -94,6 +167,7 @@ public class MyPoint extends AppCompatActivity{
         test.setText(String.valueOf(points));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
+
     public void checkQrValue(){
         getPoints();
         switch (qrValue){
@@ -144,27 +218,9 @@ public class MyPoint extends AppCompatActivity{
         }
         savePoint();
     }
-    private void checkPoint(){
-        if(points >= 150 && !joinDraw){
-            new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
-                    .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
-                            "cost 150 points.")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            addToPool();
-                        }})
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            // Cancel
-                        }})
-                    .show();
-        }
-    }
 
-    public void onBackPressed(){
-        Intent intent = new Intent(MyPoint.this, MainActivity.class);
-        startActivity(intent);
-    }
+
+
 
 
     private void addToPool(){
@@ -174,5 +230,42 @@ public class MyPoint extends AppCompatActivity{
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        transaction = fragmentManager.beginTransaction();
+        int id = item.getItemId();
 
+        if (id == R.id.nav_event) {
+//            transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_map) {
+
+            //intent
+            transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
+        } else if (id == R.id.nav_funstop) {
+            Intent intent = new Intent(this, FunStop.class);
+            startActivity(intent);
+
+            //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
+        } else if (id == R.id.nav_quiz) {
+            transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
+        } else if (id == R.id.nav_point) {
+            Intent intent = new Intent(this, MyPoint.class);
+            intent.putExtra("source", "navbar");
+            startActivity(intent);
+            //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
+        } else if (id == R.id.nav_about) {
+            transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+//    public void onBackPressed(){
+//        Intent intent = new Intent(FunStopSub.this, MainActivity.class);
+//        startActivity(intent);
+//    }
 }
