@@ -219,12 +219,17 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
     public void createUser(final String email, final String password){
         // create user with email and password
+        final User user = new User(email);
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 System.out.println("createUser method starts");
                 if(task.isSuccessful()){
                     System.out.println("create user / task is successful");
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    FirebaseUser mUser = mAuth.getCurrentUser();
+                    ref.child("users").child(mUser.getUid()).setValue(user);
+                   /* new AlertDialog.Builder(Login.this).setTitle("Create New Account")
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
                             .setMessage("There is no such account. Do you want to create new account with the input id and password?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -260,7 +265,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 if(task.isSuccessful()){
                     // update user email in database
                     System.out.println("sign-in task is successful");
-
+                    DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
+                    //InitValues();
                     Intent submit_intent = new Intent(Login.this, MainActivity.class);
                     startActivity(submit_intent);
 
