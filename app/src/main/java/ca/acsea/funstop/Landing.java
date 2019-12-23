@@ -19,7 +19,7 @@ public class Landing extends AppCompatActivity {
         setContentView(R.layout.activity_login1);
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser()!= null){
-            Intent intent = new Intent(Landing.this, Event.class);
+            Intent intent = new Intent(Landing.this, MainActivity.class);
             startActivity(intent);
         }else {
             btn_login = findViewById(R.id.login_button);

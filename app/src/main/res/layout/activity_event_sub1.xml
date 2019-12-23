@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".event.EventSub1"
-    android:id="@+id/eventsub1">
+    tools:context=".event.EventSub1">
+<!--=======-->
+<!--    tools:context=".EventSub1"-->
 
+<!--&gt;>>>>>> 2a04af3360584f6712e1a747498a54c7291bfb05-->
+<!--    android:id="@+id/eventsub1">-->
 
     //Title layout
 <!--    <FrameLayout-->
