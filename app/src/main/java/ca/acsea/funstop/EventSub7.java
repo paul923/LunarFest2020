@@ -11,16 +11,16 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
-public class EventSub1 extends Fragment {
+public class EventSub7 extends Fragment {
 
     View view;
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 2;
+    private int numimg = 6;
 
 
-    public EventSub1() {
+    public EventSub7() {
     }
 
 
@@ -52,13 +52,25 @@ public class EventSub1 extends Fragment {
 
                 switch (state) {
 
-                 case 0:
-                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
-                    break;
+                    case 0:
+                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak1));
+                        break;
 
 
-                 case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
-                    break;
+                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak2));
+                        break;
+
+                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak3));
+                        break;
+
+                    case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak4));
+                        break;
+
+                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak5));
+                        break;
+
+                    case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak6));
+                        break;
 
                     default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
                 }

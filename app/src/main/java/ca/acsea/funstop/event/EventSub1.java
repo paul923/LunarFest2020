@@ -1,4 +1,4 @@
-package ca.acsea.funstop;
+package ca.acsea.funstop.event;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,19 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
+import ca.acsea.funstop.R;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class EventSub2 extends Fragment {
+public class EventSub1 extends Fragment {
 
     View view;
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 6;
+    private int numimg = 2;
 
 
-    public EventSub2() {
+    public EventSub1() {
     }
 
 
@@ -28,6 +29,7 @@ public class EventSub2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event Sub 1");
         view = inflater.inflate(R.layout.activity_event_sub1, container, false);
         onClickMap();
         // Inflate the layout for this fragment
@@ -53,23 +55,11 @@ public class EventSub2 extends Fragment {
                 switch (state) {
 
                     case 0:
-                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak1));
+                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
                         break;
 
 
-                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak2));
-                        break;
-
-                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak3));
-                        break;
-
-                    case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak4));
-                        break;
-
-                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak5));
-                        break;
-
-                    case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak6));
+                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
                         break;
 
                     default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
