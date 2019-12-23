@@ -9,6 +9,7 @@
     tools:context=".event.EventSub1"
     android:id="@+id/eventsub1">
 
+
     //Title layout
 <!--    <FrameLayout-->
 <!--        android:layout_width="match_parent"-->
