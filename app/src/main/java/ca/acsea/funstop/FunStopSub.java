@@ -146,6 +146,10 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         about = new About();
 
 
+
+        System.out.println(mUser.getLot10());
+
+
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
         }
