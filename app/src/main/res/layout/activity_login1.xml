@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorMain"
-    tools:context=".MainActivity"
+    tools:context=".Landing"
     android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"  >
 
     <ImageView
