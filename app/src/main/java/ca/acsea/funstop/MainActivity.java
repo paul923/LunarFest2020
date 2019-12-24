@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity
             userEmail.setText(currentUser.getEmail());
             if(currentUser.getDisplayName() != null) {
                 userName = findViewById(R.id.userName);
-                userName.setText(currentUser.getDisplayName());
+                userName.setText(mUser.getEmail());
             }
             if(currentUser.getPhotoUrl() != null) {
                 userPicture = findViewById(R.id.imageView);

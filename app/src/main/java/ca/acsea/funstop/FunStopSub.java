@@ -113,7 +113,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     // Initialize page objects
     Event event = new Event(fragmentManager);
     Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, currentUser, ref);
+    QuizStart quiz = new QuizStart(fragmentManager, mUser, ref);
     //myPoint = new MyPoint(currentUser);
     //funStop = new FunStop(fragmentManager, currentUser, ref);
     About about = new About();

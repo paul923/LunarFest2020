@@ -43,7 +43,7 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     // Initialize page objects
     Event event = new Event(fragmentManager);
     Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, currentUser, ref);
+    QuizStart quiz = new QuizStart(fragmentManager, mUser, ref);
     About about = new About(fragmentManager);
 
     public void onCreate(Bundle saveInstanceState){
