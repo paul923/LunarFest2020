@@ -174,7 +174,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         mUser = new User(email);
         final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         final FirebaseUser fUser = mAuth.getCurrentUser();
-        //ref.child("user-test").child(fUser.getUid()).setValue(mUser);
         // create user with email and password
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -188,8 +187,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // OK
+                                    ref.child("user-test").child(fUser.getUid()).setValue(mUser);
+
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
-                                    InitValues(); // init values
+                                    //InitValues(); // init values
                                     signIn(email, password);
                                     finish();
                                 }})
@@ -220,8 +221,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     // update user email in database
                     System.out.println("sign-in task is successful");
 
-                    Intent submit_intent = new Intent(Login.this, MainActivity.class);
-                    //submit_intent.putExtra("user", mUser);
+                    Intent submit_intent = new Intent(Login.this, Location.class);
+                    submit_intent.putExtra("user", mUser);
                     startActivity(submit_intent);
 
                 }else{
