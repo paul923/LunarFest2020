@@ -153,10 +153,16 @@
                     android:layout_marginBottom="10dp" />
             </LinearLayout>
 
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+<!--            <NestedScrollView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="150dp">-->
+<!--                <ScrollView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent">-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
@@ -230,8 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:textSize="15dp"
-                        android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”.
-"/>
+                        android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”."/>
 
                     <TextView
                         android:id="@+id/eventDescription5"
@@ -250,7 +255,10 @@
                         android:text="Decorating the house in red and yellow, lucky colours in Vietnamese culture, families prepare for Tết several days in advance. Houses are cleaned, and hair is cut in a symbolic renewal, to welcome another prosperous year to come. "/>
 
                 </LinearLayout>
-                </ScrollView>
+                </androidx.core.widget.NestedScrollView>
+<!--            </android.support.v4.widget.NestedScrollView>-->
+<!--                </ScrollView>-->
+<!--            </NestedScrollView>-->
 
 
                 //Linear layout for event map

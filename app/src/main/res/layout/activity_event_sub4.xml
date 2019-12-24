@@ -151,9 +151,9 @@
                     android:text="About" />
             </LinearLayout>
 
-                <ScrollView
+                <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="150dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -264,7 +264,7 @@
                         android:text="Canada is a nation of immigrants. Settling down in a new home country can be extremely nerve-racking, similar to opening doors to strangers. The impressions offered by people on both sides of the door could dictate the relationship between them for years to come, whether they are the doors to welcoming places or to uncomfortable silos. Taiwanese-Canadian artist Lady Hao Hao wishes to use her couplet light installation to extend her greetings to everyone for a “Good” and “Fulfilled” Lunar New Year with lots of great “Fortune”; as a newcomer to Canada, she is hoping that her gesture is also well received by the rest of Canadians."/>
 
                 </LinearLayout>
-                </ScrollView>
+                </androidx.core.widget.NestedScrollView>
 
 
                 //Linear layout for event map
