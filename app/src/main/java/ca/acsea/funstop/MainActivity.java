@@ -138,7 +138,6 @@ public class MainActivity extends AppCompatActivity
     public void userSideBar(){
         if(currentUser != null){
             userEmail = findViewById(R.id.userEmail);
-            userEmail.setText(currentUser.getEmail());
             if(currentUser.getDisplayName() != null) {
                 userName = findViewById(R.id.userName);
                 userName.setText(mUser.getEmail());
