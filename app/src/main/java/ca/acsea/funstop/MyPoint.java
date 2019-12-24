@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.barcode.Barcode;
@@ -36,6 +37,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.io.Serializable;
 
 import ca.acsea.funstop.event.Event;
@@ -45,17 +48,30 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     public static final String sharePreKey = "prefs";
     FragmentTransaction transaction;
     FragmentManager fragmentManager = getSupportFragmentManager();
-    //FirebaseUser user;
-    //private DatabaseReference db;
-    EditText test;
+
+    TextView test;
+
     Button redeembtn;
     int points;
     boolean joinDraw;
     String qrValue= "";
     SharedPreferences sharedPreferences;
 
+    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
+
+    // Initialize page objects
+    Event event = new Event(fragmentManager);
+    Map map = new Map();
+    QuizStart quiz = new QuizStart(fragmentManager, user, db);
+    //myPoint = new MyPoint(currentUser);
+    //funStop = new FunStop(fragmentManager, currentUser, ref);
+    About about = new About(fragmentManager);
+
+
 
     public void onCreate(Bundle saveInstanceState){
+        setTitle("My Point");
         super.onCreate(saveInstanceState);
 
         Intent intent = getIntent();

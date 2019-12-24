@@ -59,7 +59,7 @@ public class QuizStart extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //Changes the actionbar's Title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz: How to play");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
 
         getIndex();
         view = inflater.inflate(R.layout.fragment_quiz_start, container, false);

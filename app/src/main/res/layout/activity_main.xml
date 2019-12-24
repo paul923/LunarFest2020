@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@color/textColorWhite"
     tools:context=".MainActivity"
     android:theme="@android:style/Theme.Black.NoTitleBar"
     android:fitsSystemWindows="true"
@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@color/colorMain"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_nav"
         app:menu="@menu/activity_nav_drawer" />

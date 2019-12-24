@@ -107,7 +107,20 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     List<CheckBox> arrayList;
     List<Boolean> arrayListBool;
 
-    public void onCreate(Bundle saveInstanceState) {
+
+    // Initialize page objects
+    Event event = new Event(fragmentManager);
+    Map map = new Map();
+    QuizStart quiz = new QuizStart(fragmentManager, currentUser, ref);
+    //myPoint = new MyPoint(currentUser);
+    //funStop = new FunStop(fragmentManager, currentUser, ref);
+    About about = new About();
+
+
+
+    public void onCreate(Bundle saveInstanceState){
+        setTitle("FunStop");
+
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
 

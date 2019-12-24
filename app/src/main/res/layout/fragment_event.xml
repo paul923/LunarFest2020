@@ -64,7 +64,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="LunarFest Celebrations"
+                        android:textColor="@color/textColorBlack"
                         android:textSize="20dp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -87,7 +89,10 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="LunarFest Visual Arts"
+                        android:textColor="@color/textColorBlack"
+                        android:text="LunarFest
+                        Visual Arts"
+                        android:gravity="center"
                         android:textSize="20dp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -110,6 +115,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="The Tunnel of Blessings"
+                        android:gravity="center"
+                        android:textColor="@color/textColorBlack"
                         android:textSize="20dp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -131,7 +138,9 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textColor="@color/textColorBlack"
                         android:text="Coastal Lunar Lanterns"
+                        android:gravity="center"
                         android:textSize="20dp"
                         android:layout_gravity="center"/>
                 </LinearLayout>
@@ -155,29 +164,31 @@
                         android:layout_weight="1"
                         android:text="A Musical Banquet"
                         android:textSize="20dp"
+                        android:gravity="center"
+                        android:textColor="@color/textColorBlack"
                         android:layout_gravity="center"/>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="170dp"
-                    android:layout_weight="2"
-                    android:layout_margin="10dp">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="fill_parent"-->
+<!--                    android:layout_height="170dp"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:layout_margin="10dp">-->
 
-<!--                    <ImageView-->
-<!--                        android:id="@+id/event6inList"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_margin="5dp"-->
-<!--                        android:layout_weight="1"-->
-<!--                        app:srcCompat="@drawable/event" />-->
+<!--&lt;!&ndash;                    <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:id="@+id/event6inList"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_margin="5dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        app:srcCompat="@drawable/event" />&ndash;&gt;-->
 
-<!--                    <TextView-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text="This is an event asdkfj qew glkawe !"-->
-<!--                        android:layout_gravity="center"/>-->
-                </LinearLayout>
+<!--&lt;!&ndash;                    <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:text="This is an event asdkfj qew glkawe !"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_gravity="center"/>&ndash;&gt;-->
+<!--                </LinearLayout>-->
 
             </LinearLayout>
 

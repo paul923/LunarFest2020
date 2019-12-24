@@ -1,5 +1,6 @@
 package ca.acsea.funstop;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -34,15 +35,11 @@ public class Map extends Fragment implements OnMapReadyCallback {
         // Required empty public constructor
     }
 
-//    public Map(FragmentManager fm, FragmentTransaction transaction){
-//        this.fragmentManager = fm;
-//        this.transaction = transaction;
-//    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Map");
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 //        mapFragment = fragmentManager.findFragmentById(R.id.googleMap);

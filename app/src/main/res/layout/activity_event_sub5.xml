@@ -66,7 +66,7 @@
                         android:text="Jan 25"
 
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                         android:text=" Queen Elizabeth Theatre"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -114,12 +114,12 @@
                     </ImageView>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:text="click image to change"
-                    android:gravity="center"/>
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="10dp"-->
+<!--                    android:text="click image to change"-->
+<!--                    android:gravity="center"/>-->
 
 
 
@@ -136,7 +136,7 @@
                         android:gravity="center"
                         android:text=" A Musical Banquet"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="25dp" />
+                        android:textSize="30dp" />
                 </LinearLayout>
 
                 //Linear layout for event description
@@ -150,14 +150,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"
                         android:text="About" />
                     <TextView
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
+                        android:gravity="center"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:text="The Tunnel of Blessings"/>
                     <TextView
                         android:id="@+id/eventDescription11"
@@ -179,14 +182,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textColor="@color/textColorBlack"
                         android:text="Location" />
 
                     <ImageView
                         android:id="@+id/eventMap1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
 
                         android:src="@drawable/map1" />
 

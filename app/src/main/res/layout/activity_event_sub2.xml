@@ -66,7 +66,7 @@
                         android:text="Jan 16 ~ Feb 10"
 
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                         android:text="Oakridge Center"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -114,12 +114,12 @@
                     </ImageView>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:text="click image to change"
-                    android:gravity="center"/>
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="10dp"-->
+<!--                    android:text="click image to change"-->
+<!--                    android:gravity="center"/>-->
 
                 //Linear layout for event title
                 <LinearLayout
@@ -131,9 +131,10 @@
                         android:id="@+id/eventTitle1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25dp"
+                        android:textSize="30dp"
                         android:textColor="@color/textColorBlack"
                         android:text="LunarFest Visual Arts"
+
                         android:gravity="center"/>
                 </LinearLayout>
 
@@ -147,8 +148,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/textColorBlack"
-                    android:textSize="30dp"
-                    android:text="About" />
+                    android:textSize="20dp"
+                    android:text="About"
+                    android:layout_marginBottom="10dp" />
             </LinearLayout>
 
                 <ScrollView
@@ -167,13 +169,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
+                        android:gravity="center"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:text="General"/>
                     <TextView
                         android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:layout_marginBottom="10dp"
                         android:text="Inspired by Redefining Oakridge and its incredible transformation that challenges the concept of a city, “The Castles and The Lifestyles” exhibits four artistic representations of the Chinese, Taiwanese, Korean, and Vietnamese cultures that form composite imagery of grand castles and are representative of the diverse lifestyles in Canada."/>
                     <TextView
                         android:id="@+id/eventDescription2"
@@ -181,12 +186,15 @@
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
                         android:text="Chinese"/>
                     <TextView
                         android:id="@+id/eventDescription22"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:layout_marginBottom="10dp"
                         android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all.
 "/>
 
@@ -195,12 +203,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
                         android:textStyle="bold"
                         android:text="Taiwanese"/>
                     <TextView
                         android:id="@+id/eventDescription33"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:textSize="15dp"
                         android:text="Nothing brings family together the way Lunar New Year does - with delicious food and red envelopes! There is symbolism in every item on the dinner table - from the colour of the cloth, to the fish that’s present every year. Every member of the family, young and old, comes together for this special occasion that comes around once a year. "/>
 
@@ -209,12 +220,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
+                        android:layout_marginBottom="10dp"
                         android:textStyle="bold"
+                        android:gravity="center"
                         android:text="Korean"/>
                     <TextView
                         android:id="@+id/eventDescription44"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
                         android:textSize="15dp"
                         android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”.
 "/>
@@ -225,6 +239,8 @@
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
                         android:text="Vietnamese"/>
                     <TextView
                         android:id="@+id/eventDescription55"
@@ -247,15 +263,15 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="30dp"
                         android:textColor="@color/textColorBlack"
-                        android:text="Location" />
+                        android:text="Location"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"/>
 
                     <ImageView
                         android:id="@+id/eventMap1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
+                        android:layout_height="match_parent"
                         android:src="@drawable/map1" />
 
                 </LinearLayout>
