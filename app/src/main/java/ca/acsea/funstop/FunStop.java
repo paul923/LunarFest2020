@@ -28,6 +28,7 @@ public class FunStop extends AppCompatActivity {
                 Intent intent = new Intent(FunStop.this, FunStopSub.class);
                 intent.putExtra("source", "FunStop");
 //                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
                 startActivity(intent);
             }
         });
