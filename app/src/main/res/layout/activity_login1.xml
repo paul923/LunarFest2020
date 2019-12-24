@@ -33,6 +33,7 @@
         android:textSize="20sp"
         android:visibility="visible"
         app:fontFamily="@font/roboto_bold"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo1" />

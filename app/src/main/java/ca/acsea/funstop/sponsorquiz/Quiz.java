@@ -64,7 +64,7 @@ public class Quiz extends Fragment {
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
-        getPoint();
+//        getPoint();
 
         transaction = fragmentManager.beginTransaction();
 
