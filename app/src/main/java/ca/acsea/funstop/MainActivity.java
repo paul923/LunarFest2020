@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity
 
         //Initialize user
         mUser = (User) getIntent().getSerializableExtra("user");
-        System.out.println(mUser.getPoint());
 
         //Actionbar hide
         //getSupportActionBar().hide();

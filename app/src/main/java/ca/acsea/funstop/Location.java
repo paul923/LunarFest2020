@@ -27,7 +27,7 @@ public class Location extends AppCompatActivity {
         setContentView(R.layout.activity_location);
 
         mUser = (User) getIntent().getSerializableExtra("user");
-
+        System.out.println(mUser.getLot10());
 
         btn_location1 = findViewById(R.id.btn_location1);
         btn_location1.setOnClickListener(new View.OnClickListener() {

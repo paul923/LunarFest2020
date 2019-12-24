@@ -64,10 +64,8 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     QuizStart quiz;
     About about;
     FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+
     private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
-
-
-
 
 
     public void onCreate(Bundle saveInstanceState){
@@ -184,7 +182,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
         points = pref.getInt(pointKey, points);
         System.out.println("Current points  in get points before adding: "+ points);
-        test.setText(String.valueOf(points));
+        test.setText(String.valueOf(mUser.getPoint()));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
 

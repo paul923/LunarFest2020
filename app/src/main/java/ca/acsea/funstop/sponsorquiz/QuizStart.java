@@ -73,21 +73,21 @@ public class QuizStart extends Fragment {
             @Override
             public void onClick(View view) {
                 // Data retrieve
-//                getCutoff();
-//                long currentTime = new Date().getTime();
+                cutoff = mUser.getQuizCutoff();
+                long currentTime = new Date().getTime();
 //                //TODO: change 0 back to cutoff
-//                if(currentTime > cutoff) {
-//                    recordTime();
+                if(currentTime > cutoff) {
+                    recordTime();
                     transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,mUser, ref, index)).commit();
-//                }else {
-//                    long timeLeft = cutoff - new Date().getTime();
-//                    String message = String.format("Try again in %d hr %d min %d sec",
-//                            TimeUnit.MILLISECONDS.toHours(timeLeft),
-//                            TimeUnit.MILLISECONDS.toMinutes(timeLeft),
-//                            TimeUnit.MILLISECONDS.toSeconds(timeLeft));
-//                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                }else {
+                    long timeLeft = cutoff - new Date().getTime();
+                    String message = String.format("Try again in %d hr %d min %d sec",
+                            TimeUnit.MILLISECONDS.toHours(timeLeft),
+                            TimeUnit.MILLISECONDS.toMinutes(timeLeft),
+                            TimeUnit.MILLISECONDS.toSeconds(timeLeft));
+                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
                 }
-//            }
+            }
         });
         return view;
     }
@@ -107,8 +107,8 @@ public class QuizStart extends Fragment {
         nextdate = c.getTime();
 
         long nextdateTime = nextdate.getTime();
-        ref.child("users").child(currentUser.getUid()).child("quiz").child("timeStamp").setValue(currentTime);
-        ref.child("users").child(currentUser.getUid()).child("quiz").child("cutoff").setValue(nextdateTime);
+//        ref.child("users").child(currentUser.getUid()).child("quiz").child("cutoff").setValue(nextdateTime);
+        mUser.setQuizCutoff(nextdateTime);
     }
 
     private void getCutoff() {
