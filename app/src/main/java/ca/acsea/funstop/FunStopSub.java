@@ -109,14 +109,10 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
     // User data instance
     User mUser;
-
-    // Initialize page objects
-    Event event = new Event(fragmentManager);
-    Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, mUser, ref);
-    //myPoint = new MyPoint(currentUser);
-    //funStop = new FunStop(fragmentManager, currentUser, ref);
-    About about = new About();
+    Event event;
+    Map map;
+    QuizStart quiz;
+    About about;
 
 
 
@@ -141,6 +137,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         //TODO: connect user data to other data members
         //Initialize user object
         mUser = (User) intent.getSerializableExtra("user");
+        // Initialize page objects
+        event = new Event(fragmentManager);
+        map = new Map();
+        quiz = new QuizStart(fragmentManager, mUser, ref);
+        //myPoint = new MyPoint(currentUser);
+        //funStop = new FunStop(fragmentManager, currentUser, ref);
+        about = new About();
+
 
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
