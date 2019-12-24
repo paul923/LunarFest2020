@@ -57,6 +57,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private String password;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
+    private User mUser;
 
 
     @Override
@@ -119,37 +120,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        //Authentication with google
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-
-        final AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            // Log.d(TAG, "signInWithCredential:success");
-
-                            DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference();
-                            dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
-
-                            //move to next activity
-                            Toast.makeText(Login.this, "Sign In Success", Toast.LENGTH_LONG).show();
-                            Intent submit_intent = new Intent(Login.this, MainActivity.class);
-                            startActivity(submit_intent);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            // Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(Login.this, "Sign In Failed", Toast.LENGTH_LONG).show();
-                        }
-
-                        // ...
-                    }
-                });
-    }
-
     public void googleSignIn(){
         //Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
@@ -164,25 +134,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         System.out.println("\n OnActivityResult\n");
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-//        if (requestCode == RC_SIGN_IN) {
-//            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-//            try {
-//                Log.d(TAG, task.getResult(ApiException.class).toString());
-//                // Google Sign In was successful, authenticate with Firebase
-//                //after user connect their account  it doesnt sign user in
-//                //user is signed out after exiting the app
-//                GoogleSignInAccount account = task.getResult(ApiException.class);
-//
-//                firebaseAuthWithGoogle(account);
-//
-//            } catch (ApiException e) {
-//                // Google Sign In failed, update UI appropriately
-//                // Log.w(TAG, "Google sign in failed", e);
-//                Toast.makeText(Login.this, "Google sign in failed, please use another method", Toast.LENGTH_LONG).show();
-//                // ...
-//            }
-//        }
         if (requestCode == RC_SIGN_IN){
             System.out.println("\n requestCode arrived\n");
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
@@ -207,7 +158,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 if (task.isSuccessful()){
                     System.out.println("\n resultLogin : success\n");
                     Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                    Intent intent = new Intent(getApplicationContext(), Location.class);
+                    intent.putExtra("user", mUser);
                     startActivity(intent);
                 } else {
                     Toast.makeText(Login.this, "google login fails", Toast.LENGTH_LONG).show();
@@ -218,6 +171,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
     public void createUser(final String email, final String password){
+        mUser = new User(email);
+        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        final FirebaseUser fUser = mAuth.getCurrentUser();
         // create user with email and password
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -226,18 +182,22 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 if(task.isSuccessful()){
                     System.out.println("create user / task is successful");
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
+
                             .setMessage("There is no such account. Do you want to create new account with the input id and password?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // OK
+                                    ref.child("user-test").child(fUser.getUid()).setValue(mUser);
+
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
-                                    InitValues(); // init values
+                                    //InitValues(); // init values
                                     signIn(email, password);
                                     finish();
                                 }})
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // Cancel
+                                    signIn(email,password);
                                     Toast.makeText(Login.this, "It is canceled.", Toast.LENGTH_SHORT).show();
                                 }})
                             .show();
@@ -261,7 +221,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     // update user email in database
                     System.out.println("sign-in task is successful");
 
-                    Intent submit_intent = new Intent(Login.this, MainActivity.class);
+                    Intent submit_intent = new Intent(Login.this, Location.class);
+                    submit_intent.putExtra("user", mUser);
                     startActivity(submit_intent);
 
                 }else{
@@ -273,9 +234,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
     private void InitValues() {
+        System.out.println("initing values");
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
         String currentUser = mAuth.getCurrentUser().getUid();
-
         dbUsers.child(currentUser).child("email").setValue(mAuth.getCurrentUser().getEmail());
         dbUsers.child(currentUser).child("point").setValue(0); //initialize point
         dbUsers.child(currentUser).child("quiz").child("cutoff").setValue(0);

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -42,20 +43,20 @@ import java.io.Serializable;
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
-
 public class MyPoint extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     public static final String pointKey = "points";
     public static final String sharePreKey = "prefs";
     FragmentTransaction transaction;
     FragmentManager fragmentManager = getSupportFragmentManager();
 
-
     TextView test;
+
     Button redeembtn;
     int points;
     boolean joinDraw;
     String qrValue= "";
     SharedPreferences sharedPreferences;
+
     FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
 
@@ -66,6 +67,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     //myPoint = new MyPoint(currentUser);
     //funStop = new FunStop(fragmentManager, currentUser, ref);
     About about = new About(fragmentManager);
+
 
 
     public void onCreate(Bundle saveInstanceState){
@@ -115,6 +117,54 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         savePoint();
     }
 
+
+
+
+
+
+    private void checkPoint(){
+        if(points >= 150 && !joinDraw){
+            new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
+                    .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
+                            "cost 150 points.")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            addToPool();
+                        }})
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // Cancel
+                        }})
+                    .show();
+        }
+    }
+
+
+    public void onBackPressed(){
+        Intent intent = new Intent(MyPoint.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+
+
+
+
+
+    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
+
+    // Initialize page objects
+    Event event = new Event(fragmentManager);
+    Map map = new Map();
+    QuizStart quiz = new QuizStart(fragmentManager, user, db);
+    //myPoint = new MyPoint(currentUser);
+    //funStop = new FunStop(fragmentManager, currentUser, ref);
+    About about = new About();
+
+
+
+
+
     private void savePoint(){
         SharedPreferences.Editor prefEditor = this.getSharedPreferences(sharePreKey,0).edit();
         prefEditor.putInt(pointKey, points);
@@ -125,6 +175,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
     }
 
+
     private void getPoints(){
         SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
         points = pref.getInt(pointKey, points);
@@ -132,6 +183,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         test.setText(String.valueOf(points));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
+
     public void checkQrValue(){
         getPoints();
         switch (qrValue){
@@ -182,22 +234,10 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         }
         savePoint();
     }
-    private void checkPoint(){
-        if(points >= 150 && !joinDraw){
-            new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
-                    .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
-                            "cost 150 points.")
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            addToPool();
-                        }})
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            // Cancel
-                        }})
-                    .show();
-        }
-    }
+
+
+
+
 
     private void addToPool(){
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");
@@ -205,7 +245,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         modifyPoints(150, "Reduce");
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
-
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

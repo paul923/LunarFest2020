@@ -14,9 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyPoint"/>
-        <activity android:name=".FunStopSub"/>
-        <activity android:name=".FunStop"/>
+
+        <activity android:name=".Location"></activity>
+        <activity android:name=".MyPoint" />
+        <activity android:name=".FunStopSub" />
+        <activity android:name=".FunStop" />
 
         <activity
             android:name=".QrCodeScanner"
@@ -25,7 +27,9 @@
         <activity
             android:name=".Login"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".Landing">
             <intent-filter>
