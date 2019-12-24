@@ -3,6 +3,7 @@ package ca.acsea.funstop;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -176,7 +177,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
 
-    synchronized public void createUser(final String email, final String password){
+    public void createUser(final String email, final String password){
         // create user with email and password
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -199,7 +200,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
                                     //InitValues(); // init values
                                     signIn(email, password);
-                                    finish();
+                                    //finish();
 
                                 }})
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -220,6 +221,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         });
     }
 
+    public interface MyCallback {
+        void onCallback(User value);
+    }
+
     public void signIn(String email, String password){
         //sign in
         System.out.println("\n start sign in \n");
@@ -228,13 +233,16 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     mUser.setUid(mAuth.getCurrentUser().getUid());
-                    // update user email in database
-                    System.out.println("sign-in task is successful");
                     //TODO: May need to make it synchronous
-                        getDataFromFirebase();
-                        Intent submit_intent = new Intent(Login.this, Location.class);
-                        submit_intent.putExtra("user", mUser);
-                        startActivity(submit_intent);
+
+
+                    // Retrieves the data from DB and moves to the next activity
+                    getDataFromFirebase(new MyCallback() {
+                        @Override
+                        public void onCallback(User value) {
+                            Log.d(TAG, "Value is: " + value);
+                        }
+                    });
 
 
                 }else{
@@ -246,7 +254,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     }
 
 
-    private void getDataFromFirebase(){
+
+    private void getDataFromFirebase(final MyCallback callback){
         // Read from the database
         mDatabase.getReference().child("user-test").child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
@@ -254,6 +263,12 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 mUser = dataSnapshot.getValue(User.class);
+
+                Intent submit_intent = new Intent(Login.this, Location.class);
+                submit_intent.putExtra("user", mUser);
+                startActivity(submit_intent);
+
+                callback.onCallback(mUser);
                 Log.d(TAG, "Value is: " + mUser);
             }
 

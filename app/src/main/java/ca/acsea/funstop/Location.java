@@ -4,19 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class Location extends AppCompatActivity {
 
+    private static String TAG = "LogIn";
     private Button btn_location1;
     private Button btn_location2;
+    private FirebaseDatabase mDatabase;
     private User mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
+
+        mDatabase = FirebaseDatabase.getInstance();
 
         mUser = (User) getIntent().getSerializableExtra("user");
 
@@ -40,4 +50,5 @@ public class Location extends AppCompatActivity {
             }
         });
     }
+
 }
