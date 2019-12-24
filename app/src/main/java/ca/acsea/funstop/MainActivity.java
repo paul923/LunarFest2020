@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor prefs = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
-        prefs.putString("useObject", json);
+        prefs.putString("userObject", json);
         prefs.apply();
     }
     @Override
