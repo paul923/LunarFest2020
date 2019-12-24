@@ -1,6 +1,7 @@
 package ca.acsea.funstop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 
@@ -25,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
 
 
 import ca.acsea.funstop.event.Event;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     TextView userEmail;
     FirebaseUser currentUser;
     User mUser;
-
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,14 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void onPause(){
+        super.onPause();
+        SharedPreferences.Editor prefs = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefs.putString("useObject", json);
+        prefs.apply();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
