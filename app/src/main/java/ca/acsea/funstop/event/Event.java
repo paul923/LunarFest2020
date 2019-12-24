@@ -1,7 +1,9 @@
 package ca.acsea.funstop.event;
 
+
 import android.app.ActionBar;
 import android.content.Intent;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,24 +14,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-
-<<<<<<< HEAD
-=======
-import ca.acsea.funstop.EventSub3;
-import ca.acsea.funstop.EventSub4;
-import ca.acsea.funstop.EventSub5;
->>>>>>> c95954e1bdc461f8e1cbf00ef44770805f56847f
+import ca.acsea.funstop.event.EventSub3;
+import ca.acsea.funstop.event.EventSub4;
+import ca.acsea.funstop.event.EventSub5;
 import ca.acsea.funstop.R;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 
 public class Event extends Fragment {
