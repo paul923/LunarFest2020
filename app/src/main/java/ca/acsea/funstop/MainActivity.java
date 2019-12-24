@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
+        Gson gson = new Gson();
+        sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
 
         //Initialize user
         //mUser = (User) getIntent().getSerializableExtra("user");
