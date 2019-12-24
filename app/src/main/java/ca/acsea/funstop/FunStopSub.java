@@ -335,181 +335,181 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         }
 
     }
-        public void setUp () {
-            System.out.println("Station one status:" + station1B);
-            int i;
-            for (i = 0; i < arrayListBool.size(); i++) {
-                arrayListBool.set(i, prefs.getBoolean("element" + i, false));
-            }
-            System.out.println("Station one status:" + station1B);
-            points = prefs.getInt("point", 0);
+    public void setUp () {
+        System.out.println("Station one status:" + station1B);
+        int i;
+        for (i = 0; i < arrayListBool.size(); i++) {
+            arrayListBool.set(i, prefs.getBoolean("element" + i, false));
         }
+        System.out.println("Station one status:" + station1B);
+        points = prefs.getInt("point", 0);
+    }
 
 
-        private void checkQRCodeValue () {
-            switch (qrValue) {
-                case "station1":
-                    updatePoints(10, "Add");
-                    station1.setChecked(true);
-                    station1B = true;
-                    break;
-                case "station2":
-                    updatePoints(10, "Add");
-                    station2.setChecked(true);
-                    station2B = true;
-                    break;
-                case "station3":
-                    updatePoints(10, "Add");
-                    station3.setChecked(true);
-                    station3B = true;
-                    break;
-                case "station4":
-                    updatePoints(10, "Add");
-                    station4.setChecked(true);
-                    station4B = true;
-                    break;
-                case "station5":
-                    updatePoints(10, "Add");
-                    station5.setChecked(true);
-                    station5B = true;
-                    break;
-                case "station6":
-                    updatePoints(10, "Add");
-                    station6.setChecked(true);
-                    station6B = true;
-                    break;
-                case "station7":
-                    updatePoints(10, "Add");
-                    station7.setChecked(true);
-                    station7B = true;
-                    break;
-                case "station8":
-                    updatePoints(10, "Add");
-                    station8.setChecked(true);
-                    station8B = true;
-                    break;
-                case "station9":
-                    updatePoints(10, "Add");
-                    station9.setChecked(true);
-                    station9B = true;
-                    break;
-                case "station10":
-                    updatePoints(10, "Add");
-                    station10.setChecked(true);
-                    station10B = true;
-                    break;
-                case "station11":
-                    updatePoints(10, "Add");
-                    station11.setChecked(true);
-                    station11B = true;
-                    break;
-                case "station12":
-                    updatePoints(10, "Add");
-                    station12.setChecked(true);
-                    station12B = true;
-                    break;
-                case "ladyHao":
-                    updatePoints(40, "Add");
-                    ladyHao.setChecked(true);
-                    ladyHaoB = true;
-                    break;
-                case "chinese":
-                    updatePoints(10, "Add");
-                    chinese.setChecked(true);
-                    chineseB = true;
-                    break;
-                case "Korean":
-                    updatePoints(10, "Add");
-                    Korean.setChecked(true);
-                    KoreanB = true;
-                    break;
-                case "taiwanese":
-                    updatePoints(10, "Add");
-                    taiwanese.setChecked(true);
-                    taiwaneseB = true;
-                    break;
-                case "vietnamese":
-                    updatePoints(10, "Add");
-                    vietnamese.setChecked(true);
-                    vietnameseB = true;
-                    break;
-                case "loneWolf1":
-                    updatePoints(5, "Add");
-                    loneWolf1.setChecked(true);
-                    loneWolf1B = true;
-                    break;
-                case "loneWolf2":
-                    updatePoints(5, "Add");
-                    loneWolf2.setChecked(true);
-                    loneWolf2B = true;
-                    break;
-                case "protector1":
-                    updatePoints(5, "Add");
-                    protector1.setChecked(true);
-                    protector1B = true;
-                    break;
-                case "protector2":
-                    updatePoints(5, "Add");
-                    protector2.setChecked(true);
-                    protector2B = true;
-                    break;
-                case "redFawn1":
-                    updatePoints(5, "Add");
-                    redFawn1.setChecked(true);
-                    redFawn1B = true;
-                    break;
-                case "redFawn2":
-                    updatePoints(5, "Add");
-                    redFawn2.setChecked(true);
-                    redFawn2B = true;
-                    break;
-                case "salishSea1":
-                    updatePoints(5, "Add");
-                    salishSea1.setChecked(true);
-                    salishSea1B = true;
-                    break;
-                case "salish Sea 2":
-                    updatePoints(5, "Add");
-                    salishSea2.setChecked(true);
-                    salishSea2B = true;
-                    break;
-            }
-        }
-
-
-
-        @Override
-        public boolean onNavigationItemSelected (MenuItem item){
-            // Handle navigation view item clicks here.
-            transaction = fragmentManager.beginTransaction();
-            int id = item.getItemId();
-
-            if (id == R.id.nav_event) {
-//            transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-            } else if (id == R.id.nav_map) {
-
-                //intent
-                transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
-            } else if (id == R.id.nav_funstop) {
-                Intent intent = new Intent(this, FunStop.class);
-                startActivity(intent);
-
-                //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
-            } else if (id == R.id.nav_quiz) {
-                transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
-            } else if (id == R.id.nav_point) {
-                Intent intent = new Intent(this, MyPoint.class);
-                intent.putExtra("source", "navbar");
-                startActivity(intent);
-                //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
-            } else if (id == R.id.nav_about) {
-                transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
-            }
-
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
+    private void checkQRCodeValue () {
+        switch (qrValue) {
+            case "station1":
+                updatePoints(10, "Add");
+                station1.setChecked(true);
+                station1B = true;
+                break;
+            case "station2":
+                updatePoints(10, "Add");
+                station2.setChecked(true);
+                station2B = true;
+                break;
+            case "station3":
+                updatePoints(10, "Add");
+                station3.setChecked(true);
+                station3B = true;
+                break;
+            case "station4":
+                updatePoints(10, "Add");
+                station4.setChecked(true);
+                station4B = true;
+                break;
+            case "station5":
+                updatePoints(10, "Add");
+                station5.setChecked(true);
+                station5B = true;
+                break;
+            case "station6":
+                updatePoints(10, "Add");
+                station6.setChecked(true);
+                station6B = true;
+                break;
+            case "station7":
+                updatePoints(10, "Add");
+                station7.setChecked(true);
+                station7B = true;
+                break;
+            case "station8":
+                updatePoints(10, "Add");
+                station8.setChecked(true);
+                station8B = true;
+                break;
+            case "station9":
+                updatePoints(10, "Add");
+                station9.setChecked(true);
+                station9B = true;
+                break;
+            case "station10":
+                updatePoints(10, "Add");
+                station10.setChecked(true);
+                station10B = true;
+                break;
+            case "station11":
+                updatePoints(10, "Add");
+                station11.setChecked(true);
+                station11B = true;
+                break;
+            case "station12":
+                updatePoints(10, "Add");
+                station12.setChecked(true);
+                station12B = true;
+                break;
+            case "ladyHao":
+                updatePoints(40, "Add");
+                ladyHao.setChecked(true);
+                ladyHaoB = true;
+                break;
+            case "chinese":
+                updatePoints(10, "Add");
+                chinese.setChecked(true);
+                chineseB = true;
+                break;
+            case "Korean":
+                updatePoints(10, "Add");
+                Korean.setChecked(true);
+                KoreanB = true;
+                break;
+            case "taiwanese":
+                updatePoints(10, "Add");
+                taiwanese.setChecked(true);
+                taiwaneseB = true;
+                break;
+            case "vietnamese":
+                updatePoints(10, "Add");
+                vietnamese.setChecked(true);
+                vietnameseB = true;
+                break;
+            case "loneWolf1":
+                updatePoints(5, "Add");
+                loneWolf1.setChecked(true);
+                loneWolf1B = true;
+                break;
+            case "loneWolf2":
+                updatePoints(5, "Add");
+                loneWolf2.setChecked(true);
+                loneWolf2B = true;
+                break;
+            case "protector1":
+                updatePoints(5, "Add");
+                protector1.setChecked(true);
+                protector1B = true;
+                break;
+            case "protector2":
+                updatePoints(5, "Add");
+                protector2.setChecked(true);
+                protector2B = true;
+                break;
+            case "redFawn1":
+                updatePoints(5, "Add");
+                redFawn1.setChecked(true);
+                redFawn1B = true;
+                break;
+            case "redFawn2":
+                updatePoints(5, "Add");
+                redFawn2.setChecked(true);
+                redFawn2B = true;
+                break;
+            case "salishSea1":
+                updatePoints(5, "Add");
+                salishSea1.setChecked(true);
+                salishSea1B = true;
+                break;
+            case "salish Sea 2":
+                updatePoints(5, "Add");
+                salishSea2.setChecked(true);
+                salishSea2B = true;
+                break;
         }
     }
+
+
+
+    @Override
+    public boolean onNavigationItemSelected (MenuItem item){
+        // Handle navigation view item clicks here.
+        transaction = fragmentManager.beginTransaction();
+        int id = item.getItemId();
+
+        if (id == R.id.nav_event) {
+//            transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_map) {
+
+            //intent
+            transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
+        } else if (id == R.id.nav_funstop) {
+            Intent intent = new Intent(this, FunStop.class);
+            startActivity(intent);
+
+            //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
+        } else if (id == R.id.nav_quiz) {
+            transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
+        } else if (id == R.id.nav_point) {
+            Intent intent = new Intent(this, MyPoint.class);
+            intent.putExtra("source", "navbar");
+            startActivity(intent);
+            //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
+        } else if (id == R.id.nav_about) {
+            transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
+        }
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+}

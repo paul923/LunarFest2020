@@ -123,7 +123,9 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor prefs = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
+
         prefs.putString("userObject", json);
+
         prefs.apply();
     }
     @Override
@@ -157,12 +159,10 @@ public class MainActivity extends AppCompatActivity
      // automatically handle clicks on the Home/Up button, so long
      // as you specify a parent activity in AndroidManifest.xml.
      int id = item.getItemId();
-
      //noinspection SimplifiableIfStatement
      if (id == R.id.action_settings) {
      return true;
      }
-
      return super.onOptionsItemSelected(item);
      }
      */

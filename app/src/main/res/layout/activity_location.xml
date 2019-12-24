@@ -1,56 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMain"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Location">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="Location"-->
-<!--        android:textColor="@color/textColorWhite"-->
-<!--        android:textSize="40sp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/btn_location1"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        />-->
+
+
 
     <Button
         android:id="@+id/btn_location1"
         android:layout_width="300dp"
-        android:layout_height="100sp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
+        android:layout_margin="30dp"
         android:background="@drawable/login_border"
         android:text="Vancouver"
-        android:textSize="40sp"
         android:textColor="#E6B773"
+        android:textSize="20sp"
         app:fontFamily="@font/"
         app:layout_constraintBottom_toTopOf="@id/btn_location2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.20"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20" />
 
     <Button
         android:id="@+id/btn_location2"
         android:layout_width="300dp"
-        android:layout_height="100sp"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
         android:layout_centerInParent="true"
         android:background="@drawable/login_border"
         android:text="Toronto"
-        android:textSize="40sp"
         android:textColor="#E6B773"
+        android:textSize="20sp"
         app:fontFamily="@font/"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_location1"
-        app:layout_constraintVertical_bias="0.20"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/btn_location1"
+        app:layout_constraintVertical_bias="0.20" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

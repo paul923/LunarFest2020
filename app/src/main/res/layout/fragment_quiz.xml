@@ -9,46 +9,6 @@
     android:background="@color/textColorWhite"
     android:orientation="vertical">
 
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorMain"-->
-<!--        android:layout_gravity="bottom">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:gravity="right|bottom"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:text="LunarFest 2020"-->
-<!--            android:textColor="@color/textColorWhite"-->
-<!--            android:textSize="25sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintGuide_percent="0.25"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
-
-<!--    </FrameLayout>-->
-
-<!--    <FrameLayout-->
-<!--        android:layout_width="wrap_content"-->
-
-<!--        android:layout_height="wrap_content">-->
-
-
-<!--        <ImageView-->
-<!--            android:layout_width="180dp"-->
-<!--            android:layout_height="180dp"-->
-<!--            android:background="@color/colorAccent"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            />-->
-<!--    </FrameLayout>-->
-
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -56,93 +16,86 @@
 
         <TextView
             android:id="@+id/questionBox"
-            android:layout_width="match_parent"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="Question Box"
-            android:textSize="15pt"
+            android:background="@android:color/transparent"
+            android:textColor="@color/textColorBlack"
+            android:textSize="13pt"
             android:gravity="center"/>
 
     </FrameLayout>
 
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/optionBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical">
 
-        //General linearLayout for vertical orientation
-    </LinearLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/buttonA"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_round"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/button_border"
+                android:text="1. Vancouver"
+                android:textColor="#000000" />
+
 
             <Button
                 android:id="@+id/buttonB"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_round"
-                app:layout_constraintTop_toBottomOf="@id/buttonA" />
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/button_border"
+                android:gravity="center"
+                android:text="2. Vancouver"
+                android:textColor="#000000" />
 
             <Button
                 android:id="@+id/buttonC"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_round"
-                app:layout_constraintTop_toBottomOf="@id/buttonB" />
+                android:layout_margin="10dp"
+                android:background="@drawable/button_border"
+                android:gravity="center"
+                android:text="3. Vancouver"
+                android:textColor="#000000"
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/buttonD"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_margin="20dp"
-                android:background="@drawable/button_round"
-                app:layout_constraintTop_toBottomOf="@id/buttonC" />
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:background="@drawable/button_border"
+                android:text="4. Vancouver"
+                android:textColor="#000000" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="20dp" />
+        </LinearLayout>
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="20dp" />
 
-            <androidx.constraintlayout.widget.Barrier
-                android:id="@+id/barrier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:barrierDirection="top" />
+    </FrameLayout>
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="20dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+
+
+
 </LinearLayout>
 
 
