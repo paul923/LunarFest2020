@@ -3,10 +3,11 @@ package ca.acsea.funstop;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 @IgnoreExtraProperties
-public class User {
+public class User implements Serializable {
 
     public String uid;
     public String email;
@@ -89,5 +90,69 @@ public class User {
     public void initLot(){
         lot10 = new HashMap<>();
         lot10.put("ladyHao", false);
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getPoint() {
+        return point;
+    }
+
+    public void setPoint(long point) {
+        this.point = point;
+    }
+
+    public long getQuizCutoff() {
+        return quizCutoff;
+    }
+
+    public void setQuizCutoff(long quizCutoff) {
+        this.quizCutoff = quizCutoff;
+    }
+
+    public HashMap<String, Boolean> getVag() {
+        return vag;
+    }
+
+    public void setVag(HashMap<String, Boolean> vag) {
+        this.vag = vag;
+    }
+
+    public HashMap<String, Boolean> getOakridge() {
+        return oakridge;
+    }
+
+    public void setOakridge(HashMap<String, Boolean> oakridge) {
+        this.oakridge = oakridge;
+    }
+
+    public HashMap<String, Boolean> getJackpool() {
+        return jackpool;
+    }
+
+    public void setJackpool(HashMap<String, Boolean> jackpool) {
+        this.jackpool = jackpool;
+    }
+
+    public HashMap<String, Boolean> getLot10() {
+        return lot10;
+    }
+
+    public void setLot10(HashMap<String, Boolean> lot10) {
+        this.lot10 = lot10;
     }
 }

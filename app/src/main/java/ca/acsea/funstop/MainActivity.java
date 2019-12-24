@@ -2,6 +2,7 @@ package ca.acsea.funstop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     TextView userName;
     TextView userEmail;
     FirebaseUser currentUser;
+    User mUser;
 
 
     @Override
@@ -72,6 +74,11 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+
+        //Initialize user
+        //mUser = (User) getIntent().getSerializableExtra("user");
+        //System.out.println(mUser.getEmail());
 
         //Actionbar hide
         //getSupportActionBar().hide();
