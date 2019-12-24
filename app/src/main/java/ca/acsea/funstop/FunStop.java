@@ -37,6 +37,9 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
 
+    //User Data Instance
+    private User mUser;
+
     // Initialize page objects
     Event event = new Event(fragmentManager);
     Map map = new Map();
@@ -44,6 +47,9 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     About about = new About(fragmentManager);
 
     public void onCreate(Bundle saveInstanceState){
+        //Initialize user object
+        mUser = (User) getIntent().getSerializableExtra("user");
+
         setTitle("FunStop");
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop);
@@ -65,7 +71,7 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
         btnStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(FunStop.this, FunStopSub.class);
-                intent.putExtra("source", "FunStop");
+                intent.putExtra("source", "FunStop").putExtra("user",mUser);
 //                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
                 startActivity(intent);

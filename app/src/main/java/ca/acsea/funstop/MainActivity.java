@@ -2,7 +2,6 @@ package ca.acsea.funstop;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 
 
@@ -15,23 +14,17 @@ import android.widget.ImageView;
 
 //import com.bumptech.glide.Glide;
 
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
 import ca.acsea.funstop.event.Event;
@@ -46,7 +39,7 @@ public class MainActivity extends AppCompatActivity
     private Event event;
     private Map map;
     private FunStop funStop;
-    private QuizStart quiz;
+    private QuizStart quizStart;
     private MyPoint myPoint;
     private About about;
     private QuizEnd quizEnd;
@@ -92,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
-        quiz = new QuizStart(fragmentManager, currentUser, ref);
+        quizStart = new QuizStart(fragmentManager, mUser, ref);
         //myPoint = new MyPoint(currentUser);
         //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
@@ -174,14 +167,15 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
             Intent intent = new Intent(this, FunStop.class);
+            intent.putExtra("user", mUser);
             startActivity(intent);
 
             //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
         } else if (id == R.id.nav_quiz) {
-            transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
+            transaction.replace(R.id.frameLayout, quizStart).commitAllowingStateLoss();
         } else if (id == R.id.nav_point) {
             Intent intent = new Intent(this, MyPoint.class);
-            intent.putExtra("source", "navbar");
+            intent.putExtra("source", "navbar").putExtra("user", mUser);
             startActivity(intent);
             //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
         } else if (id == R.id.nav_about) {

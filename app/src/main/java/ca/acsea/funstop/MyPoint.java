@@ -66,7 +66,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     // Initialize page objects
     Event event = new Event(fragmentManager);
     Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, user, db);
+    QuizStart quiz = new QuizStart(fragmentManager, mUser, db);
     //myPoint = new MyPoint(currentUser);
     //funStop = new FunStop(fragmentManager, currentUser, ref);
     About about = new About(fragmentManager);
@@ -84,7 +84,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             qrValue = intent.getStringExtra("qrValue");
         }
 
-//TODO: connect user data to other data members
+
+        //TODO: connect user data to other data members
+
         //Initialize user object
         mUser = (User) intent.getSerializableExtra("user");
 

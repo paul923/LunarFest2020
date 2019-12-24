@@ -30,6 +30,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import ca.acsea.funstop.R;
+import ca.acsea.funstop.User;
 
 public class QuizStart extends Fragment {
 
@@ -41,15 +42,16 @@ public class QuizStart extends Fragment {
     DatabaseReference ref;
     long cutoff;
     private int index;
+    private User mUser;
 
 
     public QuizStart(){
         //empty constructor
     }
 
-    public QuizStart(FragmentManager fm, FirebaseUser user, DatabaseReference ref){
+    public QuizStart(FragmentManager fm, User user, DatabaseReference ref){
         this.fragmentManager = fm;
-        this.currentUser = user;
+        this.mUser = user;
         this.ref = ref;
     }
 
@@ -76,7 +78,7 @@ public class QuizStart extends Fragment {
                 //TODO: change 0 back to cutoff
                 if(currentTime > cutoff) {
                     recordTime();
-                    transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,currentUser, ref, index)).commit();
+                    transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,mUser, ref, index)).commit();
                 }else {
                     long timeLeft = cutoff - new Date().getTime();
                     String message = String.format("Try again in %d hr %d min %d sec",
