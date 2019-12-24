@@ -23,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.vision.barcode.Barcode;
@@ -34,6 +35,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.io.Serializable;
 
@@ -47,7 +50,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     FragmentManager fragmentManager = getSupportFragmentManager();
 
 
-    EditText test;
+    TextView test;
     Button redeembtn;
     int points;
     boolean joinDraw;
@@ -62,10 +65,11 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     QuizStart quiz = new QuizStart(fragmentManager, user, db);
     //myPoint = new MyPoint(currentUser);
     //funStop = new FunStop(fragmentManager, currentUser, ref);
-    About about = new About();
+    About about = new About(fragmentManager);
 
 
     public void onCreate(Bundle saveInstanceState){
+        setTitle("My Point");
         super.onCreate(saveInstanceState);
 
         Intent intent = getIntent();

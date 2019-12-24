@@ -121,6 +121,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
+        setTitle("FunStop");
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
 

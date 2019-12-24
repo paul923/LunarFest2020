@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimary"
+    android:background="@color/textColorWhite"
     tools:context=".MainActivity"
     android:theme="@android:style/Theme.Black.NoTitleBar"
     android:fitsSystemWindows="true"
@@ -16,7 +16,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MyPoint"
     android:orientation="vertical"
     android:background="@color/colorMain">
@@ -24,23 +24,23 @@
     //Title layout
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:background="@color/colorMain"
 
         android:layout_gravity="bottom">
         <LinearLayout
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom">
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="bottom|center"
-                android:text="Total Points"
-                android:textColor="@color/textColorWhite"
-                android:textSize="25sp" />
+            android:orientation="vertical">
+<!--            <TextView-->
+<!--                android:id="@+id/textView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="bottom|center"-->
+<!--                android:text="Total Points"-->
+<!--                android:textColor="@color/textColorWhite"-->
+<!--                android:textSize="25sp" />-->
 
 <!--            <TextView-->
 <!--                android:id="@+id/textView2"-->
@@ -50,14 +50,16 @@
 <!--                android:text="125"-->
 <!--                android:textColor="@color/colorImportant"-->
 <!--                android:textSize="50sp" />-->
-            <EditText
+            <TextView
                 android:id="@+id/test"
-                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_gravity="center"
                 android:text="0"
                 android:textColor="@color/textColorWhite"
-                android:textSize="50sp"></EditText>
+                android:textSize="30sp"></TextView>
         </LinearLayout>
 
 
@@ -87,15 +89,7 @@
                 android:textSize="20dp"
                 android:textColor="@color/textColorWhite"/>
 
-            <Button
-                android:id="@+id/redeembtn"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/login_border"
-                android:text="Redeem"
-                android:textColor="#E6B773"
-                app:fontFamily="@font/" />
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -106,7 +100,7 @@
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
+                    android:layout_height="320dp"
                     android:background="@color/colorGray" />
 
                 <LinearLayout
@@ -162,6 +156,16 @@
 
 
             </RelativeLayout>
+
+            <Button
+                android:id="@+id/redeembtn"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/login_border"
+                android:text="Redeem"
+                android:textColor="#E6B773"
+                app:fontFamily="@font/" />
 
 
         </LinearLayout>
