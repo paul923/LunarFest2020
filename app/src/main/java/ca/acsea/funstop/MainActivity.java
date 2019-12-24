@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity
 
         //Initialize user
         mUser = (User) getIntent().getSerializableExtra("user");
-        System.out.println(mUser.getPoint());
 
         //Actionbar hide
         //getSupportActionBar().hide();
@@ -139,7 +138,6 @@ public class MainActivity extends AppCompatActivity
     public void userSideBar(){
         if(currentUser != null){
             userEmail = findViewById(R.id.userEmail);
-            userEmail.setText(currentUser.getEmail());
             if(currentUser.getDisplayName() != null) {
                 userName = findViewById(R.id.userName);
                 userName.setText(mUser.getEmail());

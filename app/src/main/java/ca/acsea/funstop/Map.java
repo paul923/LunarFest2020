@@ -26,6 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class Map extends Fragment implements OnMapReadyCallback {
 
     private MapView mapView;
+    protected int mapCode;
 
 
     public Map() {
@@ -46,43 +47,56 @@ public class Map extends Fragment implements OnMapReadyCallback {
         mapView.getMapAsync(this);
 
         return view;
-
-
     }
 
     public void onMapReady(GoogleMap googleMap) {
+        mapCode = 1; // 0 is Vancouver, 1 is Toronto
 
         MarkerOptions eventMarker = new MarkerOptions();
+        if (Globals.getInstance().getData() == 0){ //Vancouver
+            eventMarker.position(new LatLng(49.2829607, -123.1226602));
+            eventMarker.title("Vancouver Art Gallery - LunarFest Celebrations");
+            eventMarker.snippet("Art gallery");
+            googleMap.addMarker(eventMarker);
 
 
-        eventMarker.position(new LatLng(49.2829607,-123.1226602));
-        eventMarker.title("Vancouver Art Gallery - LunarFest Celebrations");
-        eventMarker.snippet("Art gallery");
-        googleMap.addMarker(eventMarker);
+            eventMarker.position(new LatLng(49.196778, -123.181264));
+            eventMarker.title("YVR - The Tunnel of Blessings");
+            eventMarker.snippet("Airport");
+            googleMap.addMarker(eventMarker);
 
+            eventMarker.position(new LatLng(49.232469, -123.117416));
+            eventMarker.title("Oakridge Centre - LunarFest Visual Arts");
+            eventMarker.snippet("Shopping mall");
+            googleMap.addMarker(eventMarker);
 
-        eventMarker.position(new LatLng(49.196778, -123.181264));
-        eventMarker.title("YVR - The Tunnel of Blessings");
-        eventMarker.snippet("Airport");
-        googleMap.addMarker(eventMarker);
+            eventMarker.position(new LatLng(49.289448, -123.117141));
+            eventMarker.title("Jack Poole Plaza/Lot19 - Coastal Lunar Lanterns");
+            eventMarker.snippet("Public amenity house");
+            googleMap.addMarker(eventMarker);
 
-        eventMarker.position(new LatLng(49.232469, -123.117416));
-        eventMarker.title("Oakridge Centre - LunarFest Visual Arts");
-        eventMarker.snippet("Shopping mall");
-        googleMap.addMarker(eventMarker);
+            eventMarker.position(new LatLng(49.280505, -123.112767));
+            eventMarker.title("Queen Elizabeth Theatre - A Musical Banquet");
+            eventMarker.snippet("Theatre");
+            googleMap.addMarker(eventMarker);
 
-        eventMarker.position(new LatLng(49.289448, -123.117141));
-        eventMarker.title("Jack Poole Plaza/Lot19 - Coastal Lunar Lanterns");
-        eventMarker.snippet("Public amenity house");
-        googleMap.addMarker(eventMarker);
+            LatLng centerLocation = new LatLng(49.241970, -123.143407);
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
+        } else { //Toronto
+            eventMarker.position(new LatLng(43.589701, -79.645842));
+            eventMarker.title("Living Arts Centre - LunarFest Celebrations");
+            eventMarker.snippet("Performing arts theater");
+            googleMap.addMarker(eventMarker);
 
-        eventMarker.position(new LatLng(49.280505, -123.112767));
-        eventMarker.title("Queen Elizabeth Theatre - A Musical Banquet");
-        eventMarker.snippet("Theatre");
-        googleMap.addMarker(eventMarker);
+            eventMarker.position(new LatLng(43.869716, -79.312400));
+            eventMarker.title("Varley Art Gallery of Markham - LunarFest Celebrations");
+            eventMarker.snippet("Museum");
+            googleMap.addMarker(eventMarker);
 
-        LatLng centerLocation = new LatLng(49.241970, -123.143407);
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
+            LatLng centerLocation = new LatLng(43.708336, -79.491058);
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 10));
+        }
+
     }
 
     @Override

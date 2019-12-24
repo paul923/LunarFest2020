@@ -59,18 +59,13 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     //User Data Instance
     private User mUser;
-
+    Event event;
+    Map map;
+    QuizStart quiz;
+    About about;
     FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+
     private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
-
-    // Initialize page objects
-    Event event = new Event(fragmentManager);
-    Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, mUser, db);
-    //myPoint = new MyPoint(currentUser);
-    //funStop = new FunStop(fragmentManager, currentUser, ref);
-    About about = new About(fragmentManager);
-
 
 
     public void onCreate(Bundle saveInstanceState){
@@ -89,7 +84,13 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
         //Initialize user object
         mUser = (User) intent.getSerializableExtra("user");
-
+        // Initialize page objects
+        event = new Event(fragmentManager);
+        map = new Map();
+        quiz = new QuizStart(fragmentManager, mUser, db);
+        //myPoint = new MyPoint(currentUser);
+        //funStop = new FunStop(fragmentManager, currentUser, ref);
+        about = new About(fragmentManager);
         // qrValue =  intent.getExtras().getString("qrValue");
         setContentView(R.layout.fragment_my_point);
 
@@ -181,7 +182,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
         points = pref.getInt(pointKey, points);
         System.out.println("Current points  in get points before adding: "+ points);
-        test.setText(String.valueOf(points));
+        test.setText(String.valueOf(mUser.getPoint()));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
 
