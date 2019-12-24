@@ -10,11 +10,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import ca.acsea.funstop.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
+
+import ca.acsea.funstop.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import ca.acsea.funstop.R;
+
 
 public class EventSub1 extends Fragment {
 
@@ -62,12 +68,12 @@ public class EventSub1 extends Fragment {
                         imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
                         break;
 
-
                     case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag2));
                         break;
 
                  case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag3));
                     break;
+
 
                  case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag4));
                      break;

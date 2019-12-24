@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub6"
+    tools:context=".event.EventSub6"
 
     android:id="@+id/eventsub6">
 
@@ -66,7 +66,7 @@
                         android:text="Feb 1, 2020, 1PM~6PM"
 
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                         android:text="Living Arts Center, 4141 Living Arts Dr, Mississauga, ON L5B 4B8"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -114,12 +114,12 @@
                     </ImageView>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:text="click image to change"
-                    android:gravity="center"/>
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:textSize="10dp"-->
+<!--                    android:text="click image to change"-->
+<!--                    android:gravity="center"/>-->
 
                 //Linear layout for event title
                 <LinearLayout
@@ -131,7 +131,7 @@
                         android:id="@+id/eventTitle1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25dp"
+                        android:textSize="30dp"
                         android:textColor="@color/textColorBlack"
                         android:text="2020 LunarFest"
                         android:gravity="center"/>
@@ -147,7 +147,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/textColorBlack"
-                    android:textSize="30dp"
+                    android:textSize="20dp"
                     android:text="About" />
             </LinearLayout>
 
@@ -166,6 +166,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:layout_marginBottom="10dp"
                         android:text="Celebrate the Year of the Rat like no other! Take part in the captivating and joyous performance “A Musical Banquet” by Chai Found Music Workshop as they combine traditional instrumentals with thrilling percussion using everyday household items! Join the cute rats in “Kitchen Runners” as they race around the diverse food cultures of the world in their teacup cars. Express creativity with arts and craft activities, and make your own lantern to take home!" />
 
 
@@ -173,10 +174,12 @@
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:text="“A Musical Banquet” by Chai Found Music Workshop/ Time: Feb 1st  7:30 PM
-"/>
+"                       android:gravity="center"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
@@ -199,14 +202,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textColor="@color/textColorBlack"
                         android:text="Location" />
 
                     <ImageView
                         android:id="@+id/eventMap1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
 
                         android:src="@drawable/map1" />
 

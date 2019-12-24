@@ -9,22 +9,15 @@
     tools:context=".sponsorquiz.QuizStart">
 
     //Title layout
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorMain"
-        android:layout_gravity="bottom">
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:background="@color/colorMain"-->
+<!--        android:layout_gravity="bottom">-->
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|center"
-            android:text="Quiz"
-            android:textColor="@color/textColorWhite"
-            android:textSize="25sp" />
 
-    </FrameLayout>
+
+<!--    </FrameLayout>-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,9 +106,9 @@
 
             <Button
                 android:id="@+id/quiz_start_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
                 android:text="Start"
                 android:background="@drawable/login_border"
                 android:textColor="#E6B773"

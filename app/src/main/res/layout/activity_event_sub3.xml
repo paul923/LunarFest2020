@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EventSub3"
+    tools:context=".event.EventSub3"
 
     android:id="@+id/eventsub3">
 
@@ -66,7 +66,7 @@
                         android:text="Dec25~Jan15"
 
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                         android:text="YVR"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="20dp" >
+                        android:textSize="15dp" >
                     </TextView>
                 </LinearLayout>
 
@@ -126,7 +126,7 @@
                         android:id="@+id/eventTitle1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="25dp"
+                        android:textSize="30dp"
                         android:textColor="@color/textColorBlack"
                         android:text="The Tunnel of Blessings"
                         android:gravity="center"/>
@@ -143,14 +143,17 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="10dp"
                         android:text="About" />
                     <TextView
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
+                        android:gravity="center"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:text="The Tunnel of Blessings"/>
                     <TextView
                         android:id="@+id/eventDescription11"
@@ -172,15 +175,14 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="30dp"
+                        android:textSize="20dp"
                         android:textColor="@color/textColorBlack"
                         android:text="Location" />
 
                     <ImageView
                         android:id="@+id/eventMap1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
+                        android:layout_height="match_parent"
                         android:src="@drawable/map1" />
 
                 </LinearLayout>

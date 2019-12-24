@@ -2,6 +2,7 @@ package ca.acsea.funstop;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 
 
@@ -12,7 +13,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity
     TextView userName;
     TextView userEmail;
     FirebaseUser currentUser;
+    User mUser;
 
 
     @Override
@@ -72,6 +74,11 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+
+        //Initialize user
+        //mUser = (User) getIntent().getSerializableExtra("user");
+        //System.out.println(mUser.getEmail());
 
         //Actionbar hide
         //getSupportActionBar().hide();
@@ -130,7 +137,7 @@ public class MainActivity extends AppCompatActivity
             }
             if(currentUser.getPhotoUrl() != null) {
                 userPicture = findViewById(R.id.imageView);
-                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+//                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
             }
         }
 

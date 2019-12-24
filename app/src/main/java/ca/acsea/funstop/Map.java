@@ -1,5 +1,6 @@
 package ca.acsea.funstop;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -31,9 +32,11 @@ public class Map extends Fragment implements OnMapReadyCallback {
         // Required empty public constructor
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Map");
 
         View view = inflater.inflate(R.layout.fragment_map, container, false);
 
