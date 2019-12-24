@@ -7,28 +7,28 @@
     android:orientation="vertical"
 
     tools:context=".event.EventSub1">
-<!--    android:id="@+id/eventsub1">-->
+    <!--    android:id="@+id/eventsub1">-->
 
     //Title layout
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorMain"-->
-<!--        android:layout_gravity="bottom">-->
+    <!--    <FrameLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="@color/colorMain"-->
+    <!--        android:layout_gravity="bottom">-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:gravity="right|bottom"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:text="LunarFest 2020"-->
-<!--            android:textColor="@color/textColorWhite"-->
-<!--            android:textSize="25sp"-->
-<!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/textView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:gravity="right|bottom"-->
+    <!--            android:layout_marginBottom="15dp"-->
+    <!--            android:layout_marginRight="15dp"-->
+    <!--            android:text="LunarFest 2020"-->
+    <!--            android:textColor="@color/textColorWhite"-->
+    <!--            android:textSize="25sp"-->
+    <!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
 
-<!--    </FrameLayout>-->
+    <!--    </FrameLayout>-->
     //Content layout
     <FrameLayout
         android:layout_width="match_parent"
@@ -127,14 +127,14 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-                   <TextView
-                       android:id="@+id/eventTitle1"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:textSize="25dp"
-                       android:textColor="@color/textColorBlack"
-                       android:text="LunarFest Celebrations"
-                       android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/eventTitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="25dp"
+                        android:textColor="@color/textColorBlack"
+                        android:text="LunarFest Celebrations"
+                        android:gravity="center"/>
                 </LinearLayout>
 
                 //Linear layout for event description

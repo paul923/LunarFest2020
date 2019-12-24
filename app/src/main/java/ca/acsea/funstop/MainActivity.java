@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity
             }
             if(currentUser.getPhotoUrl() != null) {
                 userPicture = findViewById(R.id.imageView);
-                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+//                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
             }
         }
 
@@ -192,12 +192,4 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-//    public void replaceFragment(Fragment fragment) {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.frameLayout, fragment).commit();
-//
-//    }
-
 }
