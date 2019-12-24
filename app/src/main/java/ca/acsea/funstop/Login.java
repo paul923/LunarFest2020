@@ -3,6 +3,7 @@ package ca.acsea.funstop;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -35,11 +36,15 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 
@@ -57,6 +62,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private String password;
     private FirebaseAuth mAuth;
     private FirebaseDatabase mDatabase;
+    Semaphore semaphore = new Semaphore(0);
+
     private User mUser;
 
 
@@ -79,7 +86,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         mAuth = FirebaseAuth.getInstance();
 
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);/////
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mDatabase = FirebaseDatabase.getInstance();
 
 
@@ -171,15 +178,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
     public void createUser(final String email, final String password){
-        mUser = new User(email);
-        final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        final FirebaseUser fUser = mAuth.getCurrentUser();
         // create user with email and password
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 System.out.println("createUser method starts");
                 if(task.isSuccessful()){
+                    final DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    final FirebaseUser fUser = mAuth.getCurrentUser();
+
                     System.out.println("create user / task is successful");
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
 
@@ -187,12 +194,14 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // OK
+                                    mUser = new User(email, fUser.getUid());
                                     ref.child("user-test").child(fUser.getUid()).setValue(mUser);
 
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
                                     //InitValues(); // init values
                                     signIn(email, password);
-                                    finish();
+                                    //finish();
+
                                 }})
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -203,12 +212,17 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .show();
 
                 }else{
+                    mUser = new User(email, null);
                     System.out.println("create user / task is failed");
                     signIn(email, password);
                     //Toast.makeText(Login.this, "CreateUser method is failed", Toast.LENGTH_LONG).show();
                 }
             }
         });
+    }
+
+    public interface MyCallback {
+        void onCallback(User value);
     }
 
     public void signIn(String email, String password){
@@ -218,17 +232,50 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    // update user email in database
-                    System.out.println("sign-in task is successful");
+                    mUser.setUid(mAuth.getCurrentUser().getUid());
+                    //TODO: May need to make it synchronous
 
-                    Intent submit_intent = new Intent(Login.this, Location.class);
-                    submit_intent.putExtra("user", mUser);
-                    startActivity(submit_intent);
+
+                    // Retrieves the data from DB and moves to the next activity
+                    getDataFromFirebase(new MyCallback() {
+                        @Override
+                        public void onCallback(User value) {
+                            Log.d(TAG, "Value is: " + value);
+                        }
+                    });
+
 
                 }else{
                     Log.println(Log.VERBOSE,"Login Error", task.getException().getMessage());
                     Toast.makeText(Login.this, task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+    }
+
+
+
+    private void getDataFromFirebase(final MyCallback callback){
+        // Read from the database
+        mDatabase.getReference().child("user-test").child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                mUser = dataSnapshot.getValue(User.class);
+
+                Intent submit_intent = new Intent(Login.this, Location.class);
+                submit_intent.putExtra("user", mUser);
+                startActivity(submit_intent);
+
+                callback.onCallback(mUser);
+                Log.d(TAG, "Value is: " + mUser);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
     }

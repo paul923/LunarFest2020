@@ -63,7 +63,7 @@ public class QuizStart extends Fragment {
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
 
-        getIndex();
+//        getIndex();
         view = inflater.inflate(R.layout.fragment_quiz_start, container, false);
         transaction = fragmentManager.beginTransaction();
         startButton = view.findViewById(R.id.quiz_start_button);
@@ -73,21 +73,21 @@ public class QuizStart extends Fragment {
             @Override
             public void onClick(View view) {
                 // Data retrieve
-                getCutoff();
-                long currentTime = new Date().getTime();
-                //TODO: change 0 back to cutoff
-                if(currentTime > cutoff) {
-                    recordTime();
+//                getCutoff();
+//                long currentTime = new Date().getTime();
+//                //TODO: change 0 back to cutoff
+//                if(currentTime > cutoff) {
+//                    recordTime();
                     transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,mUser, ref, index)).commit();
-                }else {
-                    long timeLeft = cutoff - new Date().getTime();
-                    String message = String.format("Try again in %d hr %d min %d sec",
-                            TimeUnit.MILLISECONDS.toHours(timeLeft),
-                            TimeUnit.MILLISECONDS.toMinutes(timeLeft),
-                            TimeUnit.MILLISECONDS.toSeconds(timeLeft));
-                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+//                }else {
+//                    long timeLeft = cutoff - new Date().getTime();
+//                    String message = String.format("Try again in %d hr %d min %d sec",
+//                            TimeUnit.MILLISECONDS.toHours(timeLeft),
+//                            TimeUnit.MILLISECONDS.toMinutes(timeLeft),
+//                            TimeUnit.MILLISECONDS.toSeconds(timeLeft));
+//                    Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
                 }
-            }
+//            }
         });
         return view;
     }

@@ -43,7 +43,7 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     // Initialize page objects
     Event event = new Event(fragmentManager);
     Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, currentUser, ref);
+    QuizStart quiz = new QuizStart(fragmentManager, mUser, ref);
     About about = new About(fragmentManager);
 
     public void onCreate(Bundle saveInstanceState){
@@ -81,37 +81,37 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            // Handle navigation view item clicks here.
-            transaction = fragmentManager.beginTransaction();
-            int id = item.getItemId();
+        // Handle navigation view item clicks here.
+        transaction = fragmentManager.beginTransaction();
+        int id = item.getItemId();
 
-            if (id == R.id.nav_event) {
+        if (id == R.id.nav_event) {
 //            transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-            } else if (id == R.id.nav_map) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_map) {
 
-                //intent
-                transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
-            } else if (id == R.id.nav_funstop) {
-                Intent intent = new Intent(this, FunStop.class);
-                startActivity(intent);
+            //intent
+            transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
+        } else if (id == R.id.nav_funstop) {
+            Intent intent = new Intent(this, FunStop.class);
+            startActivity(intent);
 
-                //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
-            } else if (id == R.id.nav_quiz) {
-                transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
-            } else if (id == R.id.nav_point) {
-                Intent intent = new Intent(this, MyPoint.class);
-                intent.putExtra("source", "navbar");
-                startActivity(intent);
-                //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
-            } else if (id == R.id.nav_about) {
-                transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
-            }
+            //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
+        } else if (id == R.id.nav_quiz) {
+            transaction.replace(R.id.frameLayout, quiz).commitAllowingStateLoss();
+        } else if (id == R.id.nav_point) {
+            Intent intent = new Intent(this, MyPoint.class);
+            intent.putExtra("source", "navbar");
+            startActivity(intent);
+            //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
+        } else if (id == R.id.nav_about) {
+            transaction.replace(R.id.frameLayout, about).commitAllowingStateLoss();
+        }
 
-            DrawerLayout drawer = findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
 
     }
 }
