@@ -33,7 +33,6 @@ public class Location extends AppCompatActivity {
         btn_location1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Globals.getInstance().setData(0);
                 Intent intent = new Intent(Location.this, MainActivity.class);
                 intent.putExtra("user", mUser);
                 startActivity(intent);
@@ -44,9 +43,7 @@ public class Location extends AppCompatActivity {
         btn_location2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Globals.getInstance().setData(1);
                 Intent intent = new Intent(Location.this, MainActivity.class);
-                intent.putExtra("user", mUser);
                 startActivity(intent);
             }
         });
