@@ -19,34 +19,23 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 
 public class Map extends Fragment implements OnMapReadyCallback {
 
-//    private FragmentManager fragmentManager;
-//    private FragmentTransaction transaction;
-    //private Fragment mapFragment;
     private MapView mapView;
-    private ArrayList<LatLng> locations = new ArrayList<>();
+
 
     public Map() {
         // Required empty public constructor
     }
 
-//    public Map(FragmentManager fm, FragmentTransaction transaction){
-//        this.fragmentManager = fm;
-//        this.transaction = transaction;
-//    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_map, container, false);
-//        mapFragment = fragmentManager.findFragmentById(R.id.googleMap);
-//        mapFragment.get(this);
 
         // Gets the MapView from the XML layout and creates it
         mapView = (MapView) view.findViewById(R.id.googleMap);
@@ -59,25 +48,38 @@ public class Map extends Fragment implements OnMapReadyCallback {
     }
 
     public void onMapReady(GoogleMap googleMap) {
+
         MarkerOptions eventMarker = new MarkerOptions();
 
-        LatLng centerLocation = new LatLng(49.231730, -123.116663);
-        locations.add(new LatLng(49.231740, -123.116673));
-        locations.add(new LatLng(49.241750, -123.126683));
-        locations.add(new LatLng(49.251760, -123.136693));
 
-        eventMarker.position(centerLocation);
-        eventMarker.title("someTitle");
-        eventMarker.snippet("someDesc");
+        eventMarker.position(new LatLng(49.2829607,-123.1226602));
+        eventMarker.title("Vancouver Art Gallery - LunarFest Celebrations");
+        eventMarker.snippet("Art gallery");
         googleMap.addMarker(eventMarker);
 
-        for (LatLng point : locations) {
-            eventMarker.position(point);
-            eventMarker.title("someTitle");
-            eventMarker.snippet("someDesc");
-            googleMap.addMarker(eventMarker);
-        }
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
+        LatLng centerLocation = new LatLng(49.232469, -123.117416);
+        eventMarker.position(centerLocation);
+        eventMarker.title("Oakridge Centre - LunarFest Visual Arts");
+        eventMarker.snippet("Shopping mall");
+        googleMap.addMarker(eventMarker);
+
+        eventMarker.position(new LatLng(49.196778, -123.181264));
+        eventMarker.title("YVR - The Tunnel of Blessings");
+        eventMarker.snippet("Airport");
+        googleMap.addMarker(eventMarker);
+
+        eventMarker.position(new LatLng(49.289448, -123.117141));
+        eventMarker.title("Jack Poole Plaza/Lot19 - Coastal Lunar Lanterns");
+        eventMarker.snippet("Public amenity house");
+        googleMap.addMarker(eventMarker);
+
+        eventMarker.position(new LatLng(49.280505, -123.112767));
+        eventMarker.title("Queen Elizabeth Theatre - A Musical Banquet");
+        eventMarker.snippet("Theatre");
+        googleMap.addMarker(eventMarker);
+
+
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 11));
     }
 
     @Override
