@@ -84,7 +84,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             qrValue = intent.getStringExtra("qrValue");
         }
 
+
         //TODO: connect user data to other data members
+
         //Initialize user object
         mUser = (User) intent.getSerializableExtra("user");
 
@@ -152,6 +154,15 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         Intent intent = new Intent(MyPoint.this, MainActivity.class);
         startActivity(intent);
     }
+
+
+
+
+
+
+
+
+
 
 
 
