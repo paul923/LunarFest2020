@@ -69,7 +69,11 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
-
+        // getting user from shared preference
+        Gson gson = new Gson();
+        sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
 
         //Initialize user
         //mUser = (User) getIntent().getSerializableExtra("user");
@@ -116,10 +120,12 @@ public class MainActivity extends AppCompatActivity
 
     public void onPause(){
         super.onPause();
+
+        //save user to sharedpreference
         SharedPreferences.Editor prefs = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
-        prefs.putString("useObject", json);
+        prefs.putString("userObject", json);
         prefs.apply();
     }
     @Override

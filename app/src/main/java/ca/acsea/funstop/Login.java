@@ -248,11 +248,13 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
     private void getDataFromFirebase(){
         // Read from the database
+
         mDatabase.getReference().child("user-test").child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
-                // whenever data at this location is updated.
+                // whenever data at this location is updated.'
+
                 mUser = dataSnapshot.getValue(User.class);
                 Log.d(TAG, "Value is: " + mUser);
             }
@@ -310,9 +312,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         if(account != null || currentUser!= null){
 
             // move to next activity
-//            Intent i = new Intent(Login.this, MainActivity.class);
-//            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            startActivity(i);
+           //Intent i = new Intent(Login.this, MainActivity.class);
+           //i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+           // startActivity(i);
 
         }else{
             Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_LONG).show();
