@@ -57,6 +57,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     String qrValue= "";
     SharedPreferences sharedPreferences;
 
+    //User Data Instance
+    private User mUser;
+
     FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
 
@@ -80,6 +83,11 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         if(intent.getStringExtra("source").equals("QrCodeScanner")){
             qrValue = intent.getStringExtra("qrValue");
         }
+
+//TODO: connect user data to other data members
+        //Initialize user object
+        mUser = (User) intent.getSerializableExtra("user");
+
         // qrValue =  intent.getExtras().getString("qrValue");
         setContentView(R.layout.fragment_my_point);
 
@@ -150,16 +158,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
 
 
-    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-    private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
 
-    // Initialize page objects
-    Event event = new Event(fragmentManager);
-    Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, user, db);
-    //myPoint = new MyPoint(currentUser);
-    //funStop = new FunStop(fragmentManager, currentUser, ref);
-    About about = new About();
 
 
 
