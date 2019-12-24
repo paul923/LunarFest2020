@@ -27,6 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import ca.acsea.funstop.R;
+import ca.acsea.funstop.User;
 
 
 public class Quiz extends Fragment {
@@ -43,14 +44,15 @@ public class Quiz extends Fragment {
     private DatabaseReference ref;
     private FirebaseUser currentUser;
     private long point;
+    private User mUser;
 
     public Quiz() {
         // Required empty public constructor
     }
 
-    public Quiz(FragmentManager fm, FirebaseUser user, DatabaseReference ref, int i){
+    public Quiz(FragmentManager fm, User user, DatabaseReference ref, int i){
         this.fragmentManager = fm;
-        this.currentUser = user;
+        this.mUser = user;
         this.ref = ref;
         this.index = i;
     }
