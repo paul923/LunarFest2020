@@ -60,15 +60,15 @@ public class Map extends Fragment implements OnMapReadyCallback {
         eventMarker.snippet("Art gallery");
         googleMap.addMarker(eventMarker);
 
-        LatLng centerLocation = new LatLng(49.232469, -123.117416);
-        eventMarker.position(centerLocation);
-        eventMarker.title("Oakridge Centre - LunarFest Visual Arts");
-        eventMarker.snippet("Shopping mall");
-        googleMap.addMarker(eventMarker);
 
         eventMarker.position(new LatLng(49.196778, -123.181264));
         eventMarker.title("YVR - The Tunnel of Blessings");
         eventMarker.snippet("Airport");
+        googleMap.addMarker(eventMarker);
+
+        eventMarker.position(new LatLng(49.232469, -123.117416));
+        eventMarker.title("Oakridge Centre - LunarFest Visual Arts");
+        eventMarker.snippet("Shopping mall");
         googleMap.addMarker(eventMarker);
 
         eventMarker.position(new LatLng(49.289448, -123.117141));
@@ -81,8 +81,8 @@ public class Map extends Fragment implements OnMapReadyCallback {
         eventMarker.snippet("Theatre");
         googleMap.addMarker(eventMarker);
 
-
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 11));
+        LatLng centerLocation = new LatLng(49.241970, -123.143407);
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
     }
 
     @Override
