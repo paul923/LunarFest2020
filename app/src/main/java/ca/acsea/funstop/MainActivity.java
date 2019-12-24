@@ -70,10 +70,14 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
+        Gson gson = new Gson();
+        sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
 
         //Initialize user
-        //mUser = (User) getIntent().getSerializableExtra("user");
-        //System.out.println(mUser.getEmail());
+        mUser = (User) getIntent().getSerializableExtra("user");
+        System.out.println(mUser.getPoint());
 
         //Actionbar hide
         //getSupportActionBar().hide();
@@ -119,7 +123,9 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences.Editor prefs = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
-        prefs.putString("useObject", json);
+
+        prefs.putString("userObject", json);
+
         prefs.apply();
     }
     @Override
