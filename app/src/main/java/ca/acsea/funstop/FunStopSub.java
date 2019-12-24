@@ -107,6 +107,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     List<CheckBox> arrayList;
     List<Boolean> arrayListBool;
 
+    // User data instance
+    User mUser;
 
     // Initialize page objects
     Event event = new Event(fragmentManager);
@@ -135,6 +137,10 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
         Intent intent = getIntent();
+
+        //TODO: connect user data to other data members
+        //Initialize user object
+        mUser = (User) intent.getSerializableExtra("user");
 
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
@@ -261,15 +267,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         checkQRCodeValue();
         onClickQR();
     }
-
-
-    Event event = new Event(fragmentManager);
-    Map map = new Map();
-    QuizStart quiz = new QuizStart(fragmentManager, currentUser, ref);
-    //myPoint = new MyPoint(currentUser);
-    //funStop = new FunStop(fragmentManager, currentUser, ref);
-    About about = new About();
-
 
     public void onPause() {
         super.onPause();
