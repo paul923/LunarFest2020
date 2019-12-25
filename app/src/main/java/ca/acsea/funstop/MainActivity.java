@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity
     private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
-    private long cutoff;
     ImageView userPicture;
     TextView userName;
     TextView userEmail;
@@ -102,9 +101,6 @@ public class MainActivity extends AppCompatActivity
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
         dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
 
-
-
-
     }
 
     @Override
@@ -136,6 +132,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
+
         if(currentUser != null){
             userEmail = findViewById(R.id.userEmail);
             if(currentUser.getEmail() != null) {

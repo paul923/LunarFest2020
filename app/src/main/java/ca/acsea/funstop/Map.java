@@ -50,7 +50,7 @@ public class Map extends Fragment implements OnMapReadyCallback {
     }
 
     public void onMapReady(GoogleMap googleMap) {
-        mapCode = 1; // 0 is Vancouver, 1 is Toronto
+        mapCode = 0; // 0 is Vancouver, 1 is Toronto
 
         MarkerOptions eventMarker = new MarkerOptions();
         if (Globals.getInstance().getData() == 0){ //Vancouver
