@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity
     private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
-    private long cutoff;
     ImageView userPicture;
     TextView userName;
     TextView userEmail;
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity
 
         //Initialize user
         mUser = (User) getIntent().getSerializableExtra("user");
-        System.out.println(mUser.getPoint());
+        //System.out.println(mUser.getPoint());
 
         //Actionbar hide
         //getSupportActionBar().hide();
@@ -102,9 +101,6 @@ public class MainActivity extends AppCompatActivity
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(Login.NODE_USERS);
         dbUsers.child(mAuth.getCurrentUser().getUid()).child("email").setValue(mAuth.getCurrentUser().getEmail());
-
-
-
 
     }
 
@@ -137,18 +133,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void userSideBar(){
-        if(currentUser != null){
-            userEmail = findViewById(R.id.userEmail);
-            userEmail.setText(currentUser.getEmail());
-            if(currentUser.getDisplayName() != null) {
-                userName = findViewById(R.id.userName);
-                userName.setText(mUser.getEmail());
-            }
-            if(currentUser.getPhotoUrl() != null) {
-                userPicture = findViewById(R.id.imageView);
-//                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
-            }
-        }
+//        if(currentUser != null){
+//            userEmail = findViewById(R.id.userEmail);
+//            userEmail.setText(currentUser.getEmail());
+//            if(currentUser.getDisplayName() != null) {
+//                userName = findViewById(R.id.userName);
+//                userName.setText(mUser.getEmail());
+//            }
+//            if(currentUser.getPhotoUrl() != null) {
+//                userPicture = findViewById(R.id.imageView);
+////                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+//            }
+//        }
 
     }
 
