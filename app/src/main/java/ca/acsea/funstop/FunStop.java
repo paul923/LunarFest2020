@@ -75,11 +75,21 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
         btnStart = findViewById(R.id.startbtn);
         btnStart.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(FunStop.this, FunStopSub.class);
-                intent.putExtra("source", "FunStop").putExtra("user",mUser);
+                if(Globals.getInstance().getData() == 1) {
+                    Intent intent2 = new Intent(FunStop.this, FunStopSub2.class);
+                    intent2.putExtra("source", "FunStop2").putExtra("user", mUser);
 //                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    startActivity(intent2);
+                } else {
 
-                startActivity(intent);
+                    Intent intent = new Intent(FunStop.this, FunStopSub.class);
+                    intent.putExtra("source", "FunStop").putExtra("user", mUser);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    startActivity(intent);
+
+
+                }
+
             }
         });
     }
