@@ -85,7 +85,7 @@ public class Quiz extends Fragment {
     public void init(){
         qList = createQuestions();
         //Collections.shuffle(qList);
-        currentQuestion = qList.get(index);
+        currentQuestion = qList.get(mUser.getIndex());
         questionBox.setText(currentQuestion.getQuestion());
         buttonA.setText(currentQuestion.getOptionList().get(0));
         buttonB.setText(currentQuestion.getOptionList().get(1));
@@ -115,14 +115,16 @@ public class Quiz extends Fragment {
     }
 
     public void addPoints(int value){
-        point += value;
-        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
+//        point += value;
+        mUser.setPoint(mUser.getPoint() + value);
+//        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
+
         //Question number decision
-        ++index;
-        if(index < qList.size() - 1)
-            ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").setValue(++index);
+        if(mUser.getIndex() < qList.size() - 1)
+//            ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").setValue(++index);
+            mUser.increaseIndex();
         else
-            index = 0;
+            mUser.setIndex(0);
     }
 
     /**

@@ -12,6 +12,7 @@ public class User implements Serializable {
     public String uid;
     public String email;
     public long point;
+    public int index;
     public long quizCutoff;
     public HashMap<String, Boolean> vag;
     public HashMap<String, Boolean> oakridge;
@@ -24,6 +25,7 @@ public class User implements Serializable {
 
     public User(String email, String uid) {
         init();
+        this.index = 0;
         this.email = email;
         this.uid = uid;
     }
@@ -155,5 +157,17 @@ public class User implements Serializable {
 
     public void setLot10(HashMap<String, Boolean> lot10) {
         this.lot10 = lot10;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
+
+    public void increaseIndex(){
+        ++this.index;
     }
 }
