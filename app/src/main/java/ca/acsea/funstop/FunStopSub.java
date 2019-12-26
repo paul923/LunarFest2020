@@ -115,7 +115,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop");
+        setTitle("FunStop - Vancouver");
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
@@ -142,10 +142,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         //myPoint = new MyPoint(currentUser);
         //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
-
-
-
-        System.out.println(mUser.getLot10());
 
 
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
