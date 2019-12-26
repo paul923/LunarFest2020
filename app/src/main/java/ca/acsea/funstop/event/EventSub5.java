@@ -77,7 +77,7 @@ public class EventSub5 extends Fragment {
      * Redirects to the map application when map is clicked
      */
     public void onClickMap(){
-        mapImg = view.findViewById(R.id.eventMap1);
+        mapImg = view.findViewById(R.id.eventMap5);
         mapImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

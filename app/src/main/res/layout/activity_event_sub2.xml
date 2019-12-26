@@ -257,10 +257,10 @@
                         android:layout_marginBottom="10dp"/>
 
                     <ImageView
-                        android:id="@+id/eventMap1"
+                        android:id="@+id/eventMap2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/map1" />
+                        android:src="@drawable/map2" />
 
                 </LinearLayout>
             </LinearLayout>
