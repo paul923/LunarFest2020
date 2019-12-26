@@ -38,7 +38,6 @@ public class Location extends AppCompatActivity {
         setContentView(R.layout.activity_location);
 
         mUser = (User) getIntent().getSerializableExtra("user");
-//        System.out.println(mUser.getLot10());
 
         btn_location1 = findViewById(R.id.btn_location1);
         btn_location1.setOnClickListener(new View.OnClickListener() {
@@ -60,25 +59,6 @@ public class Location extends AppCompatActivity {
                 Intent intent = new Intent(Location.this, MainActivity.class);
 //                intent.putExtra("user", mUser);
                 startActivity(intent);
-            }
-        });
-    }
-
-    private void getDataFromFirebase(){
-        // Read from the database
-        mDatabase.getReference().child("user-test").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                mUser = dataSnapshot.getValue(User.class);
-//                Log.d(TAG, "Value is: " + mUser);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
     }
