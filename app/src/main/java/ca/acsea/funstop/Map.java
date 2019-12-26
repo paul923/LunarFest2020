@@ -74,7 +74,7 @@ public class Map extends Fragment implements OnMapReadyCallback {
             eventMarker.snippet("Jan 25");
             googleMap.addMarker(eventMarker);
 
-            LatLng centerLocation = new LatLng(49.241970, -123.143407);
+            LatLng centerLocation = new LatLng(49.260572, -123.127250);
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
         } else { //Toronto
             eventMarker.position(new LatLng(43.589701, -79.645842));
