@@ -88,7 +88,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mDatabase = FirebaseDatabase.getInstance();
-
+        mDatabase.getReference().child("users-testing").setValue("Loggin ");
 
         emailInput = findViewById(R.id.email_input);
         passwordInput = findViewById(R.id.password_input);
@@ -324,6 +324,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(account != null || currentUser!= null){
+           // Intent intent = new Intent(Login.this, MainActivity.class);
+           // startActivity(intent);
 
             getData(new MyCallback() {
                 @Override
