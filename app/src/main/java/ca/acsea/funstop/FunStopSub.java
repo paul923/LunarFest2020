@@ -75,7 +75,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox redFawn2;
     CheckBox protector1;
     CheckBox protector2;
-    CheckBox ladyHao;
     Boolean station1B;
     Boolean station2B;
     Boolean station3B;
@@ -100,7 +99,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean redFawn2B;
     Boolean protector1B;
     Boolean protector2B;
-    Boolean ladyHaoB;
     String qrValue = "";
     SharedPreferences prefs;
     int points;
@@ -179,16 +177,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         redFawn2 = findViewById(R.id.redFawn2);
         protector1 = findViewById(R.id.protector1);
         protector2 = findViewById(R.id.protector2);
-        ladyHao = findViewById(R.id.ladyHao);
 
 
-        // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
+        // arrayList = Arrays.asList(Korean, chinese, loneWolf1);
         arrayList = new ArrayList<CheckBox>();
         arrayList.add(Korean);
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-        arrayList.add(ladyHao);
         arrayList.add(loneWolf1);
         arrayList.add(loneWolf2);
         arrayList.add(protector1);
@@ -234,14 +230,12 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         redFawn2B = prefs.getBoolean("redFawn2B", false);
         protector1B = prefs.getBoolean("protector1B", false);
         protector2B = prefs.getBoolean("protector2B", false);
-        ladyHaoB = prefs.getBoolean("ladyHaoB", false);
 
         arrayListBool = new ArrayList<Boolean>();
         arrayListBool.add(KoreanB);
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-        arrayListBool.add(ladyHaoB);
         arrayListBool.add(loneWolf1B);
         arrayListBool.add(loneWolf2B);
         arrayListBool.add(protector1B);
@@ -311,7 +305,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("chineseB", chineseB);
         prefsEditor.putBoolean("taiwaneseB", taiwaneseB);
         prefsEditor.putBoolean("vietnameseB", vietnameseB);
-        prefsEditor.putBoolean("ladyHaoB", ladyHaoB);
         prefsEditor.putBoolean("loneWolf1B", loneWolf1B);
         prefsEditor.putBoolean("loneWolf2B", loneWolf2B);
         prefsEditor.putBoolean("protector1B", protector1B);
@@ -415,11 +408,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 updatePoints(10, "Add");
                 station12.setChecked(true);
                 station12B = true;
-                break;
-            case "ladyHao":
-                updatePoints(40, "Add");
-                ladyHao.setChecked(true);
-                ladyHaoB = true;
                 break;
             case "chinese":
                 updatePoints(10, "Add");
