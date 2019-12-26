@@ -9,26 +9,6 @@
 
     android:id="@+id/eventsub5">
 
-    //Title layout
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorMain"-->
-<!--        android:layout_gravity="bottom">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:gravity="right|bottom"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:layout_marginRight="15dp"-->
-<!--            android:text="LunarFest 2020"-->
-<!--            android:textColor="@color/textColorWhite"-->
-<!--            android:textSize="25sp"-->
-<!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
-
-<!--    </FrameLayout>-->
     //Content layout
     <FrameLayout
         android:layout_width="match_parent"

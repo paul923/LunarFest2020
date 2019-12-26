@@ -28,7 +28,7 @@ public class Event extends Fragment {
 
     ImageView event1;
     ImageView event2;
-    ImageView event3;
+//    ImageView event3;
     ImageView event4;
     ImageView event5;
     ImageView event6;
@@ -38,7 +38,7 @@ public class Event extends Fragment {
     FragmentTransaction transaction;
     EventSub1 sub1;
     EventSub2 sub2;
-    EventSub3 sub3;
+//    EventSub3 sub3;
     EventSub4 sub4;
     EventSub5 sub5;
     EventSub6 sub6;
@@ -55,6 +55,9 @@ public class Event extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+        transaction = fragmentManager.beginTransaction();
 
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event");
 
@@ -84,12 +87,11 @@ public class Event extends Fragment {
         } else{
             sub1 = new EventSub1();
             sub2 = new EventSub2();
-            sub3 = new EventSub3();
+//            sub3 = new EventSub3();
             sub4 = new EventSub4();
             sub5 = new EventSub5();
             View view = inflater.inflate(R.layout.fragment_event, container, false);
 
-            transaction = fragmentManager.beginTransaction();
 
             event1=(ImageView) view.findViewById(R.id.event1inList);
             event1.setOnClickListener(new View.OnClickListener(){
@@ -110,13 +112,13 @@ public class Event extends Fragment {
                 }
             });
 
-            event3=(ImageView) view.findViewById(R.id.event3inList);
-            event3.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    transaction.replace(R.id.frameLayout, sub3).addToBackStack("tag").commit();
-                }
-            });
+//            event3=(ImageView) view.findViewById(R.id.event3inList);
+//            event3.setOnClickListener(new View.OnClickListener(){
+//                @Override
+//                public void onClick(View view) {
+//                    transaction.replace(R.id.frameLayout, sub3).addToBackStack("tag").commit();
+//                }
+//            });
 
             event4=(ImageView) view.findViewById(R.id.event4inList);
             event4.setOnClickListener(new View.OnClickListener(){

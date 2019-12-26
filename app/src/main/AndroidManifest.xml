@@ -18,6 +18,7 @@
         <activity android:name=".Location"></activity>
         <activity android:name=".MyPoint" />
         <activity android:name=".FunStopSub" />
+        <activity android:name=".FunStopSub2" />
         <activity android:name=".FunStop" />
 
         <activity

@@ -376,33 +376,6 @@
 
                 </LinearLayout>
 
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lot19"
-                    android:textColor="@color/textColorBlack"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp" />
-                //Linear layout for event title
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/colorGray"
-                    android:orientation="vertical">
-
-                    <CheckBox
-                        android:id="@+id/ladyHao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lady Hao Hao"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                </LinearLayout>
             </LinearLayout>
             </ScrollView>
         </FrameLayout>
