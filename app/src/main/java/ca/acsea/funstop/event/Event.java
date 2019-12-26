@@ -1,10 +1,13 @@
 package ca.acsea.funstop.event;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -16,6 +19,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import ca.acsea.funstop.Globals;
+import ca.acsea.funstop.MainActivity;
+import ca.acsea.funstop.MyPoint;
 import ca.acsea.funstop.R;
 
 
@@ -132,5 +137,7 @@ public class Event extends Fragment {
         }
 
     }
+
+
 
 }

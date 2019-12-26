@@ -1,6 +1,7 @@
 package ca.acsea.funstop;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.gson.Gson;
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
@@ -44,6 +46,7 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     Map map;
     QuizStart quiz;
     About about;
+    SharedPreferences sharedPreferences;
     public void onCreate(Bundle saveInstanceState){
         //Initialize user object
         mUser = (User) getIntent().getSerializableExtra("user");
@@ -118,5 +121,16 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
+    }
+
+    public void onPause(){
+        super.onPause();
+//        SharedPreferences.Editor prefs = sharedPreferences.edit();
+//        Gson gson = new Gson();
+//        String json = gson.toJson(mUser);
+//
+//        prefs.putString("userObject", json);
+//
+//        prefs.apply();
     }
 }
