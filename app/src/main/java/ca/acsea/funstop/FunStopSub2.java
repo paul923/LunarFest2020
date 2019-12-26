@@ -93,7 +93,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop2");
+        setTitle("FunStop - Toronto");
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub2);
@@ -120,10 +120,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         //myPoint = new MyPoint(currentUser);
         //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
-
-
-
-        System.out.println(mUser.getLot10());
 
 
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
