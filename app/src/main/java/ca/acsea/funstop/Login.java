@@ -43,7 +43,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.shobhitpuri.custombuttons.GoogleSignInButton;
+
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -58,7 +58,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText emailInput;
     private EditText passwordInput;
     private Button submitBtn;
-    private GoogleSignInButton googleSignInBtn;
+    private SignInButton googleSignInBtn;
     private GoogleApiClient googleApiClient;
     private GoogleSignInClient mGoogleSignInClient;
     private String email;
