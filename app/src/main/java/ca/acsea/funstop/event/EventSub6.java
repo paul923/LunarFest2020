@@ -94,7 +94,7 @@ public class EventSub6 extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Uri gmmIntentUri = Uri.parse("https://www.google.ca/maps/place/Vancouver+Art+Gallery/@49.2829607,-123.1226602,17z/data=!3m1!4b1!4m5!3m4!1s0x5486717f7ffd7cc1:0xb595c3035cb17a4f!8m2!3d49.2829607!4d-123.1204715");
+                        Uri gmmIntentUri = Uri.parse("https://www.google.ca/maps/place/Living+Arts+Centre/@43.637043,-79.9150088,10.33z/data=!4m5!3m4!1s0x882b472a0d5f8f61:0x51eb3da61e7a1f6f!8m2!3d43.5896199!4d-79.6461711");
                         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                         mapIntent.setPackage("com.google.android.apps.maps");
                         startActivity(mapIntent);

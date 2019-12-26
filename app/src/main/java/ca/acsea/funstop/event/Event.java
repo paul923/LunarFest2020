@@ -51,6 +51,9 @@ public class Event extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+        transaction = fragmentManager.beginTransaction();
+
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event");
 
         if(Globals.getInstance().getData() == 1){
@@ -84,7 +87,6 @@ public class Event extends Fragment {
             sub5 = new EventSub5();
             View view = inflater.inflate(R.layout.fragment_event, container, false);
 
-            transaction = fragmentManager.beginTransaction();
 
             event1=(ImageView) view.findViewById(R.id.event1inList);
             event1.setOnClickListener(new View.OnClickListener(){
