@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.frameLayout, quizStart).commitAllowingStateLoss();
         } else if (id == R.id.nav_point) {
             Intent intent = new Intent(this, MyPoint.class);
-//            intent.putExtra("source", "navbar").putExtra("user", mUser);
+            intent.putExtra("source", "navbar");
             startActivity(intent);
             //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
         } else if (id == R.id.nav_about) {

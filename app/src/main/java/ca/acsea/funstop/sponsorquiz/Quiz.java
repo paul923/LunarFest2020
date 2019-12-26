@@ -1,5 +1,6 @@
 package ca.acsea.funstop.sponsorquiz;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,11 +17,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +31,8 @@ import java.util.List;
 
 import ca.acsea.funstop.R;
 import ca.acsea.funstop.User;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class Quiz extends Fragment {
@@ -43,8 +48,9 @@ public class Quiz extends Fragment {
     private int index;
     private DatabaseReference ref;
     private FirebaseUser currentUser;
-    private long point;
+    private int points;
     private User mUser;
+    SharedPreferences prefs;
 
     public Quiz() {
         // Required empty public constructor
@@ -61,10 +67,18 @@ public class Quiz extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        prefs = getActivity().getSharedPreferences("prefs", MODE_PRIVATE);
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
 //        getPoint();
+
+
+        Gson gson = new Gson();
+        String json = prefs.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+
+        points =(int)mUser.getPoint();
 
         transaction = fragmentManager.beginTransaction();
 
@@ -116,9 +130,11 @@ public class Quiz extends Fragment {
 
     public void addPoints(int value){
 //        point += value;
+        System.out.println("before"+mUser.getPoint());
         mUser.setPoint(mUser.getPoint() + value);
 //        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
-
+        System.out.println("after"+mUser.getPoint());
+        save();
         //Question number decision
         if(mUser.getIndex() < qList.size() - 1)
 //            ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").setValue(++index);
@@ -241,19 +257,7 @@ public class Quiz extends Fragment {
         return list;
     }
 
-    public void getPoint(){
-        ref.child("users").child(currentUser.getUid()).child("point").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                point = (long) dataSnapshot.getValue();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("on cancelled");
-            }
-        });
-    }
 
 
 
@@ -274,6 +278,21 @@ public class Quiz extends Fragment {
         }catch (ArrayIndexOutOfBoundsException e){
 
         }
+    }
+    public void onPause(){
+        super.onPause();
+        save();
+    }
+
+    public void save() {
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+//        prefsEditor.putInt("points", points);
+//        mUser.setPoint(points);
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefsEditor.putString("userObject", json);
+        prefsEditor.apply();
+//        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
 
 
