@@ -31,6 +31,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -134,7 +135,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
         //TODO: connect user data to other data members
         //Initialize user object
-        mUser = (User) intent.getSerializableExtra("user");
+//        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -144,11 +145,22 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         about = new About();
 
 
+
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
         }
 
-        prefs = getSharedPreferences("prefs", 0);
+        prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+
+        Gson gson = new Gson();
+        String json = prefs.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+
+        points=(int)mUser.getPoint();
+
+        System.out.println("What is the value: "+  mUser.getPoint()); //0
+
+
         station1 = findViewById(R.id.station1);
         station2 = findViewById(R.id.station2);
         station3 = findViewById(R.id.station3);
@@ -252,7 +264,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(station10B);
         arrayListBool.add(station11B);
         arrayListBool.add(station12B);
-        points = prefs.getInt("point", 0);
+//        points = prefs.getInt("point", 0);
 
 
         int i;
@@ -264,11 +276,19 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         }
         checkQRCodeValue();
         onClickQR();
+        System.out.println("What is the value2: "+ mUser.getPoint()); // +10
     }
 
     public void onPause() {
         super.onPause();
         save();
+        SharedPreferences sharedPreferences  = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor prefs = sharedPreferences.edit();
+        mUser.setPoint(points);
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefs.putString("userObject", json);
+        prefs.apply();
     }
 
 
@@ -322,13 +342,17 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
         prefsEditor.putInt("points", points);
+
         prefsEditor.apply();
         ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
-            points = points + point;
-            ref.child(currentUser.getUid()).child("point").setValue(points);
+            mUser.setPoint(mUser.getPoint()+point);
+            points=(int) mUser.getPoint();
+            System.out.println("What is the value of point in UpdatePoint method "+mUser.getPoint());
+//            points = mUser.set() + point;
+//            ref.child(currentUser.getUid()).child("point").setValue(points);
         }
 
     }
