@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
@@ -73,17 +74,21 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         super.onCreate(saveInstanceState);
 
         Intent intent = getIntent();
-        sharedPreferences = this.getSharedPreferences(sharePreKey, Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
 
-        if(intent.getStringExtra("source").equals("QrCodeScanner")){
-            qrValue = intent.getStringExtra("qrValue");
-        }
+
+//        if(intent.getStringExtra("source").equals("QrCodeScanner")){
+//            qrValue = intent.getStringExtra("qrValue");
+//        }
 
 
         //TODO: connect user data to other data members
 
         //Initialize user object
-        mUser = (User) intent.getSerializableExtra("user");
+//        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -129,10 +134,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     }
 
 
-
-
-
-
     private void checkPoint(){
         if(points >= 150 && !joinDraw){
             new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
@@ -157,18 +158,8 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     }
 
 
-
-
-
-
-
-
-
-
-
-
     private void savePoint(){
-        SharedPreferences.Editor prefEditor = this.getSharedPreferences(sharePreKey,0).edit();
+        SharedPreferences.Editor prefEditor = this.getSharedPreferences("prefs",0).edit();
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
         prefEditor.apply();
@@ -179,10 +170,11 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
 
     private void getPoints(){
-        SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
-        points = pref.getInt(pointKey, points);
+        SharedPreferences pref = getSharedPreferences("prefs",Context.MODE_PRIVATE);
+        points = (int) mUser.getPoint();
+        System.out.println("What si points on myPoint"+points);
         System.out.println("Current points  in get points before adding: "+ points);
-        test.setText(String.valueOf(mUser.getPoint()));
+        test.setText(String.valueOf(points));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
 

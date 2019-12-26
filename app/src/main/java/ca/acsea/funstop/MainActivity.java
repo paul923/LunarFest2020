@@ -73,9 +73,12 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         String json = sharedPreferences.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
+        System.out.println(mUser);
+        System.out.println("mUSerget Point on main activity"+mUser.getPoint());
+        System.out.println("mUSerget Point on main activity"+mUser.getEmail());
 
         //Initialize user
-        mUser = (User) getIntent().getSerializableExtra("user");
+//        mUser = (User) getIntent().getSerializableExtra("user");
 
         //Actionbar hide
         //getSupportActionBar().hide();
@@ -109,18 +112,22 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+//            super.onBackPressed();
         }
     }
+
+//    public void onBackPressed(){
+//
+//    }
 
     public void onPause(){
         super.onPause();
         SharedPreferences.Editor prefs = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
-
         prefs.putString("userObject", json);
-
         prefs.apply();
     }
     @Override
@@ -176,7 +183,7 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.frameLayout, map).commitAllowingStateLoss();
         } else if (id == R.id.nav_funstop) {
             Intent intent = new Intent(this, FunStop.class);
-            intent.putExtra("user", mUser);
+//            intent.putExtra("user", mUser);
             startActivity(intent);
 
             //transaction.replace(R.id.frameLayout, funStop).commitAllowingStateLoss();
@@ -184,7 +191,7 @@ public class MainActivity extends AppCompatActivity
             transaction.replace(R.id.frameLayout, quizStart).commitAllowingStateLoss();
         } else if (id == R.id.nav_point) {
             Intent intent = new Intent(this, MyPoint.class);
-            intent.putExtra("source", "navbar").putExtra("user", mUser);
+//            intent.putExtra("source", "navbar").putExtra("user", mUser);
             startActivity(intent);
             //  transaction.replace(R.id.frameLayout, myPoint).commitAllowingStateLoss();
         } else if (id == R.id.nav_about) {

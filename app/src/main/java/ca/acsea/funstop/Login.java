@@ -2,6 +2,7 @@ package ca.acsea.funstop;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -43,6 +44,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 import java.io.FileDescriptor;
@@ -170,7 +172,18 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getApplicationContext(), Location.class);
-                    intent.putExtra("user", mUser);
+//                    intent.putExtra("user", mUser);
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(mUser);
+                    SharedPreferences sharedPreferences=getSharedPreferences("prefs",MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("userObject", json);
+                    editor.apply();
+                   // mUser = gson.fromJson(json, User.class);
+
+
                     startActivity(intent);
                 } else {
                     Toast.makeText(Login.this, "google login fails", Toast.LENGTH_LONG).show();
@@ -187,7 +200,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             public void onComplete(@NonNull Task<AuthResult> task) {
                 System.out.println("createUser method starts");
                 if(task.isSuccessful()){
-                    final FirebaseUser fUser = mAuth.getCurrentUser();
+//                    final FirebaseUser fUser = mAuth.getCurrentUser();
 
                     System.out.println("create user / task is successful");
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
@@ -196,9 +209,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // OK
-                                    mUser = new User(email, fUser.getUid());
+                                    mUser = new User(email, email);//changed
+                                    Gson gson = new Gson();
+                                    String json = gson.toJson(mUser);
+                                    SharedPreferences sharedPreferences=getSharedPreferences("prefs",MODE_PRIVATE);
 
-                                    mDatabase.child("user-test").child(fUser.getUid()).setValue(mUser);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("userObject", json);
+                                    editor.apply();
+//                                    mDatabase.child("user-test").child(fUser.getUid()).setValue(mUser);
 
 
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
@@ -237,15 +256,31 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     mUser.setUid(mAuth.getCurrentUser().getUid());
+                    Gson gson = new Gson();
+                    SharedPreferences sharedPreferences = getSharedPreferences("prefs",MODE_PRIVATE);
+                    String json = sharedPreferences.getString("userObject", "");
+                    mUser = gson.fromJson(json, User.class);
 
+                    Intent submit_intent = new Intent(Login.this, Location.class);
+//                    submit_intent.putExtra("user", mUser);
+
+
+                    json = gson.toJson(mUser);
+
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("userObject", json);
+                    editor.apply();
+
+                    startActivity(submit_intent);
 
                     // Retrieves the data from DB and moves to the next activity
-                    getDataFromFirebase(new MyCallback() {
-                        @Override
-                        public void onCallback(User value) {
-                            Log.d(TAG, "Value is: " + value);
-                        }
-                    });
+//                    getDataFromFirebase(new MyCallback() {
+//                        @Override
+//                        public void onCallback(User value) {
+//                            Log.d(TAG, "Value is: " + value);
+//                        }
+//                    });
 
 
                 }else{
@@ -283,39 +318,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         });
     }
 
-    private void InitValues() {
-        System.out.println("initing values");
-        DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
-        String currentUser = mAuth.getCurrentUser().getUid();
-        dbUsers.child(currentUser).child("email").setValue(mAuth.getCurrentUser().getEmail());
-        dbUsers.child(currentUser).child("point").setValue(0); //initialize point
-        dbUsers.child(currentUser).child("quiz").child("cutoff").setValue(0);
-        dbUsers.child(currentUser).child("QR").child("korean").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("chinese").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("ladyHao").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("loneWolf1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("loneWolf2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("protector1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("protector2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("redFawn1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("redFawn2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("salishSea1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("salishSea2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("taiwanese").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("vietnamese").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station3").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station4").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station5").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station6").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station7").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station8").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station9").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station10").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station11").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station12").setValue(false);
-    }
 
     @Override
     public void onStart() {

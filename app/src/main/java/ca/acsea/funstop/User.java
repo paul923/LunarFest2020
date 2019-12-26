@@ -17,7 +17,8 @@ public class User implements Serializable {
     public HashMap<String, Boolean> vag;
     public HashMap<String, Boolean> oakridge;
     public HashMap<String, Boolean> jackpool;
-    public HashMap<String, Boolean> lot10;
+
+    public HashMap<String, Boolean> Toronto1;
 
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
@@ -40,22 +41,23 @@ public class User implements Serializable {
         result.put("vag", vag);
         result.put("oakridge", oakridge);
         result.put("jackpool", jackpool);
-        result.put("lot10", lot10);
+        result.put("Toronto1", Toronto1);
 
         return result;
     }
 
     public void init(){
-        point = 0;
-        quizCutoff = 0;
+        this.point = 0;
+        this.quizCutoff = 0;
         initVag();
         initOak();
         initJack();
-        initLot();
+
+        initToronto1();
     }
 
     public void initVag(){
-        vag = new HashMap<>();
+        this.vag = new HashMap<>();
         vag.put("station1", false);
         vag.put("station2", false);
         vag.put("station3", false);
@@ -71,7 +73,7 @@ public class User implements Serializable {
     }
 
     public void initOak(){
-        oakridge = new HashMap<>();
+        this.oakridge = new HashMap<>();
         oakridge.put("korean", false);
         oakridge.put("taiwanese", false);
         oakridge.put("chinese", false);
@@ -79,7 +81,7 @@ public class User implements Serializable {
     }
 
     public void initJack(){
-        jackpool = new HashMap<>();
+        this.jackpool = new HashMap<>();
         jackpool.put("salishSea1", false);
         jackpool.put("salishSea2", false);
         jackpool.put("loneWolf1", false);
@@ -90,10 +92,22 @@ public class User implements Serializable {
         jackpool.put("protector2", false);
     }
 
-    public void initLot(){
-        lot10 = new HashMap<>();
-        lot10.put("ladyHao", false);
+    public void initToronto1() {
+        this.Toronto1 = new HashMap<>();
+        vag.put("station1", false);
+        vag.put("station2", false);
+        vag.put("station3", false);
+        vag.put("station4", false);
+        vag.put("station5", false);
+        vag.put("station6", false);
+        vag.put("station7", false);
+        vag.put("station8", false);
+        vag.put("station9", false);
+        vag.put("station10", false);
+        vag.put("station11", false);
+        vag.put("station12", false);
     }
+
 
     public String getUid() {
         return uid;
@@ -151,14 +165,13 @@ public class User implements Serializable {
         this.jackpool = jackpool;
     }
 
-    public HashMap<String, Boolean> getLot10() {
-        return lot10;
+    public HashMap<String, Boolean> getToronto1() {
+        return Toronto1;
     }
 
-    public void setLot10(HashMap<String, Boolean> lot10) {
-        this.lot10 = lot10;
+    public void setToronto1 (HashMap<String, Boolean> Toronto1) {
+        this.Toronto1 = Toronto1;
     }
-
     public int getIndex() {
         return index;
     }

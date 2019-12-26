@@ -31,7 +31,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -43,7 +42,7 @@ import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
 
 
-public class FunStopSub extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentTransaction transaction;
 
@@ -64,18 +63,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox station10;
     CheckBox station11;
     CheckBox station12;
-    CheckBox Korean;
-    CheckBox taiwanese;
-    CheckBox chinese;
-    CheckBox vietnamese;
-    CheckBox salishSea1;
-    CheckBox salishSea2;
-    CheckBox loneWolf1;
-    CheckBox loneWolf2;
-    CheckBox redFawn1;
-    CheckBox redFawn2;
-    CheckBox protector1;
-    CheckBox protector2;
+
     Boolean station1B;
     Boolean station2B;
     Boolean station3B;
@@ -88,18 +76,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean station10B;
     Boolean station11B;
     Boolean station12B;
-    Boolean KoreanB;
-    Boolean taiwaneseB;
-    Boolean chineseB;
-    Boolean vietnameseB;
-    Boolean salishSea1B;
-    Boolean salishSea2B;
-    Boolean loneWolf1B;
-    Boolean loneWolf2B;
-    Boolean redFawn1B;
-    Boolean redFawn2B;
-    Boolean protector1B;
-    Boolean protector2B;
+
     String qrValue = "";
     SharedPreferences prefs;
     int points;
@@ -116,10 +93,10 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop - Vancouver");
+        setTitle("FunStop - Toronto");
 
         super.onCreate(saveInstanceState);
-        setContentView(R.layout.fragment_fun_stop_sub);
+        setContentView(R.layout.fragment_fun_stop_sub2);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -135,7 +112,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
         //TODO: connect user data to other data members
         //Initialize user object
-//        mUser = (User) intent.getSerializableExtra("user");
+        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -145,22 +122,11 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         about = new About();
 
 
-
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
         }
 
-        prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-
-        Gson gson = new Gson();
-        String json = prefs.getString("userObject", "");
-        mUser = gson.fromJson(json, User.class);
-
-        points=(int)mUser.getPoint();
-
-        System.out.println("What is the value: "+  mUser.getPoint()); //0
-
-
+        prefs = getSharedPreferences("prefs", 0);
         station1 = findViewById(R.id.station1);
         station2 = findViewById(R.id.station2);
         station3 = findViewById(R.id.station3);
@@ -173,34 +139,10 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         station10 = findViewById(R.id.station10);
         station11 = findViewById(R.id.station11);
         station12 = findViewById(R.id.station12);
-        Korean = findViewById(R.id.korean);
-        taiwanese = findViewById(R.id.taiwanese);
-        chinese = findViewById(R.id.chinese);
-        vietnamese = findViewById(R.id.vietnamese);
-        salishSea1 = findViewById(R.id.salishSea1);
-        salishSea2 = findViewById(R.id.salishSea2);
-        loneWolf1 = findViewById(R.id.loneWolf1);
-        loneWolf2 = findViewById(R.id.loneWolf2);
-        redFawn1 = findViewById(R.id.redFawn1);
-        redFawn2 = findViewById(R.id.redFawn2);
-        protector1 = findViewById(R.id.protector1);
-        protector2 = findViewById(R.id.protector2);
 
 
-        // arrayList = Arrays.asList(Korean, chinese, loneWolf1);
+        // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
         arrayList = new ArrayList<CheckBox>();
-        arrayList.add(Korean);
-        arrayList.add(chinese);
-        arrayList.add(taiwanese);
-        arrayList.add(vietnamese);
-        arrayList.add(loneWolf1);
-        arrayList.add(loneWolf2);
-        arrayList.add(protector1);
-        arrayList.add(protector2);
-        arrayList.add(redFawn1);
-        arrayList.add(redFawn2);
-        arrayList.add(salishSea1);
-        arrayList.add(salishSea2);
         arrayList.add(station1);
         arrayList.add(station2);
         arrayList.add(station3);
@@ -226,32 +168,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         station10B = prefs.getBoolean("station10B", false);
         station11B = prefs.getBoolean("station11B", false);
         station12B = prefs.getBoolean("station12B", false);
-        KoreanB = prefs.getBoolean("KoreanB", false);
-        taiwaneseB = prefs.getBoolean("taiwaneseB", false);
-        chineseB = prefs.getBoolean("chineseB", false);
-        vietnameseB = prefs.getBoolean("vietnameseB", false);
-        salishSea1B = prefs.getBoolean("salishSea1B", false);
-        salishSea2B = prefs.getBoolean("salishSea2B", false);
-        loneWolf1B = prefs.getBoolean("loneWolf1B", false);
-        loneWolf2B = prefs.getBoolean("loneWolf2B", false);
-        redFawn1B = prefs.getBoolean("redFawn1B", false);
-        redFawn2B = prefs.getBoolean("redFawn2B", false);
-        protector1B = prefs.getBoolean("protector1B", false);
-        protector2B = prefs.getBoolean("protector2B", false);
 
         arrayListBool = new ArrayList<Boolean>();
-        arrayListBool.add(KoreanB);
-        arrayListBool.add(chineseB);
-        arrayListBool.add(taiwaneseB);
-        arrayListBool.add(vietnameseB);
-        arrayListBool.add(loneWolf1B);
-        arrayListBool.add(loneWolf2B);
-        arrayListBool.add(protector1B);
-        arrayListBool.add(protector2B);
-        arrayListBool.add(redFawn1B);
-        arrayListBool.add(redFawn2B);
-        arrayListBool.add(salishSea1B);
-        arrayListBool.add(salishSea2B);
         arrayListBool.add(station1B);
         arrayListBool.add(station2B);
         arrayListBool.add(station3B);
@@ -264,7 +182,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(station10B);
         arrayListBool.add(station11B);
         arrayListBool.add(station12B);
-//        points = prefs.getInt("point", 0);
+
+        points = prefs.getInt("point", 0);
 
 
         int i;
@@ -276,19 +195,11 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         }
         checkQRCodeValue();
         onClickQR();
-        System.out.println("What is the value2: "+ mUser.getPoint()); // +10
     }
 
     public void onPause() {
         super.onPause();
         save();
-        SharedPreferences sharedPreferences  = getSharedPreferences("prefs", MODE_PRIVATE);
-        SharedPreferences.Editor prefs = sharedPreferences.edit();
-        mUser.setPoint(points);
-        Gson gson = new Gson();
-        String json = gson.toJson(mUser);
-        prefs.putString("userObject", json);
-        prefs.apply();
     }
 
 
@@ -300,7 +211,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 System.out.println("current user" + currentUser);
                 System.out.println("ref" + ref);
 
-                Intent i = new Intent(FunStopSub.this, QrCodeScanner.class);
+                Intent i = new Intent(FunStopSub2.this, QrCodeScanner.class);
                 i.putExtra("previous", "FunStopSub");
                 startActivity(i);
 
@@ -309,7 +220,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     }
 
     public void onBackPressed() {
-        Intent intent = new Intent(FunStopSub.this, MainActivity.class);
+        Intent intent = new Intent(FunStopSub2.this, MainActivity.class);
         startActivity(intent);
     }
 
@@ -317,18 +228,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     public void save() {
         SharedPreferences.Editor prefsEditor = prefs.edit();
 
-        prefsEditor.putBoolean("KoreanB", KoreanB);
-        prefsEditor.putBoolean("chineseB", chineseB);
-        prefsEditor.putBoolean("taiwaneseB", taiwaneseB);
-        prefsEditor.putBoolean("vietnameseB", vietnameseB);
-        prefsEditor.putBoolean("loneWolf1B", loneWolf1B);
-        prefsEditor.putBoolean("loneWolf2B", loneWolf2B);
-        prefsEditor.putBoolean("protector1B", protector1B);
-        prefsEditor.putBoolean("protector2B", protector2B);
-        prefsEditor.putBoolean("redFawn1B", redFawn1B);
-        prefsEditor.putBoolean("redFawn2B", redFawn2B);
-        prefsEditor.putBoolean("salishSea1B", salishSea1B);
-        prefsEditor.putBoolean("salishSea2B", salishSea2B);
         prefsEditor.putBoolean("station1B", station1B);
         prefsEditor.putBoolean("station2B", station2B);
         prefsEditor.putBoolean("station3B", station3B);
@@ -341,18 +240,15 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station10B", station10B);
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
-        prefsEditor.putInt("points", points);
 
+        prefsEditor.putInt("points", points);
         prefsEditor.apply();
         ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
-            mUser.setPoint(mUser.getPoint()+point);
-            points=(int) mUser.getPoint();
-            System.out.println("What is the value of point in UpdatePoint method "+mUser.getPoint());
-//            points = mUser.set() + point;
-//            ref.child(currentUser.getUid()).child("point").setValue(points);
+            points = points + point;
+            ref.child(currentUser.getUid()).child("point").setValue(points);
         }
 
     }
@@ -429,66 +325,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 station12.setChecked(true);
                 station12B = true;
                 break;
-            case "chinese":
-                updatePoints(10, "Add");
-                chinese.setChecked(true);
-                chineseB = true;
-                break;
-            case "Korean":
-                updatePoints(10, "Add");
-                Korean.setChecked(true);
-                KoreanB = true;
-                break;
-            case "taiwanese":
-                updatePoints(10, "Add");
-                taiwanese.setChecked(true);
-                taiwaneseB = true;
-                break;
-            case "vietnamese":
-                updatePoints(10, "Add");
-                vietnamese.setChecked(true);
-                vietnameseB = true;
-                break;
-            case "loneWolf1":
-                updatePoints(5, "Add");
-                loneWolf1.setChecked(true);
-                loneWolf1B = true;
-                break;
-            case "loneWolf2":
-                updatePoints(5, "Add");
-                loneWolf2.setChecked(true);
-                loneWolf2B = true;
-                break;
-            case "protector1":
-                updatePoints(5, "Add");
-                protector1.setChecked(true);
-                protector1B = true;
-                break;
-            case "protector2":
-                updatePoints(5, "Add");
-                protector2.setChecked(true);
-                protector2B = true;
-                break;
-            case "redFawn1":
-                updatePoints(5, "Add");
-                redFawn1.setChecked(true);
-                redFawn1B = true;
-                break;
-            case "redFawn2":
-                updatePoints(5, "Add");
-                redFawn2.setChecked(true);
-                redFawn2B = true;
-                break;
-            case "salishSea1":
-                updatePoints(5, "Add");
-                salishSea1.setChecked(true);
-                salishSea1B = true;
-                break;
-            case "salish Sea 2":
-                updatePoints(5, "Add");
-                salishSea2.setChecked(true);
-                salishSea2B = true;
-                break;
+
+
         }
     }
 
