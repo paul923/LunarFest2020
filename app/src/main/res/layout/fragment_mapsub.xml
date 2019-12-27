@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".event.MapSub1">
+    tools:context=".event.MapSub">
 
     <!-- TODO: Update blank fragment layout -->
     <!--    <TextView-->
@@ -12,7 +12,7 @@
     <!--        android:text="@string/menu_map" />-->
 
     <com.google.android.gms.maps.MapView
-        android:id="@+id/googleMapSub1"
+        android:id="@+id/googleMapSub"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:apiKey="AIzaSyA4xkaOBNHCJ2gSRI2kjtWsmRyQb02RVOA"

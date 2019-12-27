@@ -1,9 +1,6 @@
 package ca.acsea.funstop.event;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
-import ca.acsea.funstop.R;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import ca.acsea.funstop.R;
+import com.google.android.gms.maps.model.LatLng;
 
 
 public class EventSub1 extends Fragment {
@@ -29,6 +24,9 @@ public class EventSub1 extends Fragment {
     private ImageView imageView;
     private int state = 0;
     private int numimg = 10;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+    private MapSub mapSub;
 
 
     public EventSub1() {
@@ -39,7 +37,13 @@ public class EventSub1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event Sub 1");
+        fragmentManager = getActivity().getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+
+        mapSub = new MapSub("Vancouver Art Gallery",
+                "Jan 25 ~ Jan 26", new LatLng(49.283157, -123.119871));
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Vancouver Art Gallery");
         view = inflater.inflate(R.layout.activity_event_sub1, container, false);
         onClickMap();
         // Inflate the layout for this fragment
@@ -99,8 +103,6 @@ public class EventSub1 extends Fragment {
             }
         });
 
-
-
     }
 
     /**
@@ -111,15 +113,7 @@ public class EventSub1 extends Fragment {
         mapImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Uri gmmIntentUri = Uri.parse("https://www.google.ca/maps/place/Vancouver+Art+Gallery/@49.2829607,-123.1226602,17z/data=!3m1!4b1!4m5!3m4!1s0x5486717f7ffd7cc1:0xb595c3035cb17a4f!8m2!3d49.2829607!4d-123.1204715");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
-                    }
-                }, 1000);
+                transaction.replace(R.id.frameLayout, mapSub).addToBackStack("tag").commit();
             }
         });
     }
