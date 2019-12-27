@@ -31,6 +31,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -127,6 +128,16 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         }
 
         prefs = getSharedPreferences("prefs", 0);
+
+    //copy and paste from funstop sub1
+        Gson gson = new Gson();
+        String json = prefs.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+
+        points=(int)mUser.getPoint();
+
+        System.out.println("What is the value: "+  mUser.getPoint()); //0
+
         station1 = findViewById(R.id.station1);
         station2 = findViewById(R.id.station2);
         station3 = findViewById(R.id.station3);
