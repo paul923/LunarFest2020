@@ -56,46 +56,41 @@ public class Map extends Fragment implements OnMapReadyCallback {
         if (Globals.getInstance().getData() == 0){ //Vancouver
             eventMarker.position(new LatLng(49.2829607, -123.1226602));
             eventMarker.title("Vancouver Art Gallery - LunarFest Celebrations");
-            eventMarker.snippet("Art gallery");
-            googleMap.addMarker(eventMarker);
-
-
-            eventMarker.position(new LatLng(49.196778, -123.181264));
-            eventMarker.title("YVR - The Tunnel of Blessings");
-            eventMarker.snippet("Airport");
+            eventMarker.snippet("Jan 25 ~ Jan 26");
             googleMap.addMarker(eventMarker);
 
             eventMarker.position(new LatLng(49.232469, -123.117416));
             eventMarker.title("Oakridge Centre - LunarFest Visual Arts");
-            eventMarker.snippet("Shopping mall");
+            eventMarker.snippet("Jan 16 ~ Feb 10");
             googleMap.addMarker(eventMarker);
 
             eventMarker.position(new LatLng(49.289448, -123.117141));
             eventMarker.title("Jack Poole Plaza/Lot19 - Coastal Lunar Lanterns");
-            eventMarker.snippet("Public amenity house");
+            eventMarker.snippet("Jan 18 ~ Feb 9");
             googleMap.addMarker(eventMarker);
 
             eventMarker.position(new LatLng(49.280505, -123.112767));
             eventMarker.title("Queen Elizabeth Theatre - A Musical Banquet");
-            eventMarker.snippet("Theatre");
+            eventMarker.snippet("Jan 25");
             googleMap.addMarker(eventMarker);
 
-            LatLng centerLocation = new LatLng(49.241970, -123.143407);
+            LatLng centerLocation = new LatLng(49.260572, -123.127250);
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
         } else { //Toronto
             eventMarker.position(new LatLng(43.589701, -79.645842));
             eventMarker.title("Living Arts Centre - LunarFest Celebrations");
-            eventMarker.snippet("Performing arts theater");
+            eventMarker.snippet("Feb 1, 1PM ~ 6PM");
             googleMap.addMarker(eventMarker);
 
             eventMarker.position(new LatLng(43.869716, -79.312400));
             eventMarker.title("Varley Art Gallery of Markham - LunarFest Celebrations");
-            eventMarker.snippet("Museum");
+            eventMarker.snippet("Feb 2, 11AM ~ 4PM");
             googleMap.addMarker(eventMarker);
 
             LatLng centerLocation = new LatLng(43.708336, -79.491058);
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 10));
         }
+
 
     }
 

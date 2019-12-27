@@ -36,6 +36,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
@@ -63,7 +64,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     Map map;
     QuizStart quiz;
     About about;
-    FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
 
     private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
 
@@ -73,17 +74,22 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         super.onCreate(saveInstanceState);
 
         Intent intent = getIntent();
-        sharedPreferences = this.getSharedPreferences(sharePreKey, Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+
+        System.out.println(intent.getStringExtra("source"));
 
         if(intent.getStringExtra("source").equals("QrCodeScanner")){
             qrValue = intent.getStringExtra("qrValue");
-        }
+       }
 
 
         //TODO: connect user data to other data members
 
         //Initialize user object
-        mUser = (User) intent.getSerializableExtra("user");
+//        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -91,7 +97,8 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         //myPoint = new MyPoint(currentUser);
         //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About(fragmentManager);
-        // qrValue =  intent.getExtras().getString("qrValue");
+
+
         setContentView(R.layout.fragment_my_point);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -109,6 +116,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
         test = findViewById(R.id.test);
         getPoints();
+
         checkQrValue();
         checkPoint();
         redeembtn = findViewById(R.id.redeembtn);
@@ -127,10 +135,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         super.onPause();
         savePoint();
     }
-
-
-
-
 
 
     private void checkPoint(){
@@ -157,18 +161,8 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     }
 
 
-
-
-
-
-
-
-
-
-
-
     private void savePoint(){
-        SharedPreferences.Editor prefEditor = this.getSharedPreferences(sharePreKey,0).edit();
+        SharedPreferences.Editor prefEditor = this.getSharedPreferences("prefs",0).edit();
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
         prefEditor.apply();
@@ -179,8 +173,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
 
     private void getPoints(){
-        SharedPreferences pref = this.getSharedPreferences(sharePreKey,Context.MODE_PRIVATE);
-        points = pref.getInt(pointKey, points);
+        SharedPreferences pref = getSharedPreferences("prefs",Context.MODE_PRIVATE);
+        points = (int) mUser.getPoint();
+        System.out.println("What si points on myPoint"+points);
         System.out.println("Current points  in get points before adding: "+ points);
         test.setText(String.valueOf(mUser.getPoint()));
         joinDraw = pref.getBoolean("joinDraw", false);
@@ -205,6 +200,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
                 modifyPoints(20, "Reduce");
                 break;
             case "R_10PT":
+                System.out.println("working");
                 modifyPoints(10, "Reduce");
                 break;
             case "A_50PT":
@@ -224,15 +220,14 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     private void modifyPoints(int point, String operation){
         if(operation.equalsIgnoreCase("Add")){
-            System.out.println("Before adding: "+points);
-            points = points + point;
-            System.out.println("After adding: "+points);
-            test.setText(String.valueOf(points));
+            mUser.setPoint(mUser.getPoint() + point);
+            test.setText(String.valueOf(mUser.getPoint()));
 
         }
         else if(operation.equalsIgnoreCase("Reduce")){
-            points = points - point;
-            test.setText(String.valueOf(points));
+//            points = points - point;
+            mUser.setPoint(mUser.getPoint() - point);
+            test.setText(String.valueOf(mUser.getPoint()));
         }
         savePoint();
     }
@@ -282,6 +277,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 //    public void onBackPressed(){
 //        Intent intent = new Intent(FunStopSub.this, MainActivity.class);
 //        startActivity(intent);
