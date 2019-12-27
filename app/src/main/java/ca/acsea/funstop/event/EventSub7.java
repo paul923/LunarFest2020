@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import ca.acsea.funstop.R;
 
@@ -20,6 +25,9 @@ public class EventSub7 extends Fragment {
     private ImageView imageView;
     private int state = 0;
     private int numimg = 6;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+    private MapSub mapSub;
 
 
     public EventSub7() {
@@ -29,6 +37,13 @@ public class EventSub7 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+
+        mapSub = new MapSub("Varley Art Gallery of Markham",
+                "Feb 2, 11AM ~ 4PM", new LatLng(43.869716, -79.312400));
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Varley Art Gallery of Markham");
 
         view = inflater.inflate(R.layout.activity_event_sub7, container, false);
         onClickMap();
@@ -91,15 +106,7 @@ public class EventSub7 extends Fragment {
         mapImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Uri gmmIntentUri = Uri.parse("https://www.google.ca/maps/place/Varley+Art+Gallery+of+Markham/@43.8692296,-79.3148263,17z/data=!3m1!4b1!4m5!3m4!1s0x89d4d5c81b972c51:0xded7843301d2e649!8m2!3d43.8692296!4d-79.3126376");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
-                    }
-                }, 1000);
+                transaction.replace(R.id.frameLayout, mapSub).addToBackStack("tag").commit();
             }
         });
     }
