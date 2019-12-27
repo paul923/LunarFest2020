@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.gms.maps.model.LatLng;
 
 import ca.acsea.funstop.R;
 
@@ -20,6 +25,9 @@ public class EventSub6 extends Fragment {
     private ImageView imageView;
     private int state = 0;
     private int numimg = 6;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction transaction;
+    private MapSub mapSub;
 
 
     public EventSub6() {
@@ -29,6 +37,13 @@ public class EventSub6 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        fragmentManager = getActivity().getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+
+        mapSub = new MapSub("Living Arts Centre",
+                "Feb 1, 1PM ~ 6PM", new LatLng(43.589701, -79.645842));
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Living Arts Centre");
 
         view = inflater.inflate(R.layout.activity_event_sub6, container, false);
         onClickMap();
@@ -91,15 +106,7 @@ public class EventSub6 extends Fragment {
         mapImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Uri gmmIntentUri = Uri.parse("https://www.google.ca/maps/place/Living+Arts+Centre/@43.637043,-79.9150088,10.33z/data=!4m5!3m4!1s0x882b472a0d5f8f61:0x51eb3da61e7a1f6f!8m2!3d43.5896199!4d-79.6461711");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
-                    }
-                }, 1000);
+                transaction.replace(R.id.frameLayout, mapSub).addToBackStack("tag").commit();
             }
         });
     }
