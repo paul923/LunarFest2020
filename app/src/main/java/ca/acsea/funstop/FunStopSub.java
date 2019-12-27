@@ -370,122 +370,170 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     private void checkQRCodeValue () {
         switch (qrValue) {
             case "station1":
-                updatePoints(10, "Add");
+                if(!station1B) {
+                    updatePoints(10, "Add");
+                }
                 station1.setChecked(true);
                 station1B = true;
                 break;
             case "station2":
-                updatePoints(10, "Add");
+                if(!station2B) {
+                    updatePoints(10, "Add");
+                }
                 station2.setChecked(true);
                 station2B = true;
                 break;
             case "station3":
-                updatePoints(10, "Add");
+                if(!station3B) {
+                    updatePoints(10, "Add");
+                }
                 station3.setChecked(true);
                 station3B = true;
                 break;
             case "station4":
-                updatePoints(10, "Add");
+                if(!station4B) {
+                    updatePoints(10, "Add");
+                }
                 station4.setChecked(true);
                 station4B = true;
                 break;
             case "station5":
-                updatePoints(10, "Add");
+                if(!station5B) {
+                    updatePoints(10, "Add");
+                }
                 station5.setChecked(true);
                 station5B = true;
                 break;
             case "station6":
-                updatePoints(10, "Add");
+                if(!station6B) {
+                    updatePoints(10, "Add");
+                }
                 station6.setChecked(true);
                 station6B = true;
                 break;
             case "station7":
-                updatePoints(10, "Add");
+                if(!station7B) {
+                    updatePoints(10, "Add");
+                }
                 station7.setChecked(true);
                 station7B = true;
                 break;
             case "station8":
-                updatePoints(10, "Add");
+                if(!station8B) {
+                    updatePoints(10, "Add");
+                }
                 station8.setChecked(true);
                 station8B = true;
                 break;
             case "station9":
-                updatePoints(10, "Add");
+                if(!station9B) {
+                    updatePoints(10, "Add");
+                }
                 station9.setChecked(true);
                 station9B = true;
                 break;
             case "station10":
-                updatePoints(10, "Add");
+                if(!station10B) {
+                    updatePoints(10, "Add");
+                }
                 station10.setChecked(true);
                 station10B = true;
                 break;
             case "station11":
-                updatePoints(10, "Add");
+                if(!station11B) {
+                    updatePoints(10, "Add");
+                }
                 station11.setChecked(true);
                 station11B = true;
                 break;
             case "station12":
-                updatePoints(10, "Add");
+                if(!station12B) {
+                    updatePoints(10, "Add");
+                }
                 station12.setChecked(true);
                 station12B = true;
                 break;
             case "chinese":
-                updatePoints(10, "Add");
+                if(!chineseB) {
+                    updatePoints(10, "Add");
+                }
                 chinese.setChecked(true);
                 chineseB = true;
                 break;
             case "Korean":
-                updatePoints(10, "Add");
+                if(!KoreanB) {
+                    updatePoints(10, "Add");
+                }
                 Korean.setChecked(true);
                 KoreanB = true;
                 break;
             case "taiwanese":
-                updatePoints(10, "Add");
+                if(!taiwaneseB) {
+                    updatePoints(10, "Add");
+                }
                 taiwanese.setChecked(true);
                 taiwaneseB = true;
                 break;
             case "vietnamese":
-                updatePoints(10, "Add");
+                if(!vietnameseB) {
+                    updatePoints(10, "Add");
+                }
                 vietnamese.setChecked(true);
                 vietnameseB = true;
                 break;
             case "loneWolf1":
-                updatePoints(5, "Add");
+                if(!loneWolf1B) {
+                    updatePoints(5, "Add");
+                }
                 loneWolf1.setChecked(true);
                 loneWolf1B = true;
                 break;
             case "loneWolf2":
-                updatePoints(5, "Add");
+                if(!loneWolf2B) {
+                    updatePoints(5, "Add");
+                }
                 loneWolf2.setChecked(true);
                 loneWolf2B = true;
                 break;
             case "protector1":
-                updatePoints(5, "Add");
+                if(!protector1B) {
+                    updatePoints(5, "Add");
+                }
                 protector1.setChecked(true);
                 protector1B = true;
                 break;
             case "protector2":
-                updatePoints(5, "Add");
+                if(protector2B) {
+                    updatePoints(5, "Add");
+                }
                 protector2.setChecked(true);
                 protector2B = true;
                 break;
             case "redFawn1":
-                updatePoints(5, "Add");
+                if(redFawn1B) {
+                    updatePoints(5, "Add");
+                }
                 redFawn1.setChecked(true);
                 redFawn1B = true;
                 break;
             case "redFawn2":
-                updatePoints(5, "Add");
+                if(redFawn2B) {
+                    updatePoints(5, "Add");
+                }
                 redFawn2.setChecked(true);
                 redFawn2B = true;
                 break;
             case "salishSea1":
-                updatePoints(5, "Add");
+                if(salishSea1B) {
+                    updatePoints(5, "Add");
+                }
                 salishSea1.setChecked(true);
                 salishSea1B = true;
                 break;
             case "salish Sea 2":
-                updatePoints(5, "Add");
+                if(salishSea2B) {
+                    updatePoints(5, "Add");
+                }
                 salishSea2.setChecked(true);
                 salishSea2B = true;
                 break;
