@@ -152,6 +152,12 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                                 intent1.putExtra("source", "QrCodeScanner");
                                 startActivity(intent1);
                                 finish();
+                            }else if(previousActivity.equals("FunStopSub2")) {
+                                Intent intent1  = new Intent(QrCodeScanner.this, FunStopSub2.class);
+                                intent1.putExtra("qrValue", qrValue);
+                                intent1.putExtra("source", "QrCodeScanner");
+                                startActivity(intent1);
+                                finish();
                             }
 
                         }

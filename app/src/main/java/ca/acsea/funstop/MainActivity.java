@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         String json = sharedPreferences.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
-        System.out.println(mUser);
-        System.out.println("mUSerget Point on main activity"+mUser.getPoint());
-        System.out.println("mUSerget Point on main activity"+mUser.getEmail());
+        System.out.println("what is mUser?"+mUser);
+//        System.out.println("mUSerget Point on main activity"+mUser.getPoint());
+//        System.out.println("mUSerget Point on main activity"+mUser.getEmail());
 
         //Initialize user
 //        mUser = (User) getIntent().getSerializableExtra("user");

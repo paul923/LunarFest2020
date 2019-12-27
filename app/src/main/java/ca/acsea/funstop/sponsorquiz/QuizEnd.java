@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import android.widget.Button;
 import com.google.gson.Gson;
 
 import ca.acsea.funstop.MainActivity;
+import ca.acsea.funstop.MyPoint;
 import ca.acsea.funstop.R;
 import ca.acsea.funstop.User;
 
@@ -28,6 +31,10 @@ public class QuizEnd extends Fragment {
     SharedPreferences prefs;
     User mUser;
     int points;
+
+    FragmentManager fragmentManager;
+    FragmentTransaction transaction;
+
     public QuizEnd(){
         //Empty constructor
     }
@@ -57,6 +64,7 @@ public class QuizEnd extends Fragment {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 SharedPreferences.Editor prefsEditor = prefs.edit();
                 prefsEditor.putInt("points", points);
                 mUser.setPoint(points);
@@ -65,6 +73,8 @@ public class QuizEnd extends Fragment {
                 prefsEditor.putString("userObject", json);
                 prefsEditor.apply();
                 getActivity().recreate();
+
+
 
             }
         });

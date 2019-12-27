@@ -39,12 +39,11 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
-
 import java.io.Serializable;
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
-public class MyPoint extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MyPoint extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String pointKey = "points";
     public static final String sharePreKey = "prefs";
     FragmentTransaction transaction;
@@ -55,7 +54,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     Button redeembtn;
     int points;
     boolean joinDraw;
-    String qrValue= "";
+    String qrValue = "";
     SharedPreferences sharedPreferences;
 
     //User Data Instance
@@ -64,12 +63,12 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     Map map;
     QuizStart quiz;
     About about;
-    FirebaseUser user =FirebaseAuth.getInstance().getCurrentUser();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-    private DatabaseReference db= FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
 
-    public void onCreate(Bundle saveInstanceState){
+    public void onCreate(Bundle saveInstanceState) {
         setTitle("My Point");
         super.onCreate(saveInstanceState);
 
@@ -81,16 +80,13 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
         System.out.println(intent.getStringExtra("source"));
 
-        if(intent.getStringExtra("source").equals("QrCodeScanner")){
+        if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
-       }
+        }
 
 
         //TODO: connect user data to other data members
 
-        //Initialize user object
-//        mUser = (User) intent.getSerializableExtra("user");
-        // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
         quiz = new QuizStart(fragmentManager, mUser, db);
@@ -113,7 +109,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         navigationView.bringToFront();
 
 
-
         test = findViewById(R.id.test);
         getPoints();
 
@@ -123,7 +118,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         redeembtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(MyPoint.this, QrCodeScanner.class);
+                Intent i = new Intent(MyPoint.this, QrCodeScanner.class);
                 i.putExtra("previous", "MyPoints");
                 Bundle bundle = new Bundle();
                 startActivity(i);
@@ -131,31 +126,33 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         });
     }
 
-    public void onPause(){
+    public void onPause() {
         super.onPause();
         savePoint();
     }
 
 
-    private void checkPoint(){
-        if(points >= 150 && !joinDraw){
+    private void checkPoint() {
+        if (points >= 150 && !joinDraw) {
             new AlertDialog.Builder(MyPoint.this).setTitle("Congrats")
                     .setMessage("You have reached 150 points. Would you like to join the draw for a $200 Visa Gift Card? It'll" +
                             "cost 150 points.")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             addToPool();
-                        }})
+                        }
+                    })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             // Cancel
-                        }})
+                        }
+                    })
                     .show();
         }
     }
 
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         Intent intent = new Intent(MyPoint.this, MainActivity.class);
         startActivity(intent);
     }
@@ -163,28 +160,31 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     private void savePoint(){
         SharedPreferences.Editor prefEditor = this.getSharedPreferences("prefs",0).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefEditor.putString("userObject", json);
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
         prefEditor.apply();
         System.out.println("in save point addinh");
-        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
-        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
+//        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+//        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
     }
 
 
-    private void getPoints(){
-        SharedPreferences pref = getSharedPreferences("prefs",Context.MODE_PRIVATE);
+    private void getPoints() {
+        SharedPreferences pref = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         points = (int) mUser.getPoint();
-        System.out.println("What si points on myPoint"+points);
-        System.out.println("Current points  in get points before adding: "+ points);
+        System.out.println("What si points on myPoint" + points);
+        System.out.println("Current points  in get points before adding: " + points);
         test.setText(String.valueOf(mUser.getPoint()));
         joinDraw = pref.getBoolean("joinDraw", false);
     }
 
-    public void checkQrValue(){
+    public void checkQrValue() {
         getPoints();
-        switch (qrValue){
-            case "R_200OPT":
+        switch (qrValue) {
+            case "R_200PT":
                 modifyPoints(200, "Reduce");
                 break;
             case "R_150PT":
@@ -218,25 +218,26 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         }
     }
 
-    private void modifyPoints(int point, String operation){
-        if(operation.equalsIgnoreCase("Add")){
+    private void modifyPoints(int point, String operation) {
+        if (operation.equalsIgnoreCase("Add")) {
             mUser.setPoint(mUser.getPoint() + point);
             test.setText(String.valueOf(mUser.getPoint()));
 
-        }
-        else if(operation.equalsIgnoreCase("Reduce")){
+        } else if (operation.equalsIgnoreCase("Reduce")) {
 //            points = points - point;
-            mUser.setPoint(mUser.getPoint() - point);
-            test.setText(String.valueOf(mUser.getPoint()));
+            if(mUser.getPoint()>=point) {
+                mUser.setPoint(mUser.getPoint() - point);
+                test.setText(String.valueOf(mUser.getPoint()));
+            }else {
+                Toast.makeText(this,"Not enough point!",Toast.LENGTH_SHORT).show();
+            }
+
         }
         savePoint();
     }
 
 
-
-
-
-    private void addToPool(){
+    private void addToPool() {
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");
         joinDraw = true;
         modifyPoints(150, "Reduce");
@@ -278,10 +279,4 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         return true;
     }
 
-
-
-//    public void onBackPressed(){
-//        Intent intent = new Intent(FunStopSub.this, MainActivity.class);
-//        startActivity(intent);
-//    }
 }

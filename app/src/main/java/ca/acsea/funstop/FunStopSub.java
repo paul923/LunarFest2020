@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -372,6 +373,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station1":
                 if(!station1B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station1.setChecked(true);
                 station1B = true;
@@ -379,6 +382,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station2":
                 if(!station2B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station2.setChecked(true);
                 station2B = true;
@@ -386,6 +391,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station3":
                 if(!station3B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station3.setChecked(true);
                 station3B = true;
@@ -393,6 +400,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station4":
                 if(!station4B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station4.setChecked(true);
                 station4B = true;
@@ -400,6 +409,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station5":
                 if(!station5B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station5.setChecked(true);
                 station5B = true;
@@ -407,6 +418,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station6":
                 if(!station6B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station6.setChecked(true);
                 station6B = true;
@@ -414,6 +427,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station7":
                 if(!station7B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station7.setChecked(true);
                 station7B = true;
@@ -421,6 +436,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station8":
                 if(!station8B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station8.setChecked(true);
                 station8B = true;
@@ -428,6 +445,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station9":
                 if(!station9B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station9.setChecked(true);
                 station9B = true;
@@ -435,6 +454,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station10":
                 if(!station10B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station10.setChecked(true);
                 station10B = true;
@@ -442,6 +463,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station11":
                 if(!station11B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station11.setChecked(true);
                 station11B = true;
@@ -449,6 +472,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "station12":
                 if(!station12B) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 station12.setChecked(true);
                 station12B = true;
@@ -456,6 +481,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "chinese":
                 if(!chineseB) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 chinese.setChecked(true);
                 chineseB = true;
@@ -463,6 +490,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "Korean":
                 if(!KoreanB) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 Korean.setChecked(true);
                 KoreanB = true;
@@ -470,6 +499,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "taiwanese":
                 if(!taiwaneseB) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 taiwanese.setChecked(true);
                 taiwaneseB = true;
@@ -477,6 +508,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "vietnamese":
                 if(!vietnameseB) {
                     updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 vietnamese.setChecked(true);
                 vietnameseB = true;
@@ -484,6 +517,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "loneWolf1":
                 if(!loneWolf1B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 loneWolf1.setChecked(true);
                 loneWolf1B = true;
@@ -491,6 +526,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "loneWolf2":
                 if(!loneWolf2B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 loneWolf2.setChecked(true);
                 loneWolf2B = true;
@@ -498,6 +535,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "protector1":
                 if(!protector1B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 protector1.setChecked(true);
                 protector1B = true;
@@ -505,6 +544,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "protector2":
                 if(protector2B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 protector2.setChecked(true);
                 protector2B = true;
@@ -512,6 +553,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "redFawn1":
                 if(redFawn1B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 redFawn1.setChecked(true);
                 redFawn1B = true;
@@ -519,6 +562,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "redFawn2":
                 if(redFawn2B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 redFawn2.setChecked(true);
                 redFawn2B = true;
@@ -526,6 +571,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "salishSea1":
                 if(salishSea1B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 salishSea1.setChecked(true);
                 salishSea1B = true;
@@ -533,6 +580,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
             case "salish Sea 2":
                 if(salishSea2B) {
                     updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
                 salishSea2.setChecked(true);
                 salishSea2B = true;
