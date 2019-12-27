@@ -92,12 +92,12 @@
                     </ImageView>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:text="click image to change"-->
-<!--                    android:gravity="center"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
                 //Linear layout for event title
                 <LinearLayout
@@ -117,6 +117,8 @@
 
                 </LinearLayout>
 
+
+
                 //Linear layout for event description
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -129,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp"
-                        android:text="About"
+                        android:text="Program"
                         android:layout_marginBottom="10dp"/>
                     <TextView
                         android:id="@+id/eventDescription1"
