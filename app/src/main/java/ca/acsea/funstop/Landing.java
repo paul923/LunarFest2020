@@ -18,6 +18,7 @@ public class Landing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
         mAuth = FirebaseAuth.getInstance();
+        System.out.println("what is mAuth on landing"+mAuth);
 
 //        if(mAuth.getCurrentUser()!= null){
 //            Intent intent = new Intent(Landing.this, MainActivity.class);

@@ -69,6 +69,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private String password;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    private FirebaseUser currentUser;
     Semaphore semaphore = new Semaphore(0);
 
     private User mUser;
@@ -92,6 +93,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
         mAuth = FirebaseAuth.getInstance();
+        System.out.println("what is mAuth on login"+mAuth);
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -253,11 +255,13 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     public void signIn(String email, String password){
         //sign in
         System.out.println("\n start sign in \n");
+        System.out.println(currentUser.getEmail());
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    mUser.setUid(mAuth.getCurrentUser().getUid());
+                    System.out.println("Task is successful?"+task.isSuccessful());
+                    mUser.setUid(currentUser.getUid());
                     Gson gson = new Gson();
                     SharedPreferences sharedPreferences = getSharedPreferences("prefs",MODE_PRIVATE);
                     String json = sharedPreferences.getString("userObject", "");
@@ -325,7 +329,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null)
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         if(currentUser != null) {
             mUser = new User(currentUser.getEmail(), currentUser.getUid());
         }

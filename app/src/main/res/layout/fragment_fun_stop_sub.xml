@@ -73,13 +73,14 @@
 
                     <TextView
                         android:id="@+id/qrScanner"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="QR scanner"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginRight="10dp"
                         android:gravity="right"
+                        android:layout_gravity="right"
                         android:textSize="15dp"/>
 
 
@@ -396,6 +397,7 @@ android:layout_height="match_parent" />
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@color/colorMain"
         app:headerLayout="@layout/nav_header_nav"
         app:menu="@menu/activity_nav_drawer" />
 

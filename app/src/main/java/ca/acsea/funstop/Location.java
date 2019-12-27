@@ -3,6 +3,7 @@ package ca.acsea.funstop;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 public class Location extends AppCompatActivity {
 
@@ -23,6 +25,7 @@ public class Location extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
     private User mUser;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +36,17 @@ public class Location extends AppCompatActivity {
 //        getDataFromFirebase();
 
 
-
-
         setContentView(R.layout.activity_location);
 
-        mUser = (User) getIntent().getSerializableExtra("user");
 
+        Gson gson = new Gson();
+        sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+        System.out.println("what is mUser? on location 1"+mUser);
+//
+//        mUser = (User) getIntent().getSerializableExtra("user");
+//        System.out.println("What is mUSer on location 2"+mUser);
         btn_location1 = findViewById(R.id.btn_location1);
         btn_location1.setOnClickListener(new View.OnClickListener() {
             @Override

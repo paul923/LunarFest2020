@@ -212,7 +212,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 System.out.println("ref" + ref);
 
                 Intent i = new Intent(FunStopSub2.this, QrCodeScanner.class);
-                i.putExtra("previous", "FunStopSub");
+                i.putExtra("previous", "FunStopSub2");
                 startActivity(i);
 
             }

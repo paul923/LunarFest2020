@@ -38,7 +38,7 @@ ACSEA’s signature events are spread throughout the year: the end of winter Lun
             <ImageView
                 android:id="@+id/aboutPicture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="162dp"
                 android:layout_margin="5dp"
                 android:layout_marginTop="30dp"
                 app:srcCompat="@drawable/event" />
