@@ -62,7 +62,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText emailInput;
     private EditText passwordInput;
     private Button submitBtn;
-    private SignInButton googleSignInBtn;
+    private GoogleSignInButton googleSignInBtn;
     private GoogleApiClient googleApiClient;
     private GoogleSignInClient mGoogleSignInClient;
     private String email;
