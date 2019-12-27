@@ -73,9 +73,7 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         String json = sharedPreferences.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
-        System.out.println("what is mUser?"+mUser);
-//        System.out.println("mUSerget Point on main activity"+mUser.getPoint());
-//        System.out.println("mUSerget Point on main activity"+mUser.getEmail());
+
 
         //Initialize user
 //        mUser = (User) getIntent().getSerializableExtra("user");
@@ -142,14 +140,16 @@ public class MainActivity extends AppCompatActivity
 
         if(currentUser != null){
             userEmail = findViewById(R.id.userEmail);
-            if(currentUser.getEmail() != null) {
-                userName = findViewById(R.id.userName);
-                userName.setText(mUser.getEmail());
-            }
-            if(currentUser.getPhotoUrl() != null) {
-                userPicture = findViewById(R.id.imageView);
-//                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
-            }
+            userEmail.setText(mUser.getEmail());
+//            if(currentUser.getEmail() != null) {
+//                System.out.println("\n ----------------------------" + userEmail +"\n");
+//                userName = findViewById(R.id.userName);
+//                userName.setText(mUser.getEmail());
+//            }
+//            if(currentUser.getPhotoUrl() != null) {
+//                userPicture = findViewById(R.id.imageView);
+////                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
+//            }
         }
 
     }

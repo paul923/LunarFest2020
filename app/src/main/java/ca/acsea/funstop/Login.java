@@ -202,7 +202,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                System.out.println("createUser method starts");
+                System.out.println("\n" + "createUser method starts" + "\n");
                 if(task.isSuccessful()){
 //                    final FirebaseUser fUser = mAuth.getCurrentUser();
 
@@ -240,7 +240,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
                 }else{
                     mUser = new User(email, null);
-                    System.out.println("create user / task is failed");
+                    System.out.println("\n create user / task is failed\n");
                     signIn(email, password);
                     //Toast.makeText(Login.this, "CreateUser method is failed", Toast.LENGTH_LONG).show();
                 }

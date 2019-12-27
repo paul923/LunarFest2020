@@ -54,7 +54,7 @@ public class Map extends Fragment implements OnMapReadyCallback {
 
         MarkerOptions eventMarker = new MarkerOptions();
         if (Globals.getInstance().getData() == 0){ //Vancouver
-            eventMarker.position(new LatLng(49.2829607, -123.1226602));
+            eventMarker.position(new LatLng(49.283157, -123.119871));
             eventMarker.title("Vancouver Art Gallery - LunarFest Celebrations");
             eventMarker.snippet("Jan 25 ~ Jan 26");
             googleMap.addMarker(eventMarker);
