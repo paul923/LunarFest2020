@@ -291,7 +291,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station1B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station1.setChecked(true);
                 station1B = true;
@@ -300,7 +300,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station2B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station2.setChecked(true);
                 station2B = true;
@@ -309,7 +309,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station3B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station3.setChecked(true);
                 station3B = true;
@@ -318,7 +318,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station4B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station4.setChecked(true);
                 station4B = true;
@@ -327,7 +327,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station5B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station5.setChecked(true);
                 station5B = true;
@@ -336,7 +336,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station6B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station6.setChecked(true);
                 station6B = true;
@@ -345,7 +345,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station7B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station7.setChecked(true);
                 station7B = true;
@@ -354,7 +354,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station8B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station8.setChecked(true);
                 station8B = true;
@@ -363,7 +363,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station9B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station9.setChecked(true);
                 station9B = true;
@@ -372,7 +372,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station10B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station10.setChecked(true);
                 station10B = true;
@@ -381,7 +381,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station11B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station11.setChecked(true);
                 station11B = true;
@@ -390,11 +390,13 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!station12B) {
                     updatePoints(10, "Add");
                 }else {
-                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station12.setChecked(true);
                 station12B = true;
                 break;
+            default:
+                Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
 
 
         }
