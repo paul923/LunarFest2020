@@ -257,7 +257,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
                 modifyPoints(20, "Reduce");
                 break;
             case "R_10PT":
-                System.out.println("working");
                 modifyPoints(10, "Reduce");
                 break;
             case "A_50PT":
@@ -272,6 +271,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             case "A_5PT":
                 modifyPoints(5, "Add");
                 break;
+            default:
+                if(!qrValue.isEmpty())
+                    Toast.makeText(this, "Wrong QR Code", Toast.LENGTH_SHORT).show();
         }
     }
 

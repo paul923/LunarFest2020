@@ -231,7 +231,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // Cancel
-                                    signIn(email,password);
+//                                    signIn(email,password);
+                                    mAuth.getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d(TAG, "User account deleted.");
+                                            }
+                                        }
+                                    });
                                     Toast.makeText(Login.this, "It is canceled.", Toast.LENGTH_SHORT).show();
                                 }})
                             .show();
@@ -265,8 +273,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     SharedPreferences sharedPreferences = getSharedPreferences("prefs",MODE_PRIVATE);
                     String json = sharedPreferences.getString("userObject", "");
                     mUser = gson.fromJson(json, User.class);
-                    System.out.println("What is the value mUserEmail2 ----------------------------on SignIn"+mUser.getEmail());
-                    System.out.println("What is the value mUser2 ----------------------------on SignIn"+mUser);
                     Intent submit_intent = new Intent(Login.this, Location.class);
 //                    submit_intent.putExtra("user", mUser);
 
