@@ -137,7 +137,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         navigationView.bringToFront();
         Intent intent = getIntent();
 
-        //TODO: connect user data to other data members
+
+
         //Initialize user object
 //        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
@@ -160,6 +161,17 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         String json = prefs.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
         points=(int)mUser.getPoint();
+
+
+
+        //Display user's email in the navigation bar
+        if(mUser != null) {
+            NavigationView navView = findViewById(R.id.nav_view);
+            View header = navView.getHeaderView(0);
+            TextView userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(mUser.getEmail());
+        }
+
 
         System.out.println("What is the value: "+  mUser.getPoint()); //0
 
@@ -197,7 +209,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-        arrayList.add(jackPoole);
+//        arrayList.add(jackPoole);
       //  arrayList.add(loneWolf1);
       //  arrayList.add(loneWolf2);
       //  arrayList.add(protector1);
@@ -250,7 +262,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-        arrayListBool.add(jackPooleB);
+//        arrayListBool.add(jackPooleB);
       //  arrayListBool.add(loneWolf1B);
       //  arrayListBool.add(loneWolf2B);
       //  arrayListBool.add(protector1B);
@@ -531,10 +543,12 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 jackPooleB = true;
 
                 break;
-//            default:
-//                if(qrValue!=null) {
-//                    Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
-//                }
+
+            default:
+                if(!qrValue.isEmpty()) {
+                    Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
+                }
+
 
         }
     }

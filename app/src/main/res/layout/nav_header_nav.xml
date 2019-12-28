@@ -21,15 +21,6 @@
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <TextView
-        android:id="@+id/userName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:textColor="@color/textColorWhite"
-        android:text="Email"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-    <TextView
         android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:textColor="@color/textColorWhite"
