@@ -77,7 +77,7 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnMap
             googleMap.addMarker(eventMarker);
 
             LatLng centerLocation = new LatLng(49.260572, -123.127250);
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 12));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 13));
         } else { //Toronto
             eventMarker.position(new LatLng(43.589701, -79.645842));
             eventMarker.title("Living Arts Centre - LunarFest Celebrations");
@@ -88,38 +88,6 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnMap
             eventMarker.title("Varley Art Gallery of Markham - LunarFest Celebrations");
             eventMarker.snippet("Feb 2, 11AM ~ 4PM");
             googleMap.addMarker(eventMarker);
-
-            googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-
-                @Override
-                public View getInfoWindow(Marker arg0) {
-                    return null;
-                }
-
-                @Override
-                public View getInfoContents(Marker marker) {
-
-                    Context mContext = getActivity().getApplicationContext();
-
-                    LinearLayout info = new LinearLayout(mContext);
-                    info.setOrientation(LinearLayout.VERTICAL);
-
-                    TextView title = new TextView(mContext);
-                    title.setTextColor(Color.BLACK);
-                    title.setGravity(Gravity.CENTER);
-                    title.setTypeface(null, Typeface.BOLD);
-                    title.setText(marker.getTitle());
-
-                    TextView snippet = new TextView(mContext);
-                    snippet.setTextColor(Color.GRAY);
-                    snippet.setText(marker.getSnippet());
-
-                    info.addView(title);
-                    info.addView(snippet);
-
-                    return info;
-                }
-            });
 
             LatLng centerLocation = new LatLng(43.708336, -79.491058);
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 10));
