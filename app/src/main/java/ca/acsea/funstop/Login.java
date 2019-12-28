@@ -170,6 +170,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    mUser = new User(mAuth.getCurrentUser().getEmail(), mAuth.getCurrentUser().getUid());
                     System.out.println("\n resultLogin : success\n");
                     Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_LONG).show();
 
