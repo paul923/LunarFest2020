@@ -70,14 +70,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox chinese;
     CheckBox vietnamese;
     CheckBox jackPoole;
-    CheckBox salishSea1;
-    CheckBox salishSea2;
-    CheckBox loneWolf1;
-    CheckBox loneWolf2;
-    CheckBox redFawn1;
-    CheckBox redFawn2;
-    CheckBox protector1;
-    CheckBox protector2;
+//    CheckBox salishSea1;
+//    CheckBox salishSea2;
+//    CheckBox loneWolf1;
+//    CheckBox loneWolf2;
+//    CheckBox redFawn1;
+//    CheckBox redFawn2;
+//    CheckBox protector1;
+//    CheckBox protector2;
     Boolean station1B;
     Boolean station2B;
     Boolean station3B;
@@ -95,14 +95,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean chineseB;
     Boolean vietnameseB;
     Boolean jackPooleB;
-    Boolean salishSea1B;
-    Boolean salishSea2B;
-    Boolean loneWolf1B;
-    Boolean loneWolf2B;
-    Boolean redFawn1B;
-    Boolean redFawn2B;
-    Boolean protector1B;
-    Boolean protector2B;
+//    Boolean salishSea1B;
+//    Boolean salishSea2B;
+//    Boolean loneWolf1B;
+//    Boolean loneWolf2B;
+//    Boolean redFawn1B;
+//    Boolean redFawn2B;
+//    Boolean protector1B;
+//    Boolean protector2B;
     String qrValue = "";
     SharedPreferences prefs;
     int points;
@@ -196,7 +196,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-        arrayList.add(jackPoole);
+//        arrayList.add(jackPoole);
       //  arrayList.add(loneWolf1);
       //  arrayList.add(loneWolf2);
       //  arrayList.add(protector1);
@@ -234,7 +234,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwaneseB = prefs.getBoolean("taiwaneseB", false);
         chineseB = prefs.getBoolean("chineseB", false);
         vietnameseB = prefs.getBoolean("vietnameseB", false);
-        jackPooleB = prefs.getBoolean("jackPooleB", false);
+//        jackPooleB = prefs.getBoolean("jackPooleB", false);
         //salishSea1B = prefs.getBoolean("salishSea1B", false);
         //salishSea2B = prefs.getBoolean("salishSea2B", false);
         //loneWolf1B = prefs.getBoolean("loneWolf1B", false);
@@ -249,7 +249,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-        arrayListBool.add(jackPooleB);
+//        arrayListBool.add(jackPooleB);
       //  arrayListBool.add(loneWolf1B);
       //  arrayListBool.add(loneWolf2B);
       //  arrayListBool.add(protector1B);
@@ -347,7 +347,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station10B", station10B);
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
-        prefsEditor.putBoolean("jackPooleB", jackPooleB);
+//        prefsEditor.putBoolean("jackPooleB", jackPooleB);
         prefsEditor.putInt("points", points);
 
         prefsEditor.apply();
@@ -520,20 +520,20 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 vietnamese.setChecked(true);
                 vietnameseB = true;
                 break;
-            case "JackPoole":
-                if(!jackPooleB) {
-                    updatePoints(40, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                jackPoole.setChecked(true);
-                jackPooleB = true;
+//            case "JackPoole":
+//                if(!jackPooleB) {
+//                    updatePoints(40, "Add");
+//                }else {
+//                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+//                }
+//                jackPoole.setChecked(true);
+//                jackPooleB = true;
 
-                break;
-            default:
-                if(qrValue!=null) {
-                    Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
-                }
+//                break;
+//            default:
+//                if(qrValue!=null) {
+//                    Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
+//                }
 
         }
     }
