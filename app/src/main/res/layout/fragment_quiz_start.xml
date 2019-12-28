@@ -9,15 +9,15 @@
     tools:context=".sponsorquiz.QuizStart">
 
     //Title layout
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:background="@color/colorMain"-->
-<!--        android:layout_gravity="bottom">-->
+    <!--    <FrameLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:background="@color/colorMain"-->
+    <!--        android:layout_gravity="bottom">-->
 
 
 
-<!--    </FrameLayout>-->
+    <!--    </FrameLayout>-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 android:id="@+id/funstopTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="How to Play:"
+                android:text="Quiz Rules"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:textSize="20dp"
@@ -61,7 +61,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
-                        android:text="1. Visit all location shown on the map  "
+                        android:text="Earn points towards your Lunar Fun prize!  "
                         android:textSize="15dp"
                         android:layout_marginBottom="20dp"/>
 
@@ -70,34 +70,34 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="2. At each location ask a volunteer for Fun Stop  QR code"/>
+                        android:text=" "/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="3. Scan the QR code"/>
+                        android:text="A one question quiz is available each day, use your knowledge and choose the correct answer!"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="4.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+                        android:text="1. 5 points will be rewarded just for playing"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="5.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+                        android:text="2. Additional 5 points will be rewarded if you correctly answered the question."/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+                    <!--                    <TextView-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:textColor="@color/textColorBlack"-->
+                    <!--                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>-->
 
                 </LinearLayout>
 

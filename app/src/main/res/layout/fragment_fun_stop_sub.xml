@@ -48,347 +48,322 @@
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            //General linearLayout for vertical orientation
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                //General linearLayout for vertical orientation
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:orientation="vertical">
 
-<!--                    <TextView-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="1"-->
-<!--                        android:text="1/6 Completed"-->
-<!--                        android:textColor="@color/textColorBlack"-->
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
+                        android:weightSum="2">
 
-<!--                        android:gravity="center"-->
-<!--                        android:textSize="15dp"/>-->
+                        <!--                    <TextView-->
+                        <!--                        android:layout_width="0dp"-->
+                        <!--                        android:layout_height="wrap_content"-->
+                        <!--                        android:layout_weight="1"-->
+                        <!--                        android:text="1/6 Completed"-->
+                        <!--                        android:textColor="@color/textColorBlack"-->
+
+                        <!--                        android:gravity="center"-->
+                        <!--                        android:textSize="15dp"/>-->
+
+<!--                        <TextView-->
+<!--                            android:id="@+id/qrScanner"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:text="QR scanner"-->
+<!--                            android:textColor="@color/textColorBlack"-->
+<!--                            android:layout_marginTop="20dp"-->
+<!--                            android:layout_marginRight="10dp"-->
+<!--                            android:gravity="right"-->
+<!--                            android:layout_gravity="right"-->
+<!--                            android:textSize="15dp"/>-->
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:id="@+id/qrScanner"
+                            android:layout_height="50dp"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/ic_photo_camera_black_24dp">
+
+                        </ImageView>
+
+
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/qrScanner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="QR scanner"
+                        android:text="Vancouver Art Gallary"
                         android:textColor="@color/textColorBlack"
-                        android:layout_marginRight="10dp"
-                        android:gravity="right"
-                        android:layout_gravity="right"
-                        android:textSize="15dp"/>
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textStyle="bold"
+                        android:textSize="25dp" />
 
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Vancouver Art Gallary"
-                    android:textColor="@color/textColorBlack"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp" />
-                //Linear layout for event title
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/colorGray"
-                    android:orientation="vertical">
-
-                    <CheckBox
-                        android:id="@+id/station1"
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Rat"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
+                        android:text="Jan 25 ~ Jan 26"
                         android:textColor="@color/textColorBlack"
-                        />
-
-                    <CheckBox
-                        android:id="@+id/station2"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
+                    //Linear layout for event title
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Ox"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:layout_margin="20dp"
+                        android:background="@color/colorGray"
+                        android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/station3"
+                        <CheckBox
+                            android:id="@+id/station1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rat"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack"
+                            />
+
+                        <CheckBox
+                            android:id="@+id/station2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ox"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tiger"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rabbit"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dragon"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Snake"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Horse"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sheep"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Monkey"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rooster"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station11"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Dog"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                        <CheckBox
+                            android:id="@+id/station12"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pig"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+                    </LinearLayout>
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tiger"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:text="Oak Ridge Mall"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:textStyle="bold"
+                        android:textSize="25dp"  />
 
-                    <CheckBox
-                        android:id="@+id/station4"
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Rabbit"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:text="Jan 16 ~ Feb 10"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
 
-                    <CheckBox
-                        android:id="@+id/station5"
+                    //Linear layout for event title
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dragon"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:layout_margin="20dp"
+                        android:background="@color/colorGray"
+                        android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/station6"
+                        <CheckBox
+                            android:id="@+id/chinese"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Chinese"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+                        <CheckBox
+                            android:id="@+id/korean"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Korean"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+                        <CheckBox
+                            android:id="@+id/taiwanese"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Taiwanese"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+                        <CheckBox
+                            android:id="@+id/vietnamese"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vietnamese"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
+
+                    </LinearLayout>
+
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Snake"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:text="Jack Poole Plaza "
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:textStyle="bold"
+                        android:textSize="25dp"  />
 
-                    <CheckBox
-                        android:id="@+id/station7"
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Horse"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/station8"
+                        android:text="Jan 18 ~ Feb 9"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
+                    //Linear layout for event title
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Goat"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:layout_margin="20dp"
+                        android:background="@color/colorGray"
+                        android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/station9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Monkey"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/station10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Rooster"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/station11"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Dog"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/station12"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Pig"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Oak Ridge Mall"
-                    android:textColor="@color/textColorBlack"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp" />
-                //Linear layout for event title
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/colorGray"
-                    android:orientation="vertical">
-
-                    <CheckBox
-                        android:id="@+id/korean"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Korean"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-                    <CheckBox
-                        android:id="@+id/taiwanese"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Taiwanese"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-                    <CheckBox
-                        android:id="@+id/chinese"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Chinese"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-                    <CheckBox
-                        android:id="@+id/vietnamese"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Vietnamese"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                </LinearLayout>
+                        <CheckBox
+                            android:id="@+id/jackPoole"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Coastal Lunar Lanterns"
+                            android:textSize="18dp"
+                            android:layout_margin="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/textColorBlack" />
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Jack Poole Plaza"
-                    android:textColor="@color/textColorBlack"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp" />
-                //Linear layout for event title
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/colorGray"
-                    android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/salishSea1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Salish Sea 1"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/salishSea2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Salish Sea 2"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/loneWolf1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lone Wolf 1"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/loneWolf2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lone Wolf 2"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/redFawn1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Red Fawn 1"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/redFawn2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Red Fawn 2"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/protector1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Protector of the Mountain 1"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                    <CheckBox
-                        android:id="@+id/protector2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Protector of the Mountain 2"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                    </LinearLayout>
 
                 </LinearLayout>
-
-            </LinearLayout>
             </ScrollView>
         </FrameLayout>
 
 
     </LinearLayout>
 
-<include
-layout="@layout/app_bar_nav"
-android:layout_width="match_parent"
-android:layout_height="match_parent" />
+    <include
+        layout="@layout/app_bar_nav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
 

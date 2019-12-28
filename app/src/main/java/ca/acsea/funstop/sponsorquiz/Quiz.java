@@ -70,7 +70,7 @@ public class Quiz extends Fragment {
 
         prefs = getContext().getSharedPreferences("prefs", MODE_PRIVATE);
         //Changes the actionbar's Title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Daily Quiz");
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
 //        getPoint();
 
@@ -120,7 +120,7 @@ public class Quiz extends Fragment {
                     enableButton(false);
                     if (btn.getText().equals(currentQuestion.getAnswer())) {
                         Toast.makeText(getContext(), "correct", Toast.LENGTH_SHORT).show();
-                        colorButton(btn, Color.GREEN);
+                        colorButton(btn, Color.rgb(162,196,255));
                         addPoints(10);
                     } else {
                         Toast.makeText(getContext(), "WRONG!!!!", Toast.LENGTH_SHORT).show();

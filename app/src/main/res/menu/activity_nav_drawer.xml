@@ -13,7 +13,7 @@
             android:title="@string/menu_map" />
         <item
             android:id="@+id/nav_funstop"
-            android:title="@string/menu_funstop" />
+            android:title="LunarFun" />
         <item
             android:id="@+id/nav_quiz"
             android:title="@string/menu_quiz" />

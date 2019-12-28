@@ -301,6 +301,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     private void addToPool() {
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");
+        db.child("drawPool").setValue(mUser.getEmail());
         joinDraw = true;
         modifyPoints(150, "Reduce");
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);

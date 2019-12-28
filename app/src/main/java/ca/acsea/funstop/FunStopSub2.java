@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
     FragmentManager fragmentManager = getSupportFragmentManager();
 
-    TextView textView;
+    ImageView imageView;
 //    FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     CheckBox station1;
@@ -224,8 +225,8 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
 
     public void onClickQR() {
-        textView = findViewById(R.id.qrScanner);
-        textView.setOnClickListener(new View.OnClickListener() {
+        imageView = findViewById(R.id.qrScanner);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -344,6 +345,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                     Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
 
             case "station7":
+
 //                updatePoints(10, "Add");
 //                station7.setChecked(true);
 //                station7B = true;

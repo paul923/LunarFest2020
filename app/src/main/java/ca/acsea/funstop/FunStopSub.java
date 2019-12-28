@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
     FragmentManager fragmentManager = getSupportFragmentManager();
 
-    TextView textView;
+    ImageView imageView;
     FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     CheckBox station1;
@@ -70,14 +71,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox chinese;
     CheckBox vietnamese;
     CheckBox jackPoole;
-    CheckBox salishSea1;
-    CheckBox salishSea2;
-    CheckBox loneWolf1;
-    CheckBox loneWolf2;
-    CheckBox redFawn1;
-    CheckBox redFawn2;
-    CheckBox protector1;
-    CheckBox protector2;
+//    CheckBox salishSea1;
+//    CheckBox salishSea2;
+//    CheckBox loneWolf1;
+//    CheckBox loneWolf2;
+//    CheckBox redFawn1;
+//    CheckBox redFawn2;
+//    CheckBox protector1;
+//    CheckBox protector2;
     Boolean station1B;
     Boolean station2B;
     Boolean station3B;
@@ -95,14 +96,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean chineseB;
     Boolean vietnameseB;
     Boolean jackPooleB;
-    Boolean salishSea1B;
-    Boolean salishSea2B;
-    Boolean loneWolf1B;
-    Boolean loneWolf2B;
-    Boolean redFawn1B;
-    Boolean redFawn2B;
-    Boolean protector1B;
-    Boolean protector2B;
+//    Boolean salishSea1B;
+//    Boolean salishSea2B;
+//    Boolean loneWolf1B;
+//    Boolean loneWolf2B;
+//    Boolean redFawn1B;
+//    Boolean redFawn2B;
+//    Boolean protector1B;
+//    Boolean protector2B;
     String qrValue = "";
     SharedPreferences prefs;
     int points;
@@ -191,7 +192,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwanese = findViewById(R.id.taiwanese);
         chinese = findViewById(R.id.chinese);
         vietnamese = findViewById(R.id.vietnamese);
-//        jackPoole = findViewById(R.id.jackPoole);
+        jackPoole = findViewById(R.id.jackPoole);
         //salishSea1 = findViewById(R.id.salishSea1);
         //salishSea2 = findViewById(R.id.salishSea2);
         //loneWolf1 = findViewById(R.id.loneWolf1);
@@ -311,8 +312,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onClickQR() {
-        textView = findViewById(R.id.qrScanner);
-        textView.setOnClickListener(new View.OnClickListener() {
+        imageView= findViewById(R.id.qrScanner);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("current user" + currentUser);
@@ -542,10 +543,12 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 jackPooleB = true;
 
                 break;
+
             default:
                 if(!qrValue.isEmpty()) {
                     Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
                 }
+
 
         }
     }

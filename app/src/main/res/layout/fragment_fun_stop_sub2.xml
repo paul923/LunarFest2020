@@ -58,22 +58,22 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:orientation="horizontal"
-                        android:layout_gravity="right"
+                        android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
                         android:weightSum="2">
 
 
 
-                        <TextView
+                        <ImageView
+                            android:layout_width="50dp"
                             android:id="@+id/qrScanner"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="QR scanner"
-                            android:textColor="@color/textColorBlack"
+                            android:layout_height="50dp"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="10dp"
                             android:layout_marginRight="10dp"
-                            android:gravity="right"
-                            android:textSize="15dp"/>
+                            android:background="@drawable/ic_photo_camera_black_24dp">
+
+                        </ImageView>
 
 
                     </LinearLayout>
@@ -85,7 +85,17 @@
                         android:textColor="@color/textColorBlack"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
-                        android:textSize="20dp" />
+                        android:textStyle="bold"
+                        android:textSize="25dp"  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Feb 01 ~ Feb 02"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
                     //Linear layout for event title
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -94,124 +104,124 @@
                         android:background="@color/colorGray"
                         android:orientation="vertical">
 
+                            <CheckBox
+                                android:id="@+id/station1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rat/Ox"
+                                android:textSize="18dp"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/textColorBlack" />
+                            <CheckBox
+                                android:id="@+id/station2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Tiger/Rabbit"
+                                android:textSize="18dp"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/textColorBlack" />
+
+                            <CheckBox
+                                android:id="@+id/station3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dragon/Snake"
+                                android:textSize="18dp"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/textColorBlack" />
+
+                            <CheckBox
+                                android:id="@+id/station4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Horse/Sheep"
+                                android:textSize="18dp"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/textColorBlack" />
+
+                            <CheckBox
+                                android:id="@+id/station5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Monkey/Rooster"
+                                android:textSize="18dp"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/textColorBlack" />
+
+                            <CheckBox
+                                android:id="@+id/station6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Dog/Pig"
+                                android:textSize="18dp"
+                                android:layout_margin="5dp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@color/textColorBlack" />
+
 <!--                        <CheckBox-->
-<!--                            android:id="@+id/station1"-->
+<!--                            android:id="@+id/station7"-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Rat"-->
+<!--                            android:text="Rat/Ox"-->
 <!--                            android:textSize="18dp"-->
 <!--                            android:layout_margin="5dp"-->
 <!--                            android:layout_marginLeft="10dp"-->
 <!--                            android:textColor="@color/textColorBlack" />-->
+
 <!--                        <CheckBox-->
-<!--                            android:id="@+id/station2"-->
+<!--                            android:id="@+id/station8"-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Ox"-->
+<!--                            android:text="Tiger/Rabbit"-->
 <!--                            android:textSize="18dp"-->
 <!--                            android:layout_margin="5dp"-->
 <!--                            android:layout_marginLeft="10dp"-->
 <!--                            android:textColor="@color/textColorBlack" />-->
 
 <!--                        <CheckBox-->
-<!--                            android:id="@+id/station3"-->
+<!--                            android:id="@+id/station9"-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Tiger"-->
+<!--                            android:text="Dragon/Snake"-->
 <!--                            android:textSize="18dp"-->
 <!--                            android:layout_margin="5dp"-->
 <!--                            android:layout_marginLeft="10dp"-->
 <!--                            android:textColor="@color/textColorBlack" />-->
 
 <!--                        <CheckBox-->
-<!--                            android:id="@+id/station4"-->
+<!--                            android:id="@+id/station10"-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Rabbit"-->
+<!--                            android:text="Horse/Goat"-->
 <!--                            android:textSize="18dp"-->
 <!--                            android:layout_margin="5dp"-->
 <!--                            android:layout_marginLeft="10dp"-->
 <!--                            android:textColor="@color/textColorBlack" />-->
 
 <!--                        <CheckBox-->
-<!--                            android:id="@+id/station5"-->
+<!--                            android:id="@+id/station11"-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Dragon"-->
+<!--                            android:text="Monkey/Rooster"-->
 <!--                            android:textSize="18dp"-->
 <!--                            android:layout_margin="5dp"-->
 <!--                            android:layout_marginLeft="10dp"-->
 <!--                            android:textColor="@color/textColorBlack" />-->
 
 <!--                        <CheckBox-->
-<!--                            android:id="@+id/station6"-->
+<!--                            android:id="@+id/station12"-->
 <!--                            android:layout_width="match_parent"-->
 <!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Snake"-->
+<!--                            android:text="Dog/Pig"-->
 <!--                            android:textSize="18dp"-->
 <!--                            android:layout_margin="5dp"-->
 <!--                            android:layout_marginLeft="10dp"-->
 <!--                            android:textColor="@color/textColorBlack" />-->
-
-                        <CheckBox
-                            android:id="@+id/station7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Rat/Ox"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
-
-                        <CheckBox
-                            android:id="@+id/station8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Tiger/Rabbit"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
-
-                        <CheckBox
-                            android:id="@+id/station9"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Dragon/Snake"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
-
-                        <CheckBox
-                            android:id="@+id/station10"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Horse/Goat"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
-
-                        <CheckBox
-                            android:id="@+id/station11"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Monkey/Rooster"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
-
-                        <CheckBox
-                            android:id="@+id/station12"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Dog/Pig"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
 
                     </LinearLayout>
                 </LinearLayout>
