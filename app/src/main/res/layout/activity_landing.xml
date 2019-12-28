@@ -9,33 +9,57 @@
     tools:context=".Landing"
     android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"  >
 
-    <ImageView
-        android:id="@+id/logo1"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.20"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+<!--    <ImageView-->
+<!--        android:id="@+id/logo1"-->
+<!--        android:layout_width="350dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:src="@drawable/logo"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.20"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        tools:layout_editor_absoluteX="0dp" />-->
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="260dp"
-        android:layout_weight="1"
-        android:background="@drawable/login_border"
-        android:text="Log In"
-        android:textColor="#E6B773"
-        android:textSize="20sp"
-        android:visibility="visible"
-        app:fontFamily="@font/roboto_bold"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo1" />
+<!--    <Button-->
+<!--        android:id="@+id/login_button"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="260dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:background="@drawable/login_border"-->
+<!--        android:text="Log In"-->
+<!--        android:textColor="#E6B773"-->
+<!--        android:textSize="20sp"-->
+<!--        android:visibility="visible"-->
+<!--        app:fontFamily="@font/roboto_bold"-->
+<!--        app:layout_constraintHorizontal_bias="0.495"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/logo1" />-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/launch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/launch"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="260dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_border"
+            android:text="Log In"
+            android:textColor="#E6B773"
+            android:textSize="20sp"
+            android:visibility="visible"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintVertical_bias="0.8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>

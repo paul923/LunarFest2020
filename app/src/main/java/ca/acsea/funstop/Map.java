@@ -2,28 +2,30 @@ package ca.acsea.funstop;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
-import android.net.Uri;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 //import java.util.ArrayList;
 
 
-public class Map extends Fragment implements OnMapReadyCallback {
+public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnMapClickListener {
 
     private MapView mapView;
     protected int mapCode;
@@ -71,7 +73,7 @@ public class Map extends Fragment implements OnMapReadyCallback {
 
             eventMarker.position(new LatLng(49.280505, -123.112767));
             eventMarker.title("Queen Elizabeth Theatre - A Musical Banquet");
-            eventMarker.snippet("Jan 25");
+            eventMarker.snippet("Jan 25, 7:30PM");
             googleMap.addMarker(eventMarker);
 
             LatLng centerLocation = new LatLng(49.260572, -123.127250);
@@ -86,6 +88,38 @@ public class Map extends Fragment implements OnMapReadyCallback {
             eventMarker.title("Varley Art Gallery of Markham - LunarFest Celebrations");
             eventMarker.snippet("Feb 2, 11AM ~ 4PM");
             googleMap.addMarker(eventMarker);
+
+            googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+                @Override
+                public View getInfoWindow(Marker arg0) {
+                    return null;
+                }
+
+                @Override
+                public View getInfoContents(Marker marker) {
+
+                    Context mContext = getActivity().getApplicationContext();
+
+                    LinearLayout info = new LinearLayout(mContext);
+                    info.setOrientation(LinearLayout.VERTICAL);
+
+                    TextView title = new TextView(mContext);
+                    title.setTextColor(Color.BLACK);
+                    title.setGravity(Gravity.CENTER);
+                    title.setTypeface(null, Typeface.BOLD);
+                    title.setText(marker.getTitle());
+
+                    TextView snippet = new TextView(mContext);
+                    snippet.setTextColor(Color.GRAY);
+                    snippet.setText(marker.getSnippet());
+
+                    info.addView(title);
+                    info.addView(snippet);
+
+                    return info;
+                }
+            });
 
             LatLng centerLocation = new LatLng(43.708336, -79.491058);
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 10));
@@ -117,5 +151,10 @@ public class Map extends Fragment implements OnMapReadyCallback {
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+
     }
 }
