@@ -42,7 +42,7 @@ public class EventSub5 extends Fragment {
         transaction = fragmentManager.beginTransaction();
 
         mapSub = new MapSub("Queen Elizabeth Theatre",
-                "Jan 25", new LatLng(49.280505, -123.112767));
+                "Jan 25, 7:30PM", new LatLng(49.280505, -123.112767));
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Queen Elizabeth Theatre");
 
         view = inflater.inflate(R.layout.activity_event_sub5, container, false);

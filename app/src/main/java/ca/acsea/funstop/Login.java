@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -51,6 +49,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -99,7 +98,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         emailInput = findViewById(R.id.email_input);
         passwordInput = findViewById(R.id.password_input);
-        submitBtn = findViewById(R.id.submit);
 
         googleSignInBtn = findViewById(R.id.google_sign_in_button);
         googleSignInBtn.setOnClickListener(new View.OnClickListener() {
@@ -109,22 +107,45 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             }
         });
 
-
+        submitBtn = findViewById(R.id.submit);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 email = emailInput.getText().toString();
                 password = passwordInput.getText().toString();
 
-                if(TextUtils.isEmpty(email)) {
+                if (TextUtils.isEmpty(email)) {
                     emailInput.setError("Please enter your email");
                     return;
-                } else if(TextUtils.isEmpty(password)){
+                } else if (TextUtils.isEmpty(password)) {
                     passwordInput.setError("Please enter your password");
                     return;
+                } else if (!isValidEmail(email)) {
+                    Toast.makeText(Login.this, "Not a Proper Email Form ", Toast.LENGTH_SHORT).show();
+                } else if (!isValidPassword(password)) {
+                    Toast.makeText(Login.this, "Input More Than 6 digit Password ", Toast.LENGTH_SHORT).show();
                 }
-                createUser(email,password);
+                createUser(email, password);
             }
+
+            private boolean isValidEmail(String email) {
+                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                    "[a-zA-Z0-9_+&*-]+)*@" +
+                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                    "A-Z]{2,7}$";
+
+                Pattern pat = Pattern.compile(emailRegex);
+
+                return pat.matcher(email).matches();
+            }
+
+            private boolean isValidPassword(String password) {
+                if (password.length() < 6) {
+                    return false;
+                }
+                return true;
+            }
+
         });
 
     }
@@ -151,8 +172,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         if (requestCode == RC_SIGN_IN){
             System.out.println("\n requestCode arrived\n");
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            System.out.println("\n 구글 사인인 결과: \n" + result + "/n");
-            System.out.println("\n 구글 사인인 결과(boolben): \n" + result.isSuccess() + "/n");
             System.out.println(result.getStatus());
 
             if(result.isSuccess()){
@@ -172,7 +191,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 if (task.isSuccessful()){
                     mUser = new User(mAuth.getCurrentUser().getEmail(), mAuth.getCurrentUser().getUid());
                     System.out.println("\n resultLogin : success\n");
-                    Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(getApplicationContext(), Location.class);
 //                    intent.putExtra("user", mUser);
@@ -248,8 +267,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 }else{
                     mUser = new User(email, null);
                     System.out.println("\n create user / task is failed\n");
-                    System.out.println("What is the value mUserEmail1 ----------------------------on SignIn"+mUser.getEmail());
-                    System.out.println("What is the value mUser1 ----------------------------on SignIn"+mUser);
                     signIn(email, password);
                     //Toast.makeText(Login.this, "CreateUser method is failed", Toast.LENGTH_LONG).show();
                 }
