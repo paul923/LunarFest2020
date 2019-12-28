@@ -88,6 +88,11 @@
                 android:layout_marginBottom="20dp"
                 android:textSize="20dp"
                 android:textColor="@color/textColorWhite"/>
+            <Button
+                android:id="@+id/point_transaction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transaction"/>
 
 
 
@@ -113,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
-                        android:text="1. Visit all location shown on the map  "
+                        android:text="To qualify for the $200 Visa gift card draw: 150 Points."
                         android:textSize="15dp"
                         android:layout_marginBottom="20dp"/>
 
@@ -122,34 +127,21 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="2. At each location ask a volunteer for Fun Stop  QR code"/>
+                        android:text="Other redemptions: See onsite information."/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="3. Scan the QR code"/>
+                        android:text="Click Redeem to scan the redemption QR Code"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="4.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:layout_marginBottom="20dp"
-                        android:text="5.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:text="6.Once all QR codes are scan visit Fun Stop Booth for a chance to win a prize"/>
+                        android:text="(Prizes are available while quantities last)"/>
 
                 </LinearLayout>
 

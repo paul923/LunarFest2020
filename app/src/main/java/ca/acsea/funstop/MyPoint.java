@@ -56,6 +56,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     boolean joinDraw;
     String qrValue = "";
     SharedPreferences sharedPreferences;
+    Button transactionBtn;
+
+    String historyMessage;
 
     //User Data Instance
     private User mUser;
@@ -65,18 +68,22 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     About about;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    private AlertDialog.Builder alertDialog;
+
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
 
     public void onCreate(Bundle saveInstanceState) {
         setTitle("My Point");
         super.onCreate(saveInstanceState);
+        setContentView(R.layout.fragment_my_point);
 
         Intent intent = getIntent();
         sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("userObject", "");
         String testing = sharedPreferences.getString("test", "");
+        historyMessage = sharedPreferences.getString("history", "");
         mUser = gson.fromJson(json, User.class);
 
         System.out.println("test : " + testing);
@@ -88,8 +95,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         }
 
 
-        //TODO: connect user data to other data members
-
         event = new Event(fragmentManager);
         map = new Map();
         quiz = new QuizStart(fragmentManager, mUser, db);
@@ -98,7 +103,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         about = new About(fragmentManager);
 
 
-        setContentView(R.layout.fragment_my_point);
+
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -110,6 +117,18 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+
+
+        //Point history button
+        transactionBtn = (Button) findViewById(R.id.point_transaction);
+        onPressTransaction();
+
+        //Initialize AlertDialog
+        alertDialog = new AlertDialog.Builder(MyPoint.this);
+        alertDialog.setTitle("Transaction History");
+
+
 
 
         test = findViewById(R.id.test);
@@ -128,6 +147,27 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             }
         });
     }
+
+
+    /**
+     * Transaction button pressed event handler
+     */
+    public void onPressTransaction(){
+        transactionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.setMessage(historyMessage);
+                alertDialog.setTitle("Transaction History")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+
+
 
     public void onPause() {
         super.onPause();
@@ -171,6 +211,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
         prefEditor.putString("userObject", json);
+        prefEditor.putString("history", historyMessage);
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
         prefEditor.apply();
@@ -230,12 +271,13 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         if (operation.equalsIgnoreCase("Add")) {
             mUser.setPoint(mUser.getPoint() + point);
             test.setText(String.valueOf(mUser.getPoint()));
-
+            historyMessage.concat("+ " + point + "\n");
         } else if (operation.equalsIgnoreCase("Reduce")) {
 //            points = points - point;
             if(mUser.getPoint()>=point) {
                 mUser.setPoint(mUser.getPoint() - point);
                 test.setText(String.valueOf(mUser.getPoint()));
+                historyMessage.concat("- " + point + "\n");
             }else {
                 Toast.makeText(this,"Not enough point!",Toast.LENGTH_SHORT).show();
             }
