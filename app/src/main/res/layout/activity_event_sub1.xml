@@ -7,28 +7,7 @@
     android:orientation="vertical"
 
     tools:context=".event.EventSub1">
-    <!--    android:id="@+id/eventsub1">-->
 
-    //Title layout
-    <!--    <FrameLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="@color/colorMain"-->
-    <!--        android:layout_gravity="bottom">-->
-
-    <!--        <TextView-->
-    <!--            android:id="@+id/textView"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:gravity="right|bottom"-->
-    <!--            android:layout_marginBottom="15dp"-->
-    <!--            android:layout_marginRight="15dp"-->
-    <!--            android:text="LunarFest 2020"-->
-    <!--            android:textColor="@color/textColorWhite"-->
-    <!--            android:textSize="25sp"-->
-    <!--            app:fontFamily="@font/post_no_bills_colombo_regular" />-->
-
-    <!--    </FrameLayout>-->
     //Content layout
     <FrameLayout
         android:layout_width="match_parent"
@@ -113,12 +92,12 @@
                     </ImageView>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:text="click image to change"-->
-<!--                    android:gravity="center"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
                 //Linear layout for event title
                 <LinearLayout
@@ -138,6 +117,8 @@
 
                 </LinearLayout>
 
+
+
                 //Linear layout for event description
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp"
-                        android:text="About"
+                        android:text="Program"
                         android:layout_marginBottom="10dp"/>
                     <TextView
                         android:id="@+id/eventDescription1"

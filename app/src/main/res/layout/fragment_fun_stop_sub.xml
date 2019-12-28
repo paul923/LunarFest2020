@@ -61,25 +61,26 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="1/6 Completed"
-                        android:textColor="@color/textColorBlack"
+<!--                    <TextView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="1/6 Completed"-->
+<!--                        android:textColor="@color/textColorBlack"-->
 
-                        android:gravity="center"
-                        android:textSize="15dp"/>
+<!--                        android:gravity="center"-->
+<!--                        android:textSize="15dp"/>-->
 
                     <TextView
                         android:id="@+id/qrScanner"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="QR scanner"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginRight="10dp"
                         android:gravity="right"
+                        android:layout_gravity="right"
                         android:textSize="15dp"/>
 
 
@@ -109,7 +110,8 @@
                         android:textSize="18dp"
                         android:layout_margin="5dp"
                         android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:textColor="@color/textColorBlack"
+                        />
 
                     <CheckBox
                         android:id="@+id/station2"
@@ -376,33 +378,6 @@
 
                 </LinearLayout>
 
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Lot19"
-                    android:textColor="@color/textColorBlack"
-                    android:layout_marginLeft="20dp"
-                    android:textSize="20dp" />
-                //Linear layout for event title
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:background="@color/colorGray"
-                    android:orientation="vertical">
-
-                    <CheckBox
-                        android:id="@+id/ladyHao"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Lady Hao Hao"
-                        android:textSize="18dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
-
-                </LinearLayout>
             </LinearLayout>
             </ScrollView>
         </FrameLayout>
@@ -423,6 +398,7 @@ android:layout_height="match_parent" />
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="@color/colorMain"
         app:headerLayout="@layout/nav_header_nav"
         app:menu="@menu/activity_nav_drawer" />
 

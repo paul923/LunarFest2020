@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -31,6 +32,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -75,7 +77,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox redFawn2;
     CheckBox protector1;
     CheckBox protector2;
-    CheckBox ladyHao;
     Boolean station1B;
     Boolean station2B;
     Boolean station3B;
@@ -100,7 +101,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean redFawn2B;
     Boolean protector1B;
     Boolean protector2B;
-    Boolean ladyHaoB;
     String qrValue = "";
     SharedPreferences prefs;
     int points;
@@ -117,7 +117,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop");
+        setTitle("FunStop - Vancouver");
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
@@ -136,7 +136,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
         //TODO: connect user data to other data members
         //Initialize user object
-        mUser = (User) intent.getSerializableExtra("user");
+//        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -147,14 +147,21 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
 
-        System.out.println(mUser.getLot10());
-
-
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
         }
 
-        prefs = getSharedPreferences("prefs", 0);
+        prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+
+        Gson gson = new Gson();
+        String json = prefs.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+
+        points=(int)mUser.getPoint();
+
+        System.out.println("What is the value: "+  mUser.getPoint()); //0
+
+
         station1 = findViewById(R.id.station1);
         station2 = findViewById(R.id.station2);
         station3 = findViewById(R.id.station3);
@@ -179,16 +186,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         redFawn2 = findViewById(R.id.redFawn2);
         protector1 = findViewById(R.id.protector1);
         protector2 = findViewById(R.id.protector2);
-        ladyHao = findViewById(R.id.ladyHao);
 
 
-        // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
+        // arrayList = Arrays.asList(Korean, chinese, loneWolf1);
         arrayList = new ArrayList<CheckBox>();
         arrayList.add(Korean);
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-        arrayList.add(ladyHao);
         arrayList.add(loneWolf1);
         arrayList.add(loneWolf2);
         arrayList.add(protector1);
@@ -234,14 +239,12 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         redFawn2B = prefs.getBoolean("redFawn2B", false);
         protector1B = prefs.getBoolean("protector1B", false);
         protector2B = prefs.getBoolean("protector2B", false);
-        ladyHaoB = prefs.getBoolean("ladyHaoB", false);
 
         arrayListBool = new ArrayList<Boolean>();
         arrayListBool.add(KoreanB);
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-        arrayListBool.add(ladyHaoB);
         arrayListBool.add(loneWolf1B);
         arrayListBool.add(loneWolf2B);
         arrayListBool.add(protector1B);
@@ -262,7 +265,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(station10B);
         arrayListBool.add(station11B);
         arrayListBool.add(station12B);
-        points = prefs.getInt("point", 0);
+//        points = prefs.getInt("point", 0);
 
 
         int i;
@@ -274,11 +277,19 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         }
         checkQRCodeValue();
         onClickQR();
+        System.out.println("What is the value2: "+ mUser.getPoint()); // +10
     }
 
     public void onPause() {
         super.onPause();
         save();
+        SharedPreferences sharedPreferences  = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor prefs = sharedPreferences.edit();
+        mUser.setPoint(points);
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefs.putString("userObject", json);
+        prefs.apply();
     }
 
 
@@ -311,7 +322,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("chineseB", chineseB);
         prefsEditor.putBoolean("taiwaneseB", taiwaneseB);
         prefsEditor.putBoolean("vietnameseB", vietnameseB);
-        prefsEditor.putBoolean("ladyHaoB", ladyHaoB);
         prefsEditor.putBoolean("loneWolf1B", loneWolf1B);
         prefsEditor.putBoolean("loneWolf2B", loneWolf2B);
         prefsEditor.putBoolean("protector1B", protector1B);
@@ -333,13 +343,17 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
         prefsEditor.putInt("points", points);
+
         prefsEditor.apply();
         ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
-            points = points + point;
-            ref.child(currentUser.getUid()).child("point").setValue(points);
+            mUser.setPoint(mUser.getPoint()+point);
+            points=(int) mUser.getPoint();
+            System.out.println("What is the value of point in UpdatePoint method "+mUser.getPoint());
+//            points = mUser.set() + point;
+//            ref.child(currentUser.getUid()).child("point").setValue(points);
         }
 
     }
@@ -357,127 +371,218 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     private void checkQRCodeValue () {
         switch (qrValue) {
             case "station1":
-                updatePoints(10, "Add");
+                if(!station1B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station1.setChecked(true);
                 station1B = true;
                 break;
             case "station2":
-                updatePoints(10, "Add");
+                if(!station2B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station2.setChecked(true);
                 station2B = true;
                 break;
             case "station3":
-                updatePoints(10, "Add");
+                if(!station3B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station3.setChecked(true);
                 station3B = true;
                 break;
             case "station4":
-                updatePoints(10, "Add");
+                if(!station4B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station4.setChecked(true);
                 station4B = true;
                 break;
             case "station5":
-                updatePoints(10, "Add");
+                if(!station5B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station5.setChecked(true);
                 station5B = true;
                 break;
             case "station6":
-                updatePoints(10, "Add");
+                if(!station6B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station6.setChecked(true);
                 station6B = true;
                 break;
             case "station7":
-                updatePoints(10, "Add");
+                if(!station7B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station7.setChecked(true);
                 station7B = true;
                 break;
             case "station8":
-                updatePoints(10, "Add");
+                if(!station8B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station8.setChecked(true);
                 station8B = true;
                 break;
             case "station9":
-                updatePoints(10, "Add");
+                if(!station9B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station9.setChecked(true);
                 station9B = true;
                 break;
             case "station10":
-                updatePoints(10, "Add");
+                if(!station10B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station10.setChecked(true);
                 station10B = true;
                 break;
             case "station11":
-                updatePoints(10, "Add");
+                if(!station11B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station11.setChecked(true);
                 station11B = true;
                 break;
             case "station12":
-                updatePoints(10, "Add");
+                if(!station12B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station12.setChecked(true);
                 station12B = true;
                 break;
-            case "ladyHao":
-                updatePoints(40, "Add");
-                ladyHao.setChecked(true);
-                ladyHaoB = true;
-                break;
             case "chinese":
-                updatePoints(10, "Add");
+                if(!chineseB) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 chinese.setChecked(true);
                 chineseB = true;
                 break;
             case "Korean":
-                updatePoints(10, "Add");
+                if(!KoreanB) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 Korean.setChecked(true);
                 KoreanB = true;
                 break;
             case "taiwanese":
-                updatePoints(10, "Add");
+                if(!taiwaneseB) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 taiwanese.setChecked(true);
                 taiwaneseB = true;
                 break;
             case "vietnamese":
-                updatePoints(10, "Add");
+                if(!vietnameseB) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 vietnamese.setChecked(true);
                 vietnameseB = true;
                 break;
             case "loneWolf1":
-                updatePoints(5, "Add");
+                if(!loneWolf1B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 loneWolf1.setChecked(true);
                 loneWolf1B = true;
                 break;
             case "loneWolf2":
-                updatePoints(5, "Add");
+                if(!loneWolf2B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 loneWolf2.setChecked(true);
                 loneWolf2B = true;
                 break;
             case "protector1":
-                updatePoints(5, "Add");
+                if(!protector1B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 protector1.setChecked(true);
                 protector1B = true;
                 break;
             case "protector2":
-                updatePoints(5, "Add");
+                if(protector2B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 protector2.setChecked(true);
                 protector2B = true;
                 break;
             case "redFawn1":
-                updatePoints(5, "Add");
+                if(redFawn1B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 redFawn1.setChecked(true);
                 redFawn1B = true;
                 break;
             case "redFawn2":
-                updatePoints(5, "Add");
+                if(redFawn2B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 redFawn2.setChecked(true);
                 redFawn2B = true;
                 break;
             case "salishSea1":
-                updatePoints(5, "Add");
+                if(salishSea1B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 salishSea1.setChecked(true);
                 salishSea1B = true;
                 break;
             case "salish Sea 2":
-                updatePoints(5, "Add");
+                if(salishSea2B) {
+                    updatePoints(5, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 salishSea2.setChecked(true);
                 salishSea2B = true;
                 break;

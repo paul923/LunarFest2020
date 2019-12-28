@@ -2,8 +2,8 @@ package ca.acsea.funstop;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -23,16 +22,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.Api;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,11 +36,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import com.google.gson.Gson;
+import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
+
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -58,13 +50,14 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText emailInput;
     private EditText passwordInput;
     private Button submitBtn;
-    private SignInButton googleSignInBtn;
+    private GoogleSignInButton googleSignInBtn;
     private GoogleApiClient googleApiClient;
     private GoogleSignInClient mGoogleSignInClient;
     private String email;
     private String password;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    private FirebaseUser currentUser;
     Semaphore semaphore = new Semaphore(0);
 
     private User mUser;
@@ -88,6 +81,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
         mAuth = FirebaseAuth.getInstance();
+        System.out.println("what is mAuth on login"+mAuth);
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
@@ -174,7 +168,18 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(getApplicationContext(), Location.class);
-                    intent.putExtra("user", mUser);
+//                    intent.putExtra("user", mUser);
+
+                    Gson gson = new Gson();
+                    String json = gson.toJson(mUser);
+                    SharedPreferences sharedPreferences=getSharedPreferences("prefs",MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("userObject", json);
+                    editor.apply();
+                    // mUser = gson.fromJson(json, User.class);
+
+
                     startActivity(intent);
                 } else {
                     Toast.makeText(Login.this, "google login fails", Toast.LENGTH_LONG).show();
@@ -189,9 +194,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                System.out.println("createUser method starts");
+                System.out.println("\n" + "createUser method starts" + "\n");
                 if(task.isSuccessful()){
-                    final FirebaseUser fUser = mAuth.getCurrentUser();
+//                    final FirebaseUser fUser = mAuth.getCurrentUser();
 
                     System.out.println("create user / task is successful");
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
@@ -200,9 +205,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // OK
-                                    mUser = new User(email, fUser.getUid());
+                                    mUser = new User(email, email);//changed
+                                    Gson gson = new Gson();
+                                    String json = gson.toJson(mUser);
+                                    SharedPreferences sharedPreferences=getSharedPreferences("prefs",MODE_PRIVATE);
 
-                                    mDatabase.child("user-test").child(fUser.getUid()).setValue(mUser);
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString("userObject", json);
+                                    editor.apply();
+//                                    mDatabase.child("user-test").child(fUser.getUid()).setValue(mUser);
 
 
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
@@ -221,7 +232,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
                 }else{
                     mUser = new User(email, null);
-                    System.out.println("create user / task is failed");
+                    System.out.println("\n create user / task is failed\n");
                     signIn(email, password);
                     //Toast.makeText(Login.this, "CreateUser method is failed", Toast.LENGTH_LONG).show();
                 }
@@ -236,20 +247,38 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     public void signIn(String email, String password){
         //sign in
         System.out.println("\n start sign in \n");
+        System.out.println(currentUser.getEmail());
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    mUser.setUid(mAuth.getCurrentUser().getUid());
+                    System.out.println("Task is successful?"+task.isSuccessful());
+                    mUser.setUid(currentUser.getUid());
+                    Gson gson = new Gson();
+                    SharedPreferences sharedPreferences = getSharedPreferences("prefs",MODE_PRIVATE);
+                    String json = sharedPreferences.getString("userObject", "");
+                    mUser = gson.fromJson(json, User.class);
 
+                    Intent submit_intent = new Intent(Login.this, Location.class);
+//                    submit_intent.putExtra("user", mUser);
+
+
+                    json = gson.toJson(mUser);
+
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("userObject", json);
+                    editor.apply();
+
+                    startActivity(submit_intent);
 
                     // Retrieves the data from DB and moves to the next activity
-                    getDataFromFirebase(new MyCallback() {
-                        @Override
-                        public void onCallback(User value) {
-                            Log.d(TAG, "Value is: " + value);
-                        }
-                    });
+//                    getDataFromFirebase(new MyCallback() {
+//                        @Override
+//                        public void onCallback(User value) {
+//                            Log.d(TAG, "Value is: " + value);
+//                        }
+//                    });
 
 
                 }else{
@@ -287,45 +316,12 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         });
     }
 
-    private void InitValues() {
-        System.out.println("initing values");
-        DatabaseReference dbUsers = FirebaseDatabase.getInstance().getReference(NODE_USERS);
-        String currentUser = mAuth.getCurrentUser().getUid();
-        dbUsers.child(currentUser).child("email").setValue(mAuth.getCurrentUser().getEmail());
-        dbUsers.child(currentUser).child("point").setValue(0); //initialize point
-        dbUsers.child(currentUser).child("quiz").child("cutoff").setValue(0);
-        dbUsers.child(currentUser).child("QR").child("korean").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("chinese").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("ladyHao").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("loneWolf1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("loneWolf2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("protector1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("protector2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("redFawn1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("redFawn2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("salishSea1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("salishSea2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("taiwanese").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("vietnamese").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station1").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station2").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station3").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station4").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station5").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station6").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station7").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station8").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station9").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station10").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station11").setValue(false);
-        dbUsers.child(currentUser).child("QR").child("station12").setValue(false);
-    }
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null)
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+        currentUser = mAuth.getCurrentUser();
         if(currentUser != null) {
             mUser = new User(currentUser.getEmail(), currentUser.getUid());
         }
