@@ -1,9 +1,6 @@
 package ca.acsea.funstop.event;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,26 +67,26 @@ public class EventSub6 extends Fragment {
                 switch (state) {
 
                     case 0:
-                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak1));
+                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.t1));
                         break;
 
 
-                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak2));
+                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t2));
                         break;
 
-                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak3));
+                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t3));
                         break;
 
-                    case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak4));
+                    case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t4));
                         break;
 
-                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak5));
+                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t5));
                         break;
 
-                    case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.oak6));
+                    case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t6));
                         break;
 
-                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.vag1));
+                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.t1));
                 }
             }
         });
