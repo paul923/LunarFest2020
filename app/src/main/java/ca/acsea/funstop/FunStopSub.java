@@ -180,7 +180,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwanese = findViewById(R.id.taiwanese);
         chinese = findViewById(R.id.chinese);
         vietnamese = findViewById(R.id.vietnamese);
-        jackPoole = findViewById(R.id.jackPoole);
+//        jackPoole = findViewById(R.id.jackPoole);
         //salishSea1 = findViewById(R.id.salishSea1);
         //salishSea2 = findViewById(R.id.salishSea2);
         //loneWolf1 = findViewById(R.id.loneWolf1);
