@@ -131,45 +131,38 @@
                     android:text="About" />
             </LinearLayout>
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="150dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_margin="20dp">
-
-                    <TextView
-                        android:id="@+id/eventDescription0"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="Celebrate the Year of the Rat like no other! Take part in the captivating and joyous performance “A Musical Banquet” by Chai Found Music Workshop as they combine traditional instrumentals with thrilling percussion using everyday household items! Join the cute rats in “Kitchen Runners” as they race around the diverse food cultures of the world in their teacup cars. Express creativity with arts and craft activities, and make your own lantern to take home!" />
-
-
-                    <TextView
-                        android:id="@+id/eventDescription1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="“A Musical Banquet” by Chai Found Music Workshop/ Time: Feb 1st  7:30 PM
-"                       android:gravity="center"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Celebrate the Year of the Rat like no other! Take part in the captivating and joyous performance “A Musical Banquet” by Chai Found Music Workshop as they combine traditional instrumentals with thrilling percussion using everyday household items! Join the cute rats in “Kitchen Runners” as they race around the diverse food cultures of the world in their teacup cars. Express creativity with arts and craft activities, and make your own lantern to take home!" />
+                    <TextView
+                        android:id="@+id/eventDescription2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:text="“A Musical Banquet” by Chai Found Music Workshop/ Time: Feb 1st  7:30 PM"/>
+                    <TextView
+                        android:id="@+id/eventDescription22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:textAlignment=""
+                        android:layout_marginBottom="10dp"
                         android:text="One of the most important Lunar New Year celebrations is having a grand feast with your friends and family. In Taiwan, street banquets are known for being sumptuous and delicious. World-renowned Chai Found Music Workshop brings their chamber-music interpretation to Canada for the first time. Celebrate the Lunar New Year like no other with “A Musical Banquet: A Feast of Sumptuous Classical Music.”"/>
-
-
                 </LinearLayout>
-            </androidx.core.widget.NestedScrollView>
+
 
 
                 //Linear layout for event map
