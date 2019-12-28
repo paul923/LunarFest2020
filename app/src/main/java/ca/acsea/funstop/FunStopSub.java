@@ -348,7 +348,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station10B", station10B);
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
-        prefsEditor.putBoolean("jackPooleB", jackPoole);
+        prefsEditor.putBoolean("jackPooleB", jackPooleB);
         prefsEditor.putInt("points", points);
 
         prefsEditor.apply();
