@@ -11,7 +11,7 @@ public class User implements Serializable {
 
     public String uid;
     public String email;
-    public long point=0;
+    public long point;
     public int index;
     public long quizCutoff;
     public HashMap<String, Boolean> vag;

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -50,7 +51,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     TextView textView;
-    FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
+//    FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     CheckBox station1;
     CheckBox station2;
@@ -94,7 +95,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop - Toronto");
+        setTitle("LunarFun - Toronto");
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub2);
@@ -113,7 +114,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
         //TODO: connect user data to other data members
         //Initialize user object
-        mUser = (User) intent.getSerializableExtra("user");
+//        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -129,14 +130,14 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
         prefs = getSharedPreferences("prefs", 0);
 
-    //copy and paste from funstop sub1
+        //copy and paste from funstop sub1
         Gson gson = new Gson();
         String json = prefs.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
 
         points=(int)mUser.getPoint();
 
-        System.out.println("What is the value: "+  mUser.getPoint()); //0
+        System.out.println("What is the value: "+  mUser.getPoint()); //50
 
         station1 = findViewById(R.id.station1);
         station2 = findViewById(R.id.station2);
@@ -194,7 +195,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         arrayListBool.add(station11B);
         arrayListBool.add(station12B);
 
-        points = prefs.getInt("point", 0);
+//        points = prefs.getInt("point", 20);
 
 
         int i;
@@ -211,6 +212,14 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     public void onPause() {
         super.onPause();
         save();
+        //Copy and paste from funstopsub1
+        SharedPreferences sharedPreferences  = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor prefs = sharedPreferences.edit();
+        mUser.setPoint(points);
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefs.putString("userObject", json);
+        prefs.apply();
     }
 
 
@@ -219,8 +228,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("current user" + currentUser);
-                System.out.println("ref" + ref);
 
                 Intent i = new Intent(FunStopSub2.this, QrCodeScanner.class);
                 i.putExtra("previous", "FunStopSub2");
@@ -254,12 +261,16 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
         prefsEditor.putInt("points", points);
         prefsEditor.apply();
-        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+//        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
-            points = points + point;
-            ref.child(currentUser.getUid()).child("point").setValue(points);
+            System.out.println("previous point"+mUser.getPoint());
+            mUser.setPoint(mUser.getPoint()+point);
+            System.out.println("after point"+mUser.getPoint());
+            points=(int) mUser.getPoint();
+            System.out.println("last point"+mUser.getPoint());
+//            ref.child(currentUser.getUid()).child("point").setValue(points);
         }
 
     }
@@ -277,62 +288,110 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     private void checkQRCodeValue () {
         switch (qrValue) {
             case "station1":
-                updatePoints(10, "Add");
+                if(!station1B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station1.setChecked(true);
                 station1B = true;
                 break;
             case "station2":
-                updatePoints(10, "Add");
+                if(!station2B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station2.setChecked(true);
                 station2B = true;
                 break;
             case "station3":
-                updatePoints(10, "Add");
+                if(!station3B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station3.setChecked(true);
                 station3B = true;
                 break;
             case "station4":
-                updatePoints(10, "Add");
+                if(!station4B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station4.setChecked(true);
                 station4B = true;
                 break;
             case "station5":
-                updatePoints(10, "Add");
+                if(!station5B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station5.setChecked(true);
                 station5B = true;
                 break;
             case "station6":
-                updatePoints(10, "Add");
+                if(!station6B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station6.setChecked(true);
                 station6B = true;
                 break;
             case "station7":
-                updatePoints(10, "Add");
+                if(!station7B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station7.setChecked(true);
                 station7B = true;
                 break;
             case "station8":
-                updatePoints(10, "Add");
+                if(!station8B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station8.setChecked(true);
                 station8B = true;
                 break;
             case "station9":
-                updatePoints(10, "Add");
+                if(!station9B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station9.setChecked(true);
                 station9B = true;
                 break;
             case "station10":
-                updatePoints(10, "Add");
+                if(!station10B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station10.setChecked(true);
                 station10B = true;
                 break;
             case "station11":
-                updatePoints(10, "Add");
+                if(!station11B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station11.setChecked(true);
                 station11B = true;
                 break;
             case "station12":
-                updatePoints(10, "Add");
+                if(!station12B) {
+                    updatePoints(10, "Add");
+                }else {
+                    Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
+                }
                 station12.setChecked(true);
                 station12B = true;
                 break;

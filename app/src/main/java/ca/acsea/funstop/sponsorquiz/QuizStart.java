@@ -78,7 +78,7 @@ public class QuizStart extends Fragment {
 //                //TODO: change 0 back to cutoff
                 if(currentTime > cutoff) {
                     recordTime();
-                    transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,mUser, ref, index)).commit();
+                    transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,mUser, ref)).commit();
                 }else {
                     long timeLeft = cutoff - new Date().getTime();
                     String message = String.format("Try again in %d hr %d min %d sec",

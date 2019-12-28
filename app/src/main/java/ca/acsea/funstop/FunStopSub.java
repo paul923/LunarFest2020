@@ -117,7 +117,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop - Vancouver");
+        setTitle("LunarFun - Vancouver");
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
@@ -156,7 +156,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         Gson gson = new Gson();
         String json = prefs.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
-
         points=(int)mUser.getPoint();
 
         System.out.println("What is the value: "+  mUser.getPoint()); //0
@@ -277,7 +276,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         }
         checkQRCodeValue();
         onClickQR();
-        System.out.println("What is the value2: "+ mUser.getPoint()); // +10
     }
 
     public void onPause() {

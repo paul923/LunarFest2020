@@ -255,13 +255,12 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     public void signIn(String email, String password){
         //sign in
         System.out.println("\n start sign in \n");
-        System.out.println(currentUser.getEmail());
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     System.out.println("Task is successful?"+task.isSuccessful());
-                    mUser.setUid(currentUser.getUid());
+                    //mUser.setUid(currentUser.getUid());
                     Gson gson = new Gson();
                     SharedPreferences sharedPreferences = getSharedPreferences("prefs",MODE_PRIVATE);
                     String json = sharedPreferences.getString("userObject", "");

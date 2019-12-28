@@ -76,7 +76,12 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("userObject", "");
+        System.out.println("json print ----------------"+ json);
         mUser = gson.fromJson(json, User.class);
+
+
+//        SharedPreferences.Editor prefsEditor = prefs.edit();
+//        prefsEditor.putInt("point", (int)mUser.getPoint());
 
         System.out.println(intent.getStringExtra("source"));
 
@@ -128,7 +133,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     public void onPause() {
         super.onPause();
-        savePoint();
+//        savePoint();
     }
 
 
@@ -165,7 +170,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         prefEditor.putString("userObject", json);
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
-        prefEditor.apply();
+        prefEditor.commit();
         System.out.println("in save point addinh");
 //        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
 //        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
@@ -173,12 +178,11 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
 
     private void getPoints() {
-        SharedPreferences pref = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         points = (int) mUser.getPoint();
         System.out.println("What si points on myPoint" + points);
         System.out.println("Current points  in get points before adding: " + points);
         test.setText(String.valueOf(mUser.getPoint()));
-        joinDraw = pref.getBoolean("joinDraw", false);
+        joinDraw = sharedPreferences.getBoolean("joinDraw", false);
     }
 
     public void checkQrValue() {
