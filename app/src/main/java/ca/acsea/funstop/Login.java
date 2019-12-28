@@ -189,6 +189,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
+                    mUser = new User(mAuth.getCurrentUser().getEmail(), mAuth.getCurrentUser().getUid());
                     System.out.println("\n resultLogin : success\n");
                     Toast.makeText(Login.this, "google login succeeds", Toast.LENGTH_SHORT).show();
 
@@ -250,7 +251,15 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     // Cancel
-                                    signIn(email,password);
+//                                    signIn(email,password);
+                                    mAuth.getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d(TAG, "User account deleted.");
+                                            }
+                                        }
+                                    });
                                     Toast.makeText(Login.this, "It is canceled.", Toast.LENGTH_SHORT).show();
                                 }})
                             .show();

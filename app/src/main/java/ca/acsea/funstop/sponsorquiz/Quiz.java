@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import ca.acsea.funstop.Globals;
@@ -97,7 +98,11 @@ public class Quiz extends Fragment {
 
     public void init(){
         qList = createQuestions();
-        //Collections.shuffle(qList);
+
+        //Shuffle the question list only in the beginning.
+        if(mUser.getIndex() == 0) {
+            Collections.shuffle(qList);
+        }
         currentQuestion = qList.get(mUser.getIndex());
         questionBox.setText(currentQuestion.getQuestion());
         buttonA.setText(currentQuestion.getOptionList().get(0));

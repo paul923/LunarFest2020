@@ -339,9 +339,11 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             default:
-                Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
 
-//            case "station7":
+                if(!qrValue.isEmpty())
+                    Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
+
+            case "station7":
 //                updatePoints(10, "Add");
 //                station7.setChecked(true);
 //                station7B = true;
