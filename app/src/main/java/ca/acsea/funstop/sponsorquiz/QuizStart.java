@@ -1,5 +1,6 @@
 package ca.acsea.funstop.sponsorquiz;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -31,6 +33,8 @@ import java.util.concurrent.TimeUnit;
 
 import ca.acsea.funstop.R;
 import ca.acsea.funstop.User;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class QuizStart extends Fragment {
 
@@ -43,6 +47,7 @@ public class QuizStart extends Fragment {
     long cutoff;
     private int index;
     private User mUser;
+    private SharedPreferences sharedPreferences;
 
 
     public QuizStart(){
@@ -59,6 +64,11 @@ public class QuizStart extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        Gson gson = new Gson();
+        sharedPreferences = getActivity().getSharedPreferences("prefs", MODE_PRIVATE);
+        String json = sharedPreferences.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
 
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Daily Quiz");
@@ -79,12 +89,14 @@ public class QuizStart extends Fragment {
                 if(currentTime > cutoff) {
                     recordTime();
                     transaction.replace(R.id.frameLayout, new Quiz(fragmentManager,mUser, ref)).commit();
+                    save();
+
                 }else {
                     long timeLeft = cutoff - new Date().getTime();
                     String message = String.format("Try again in %d hr %d min %d sec",
                             TimeUnit.MILLISECONDS.toHours(timeLeft),
-                            TimeUnit.MILLISECONDS.toMinutes(timeLeft),
-                            TimeUnit.MILLISECONDS.toSeconds(timeLeft));
+                            TimeUnit.MILLISECONDS.toMinutes(timeLeft) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeLeft)),
+                            TimeUnit.MILLISECONDS.toSeconds(timeLeft) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeLeft)));
                     Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
                 }
             }
@@ -128,6 +140,17 @@ public class QuizStart extends Fragment {
             }
         });
     }
+
+
+    public void save() {
+        SharedPreferences.Editor prefsEditor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefsEditor.putString("userObject", json);
+        prefsEditor.commit();
+    }
+
+
     public void getIndex(){
         ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
