@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
     FragmentManager fragmentManager = getSupportFragmentManager();
 
-    TextView textView;
+    ImageView imageView;
     FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     CheckBox station1;
@@ -179,7 +180,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwanese = findViewById(R.id.taiwanese);
         chinese = findViewById(R.id.chinese);
         vietnamese = findViewById(R.id.vietnamese);
-//        jackPoole = findViewById(R.id.jackPoole);
+        jackPoole = findViewById(R.id.jackPoole);
         //salishSea1 = findViewById(R.id.salishSea1);
         //salishSea2 = findViewById(R.id.salishSea2);
         //loneWolf1 = findViewById(R.id.loneWolf1);
@@ -196,7 +197,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-//        arrayList.add(jackPoole);
+        arrayList.add(jackPoole);
       //  arrayList.add(loneWolf1);
       //  arrayList.add(loneWolf2);
       //  arrayList.add(protector1);
@@ -234,7 +235,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwaneseB = prefs.getBoolean("taiwaneseB", false);
         chineseB = prefs.getBoolean("chineseB", false);
         vietnameseB = prefs.getBoolean("vietnameseB", false);
-//        jackPooleB = prefs.getBoolean("jackPooleB", false);
+        jackPooleB = prefs.getBoolean("jackPooleB", false);
         //salishSea1B = prefs.getBoolean("salishSea1B", false);
         //salishSea2B = prefs.getBoolean("salishSea2B", false);
         //loneWolf1B = prefs.getBoolean("loneWolf1B", false);
@@ -249,7 +250,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-//        arrayListBool.add(jackPooleB);
+        arrayListBool.add(jackPooleB);
       //  arrayListBool.add(loneWolf1B);
       //  arrayListBool.add(loneWolf2B);
       //  arrayListBool.add(protector1B);
@@ -299,8 +300,8 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onClickQR() {
-        textView = findViewById(R.id.qrScanner);
-        textView.setOnClickListener(new View.OnClickListener() {
+        imageView= findViewById(R.id.qrScanner);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("current user" + currentUser);
@@ -347,7 +348,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station10B", station10B);
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
-//        prefsEditor.putBoolean("jackPooleB", jackPooleB);
+        prefsEditor.putBoolean("jackPooleB", jackPooleB);
         prefsEditor.putInt("points", points);
 
         prefsEditor.apply();
@@ -520,16 +521,16 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 vietnamese.setChecked(true);
                 vietnameseB = true;
                 break;
-//            case "JackPoole":
-//                if(!jackPooleB) {
-//                    updatePoints(40, "Add");
-//                }else {
-//                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-//                }
-//                jackPoole.setChecked(true);
-//                jackPooleB = true;
+            case "JackPoole":
+                if(!jackPooleB) {
+                    updatePoints(40, "Add");
+                }else {
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+                }
+                jackPoole.setChecked(true);
+                jackPooleB = true;
 
-//                break;
+                break;
 //            default:
 //                if(qrValue!=null) {
 //                    Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
