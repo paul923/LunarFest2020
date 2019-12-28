@@ -40,6 +40,9 @@ import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
@@ -117,6 +120,13 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+        if(mUser != null) {
+            NavigationView navView = findViewById(R.id.nav_view);
+            View header = navView.getHeaderView(0);
+            TextView userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(mUser.getEmail());
+        }
 
 
 
@@ -268,16 +278,18 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     }
 
     private void modifyPoints(int point, String operation) {
+        DateFormat df = new SimpleDateFormat("MMM-dd hh:mm aa");
+
         if (operation.equalsIgnoreCase("Add")) {
             mUser.setPoint(mUser.getPoint() + point);
             test.setText(String.valueOf(mUser.getPoint()));
-            historyMessage.concat("+ " + point + "\n");
+            historyMessage = historyMessage.concat("+ " + point + " points (" +df.format(new Date()) + ")" + "\n");
         } else if (operation.equalsIgnoreCase("Reduce")) {
 //            points = points - point;
             if(mUser.getPoint()>=point) {
                 mUser.setPoint(mUser.getPoint() - point);
                 test.setText(String.valueOf(mUser.getPoint()));
-                historyMessage.concat("- " + point + "\n");
+                historyMessage = historyMessage.concat("- " + point + " points (" + df.format(new Date()) + ")" + "\n");
             }else {
                 Toast.makeText(this,"Not enough point!",Toast.LENGTH_SHORT).show();
             }
