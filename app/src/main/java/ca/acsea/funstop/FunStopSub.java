@@ -69,6 +69,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox taiwanese;
     CheckBox chinese;
     CheckBox vietnamese;
+    CheckBox jackPoole;
     CheckBox salishSea1;
     CheckBox salishSea2;
     CheckBox loneWolf1;
@@ -93,6 +94,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean taiwaneseB;
     Boolean chineseB;
     Boolean vietnameseB;
+    Boolean jackPooleB;
     Boolean salishSea1B;
     Boolean salishSea2B;
     Boolean loneWolf1B;
@@ -117,7 +119,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("FunStop - Vancouver");
+        setTitle("LunarFun - Vancouver");
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
@@ -178,14 +180,15 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwanese = findViewById(R.id.taiwanese);
         chinese = findViewById(R.id.chinese);
         vietnamese = findViewById(R.id.vietnamese);
-        salishSea1 = findViewById(R.id.salishSea1);
-        salishSea2 = findViewById(R.id.salishSea2);
-        loneWolf1 = findViewById(R.id.loneWolf1);
-        loneWolf2 = findViewById(R.id.loneWolf2);
-        redFawn1 = findViewById(R.id.redFawn1);
-        redFawn2 = findViewById(R.id.redFawn2);
-        protector1 = findViewById(R.id.protector1);
-        protector2 = findViewById(R.id.protector2);
+        jackPoole = findViewById(R.id.jackPoole);
+        //salishSea1 = findViewById(R.id.salishSea1);
+        //salishSea2 = findViewById(R.id.salishSea2);
+        //loneWolf1 = findViewById(R.id.loneWolf1);
+        //loneWolf2 = findViewById(R.id.loneWolf2);
+        //redFawn1 = findViewById(R.id.redFawn1);
+        //redFawn2 = findViewById(R.id.redFawn2);
+        //protector1 = findViewById(R.id.protector1);
+        //protector2 = findViewById(R.id.protector2);
 
 
         // arrayList = Arrays.asList(Korean, chinese, loneWolf1);
@@ -194,6 +197,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
+        arrayList.add(jackPoole);
       //  arrayList.add(loneWolf1);
       //  arrayList.add(loneWolf2);
       //  arrayList.add(protector1);
@@ -231,6 +235,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwaneseB = prefs.getBoolean("taiwaneseB", false);
         chineseB = prefs.getBoolean("chineseB", false);
         vietnameseB = prefs.getBoolean("vietnameseB", false);
+        jackPooleB = prefs.getBoolean("jackPooleB", false);
         //salishSea1B = prefs.getBoolean("salishSea1B", false);
         //salishSea2B = prefs.getBoolean("salishSea2B", false);
         //loneWolf1B = prefs.getBoolean("loneWolf1B", false);
@@ -245,6 +250,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
+        arrayListBool.add(jackPooleB);
       //  arrayListBool.add(loneWolf1B);
       //  arrayListBool.add(loneWolf2B);
       //  arrayListBool.add(protector1B);
@@ -342,6 +348,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station10B", station10B);
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
+        prefsEditor.putBoolean("jackPooleB", jackPoole);
         prefsEditor.putInt("points", points);
 
         prefsEditor.apply();
@@ -515,13 +522,13 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 vietnameseB = true;
                 break;
             case "JackPoole":
-                if(!loneWolf1B) {
+                if(!jackPooleB) {
                     updatePoints(40, "Add");
                 }else {
                     Toast.makeText(this,"You already did it!",Toast.LENGTH_SHORT).show();
                 }
-                loneWolf1.setChecked(true);
-                loneWolf1B = true;
+                jackPoole.setChecked(true);
+                jackPooleB = true;
                 break;
         }
     }
