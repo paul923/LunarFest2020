@@ -91,6 +91,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
         System.out.println("test : " + testing);
 
+
         System.out.println(intent.getStringExtra("source"));
 
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
@@ -181,11 +182,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     public void onPause() {
         super.onPause();
-//        SharedPreferences.Editor prefEditor = this.getSharedPreferences("prefs",0).edit();
-//        Gson gson = new Gson();
-//        String json = gson.toJson(mUser);
-//        prefEditor.putString("userObject", json);
-//        prefEditor.apply();
+
     }
 
 
@@ -224,7 +221,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         prefEditor.putString("history", historyMessage);
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
-        prefEditor.apply();
+        prefEditor.commit();
         System.out.println("in save point addinh");
 //        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
 //        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
@@ -232,12 +229,11 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
 
     private void getPoints() {
-        SharedPreferences pref = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         points = (int) mUser.getPoint();
         System.out.println("What si points on myPoint" + points);
         System.out.println("Current points  in get points before adding: " + points);
         test.setText(String.valueOf(mUser.getPoint()));
-        joinDraw = pref.getBoolean("joinDraw", false);
+        joinDraw = sharedPreferences.getBoolean("joinDraw", false);
     }
 
     public void checkQrValue() {

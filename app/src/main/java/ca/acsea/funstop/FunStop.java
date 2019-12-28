@@ -36,6 +36,7 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     FragmentTransaction transaction;
     FragmentManager fragmentManager = getSupportFragmentManager();
 
+
     FirebaseUser currentUser= FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
 
@@ -46,11 +47,15 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
     Map map;
     QuizStart quiz;
     About about;
-    SharedPreferences sharedPreferences;
+    SharedPreferences prefs;
     public void onCreate(Bundle saveInstanceState){
         //Initialize user object
-        mUser = (User) getIntent().getSerializableExtra("user");
+//        mUser = (User) getIntent().getSerializableExtra("user");
+        prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
+        Gson gson = new Gson();
+        String json = prefs.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
 
         // Initialize page objects
         event = new Event(fragmentManager);

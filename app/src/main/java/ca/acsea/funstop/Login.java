@@ -239,6 +239,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 }else{
                     mUser = new User(email, null);
                     System.out.println("\n create user / task is failed\n");
+                    System.out.println("What is the value mUserEmail1 ----------------------------on SignIn"+mUser.getEmail());
+                    System.out.println("What is the value mUser1 ----------------------------on SignIn"+mUser);
                     signIn(email, password);
                     //Toast.makeText(Login.this, "CreateUser method is failed", Toast.LENGTH_LONG).show();
                 }
@@ -263,7 +265,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     SharedPreferences sharedPreferences = getSharedPreferences("prefs",MODE_PRIVATE);
                     String json = sharedPreferences.getString("userObject", "");
                     mUser = gson.fromJson(json, User.class);
-
+                    System.out.println("What is the value mUserEmail2 ----------------------------on SignIn"+mUser.getEmail());
+                    System.out.println("What is the value mUser2 ----------------------------on SignIn"+mUser);
                     Intent submit_intent = new Intent(Login.this, Location.class);
 //                    submit_intent.putExtra("user", mUser);
 

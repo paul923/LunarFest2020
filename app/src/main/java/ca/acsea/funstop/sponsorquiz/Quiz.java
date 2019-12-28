@@ -1,5 +1,6 @@
 package ca.acsea.funstop.sponsorquiz;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import ca.acsea.funstop.Globals;
 import ca.acsea.funstop.R;
 import ca.acsea.funstop.User;
 
@@ -70,7 +72,6 @@ public class Quiz extends Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
 //        getPoint();
-
 
         Gson gson = new Gson();
         String json = prefs.getString("userObject", "");
@@ -138,6 +139,7 @@ public class Quiz extends Fragment {
         save();
     }
 
+
     /**
      * Enabling or disabling all the buttons depends the value
      * @param value true will enable, false will disable
@@ -165,6 +167,7 @@ public class Quiz extends Fragment {
             }
         }, 2000);
     }
+
 
     public ArrayList<Question> createQuestions(){
         String question1 = "Which day is the Lunar New Year day in 2020?";
@@ -262,9 +265,9 @@ public class Quiz extends Fragment {
         list.add(mQuestion17);
         list.add(mQuestion18);
 
-
         return list;
     }
+
 
 
     public void nextQuestion(){

@@ -51,7 +51,7 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
     FragmentManager fragmentManager;
     FragmentTransaction transaction;
 
-    int points;
+//    int points;
     String qrValue;
 
 
@@ -86,7 +86,7 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
         txtResult = (TextView)findViewById(R.id.txtResult);
         fragmentManager = this.getSupportFragmentManager();
         transaction = fragmentManager.beginTransaction();
-        System.out.println("Current points: "+points);
+//        System.out.println("Current points: "+points);
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
                 .build();

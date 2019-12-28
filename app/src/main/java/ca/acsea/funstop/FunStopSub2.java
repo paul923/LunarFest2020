@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -31,6 +32,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -49,7 +51,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     TextView textView;
-    FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
+//    FirebaseUser currentUser=FirebaseAuth.getInstance().getCurrentUser();
     DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
     CheckBox station1;
     CheckBox station2;
@@ -112,7 +114,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
         //TODO: connect user data to other data members
         //Initialize user object
-        mUser = (User) intent.getSerializableExtra("user");
+//        mUser = (User) intent.getSerializableExtra("user");
         // Initialize page objects
         event = new Event(fragmentManager);
         map = new Map();
@@ -127,6 +129,16 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         }
 
         prefs = getSharedPreferences("prefs", 0);
+
+        //copy and paste from funstop sub1
+        Gson gson = new Gson();
+        String json = prefs.getString("userObject", "");
+        mUser = gson.fromJson(json, User.class);
+
+        points=(int)mUser.getPoint();
+
+        System.out.println("What is the value: "+  mUser.getPoint()); //50
+
         station1 = findViewById(R.id.station1);
         station2 = findViewById(R.id.station2);
         station3 = findViewById(R.id.station3);
@@ -183,7 +195,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 //        arrayListBool.add(station11B);
 //        arrayListBool.add(station12B);
 
-        points = prefs.getInt("point", 0);
+//        points = prefs.getInt("point", 20);
 
 
         int i;
@@ -200,6 +212,14 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     public void onPause() {
         super.onPause();
         save();
+        //Copy and paste from funstopsub1
+        SharedPreferences sharedPreferences  = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor prefs = sharedPreferences.edit();
+        mUser.setPoint(points);
+        Gson gson = new Gson();
+        String json = gson.toJson(mUser);
+        prefs.putString("userObject", json);
+        prefs.apply();
     }
 
 
@@ -208,8 +228,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("current user" + currentUser);
-                System.out.println("ref" + ref);
 
                 Intent i = new Intent(FunStopSub2.this, QrCodeScanner.class);
                 i.putExtra("previous", "FunStopSub2");
@@ -243,12 +261,16 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
         prefsEditor.putInt("points", points);
         prefsEditor.apply();
-        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
+//        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
-            points = points + point;
-            ref.child(currentUser.getUid()).child("point").setValue(points);
+            System.out.println("previous point"+mUser.getPoint());
+            mUser.setPoint(mUser.getPoint()+point);
+            System.out.println("after point"+mUser.getPoint());
+            points=(int) mUser.getPoint();
+            System.out.println("last point"+mUser.getPoint());
+//            ref.child(currentUser.getUid()).child("point").setValue(points);
         }
 
     }
@@ -265,6 +287,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
     private void checkQRCodeValue () {
         switch (qrValue) {
+
             case "tstation1":
                 if(station1B) {
                     updatePoints(30, "Add");
@@ -279,6 +302,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 station2.setChecked(true);
                 station2B = true;
                 break;
+
             case "tstation3":
                 if(station3B) {
                     updatePoints(30, "Add");
@@ -286,27 +310,37 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 station3.setChecked(true);
                 station3B = true;
                 break;
+
             case "tstation4":
                 if(!station4B) {
                     updatePoints(30, "Add");
+
                 }
                 station4.setChecked(true);
                 station4B = true;
                 break;
+
             case "tstation5":
                 if(!station5B) {
                     updatePoints(30, "Add");
+
                 }
                 station5.setChecked(true);
                 station5B = true;
                 break;
+
             case "tstation6":
                 if(!station6B) {
                     updatePoints(30, "Add");
+
                 }
                 station6.setChecked(true);
                 station6B = true;
                 break;
+
+            default:
+                Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
+=======
 //            case "station7":
 //                updatePoints(10, "Add");
 //                station7.setChecked(true);
@@ -337,6 +371,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 //                station12.setChecked(true);
 //                station12B = true;
 //                break;
+
 
 
         }
