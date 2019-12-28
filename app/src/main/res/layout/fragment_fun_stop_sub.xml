@@ -105,7 +105,17 @@
                         android:textColor="@color/textColorBlack"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
-                        android:textSize="20dp" />
+                        android:textStyle="bold"
+                        android:textSize="25dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jan 25 ~ Jan 26"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
                     //Linear layout for event title
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -243,7 +253,18 @@
                         android:textColor="@color/textColorBlack"
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="20dp"
-                        android:textSize="20dp" />
+                        android:textStyle="bold"
+                        android:textSize="25dp"  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jan 16 ~ Feb 10"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
+
                     //Linear layout for event title
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -295,11 +316,21 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Jack Poole Plaza"
+                        android:text="Jack Poole Plaza "
                         android:textColor="@color/textColorBlack"
                         android:layout_marginTop="5dp"
                         android:layout_marginLeft="20dp"
-                        android:textSize="20dp" />
+                        android:textStyle="bold"
+                        android:textSize="25dp"  />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jan 18 ~ Feb 9"
+                        android:textColor="@color/textColorBlack"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:textSize="17dp" />
                     //Linear layout for event title
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -318,75 +349,7 @@
                             android:layout_marginLeft="10dp"
                             android:textColor="@color/textColorBlack" />
 
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/salishSea2"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Salish Sea 2"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
 
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/loneWolf1"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Lone Wolf 1"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
-
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/loneWolf2"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Lone Wolf 2"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
-
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/redFawn1"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Red Fawn 1"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
-
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/redFawn2"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Red Fawn 2"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
-
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/protector1"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Protector of the Mountain 1"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
-
-                        <!--                    <CheckBox-->
-                        <!--                        android:id="@+id/protector2"-->
-                        <!--                        android:layout_width="match_parent"-->
-                        <!--                        android:layout_height="wrap_content"-->
-                        <!--                        android:text="Protector of the Mountain 2"-->
-                        <!--                        android:textSize="18dp"-->
-                        <!--                        android:layout_margin="5dp"-->
-                        <!--                        android:layout_marginLeft="10dp"-->
-                        <!--                        android:textColor="@color/textColorBlack" />-->
 
                     </LinearLayout>
 

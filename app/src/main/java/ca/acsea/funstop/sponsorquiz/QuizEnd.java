@@ -47,7 +47,7 @@ public class QuizEnd extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //Changes the actionbar's Title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Daily Quiz");
 
 //         prefs = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE );
 

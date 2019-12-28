@@ -63,7 +63,7 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
         quiz = new QuizStart(fragmentManager, mUser, ref);
         about = new About(fragmentManager);
 
-        setTitle("FunStop");
+        setTitle("LunarFun");
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop);
 

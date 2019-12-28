@@ -104,7 +104,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="4.Visit the MyPoints page to see your progress nad the list of prizes!"/>
+                        android:text="4.Visit the MyPoints page to see your progress and the list of prizes!"/>
 
 
 
