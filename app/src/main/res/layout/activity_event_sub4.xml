@@ -156,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
+                        android:justificationMode="inter_word"
                         android:text="In acknowledgement that we are fortunate to be able to gather on the unceded territory of the Coast Salish People, these eight gigantic lanterns were created with the designs of Indigenous artists from the Stó:lō, Dené, Musqueam, and Tsleil-Waututh nations to celebrate one of the most important traditions in Asia – the Lunar New Year. "/>
                     <TextView
                         android:id="@+id/eventDescription2"
@@ -172,6 +173,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
+                        android:justificationMode="inter_word"
                         android:text="This design is a Salish Sea motif featuring the teachings and culture of the artist’s ancestors. This contemporary iconography of the Pacific Northwest includes representations of Black Fish, Dog Fish, Eagles, and Salmon."/>
 
                     <TextView
@@ -190,6 +192,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:textSize="15dp"
+                        android:justificationMode="inter_word"
                         android:text="A lost lone wolf who’s been separated from its pack, calls out each night to communicate for others who may feel similar. During the day he hunts and travels seeking shelter to survive. This piece is a reflection of some people's lives, who are abandoned, separated or forgotten and as the world keeps moving without them, they keep fighting for themselves."/>
 
                     <TextView
@@ -207,6 +210,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:textSize="15dp"
+                        android:justificationMode="inter_word"
                         android:text="EThe piece is a combination of coast salish design principles, from hand drawn or carved mediums and also from woven textile patterns. The red fawn in this piece, is representative of the medicine that a fawn offers, in its curiosity, exuberance for life, and its gentleness. The zigzag patterns and coloring in the background depict paths travelled in the forests."/>
                     <TextView
                         android:id="@+id/eventDescription5"
@@ -216,12 +220,14 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
                         android:gravity="center"
+                        android:justificationMode="inter_word"
                         android:text="“Protector of the Mountain” - Zachary “SKOKAYLEM” George (Tsleil-Waututh/Vancouver) "/>
                     <TextView
                         android:id="@+id/eventDescription55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:justificationMode="inter_word"
                         android:text="The face on top is a represents the artist’s ancestors sending prayers out to cover the land and people. The mountains are shaped like salmon heads because the snowmelt is the water they swim in and represents a strong connection in the artist’s Salish culture."/>
                 </LinearLayout>
 
