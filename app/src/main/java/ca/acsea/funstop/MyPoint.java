@@ -76,7 +76,10 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("userObject", "");
+        String testing = sharedPreferences.getString("test", "");
         mUser = gson.fromJson(json, User.class);
+
+        System.out.println("test : " + testing);
 
         System.out.println(intent.getStringExtra("source"));
 
@@ -128,8 +131,13 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     public void onPause() {
         super.onPause();
-        savePoint();
+//        SharedPreferences.Editor prefEditor = this.getSharedPreferences("prefs",0).edit();
+//        Gson gson = new Gson();
+//        String json = gson.toJson(mUser);
+//        prefEditor.putString("userObject", json);
+//        prefEditor.apply();
     }
+
 
 
     private void checkPoint() {

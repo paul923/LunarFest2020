@@ -25,6 +25,8 @@ import ca.acsea.funstop.MyPoint;
 import ca.acsea.funstop.R;
 import ca.acsea.funstop.User;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class QuizEnd extends Fragment {
     View view;
     Button mButton;
@@ -45,12 +47,10 @@ public class QuizEnd extends Fragment {
 
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
-        prefs = getActivity().getSharedPreferences("prefs", Context.MODE_PRIVATE);
+        prefs = getActivity().getSharedPreferences("prefs", MODE_PRIVATE);
         Gson gson = new Gson();
         String json = prefs.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
-
-        points =(int)mUser.getPoint();
         view = inflater.inflate(R.layout.fragment_quiz_end, container, false);
 
         mButton = (Button) view.findViewById(R.id.endButton);
@@ -65,17 +65,15 @@ public class QuizEnd extends Fragment {
             @Override
             public void onClick(View view) {
 
-                SharedPreferences.Editor prefsEditor = prefs.edit();
-                prefsEditor.putInt("points", points);
-                mUser.setPoint(points);
-                Gson gson = new Gson();
-                String json = gson.toJson(mUser);
-                prefsEditor.putString("userObject", json);
-                prefsEditor.apply();
-                getActivity().recreate();
-
-
-
+//                SharedPreferences.Editor prefsEditor = prefs.edit();
+//                prefsEditor.putInt("points", points);
+//                Gson gson = new Gson();
+//                String json = gson.toJson(mUser);
+//                prefsEditor.putString("userObject", json);
+//                prefsEditor.commit();
+//                getActivity().recreate();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
             }
         });
     }
