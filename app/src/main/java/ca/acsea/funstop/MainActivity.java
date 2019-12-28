@@ -122,12 +122,14 @@ public class MainActivity extends AppCompatActivity
 
     public void onPause(){
         super.onPause();
-        SharedPreferences.Editor prefs = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(mUser);
-        prefs.putString("userObject", json);
-        prefs.apply();
+//        SharedPreferences.Editor prefs = sharedPreferences.edit();
+//        Gson gson = new Gson();
+//        String json = gson.toJson(mUser);
+//        prefs.putString("userObject", json);
+//        prefs.commit();
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -56,18 +56,16 @@ public class Quiz extends Fragment {
         // Required empty public constructor
     }
 
-    public Quiz(FragmentManager fm, User user, DatabaseReference ref, int i){
+    public Quiz(FragmentManager fm, User user, DatabaseReference ref){
         this.fragmentManager = fm;
-        this.mUser = user;
         this.ref = ref;
-        this.index = i;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        prefs = getActivity().getSharedPreferences("prefs", MODE_PRIVATE);
+        prefs = getContext().getSharedPreferences("prefs", MODE_PRIVATE);
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
@@ -129,18 +127,15 @@ public class Quiz extends Fragment {
     }
 
     public void addPoints(int value){
-//        point += value;
-        System.out.println("before"+mUser.getPoint());
         mUser.setPoint(mUser.getPoint() + value);
-//        ref.child("users").child(currentUser.getUid()).child("point").setValue(point);
-        System.out.println("after"+mUser.getPoint());
-        save();
         //Question number decision
-        if(mUser.getIndex() < qList.size() - 1)
-//            ref.child("users").child(currentUser.getUid()).child("quiz").child("questionNo").setValue(++index);
-            mUser.increaseIndex();
-        else
+        int i = mUser.getIndex();
+        if(mUser.getIndex() < qList.size() - 1) {
+            mUser.setIndex(++i);
+        }else {
             mUser.setIndex(0);
+        }
+        save();
     }
 
     /**
@@ -253,13 +248,23 @@ public class Quiz extends Fragment {
         list.add(mQuestion3);
         list.add(mQuestion4);
         list.add(mQuestion5);
+        list.add(mQuestion6);
+        list.add(mQuestion7);
+        list.add(mQuestion8);
+        list.add(mQuestion9);
+        list.add(mQuestion10);
+        list.add(mQuestion11);
+        list.add(mQuestion12);
+        list.add(mQuestion13);
+        list.add(mQuestion14);
+        list.add(mQuestion15);
+        list.add(mQuestion16);
+        list.add(mQuestion17);
+        list.add(mQuestion18);
+
 
         return list;
     }
-
-
-
-
 
 
     public void nextQuestion(){
@@ -281,17 +286,15 @@ public class Quiz extends Fragment {
     }
     public void onPause(){
         super.onPause();
-        save();
     }
 
     public void save() {
         SharedPreferences.Editor prefsEditor = prefs.edit();
 //        prefsEditor.putInt("points", points);
-//        mUser.setPoint(points);
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
         prefsEditor.putString("userObject", json);
-        prefsEditor.apply();
+        prefsEditor.commit();
 //        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
 
