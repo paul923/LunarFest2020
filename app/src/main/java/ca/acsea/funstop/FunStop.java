@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,6 +80,16 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+
+        //Display user's email in the navigation bar
+        if(mUser != null) {
+            NavigationView navView = findViewById(R.id.nav_view);
+            View header = navView.getHeaderView(0);
+            TextView userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(mUser.getEmail());
+        }
+
 
         btnStart = findViewById(R.id.startbtn);
         btnStart.setOnClickListener(new View.OnClickListener() {

@@ -122,6 +122,8 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
+
+        //Display user's email in the navigation bar
         if(mUser != null) {
             NavigationView navView = findViewById(R.id.nav_view);
             View header = navView.getHeaderView(0);
