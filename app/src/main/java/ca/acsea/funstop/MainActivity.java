@@ -126,8 +126,12 @@ public class MainActivity extends AppCompatActivity
 //        Gson gson = new Gson();
 //        String json = gson.toJson(mUser);
 //        prefs.putString("userObject", json);
-//        prefs.apply();
+
+//        prefs.commit();
+
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -264,10 +264,9 @@ public class Quiz extends Fragment {
         list.add(mQuestion16);
         list.add(mQuestion17);
         list.add(mQuestion18);
+
         return list;
     }
-
-
 
 
 

@@ -69,6 +69,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox taiwanese;
     CheckBox chinese;
     CheckBox vietnamese;
+    CheckBox jackPoole;
     CheckBox salishSea1;
     CheckBox salishSea2;
     CheckBox loneWolf1;
@@ -93,6 +94,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean taiwaneseB;
     Boolean chineseB;
     Boolean vietnameseB;
+    Boolean jackPooleB;
     Boolean salishSea1B;
     Boolean salishSea2B;
     Boolean loneWolf1B;
@@ -177,14 +179,15 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwanese = findViewById(R.id.taiwanese);
         chinese = findViewById(R.id.chinese);
         vietnamese = findViewById(R.id.vietnamese);
-        salishSea1 = findViewById(R.id.salishSea1);
-        salishSea2 = findViewById(R.id.salishSea2);
-        loneWolf1 = findViewById(R.id.loneWolf1);
-        loneWolf2 = findViewById(R.id.loneWolf2);
-        redFawn1 = findViewById(R.id.redFawn1);
-        redFawn2 = findViewById(R.id.redFawn2);
-        protector1 = findViewById(R.id.protector1);
-        protector2 = findViewById(R.id.protector2);
+//        jackPoole = findViewById(R.id.jackPoole);
+        //salishSea1 = findViewById(R.id.salishSea1);
+        //salishSea2 = findViewById(R.id.salishSea2);
+        //loneWolf1 = findViewById(R.id.loneWolf1);
+        //loneWolf2 = findViewById(R.id.loneWolf2);
+        //redFawn1 = findViewById(R.id.redFawn1);
+        //redFawn2 = findViewById(R.id.redFawn2);
+        //protector1 = findViewById(R.id.protector1);
+        //protector2 = findViewById(R.id.protector2);
 
 
         // arrayList = Arrays.asList(Korean, chinese, loneWolf1);
@@ -193,14 +196,15 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-        arrayList.add(loneWolf1);
-        arrayList.add(loneWolf2);
-        arrayList.add(protector1);
-        arrayList.add(protector2);
-        arrayList.add(redFawn1);
-        arrayList.add(redFawn2);
-        arrayList.add(salishSea1);
-        arrayList.add(salishSea2);
+        arrayList.add(jackPoole);
+      //  arrayList.add(loneWolf1);
+      //  arrayList.add(loneWolf2);
+      //  arrayList.add(protector1);
+      //  arrayList.add(protector2);
+       // arrayList.add(redFawn1);
+      // arrayList.add(redFawn2);
+       // arrayList.add(salishSea1);
+       // arrayList.add(salishSea2);
         arrayList.add(station1);
         arrayList.add(station2);
         arrayList.add(station3);
@@ -230,28 +234,30 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         taiwaneseB = prefs.getBoolean("taiwaneseB", false);
         chineseB = prefs.getBoolean("chineseB", false);
         vietnameseB = prefs.getBoolean("vietnameseB", false);
-        salishSea1B = prefs.getBoolean("salishSea1B", false);
-        salishSea2B = prefs.getBoolean("salishSea2B", false);
-        loneWolf1B = prefs.getBoolean("loneWolf1B", false);
-        loneWolf2B = prefs.getBoolean("loneWolf2B", false);
-        redFawn1B = prefs.getBoolean("redFawn1B", false);
-        redFawn2B = prefs.getBoolean("redFawn2B", false);
-        protector1B = prefs.getBoolean("protector1B", false);
-        protector2B = prefs.getBoolean("protector2B", false);
+        jackPooleB = prefs.getBoolean("jackPooleB", false);
+        //salishSea1B = prefs.getBoolean("salishSea1B", false);
+        //salishSea2B = prefs.getBoolean("salishSea2B", false);
+        //loneWolf1B = prefs.getBoolean("loneWolf1B", false);
+        //loneWolf2B = prefs.getBoolean("loneWolf2B", false);
+        //redFawn1B = prefs.getBoolean("redFawn1B", false);
+        //redFawn2B = prefs.getBoolean("redFawn2B", false);
+        //protector1B = prefs.getBoolean("protector1B", false);
+        //protector2B = prefs.getBoolean("protector2B", false);
 
         arrayListBool = new ArrayList<Boolean>();
         arrayListBool.add(KoreanB);
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-        arrayListBool.add(loneWolf1B);
-        arrayListBool.add(loneWolf2B);
-        arrayListBool.add(protector1B);
-        arrayListBool.add(protector2B);
-        arrayListBool.add(redFawn1B);
-        arrayListBool.add(redFawn2B);
-        arrayListBool.add(salishSea1B);
-        arrayListBool.add(salishSea2B);
+        arrayListBool.add(jackPooleB);
+      //  arrayListBool.add(loneWolf1B);
+      //  arrayListBool.add(loneWolf2B);
+      //  arrayListBool.add(protector1B);
+      //  arrayListBool.add(protector2B);
+      //  arrayListBool.add(redFawn1B);
+       // arrayListBool.add(redFawn2B);
+        //arrayListBool.add(salishSea1B);
+        //arrayListBool.add(salishSea2B);
         arrayListBool.add(station1B);
         arrayListBool.add(station2B);
         arrayListBool.add(station3B);
@@ -321,14 +327,14 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("chineseB", chineseB);
         prefsEditor.putBoolean("taiwaneseB", taiwaneseB);
         prefsEditor.putBoolean("vietnameseB", vietnameseB);
-        prefsEditor.putBoolean("loneWolf1B", loneWolf1B);
-        prefsEditor.putBoolean("loneWolf2B", loneWolf2B);
-        prefsEditor.putBoolean("protector1B", protector1B);
-        prefsEditor.putBoolean("protector2B", protector2B);
-        prefsEditor.putBoolean("redFawn1B", redFawn1B);
-        prefsEditor.putBoolean("redFawn2B", redFawn2B);
-        prefsEditor.putBoolean("salishSea1B", salishSea1B);
-        prefsEditor.putBoolean("salishSea2B", salishSea2B);
+       // prefsEditor.putBoolean("loneWolf1B", loneWolf1B);
+       // prefsEditor.putBoolean("loneWolf2B", loneWolf2B);
+       // prefsEditor.putBoolean("protector1B", protector1B);
+       // prefsEditor.putBoolean("protector2B", protector2B);
+       // prefsEditor.putBoolean("redFawn1B", redFawn1B);
+       // prefsEditor.putBoolean("redFawn2B", redFawn2B);
+       // prefsEditor.putBoolean("salishSea1B", salishSea1B);
+       // prefsEditor.putBoolean("salishSea2B", salishSea2B);
         prefsEditor.putBoolean("station1B", station1B);
         prefsEditor.putBoolean("station2B", station2B);
         prefsEditor.putBoolean("station3B", station3B);
@@ -341,6 +347,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("station10B", station10B);
         prefsEditor.putBoolean("station11B", station11B);
         prefsEditor.putBoolean("station12B", station12B);
+        prefsEditor.putBoolean("jackPooleB", jackPooleB);
         prefsEditor.putInt("points", points);
 
         prefsEditor.apply();
@@ -371,7 +378,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
        switch (qrValue) {
             case "station1":
                 if(!station1B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -380,7 +387,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station2":
                 if(!station2B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -389,7 +396,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station3":
                 if(!station3B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -398,7 +405,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station4":
                 if(!station4B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -407,7 +414,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station5":
                 if(!station5B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -416,7 +423,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station6":
                 if(!station6B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -425,7 +432,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station7":
                 if(!station7B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -434,7 +441,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station8":
                 if(!station8B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -443,7 +450,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station9":
                 if(!station9B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -452,7 +459,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station10":
                 if(!station10B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -461,7 +468,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station11":
                 if(!station11B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -470,7 +477,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "station12":
                 if(!station12B) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -479,7 +486,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "chinese":
                 if(!chineseB) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -488,7 +495,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "Korean":
                 if(!KoreanB) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -497,7 +504,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "taiwanese":
                 if(!taiwaneseB) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
@@ -506,84 +513,22 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 break;
             case "vietnamese":
                 if(!vietnameseB) {
-                    updatePoints(10, "Add");
+                    updatePoints(15, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 vietnamese.setChecked(true);
                 vietnameseB = true;
                 break;
-            case "loneWolf1":
-                if(!loneWolf1B) {
-                    updatePoints(5, "Add");
+            case "JackPoole":
+                if(!jackPooleB) {
+                    updatePoints(40, "Add");
                 }else {
                     Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
-                loneWolf1.setChecked(true);
-                loneWolf1B = true;
-                break;
-            case "loneWolf2":
-                if(!loneWolf2B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                loneWolf2.setChecked(true);
-                loneWolf2B = true;
-                break;
-            case "protector1":
-                if(!protector1B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                protector1.setChecked(true);
-                protector1B = true;
-                break;
-            case "protector2":
-                if(protector2B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                protector2.setChecked(true);
-                protector2B = true;
-                break;
-            case "redFawn1":
-                if(redFawn1B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                redFawn1.setChecked(true);
-                redFawn1B = true;
-                break;
-            case "redFawn2":
-                if(redFawn2B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                redFawn2.setChecked(true);
-                redFawn2B = true;
-                break;
-            case "salishSea1":
-                if(salishSea1B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                salishSea1.setChecked(true);
-                salishSea1B = true;
-                break;
-            case "salish Sea 2":
-                if(salishSea2B) {
-                    updatePoints(5, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                salishSea2.setChecked(true);
-                salishSea2B = true;
+                jackPoole.setChecked(true);
+                jackPooleB = true;
+
                 break;
             default:
                 if(qrValue!=null) {

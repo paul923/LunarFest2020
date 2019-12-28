@@ -110,7 +110,8 @@
                         android:textSize="18dp"
                         android:layout_margin="5dp"
                         android:layout_marginLeft="10dp"
-                        android:textColor="@color/textColorBlack" />
+                        android:textColor="@color/textColorBlack"
+                        />
 
                     <CheckBox
                         android:id="@+id/station2"

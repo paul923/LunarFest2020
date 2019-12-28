@@ -40,6 +40,9 @@ import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizStart;
@@ -56,6 +59,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     boolean joinDraw;
     String qrValue = "";
     SharedPreferences sharedPreferences;
+    Button transactionBtn;
+
+    String historyMessage;
 
     //User Data Instance
     private User mUser;
@@ -65,23 +71,26 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     About about;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+    private AlertDialog.Builder alertDialog;
+
     private DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
 
     public void onCreate(Bundle saveInstanceState) {
         setTitle("My Point");
         super.onCreate(saveInstanceState);
+        setContentView(R.layout.fragment_my_point);
 
         Intent intent = getIntent();
         sharedPreferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPreferences.getString("userObject", "");
-        System.out.println("json print ----------------"+ json);
+        String testing = sharedPreferences.getString("test", "");
+        historyMessage = sharedPreferences.getString("history", "");
         mUser = gson.fromJson(json, User.class);
 
+        System.out.println("test : " + testing);
 
-//        SharedPreferences.Editor prefsEditor = prefs.edit();
-//        prefsEditor.putInt("point", (int)mUser.getPoint());
 
         System.out.println(intent.getStringExtra("source"));
 
@@ -89,8 +98,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             qrValue = intent.getStringExtra("qrValue");
         }
 
-
-        //TODO: connect user data to other data members
 
         event = new Event(fragmentManager);
         map = new Map();
@@ -100,7 +107,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         about = new About(fragmentManager);
 
 
-        setContentView(R.layout.fragment_my_point);
+
+
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -112,6 +121,25 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+        if(mUser != null) {
+            NavigationView navView = findViewById(R.id.nav_view);
+            View header = navView.getHeaderView(0);
+            TextView userEmail = header.findViewById(R.id.userEmail);
+            userEmail.setText(mUser.getEmail());
+        }
+
+
+
+        //Point history button
+        transactionBtn = (Button) findViewById(R.id.point_transaction);
+        onPressTransaction();
+
+        //Initialize AlertDialog
+        alertDialog = new AlertDialog.Builder(MyPoint.this);
+        alertDialog.setTitle("Transaction History");
+
+
 
 
         test = findViewById(R.id.test);
@@ -131,10 +159,32 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         });
     }
 
+
+    /**
+     * Transaction button pressed event handler
+     */
+    public void onPressTransaction(){
+        transactionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.setMessage(historyMessage);
+                alertDialog.setTitle("Transaction History")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                            }
+                        })
+                        .show();
+            }
+        });
+    }
+
+
+
     public void onPause() {
         super.onPause();
-//        savePoint();
+
     }
+
 
 
     private void checkPoint() {
@@ -168,6 +218,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         Gson gson = new Gson();
         String json = gson.toJson(mUser);
         prefEditor.putString("userObject", json);
+        prefEditor.putString("history", historyMessage);
         prefEditor.putInt(pointKey, points);
         prefEditor.putBoolean("joinDraw", joinDraw);
         prefEditor.commit();
@@ -223,15 +274,18 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
     }
 
     private void modifyPoints(int point, String operation) {
+        DateFormat df = new SimpleDateFormat("MMM-dd hh:mm aa");
+
         if (operation.equalsIgnoreCase("Add")) {
             mUser.setPoint(mUser.getPoint() + point);
             test.setText(String.valueOf(mUser.getPoint()));
-
+            historyMessage = historyMessage.concat("+ " + point + " points (" +df.format(new Date()) + ")" + "\n");
         } else if (operation.equalsIgnoreCase("Reduce")) {
 //            points = points - point;
             if(mUser.getPoint()>=point) {
                 mUser.setPoint(mUser.getPoint() - point);
                 test.setText(String.valueOf(mUser.getPoint()));
+                historyMessage = historyMessage.concat("- " + point + " points (" + df.format(new Date()) + ")" + "\n");
             }else {
                 Toast.makeText(this,"Not enough point!",Toast.LENGTH_SHORT).show();
             }

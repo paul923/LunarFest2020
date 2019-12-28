@@ -26,6 +26,8 @@ import ca.acsea.funstop.R;
 import ca.acsea.funstop.User;
 import ca.acsea.funstop.event.Event;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class QuizEnd extends Fragment {
     View view;
     Button mButton;
@@ -46,7 +48,11 @@ public class QuizEnd extends Fragment {
 
         //Changes the actionbar's Title
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Quiz");
-        prefs = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE );
+
+//         prefs = getActivity().getSharedPreferences("prefs",Context.MODE_PRIVATE );
+
+        prefs = getActivity().getSharedPreferences("prefs", MODE_PRIVATE);
+
         Gson gson = new Gson();
         String json = prefs.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);

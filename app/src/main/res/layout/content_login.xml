@@ -115,9 +115,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_input"
         />
+<!--    <com.shobhitpuri.custombuttons.GoogleSignInButton-!> -->
+<com.google.android.gms.common.SignInButton
 
-<!--    <com.google.android.gms.common.SignInButton-->
-    <com.shobhitpuri.custombuttons.GoogleSignInButton
         android:id="@+id/google_sign_in_button"
         android:layout_width="250dp"
         android:layout_height="wrap_content"

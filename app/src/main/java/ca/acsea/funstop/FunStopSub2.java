@@ -59,12 +59,12 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     CheckBox station4;
     CheckBox station5;
     CheckBox station6;
-    CheckBox station7;
-    CheckBox station8;
-    CheckBox station9;
-    CheckBox station10;
-    CheckBox station11;
-    CheckBox station12;
+    //CheckBox station7;
+    //CheckBox station8;
+    //CheckBox station9;
+    //CheckBox station10;
+    //CheckBox station11;
+    //CheckBox station12;
 
     Boolean station1B;
     Boolean station2B;
@@ -72,12 +72,12 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     Boolean station4B;
     Boolean station5B;
     Boolean station6B;
-    Boolean station7B;
-    Boolean station8B;
-    Boolean station9B;
-    Boolean station10B;
-    Boolean station11B;
-    Boolean station12B;
+//    Boolean station7B;
+//    Boolean station8B;
+//    Boolean station9B;
+//    Boolean station10B;
+//    Boolean station11B;
+//    Boolean station12B;
 
     String qrValue = "";
     SharedPreferences prefs;
@@ -145,12 +145,12 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         station4 = findViewById(R.id.station4);
         station5 = findViewById(R.id.station5);
         station6 = findViewById(R.id.station6);
-        station7 = findViewById(R.id.station7);
-        station8 = findViewById(R.id.station8);
-        station9 = findViewById(R.id.station9);
-        station10 = findViewById(R.id.station10);
-        station11 = findViewById(R.id.station11);
-        station12 = findViewById(R.id.station12);
+//        station7 = findViewById(R.id.station7);
+//        station8 = findViewById(R.id.station8);
+//        station9 = findViewById(R.id.station9);
+//        station10 = findViewById(R.id.station10);
+//        station11 = findViewById(R.id.station11);
+//        station12 = findViewById(R.id.station12);
 
 
         // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
@@ -161,25 +161,25 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         arrayList.add(station4);
         arrayList.add(station5);
         arrayList.add(station6);
-        arrayList.add(station7);
-        arrayList.add(station8);
-        arrayList.add(station9);
-        arrayList.add(station10);
-        arrayList.add(station11);
-        arrayList.add(station12);
+//        arrayList.add(station7);
+//        arrayList.add(station8);
+//        arrayList.add(station9);
+//        arrayList.add(station10);
+//        arrayList.add(station11);
+//        arrayList.add(station12);
 
-        station1B = prefs.getBoolean("station1B", false);
-        station2B = prefs.getBoolean("station2B", false);
-        station3B = prefs.getBoolean("station3B", false);
-        station4B = prefs.getBoolean("station4B", false);
-        station5B = prefs.getBoolean("station5B", false);
-        station6B = prefs.getBoolean("station6B", false);
-        station7B = prefs.getBoolean("station7B", false);
-        station8B = prefs.getBoolean("station8B", false);
-        station9B = prefs.getBoolean("station9B", false);
-        station10B = prefs.getBoolean("station10B", false);
-        station11B = prefs.getBoolean("station11B", false);
-        station12B = prefs.getBoolean("station12B", false);
+        station1B = prefs.getBoolean("tstation1B", false);
+        station2B = prefs.getBoolean("tstation2B", false);
+        station3B = prefs.getBoolean("tstation3B", false);
+        station4B = prefs.getBoolean("tstation4B", false);
+        station5B = prefs.getBoolean("tstation5B", false);
+        station6B = prefs.getBoolean("tstation6B", false);
+//        station7B = prefs.getBoolean("station7B", false);
+//        station8B = prefs.getBoolean("station8B", false);
+//        station9B = prefs.getBoolean("station9B", false);
+//        station10B = prefs.getBoolean("station10B", false);
+//        station11B = prefs.getBoolean("station11B", false);
+//        station12B = prefs.getBoolean("station12B", false);
 
         arrayListBool = new ArrayList<Boolean>();
         arrayListBool.add(station1B);
@@ -188,12 +188,12 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         arrayListBool.add(station4B);
         arrayListBool.add(station5B);
         arrayListBool.add(station6B);
-        arrayListBool.add(station7B);
-        arrayListBool.add(station8B);
-        arrayListBool.add(station9B);
-        arrayListBool.add(station10B);
-        arrayListBool.add(station11B);
-        arrayListBool.add(station12B);
+//        arrayListBool.add(station7B);
+//        arrayListBool.add(station8B);
+//        arrayListBool.add(station9B);
+//        arrayListBool.add(station10B);
+//        arrayListBool.add(station11B);
+//        arrayListBool.add(station12B);
 
 //        points = prefs.getInt("point", 20);
 
@@ -246,18 +246,18 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     public void save() {
         SharedPreferences.Editor prefsEditor = prefs.edit();
 
-        prefsEditor.putBoolean("station1B", station1B);
-        prefsEditor.putBoolean("station2B", station2B);
-        prefsEditor.putBoolean("station3B", station3B);
-        prefsEditor.putBoolean("station4B", station4B);
-        prefsEditor.putBoolean("station5B", station5B);
-        prefsEditor.putBoolean("station6B", station6B);
-        prefsEditor.putBoolean("station7B", station7B);
-        prefsEditor.putBoolean("station8B", station8B);
-        prefsEditor.putBoolean("station9B", station9B);
-        prefsEditor.putBoolean("station10B", station10B);
-        prefsEditor.putBoolean("station11B", station11B);
-        prefsEditor.putBoolean("station12B", station12B);
+        prefsEditor.putBoolean("tstation1B", station1B);
+        prefsEditor.putBoolean("tstation2B", station2B);
+        prefsEditor.putBoolean("tstation3B", station3B);
+        prefsEditor.putBoolean("tstation4B", station4B);
+        prefsEditor.putBoolean("tstation5B", station5B);
+        prefsEditor.putBoolean("tstation6B", station6B);
+//        prefsEditor.putBoolean("station7B", station7B);
+//        prefsEditor.putBoolean("station8B", station8B);
+//        prefsEditor.putBoolean("station9B", station9B);
+//        prefsEditor.putBoolean("station10B", station10B);
+//        prefsEditor.putBoolean("station11B", station11B);
+//        prefsEditor.putBoolean("station12B", station12B);
 
         prefsEditor.putInt("points", points);
         prefsEditor.apply();
@@ -287,116 +287,91 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
     private void checkQRCodeValue () {
         switch (qrValue) {
-            case "station1":
-                if(!station1B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+
+            case "tstation1":
+                if(station1B) {
+                    updatePoints(30, "Add");
                 }
                 station1.setChecked(true);
                 station1B = true;
                 break;
-            case "station2":
-                if(!station2B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+            case "tstation2":
+                if(station2B) {
+                    updatePoints(30, "Add");
                 }
                 station2.setChecked(true);
                 station2B = true;
                 break;
-            case "station3":
-                if(!station3B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+
+            case "tstation3":
+                if(station3B) {
+                    updatePoints(30, "Add");
                 }
                 station3.setChecked(true);
                 station3B = true;
                 break;
-            case "station4":
+
+            case "tstation4":
                 if(!station4B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+                    updatePoints(30, "Add");
+
                 }
                 station4.setChecked(true);
                 station4B = true;
                 break;
-            case "station5":
+
+            case "tstation5":
                 if(!station5B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+                    updatePoints(30, "Add");
+
                 }
                 station5.setChecked(true);
                 station5B = true;
                 break;
-            case "station6":
+
+            case "tstation6":
                 if(!station6B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
+                    updatePoints(30, "Add");
+
                 }
                 station6.setChecked(true);
                 station6B = true;
                 break;
-            case "station7":
-                if(!station7B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                station7.setChecked(true);
-                station7B = true;
-                break;
-            case "station8":
-                if(!station8B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                station8.setChecked(true);
-                station8B = true;
-                break;
-            case "station9":
-                if(!station9B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                station9.setChecked(true);
-                station9B = true;
-                break;
-            case "station10":
-                if(!station10B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                station10.setChecked(true);
-                station10B = true;
-                break;
-            case "station11":
-                if(!station11B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                station11.setChecked(true);
-                station11B = true;
-                break;
-            case "station12":
-                if(!station12B) {
-                    updatePoints(10, "Add");
-                }else {
-                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
-                }
-                station12.setChecked(true);
-                station12B = true;
-                break;
+
             default:
                 Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
+=======
+//            case "station7":
+//                updatePoints(10, "Add");
+//                station7.setChecked(true);
+//                station7B = true;
+//                break;
+//            case "station8":
+//                updatePoints(10, "Add");
+//                station8.setChecked(true);
+//                station8B = true;
+//                break;
+//            case "station9":
+//                updatePoints(10, "Add");
+//                station9.setChecked(true);
+//                station9B = true;
+//                break;
+//            case "station10":
+//                updatePoints(10, "Add");
+//                station10.setChecked(true);
+//                station10B = true;
+//                break;
+//            case "station11":
+//                updatePoints(10, "Add");
+//                station11.setChecked(true);
+//                station11B = true;
+//                break;
+//            case "station12":
+//                updatePoints(10, "Add");
+//                station12.setChecked(true);
+//                station12B = true;
+//                break;
+
 
 
         }

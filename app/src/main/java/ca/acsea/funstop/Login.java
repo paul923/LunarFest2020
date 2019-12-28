@@ -25,8 +25,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.common.api.Api;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.Status;
@@ -62,7 +60,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText emailInput;
     private EditText passwordInput;
     private Button submitBtn;
-    private GoogleSignInButton googleSignInBtn;
+    private SignInButton googleSignInBtn;
     private GoogleApiClient googleApiClient;
     private GoogleSignInClient mGoogleSignInClient;
     private String email;
@@ -185,7 +183,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("userObject", json);
                     editor.apply();
-                   // mUser = gson.fromJson(json, User.class);
+                    // mUser = gson.fromJson(json, User.class);
 
 
                     startActivity(intent);
@@ -340,12 +338,11 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
         if(account != null || currentUser!= null){
 
-//            getData(new MyCallback() {
-//                @Override
-//                public void onCallback(User value) {
-//                    Log.d(TAG, "Value is: " + value);
-//                }
-//            });
+            // move to next activity
+            Intent i = new Intent(Login.this, Location.class);
+            i.putExtra("user", mUser);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
 
 
         }else{
@@ -362,11 +359,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 // whenever data at this location is updated.
                 mUser = dataSnapshot.getValue(User.class);
 
-                // move to next activity
-//                Intent i = new Intent(Login.this, Location.class);
-//                i.putExtra("user", mUser);
-//                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                startActivity(i);
+
 
                 callback.onCallback(mUser);
                 Log.d(TAG, "Value is: " + mUser);
