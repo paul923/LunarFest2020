@@ -35,8 +35,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import com.google.gson.Gson;
 import com.shobhitpuri.custombuttons.GoogleSignInButton;
+
 
 import java.util.concurrent.Semaphore;
 
@@ -82,6 +84,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         System.out.println("what is mAuth on login"+mAuth);
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        //mDatabase = FirebaseDatabase.getInstance();
+        mDatabase.getDatabase().getReference().child("users-testing").setValue("Loggin ");
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
@@ -323,6 +329,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
         if(account != null || currentUser!= null){
+           // Intent intent = new Intent(Login.this, MainActivity.class);
+           // startActivity(intent);
 
 //            getData(new MyCallback() {
 //                @Override
