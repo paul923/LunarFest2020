@@ -41,7 +41,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorGray"
+                android:background="@color/textColorWhite"
                 android:layout_marginBottom="20dp">
 
 
@@ -106,13 +106,13 @@
 
             <Button
                 android:id="@+id/quiz_start_button"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="Start"
                 android:background="@drawable/login_border"
+                android:text="Start"
                 android:textColor="#E6B773"
-                app:fontFamily="@font/"/>
+                app:fontFamily="@font/" />
 
 
 

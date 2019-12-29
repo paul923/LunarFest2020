@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class EventSub7 extends Fragment {
 
         mapSub = new MapSub("Varley Art Gallery of Markham",
                 "Feb 2, 11AM ~ 4PM", new LatLng(43.869716, -79.312400));
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Varley Art Gallery of Markham");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Varley Art Gallery of Markham </font>"));
 
         view = inflater.inflate(R.layout.activity_event_sub7, container, false);
         onClickMap();

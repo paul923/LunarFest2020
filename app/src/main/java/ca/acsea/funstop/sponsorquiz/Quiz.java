@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +71,7 @@ public class Quiz extends Fragment {
 
         prefs = getContext().getSharedPreferences("prefs", MODE_PRIVATE);
         //Changes the actionbar's Title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Daily Quiz");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Daily quiz </font>"));
         view = inflater.inflate(R.layout.fragment_quiz, container, false);
 //        getPoint();
 
