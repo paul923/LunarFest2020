@@ -142,6 +142,7 @@
                         android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:lineSpacingExtra="6sp"
                         android:text="One of the most important Lunar New Year celebrations is having a grand feast with your friends and family. In Taiwan, street banquets are known for being sumptuous and delicious. World-renowned Chai Found Music Workshop brings their chamber-music interpretation to Canada for the first time. Celebrate the Lunar New Year like no other with “A Musical Banquet: A Feast of Sumptuous Classical Music.”"
                         android:textSize="15dp" />
 

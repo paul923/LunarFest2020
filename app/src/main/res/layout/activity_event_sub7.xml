@@ -150,6 +150,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:lineSpacingExtra="6sp"
                         android:text="The rat symbolizes intelligence and flexibility - celebrate the Year of the Rat in Unionville like no other! Play as a cute rat as it races through the different foods of the world in “Kitchen Runners”! Try your hand at arts and crafts to make your very own lantern to take home, or bring good luck by decorating a personalized lucky charm! Get a taste of how different cultures celebrate the new year! Join us for a celebration like no other!
 "/>
 
