@@ -91,7 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="178dp"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/jack1"
+                        app:srcCompat="@drawable/jack2"
                         >
                     </ImageView>
                 </LinearLayout>
