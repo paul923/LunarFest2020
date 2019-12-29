@@ -144,7 +144,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
         //for making a letter bold.
         SpannableStringBuilder sb = new SpannableStringBuilder();
-        String str = "1. To qualify for the $200 Visa gift card draw: <b>150</b> Points.";
+        String str = "To qualify for the $200 Visa gift card draw: <b>150</b> Points.";
         sb.append(str);
         sb.setSpan(new StyleSpan(Typeface.BOLD), 0, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         TextView tv_temp1 = findViewById(R.id.mypoint_tv1);
