@@ -61,7 +61,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorGray"
+                android:background="@color/textColorWhite"
                 android:layout_marginBottom="20dp">
 
 
@@ -116,7 +116,7 @@
 
             <Button
                 android:id="@+id/startbtn"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:text="Start"

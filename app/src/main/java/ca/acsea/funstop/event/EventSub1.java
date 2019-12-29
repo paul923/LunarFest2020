@@ -1,6 +1,7 @@
 package ca.acsea.funstop.event;
 
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class EventSub1 extends Fragment {
         mapSub = new MapSub("Vancouver Art Gallery",
                 "Jan 25 ~ Jan 26", new LatLng(49.283157, -123.119871));
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Vancouver Art Gallery");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Vancouver Art Gallery </font>"));
         view = inflater.inflate(R.layout.activity_event_sub1, container, false);
         onClickMap();
         // Inflate the layout for this fragment

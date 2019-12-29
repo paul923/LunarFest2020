@@ -101,7 +101,7 @@
                         android:id="@+id/imageView2"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:background="@color/colorGray" />
+                        android:background="@color/textColorWhite" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -159,7 +159,7 @@
                 <Button
                     android:id="@+id/point_transaction"
                     android:text="Transaction"
-                    android:layout_width="300dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
@@ -168,7 +168,7 @@
                     app:fontFamily="@font/" />
                 <Button
                     android:id="@+id/redeembtn"
-                    android:layout_width="300dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="@drawable/login_border"
