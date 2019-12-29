@@ -110,6 +110,10 @@
         android:textColor="#E6B773"
         android:textSize="20sp"
         android:visibility="visible"
+<<<<<<< HEAD
+=======
+        app:fontFamily="@font/neo_sans_two_regular"
+>>>>>>> 7bab9415bd9043fd0233f43aa0907acf0ac9bdc6
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_input"

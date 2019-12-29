@@ -28,34 +28,34 @@
                 //Linear layout for date and location
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp">
-                    <!--                    android:orientation="vertical">-->
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_today_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Jan 18 ~ Feb 9"
-
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+
+                        android:textSize="16dp" >
                     </TextView>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="1dp">
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange"
+                    >
                     <!--                    android:orientation="vertical">-->
 
                     <ImageView
@@ -63,16 +63,17 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_my_location_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"
 
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Jack Poole Plaza/Lot19"
-                        android:layout_marginBottom="10dp"
-
+                        android:layout_height="match_parent"
+                        android:text="Jack Poole Plaza"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+                        android:textSize="16dp" >>
                     </TextView>
                 </LinearLayout>
 
@@ -80,17 +81,16 @@
                 //Linear layout for event picture
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     >
 
 
                     <ImageView
                         android:id="@+id/eventPicture4"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="178dp"
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/jack1"
                         >
                     </ImageView>
@@ -146,8 +146,8 @@
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:gravity="center"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
                         android:text="General"/>
@@ -157,15 +157,14 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
-                        android:justificationMode="inter_word"
                         android:text="In acknowledgement that we are fortunate to be able to gather on the unceded territory of the Coast Salish People, these eight gigantic lanterns were created with the designs of Indigenous artists from the Stó:lō, Dené, Musqueam, and Tsleil-Waututh nations to celebrate one of the most important traditions in Asia – the Lunar New Year. "/>
                     <TextView
                         android:id="@+id/eventDescription2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
-                        android:gravity="center"
                         android:layout_marginBottom="10dp"
                         android:text="“Salish Sea” - Thomas Cannell (Musqueam/Vancouver)"/>
                     <TextView
@@ -174,17 +173,16 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
-                        android:justificationMode="inter_word"
                         android:text="This design is a Salish Sea motif featuring the teachings and culture of the artist’s ancestors. This contemporary iconography of the Pacific Northwest includes representations of Black Fish, Dog Fish, Eagles, and Salmon."/>
 
                     <TextView
                         android:id="@+id/eventDescription3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:gravity="center"
-                        android:layout_marginBottom="10dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:text="“Lone Wolf” - John Velten (Dené)"/>
 
                     <TextView
@@ -193,17 +191,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:textSize="15dp"
-                        android:justificationMode="inter_word"
                         android:text="A lost lone wolf who’s been separated from its pack, calls out each night to communicate for others who may feel similar. During the day he hunts and travels seeking shelter to survive. This piece is a reflection of some people's lives, who are abandoned, separated or forgotten and as the world keeps moving without them, they keep fighting for themselves."/>
 
                     <TextView
                         android:id="@+id/eventDescription4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:layout_marginBottom="10dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
-                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
                         android:text="“Red Fawn” - Carrielynn Victor, Xémontélót (Stó:lō)"/>
                     <TextView
                         android:id="@+id/eventDescription44"
@@ -211,24 +208,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:textSize="15dp"
-                        android:justificationMode="inter_word"
                         android:text="EThe piece is a combination of coast salish design principles, from hand drawn or carved mediums and also from woven textile patterns. The red fawn in this piece, is representative of the medicine that a fawn offers, in its curiosity, exuberance for life, and its gentleness. The zigzag patterns and coloring in the background depict paths travelled in the forests."/>
                     <TextView
                         android:id="@+id/eventDescription5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
-                        android:gravity="center"
-                        android:justificationMode="inter_word"
                         android:text="“Protector of the Mountain” - Zachary “SKOKAYLEM” George (Tsleil-Waututh/Vancouver) "/>
                     <TextView
                         android:id="@+id/eventDescription55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:justificationMode="inter_word"
                         android:text="The face on top is a represents the artist’s ancestors sending prayers out to cover the land and people. The mountains are shaped like salmon heads because the snowmelt is the water they swim in and represents a strong connection in the artist’s Salish culture."/>
                 </LinearLayout>
 

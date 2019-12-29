@@ -6,6 +6,7 @@
     android:bottom="1dp"
     android:left="1dp"
     android:right="1dp"
+    android:fontFamily="@font/neo_sans_two_regular"
     android:background="@android:color/transparent"
     android:top="1dp">
     <shape android:shape="rectangle" >

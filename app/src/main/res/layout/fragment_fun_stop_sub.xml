@@ -374,6 +374,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:background="@color/colorMain"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/colorOrange"
         app:headerLayout="@layout/nav_header_nav"
         app:menu="@menu/activity_nav_drawer" />
 
