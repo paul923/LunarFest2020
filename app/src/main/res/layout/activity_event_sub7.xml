@@ -89,7 +89,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:gravity="center"
-                        app:srcCompat="@drawable/oak1"
+                        app:srcCompat="@drawable/t3"
                         >
                     </ImageView>
                 </LinearLayout>
