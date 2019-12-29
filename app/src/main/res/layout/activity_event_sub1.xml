@@ -88,7 +88,7 @@
                         android:id="@+id/eventPicture1"
                         android:layout_width="match_parent"
                         android:layout_height="178dp"
-
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/vag1"></ImageView>
 
 
