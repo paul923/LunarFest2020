@@ -9,58 +9,58 @@
     tools:context=".Landing"
     android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"  >
 
-<!--    <ImageView-->
-<!--        android:id="@+id/logo1"-->
-<!--        android:layout_width="350dp"-->
-<!--        android:layout_height="200dp"-->
-<!--        android:src="@drawable/logo"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.20"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        tools:layout_editor_absoluteX="0dp" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/login_button"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:layout_marginTop="260dp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:background="@drawable/login_border"-->
-<!--        android:text="Log In"-->
-<!--        android:textColor="#E6B773"-->
-<!--        android:textSize="20sp"-->
-<!--        android:visibility="visible"-->
-<!--        app:fontFamily="@font/roboto_bold"-->
-<!--        app:layout_constraintHorizontal_bias="0.495"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/logo1" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <ImageView
         android:id="@+id/launch"
+        android:layout_width="198dp"
+        android:layout_height="198dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/moon2"
+        android:layout_gravity="center"
+        tools:layout_editor_absoluteX="97dp"
+        tools:layout_editor_absoluteY="107dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="L U N A R F E S T"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/textColorWhite"
+            android:fontFamily="@font/neo_sans_two_regular"></TextView>
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/launch"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
+        android:layout_height="wrap_content"
+        android:text="2020"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/textColorWhite"
+        android:fontFamily="@font/font_poiretone_regular"></TextView>
     <Button
             android:id="@+id/login_button"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="200dp"
             android:layout_weight="1"
             android:background="@drawable/login_border"
             android:text="LOGIN"
             android:textColor="#E6B773"
             android:textSize="20sp"
             android:visibility="visible"
+            android:gravity="center"
+         android:layout_gravity="center"
+
             app:fontFamily="@font/neo_sans_two_regular"
             app:layout_constraintVertical_bias="0.85"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
+    </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
