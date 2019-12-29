@@ -26,7 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/textColorBlack"
+                android:lineSpacingExtra="6sp"
                 android:textSize="14sp"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:justificationMode="inter_word"
                 android:text="Founded in March 2004, Asian-Canadian Special Events Association (ACSEA) continues to create sustainable projects in the areas of arts and culture, working with partners across British Columbia, Canada, and internationally following a threefold mandate:"
                 android:layout_gravity="center"/>
@@ -37,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:textSize="13sp"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:textColor="@color/textColorBlack"
                 android:text="1. Community Engagement"
                 android:layout_gravity="center"/>
@@ -46,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:textColor="@color/textColorBlack"
                 android:textSize="13sp"
                 android:text="2. Fostering New Artistic and Cultural Expressions"
@@ -56,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/textColorBlack"
                 android:layout_marginBottom="20dp"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:textSize="13sp"
                 android:text="3. Platform to Learn and Share"
                 android:layout_gravity="center"/>
@@ -66,8 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/textColorBlack"
+                android:lineSpacingExtra="6sp"
                 android:textSize="14sp"
                 android:justificationMode="inter_word"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:text="ACSEA’s signature events are spread throughout the year: the end of winter LunarFest, end of summer TAIWANfest and IPACI, and finally a brand new event in partnership with Canadian Heritage and Canada 150, We Are Canadians, Too!"
                 android:layout_gravity="center"/>
 

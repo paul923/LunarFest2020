@@ -1,9 +1,7 @@
 package ca.acsea.funstop.event;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +22,7 @@ public class EventSub4 extends Fragment {
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 3;
+    private int numimg = 7;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     private MapSub mapSub;
@@ -43,7 +41,7 @@ public class EventSub4 extends Fragment {
 
         mapSub = new MapSub("Jack Poole Plaza/Lot19",
                 "Jan 18 ~ Feb 9", new LatLng(49.289448, -123.117141));
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Jack Poole Plaza/Lot19");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Jack Poole Plaza/Lot19 </font>"));
 
         view = inflater.inflate(R.layout.activity_event_sub4, container, false);
         onClickMap();
@@ -78,6 +76,14 @@ public class EventSub4 extends Fragment {
                         break;
 
                     case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack3));
+                        break;
+                    case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack4));
+                        break;
+                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack5));
+                        break;
+                    case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack6));
+                        break;
+                    case 6:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack7));
                         break;
 
 

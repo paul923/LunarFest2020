@@ -9,9 +9,9 @@
     tools:context=".event.EventSub1">
 
     //Content layout
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+<!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
         //scroll View inside Contents
         <ScrollView
@@ -27,32 +27,34 @@
                 //Linear layout for date and location
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp">
-                    <!--                    android:orientation="vertical">-->
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_today_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Jan 25 ~ Jan 26"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+
+                        android:textSize="16dp" >
                     </TextView>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="1dp">
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange"
+                    >
                     <!--                    android:orientation="vertical">-->
 
                     <ImageView
@@ -60,15 +62,17 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_my_location_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"
 
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Vancouver Art Gallary Plaza"
-                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >>
+                        android:textSize="16dp" >>
                     </TextView>
                 </LinearLayout>
 
@@ -76,22 +80,19 @@
                 //Linear layout for event picture
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     >
-
 
                     <ImageView
                         android:id="@+id/eventPicture1"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
-                        app:srcCompat="@drawable/vag1"
-                        >
-                    </ImageView>
-                </LinearLayout>
+                        android:layout_width="match_parent"
+                        android:layout_height="178dp"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/vag1"></ImageView>
 
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,20 +100,23 @@
                     android:text="click image to change"
                     android:gravity="center"/>
 
+
                 //Linear layout for event title
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-
                     <TextView
                         android:id="@+id/eventTitle1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="30dp"
-                        android:textColor="@color/textColorBlack"
-                        android:text="LunarFest Celebrations"
+                        android:textColor="@color/colorOrange"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
+                        android:text="LunarFest\nCelebrations"
                         android:gravity="center"/>
 
                 </LinearLayout>
@@ -126,6 +130,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textColor="@color/textColorBlack"
                         android:textSize="20dp"
                         android:text="Programs"
@@ -153,8 +158,8 @@
                             android:id="@+id/eventDescription1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
-                            android:gravity="center"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/neo_sans_two_regular"
                             android:textStyle="bold"
                             android:layout_marginBottom="10dp"
                             android:text="General"/>
@@ -163,16 +168,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
-
+                            android:lineSpacingExtra="6sp"
                             android:layout_marginBottom="10dp"
                             android:text="LunarFest celebrates the Year of the Rat with “Doors Open”! Explore the diverse cultures of the world and see their lifestyles and traditions with games, food, music, and crafts. Celebrate the Lunar New Year like no other!"/>
                         <TextView
                             android:id="@+id/eventDescription2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:textStyle="bold"
-                            android:gravity="center"
+                            android:fontFamily="@font/neo_sans_two_regular"
+
                             android:layout_marginBottom="10dp"
                             android:text="The Ratafoodie"/>
                         <TextView
@@ -180,16 +186,17 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:lineSpacingExtra="6sp"
                             android:layout_marginBottom="10dp"
-                            android:justificationMode="inter_word"
                             android:text="Riding around in a coffee cup, the Ratafoodie is ready to explore different cuisines and bring a cup of joy to his culinary adventure!"/>
 
                         <TextView
                             android:id="@+id/eventDescription3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
-                            android:gravity="center"
+                            android:textSize="15dp"
+
+                            android:fontFamily="@font/neo_sans_two_regular"
                             android:layout_marginBottom="10dp"
                             android:textStyle="bold"
                             android:text="Kitchen Runners"/>
@@ -198,94 +205,102 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
+                            android:lineSpacingExtra="6sp"
                             android:textSize="15dp"
-                            android:justificationMode="inter_word"
                             android:text="Make your own adorable Ratafoodie lantern at LunarFest and see it race around food items from around the world!"/>
 
                         <TextView
                             android:id="@+id/eventDescription4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:layout_marginBottom="10dp"
                             android:textStyle="bold"
-                            android:gravity="center"
+                            android:fontFamily="@font/neo_sans_two_regular"
+
                             android:text="The Longevity Noodle"/>
                         <TextView
                             android:id="@+id/eventDescription44"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
+                            android:lineSpacingExtra="6sp"
                             android:textSize="15dp"
-                            android:justificationMode="inter_word"
                             android:text="LunarFest is introducing the Longevity Noodles which come with onion sauce (happiness), preserved radish (luck), green onion (intelligence), meatball (union) and red pepper (blessed) – all the signs for a healthy year to come."/>
 
                         <TextView
                             android:id="@+id/eventDescription5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:textStyle="bold"
+                            android:fontFamily="@font/neo_sans_two_regular"
                             android:layout_marginBottom="10dp"
-                            android:gravity="center"
+
                             android:text="Fortune Telling"/>
                         <TextView
                             android:id="@+id/eventDescription55"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
-                            android:justificationMode="inter_word"
+                            android:lineSpacingExtra="6sp"
+                            android:layout_marginBottom="10dp"
                             android:text="Find out what your fortune is and pray for good luck for the coming new year!"/>
 
                         <TextView
                             android:id="@+id/eventDescription6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
+                            android:fontFamily="@font/neo_sans_two_regular"
                             android:textStyle="bold"
                             android:layout_marginBottom="10dp"
-                            android:gravity="center"
+
                             android:text="Lunar Crafts"/>
                         <TextView
                             android:id="@+id/eventDescription66"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
-                            android:justificationMode="inter_word"
+                            android:lineSpacingExtra="6sp"
+                            android:layout_marginBottom="10dp"
                             android:text="In welcoming the Year of the Golden Rat in 2020, LunarFest has prepared coloured paper lucky bags, paper lanterns, red envelope fish, paper hydrangeas, and other handicraft workshops available for everybody to enjoy."/>
 
                         <TextView
                             android:id="@+id/eventDescription7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:textStyle="bold"
                             android:layout_marginBottom="10dp"
-                            android:gravity="center"
+
+                            android:fontFamily="@font/neo_sans_two_regular"
                             android:text="Paper Fantasy"/>
                         <TextView
                             android:id="@+id/eventDescription77"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:lineSpacingExtra="6sp"
                             android:textSize="15dp"
-                            android:justificationMode="inter_word"
+                            android:layout_marginBottom="10dp"
                             android:text="Artist Kuan-Chih Su of Taiwan created his own wallpaper with inspiration from the history of ancient wallpapers and with elements from each of the 12 animals, can you spot them all?"/>
 
                         <TextView
                             android:id="@+id/eventDescription8"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:textStyle="bold"
                             android:layout_marginBottom="10dp"
-                            android:gravity="center"
+                            android:fontFamily="@font/neo_sans_two_regular"
+
                             android:text="Community"/>
                         <TextView
                             android:id="@+id/eventDescription88"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:lineSpacingExtra="6sp"
                             android:textSize="15dp"
-                            android:justificationMode="inter_word"
                             android:text="How do cultures from around the world celebrate Lunar New Year and spend time with family at this time of year? Come visit the members of our community to find out!"/>
 
                     </LinearLayout>
@@ -303,6 +318,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textColor="@color/textColorBlack"
                         android:text="Location" />
 
@@ -316,5 +332,5 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </FrameLayout>
+<!--    </FrameLayout>-->
 </LinearLayout>

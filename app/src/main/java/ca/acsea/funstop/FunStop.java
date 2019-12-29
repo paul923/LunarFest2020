@@ -67,6 +67,8 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
 
 
         setTitle(Html.fromHtml("<font color='#e6b773'>LunarFun</font>"));
+
+
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop);
 

@@ -2,7 +2,6 @@ package ca.acsea.funstop;
 
 import android.Manifest;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -10,34 +9,19 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.renderscript.Sampler;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 public class QrCodeScanner extends AppCompatActivity implements Serializable {
     SurfaceView cameraPreview;
@@ -54,7 +38,6 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
 //    int points;
     String qrValue;
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permission, int[] grantResults){
         switch (requestCode){
@@ -70,7 +53,6 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }
         }
@@ -159,7 +141,6 @@ public class QrCodeScanner extends AppCompatActivity implements Serializable {
                                 startActivity(intent1);
                                 finish();
                             }
-
                         }
                     });
                 }

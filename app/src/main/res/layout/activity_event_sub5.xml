@@ -28,33 +28,34 @@
                 //Linear layout for date and location
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp">
-                    <!--                    android:orientation="vertical">-->
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_today_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Jan 25"
-
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+
+                        android:textSize="16dp" >
                     </TextView>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="1dp">
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange"
+                    >
                     <!--                    android:orientation="vertical">-->
 
                     <ImageView
@@ -62,15 +63,17 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_my_location_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"
 
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=" Queen Elizabeth Theatre"
-                        android:layout_marginBottom="10dp"
+                        android:layout_height="match_parent"
+                        android:text="Queen Elizabeth Theatre"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+                        android:textSize="16dp" >>
                     </TextView>
                 </LinearLayout>
 
@@ -78,28 +81,27 @@
                 //Linear layout for event picture
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     >
 
 
                     <ImageView
                         android:id="@+id/eventPicture5"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="178dp"
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/mb1"
                         >
                     </ImageView>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:text="click image to change"-->
-<!--                    android:gravity="center"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
 
 
@@ -115,7 +117,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text=" A Musical Banquet"
-                        android:textColor="@color/textColorBlack"
+                        android:textColor="@color/colorOrange"
+                        android:textStyle="bold"
                         android:textSize="30dp" />
                 </LinearLayout>
 
@@ -139,7 +142,7 @@
                         android:id="@+id/eventDescription11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:justificationMode="inter_word"
+                        android:lineSpacingExtra="6sp"
                         android:text="One of the most important Lunar New Year celebrations is having a grand feast with your friends and family. In Taiwan, street banquets are known for being sumptuous and delicious. World-renowned Chai Found Music Workshop brings their chamber-music interpretation to Canada for the first time. Celebrate the Lunar New Year like no other with “A Musical Banquet: A Feast of Sumptuous Classical Music.”"
                         android:textSize="15dp" />
 

@@ -107,7 +107,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="30dp"
-                        android:textColor="@color/textColorBlack"
+                        android:textColor="@color/colorOrange"
+                        android:textStyle="bold"
                         android:text="The Tunnel of Blessings"
                         android:gravity="center"/>
                 </LinearLayout>

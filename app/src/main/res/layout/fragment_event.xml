@@ -8,56 +8,65 @@
     android:orientation="vertical"
     tools:context=".event.Event">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/event1_outer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorMain">
 
         <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/event1_inner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/event1_outer"
+            app:layout_constraintVertical_bias="0.9">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="29dp"
-                android:layout_marginTop="20dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
 
-                    <ImageView
-                        android:id="@+id/event1inList"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:srcCompat="@drawable/btn_vag" />
+                <ImageView
+                    android:id="@+id/event1inList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginBottom="5sp"
+                    app:srcCompat="@drawable/btn_vag" />
 
-                    <ImageView
-                        android:id="@+id/event2inList"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:srcCompat="@drawable/btn_oakridge" />
-
-
-                    <ImageView
-                        android:id="@+id/event4inList"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:srcCompat="@drawable/btn_jackpoole" />
+                <ImageView
+                    android:id="@+id/event2inList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginBottom="5sp"
+                    app:srcCompat="@drawable/btn_oakridge" />
 
 
-                    <ImageView
-                        android:id="@+id/event5inList"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:srcCompat="@drawable/btn_qe" />
+                <ImageView
+                    android:id="@+id/event4inList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginBottom="5sp"
+                    app:srcCompat="@drawable/btn_jackpoole" />
+
+                <ImageView
+                    android:id="@+id/event5inList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15sp"
+                    android:layout_marginBottom="30sp"
+                    app:srcCompat="@drawable/btn_qe" />
 
             </LinearLayout>
         </ScrollView>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

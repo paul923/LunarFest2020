@@ -28,33 +28,34 @@
                 //Linear layout for date and location
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp">
-                    <!--                    android:orientation="vertical">-->
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_today_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Jan 16 ~ Feb 10"
-
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+
+                        android:textSize="16dp" >
                     </TextView>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="1dp">
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange"
+                    >
                     <!--                    android:orientation="vertical">-->
 
                     <ImageView
@@ -62,15 +63,17 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_my_location_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"
 
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Oakridge Center"
-                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+                        android:textSize="16dp" >>
                     </TextView>
                 </LinearLayout>
 
@@ -78,28 +81,27 @@
                 //Linear layout for event picture
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     >
 
 
                     <ImageView
                         android:id="@+id/eventPicture2"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="178dp"
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/oak1"
                         >
                     </ImageView>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:text="click image to change"-->
-<!--                    android:gravity="center"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
                 //Linear layout for event title
                 <LinearLayout
@@ -112,7 +114,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="30dp"
-                        android:textColor="@color/textColorBlack"
+                        android:textColor="@color/colorOrange"
+                        android:textStyle="bold"
                         android:text="LunarFest Visual Arts"
 
                         android:gravity="center"/>
@@ -154,8 +157,8 @@
                         android:id="@+id/eventDescription1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:gravity="center"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
                         android:text="General"/>
@@ -165,15 +168,15 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
-                        android:justificationMode="inter_word"
+                        android:lineSpacingExtra="6sp"
                         android:text="Inspired by Redefining Oakridge and its incredible transformation that challenges the concept of a city, “The Castles and The Lifestyles” exhibits four artistic representations of the Chinese, Taiwanese, Korean, and Vietnamese cultures that form composite imagery of grand castles and are representative of the diverse lifestyles in Canada."/>
                     <TextView
                         android:id="@+id/eventDescription2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
-                        android:gravity="center"
                         android:layout_marginBottom="10dp"
                         android:text="Chinese"/>
                     <TextView
@@ -182,24 +185,24 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
-                        android:justificationMode="inter_word"
-                        android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all.
-"/>
+                        android:lineSpacingExtra="6sp"
+                        android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all."/>
 
                     <TextView
                         android:id="@+id/eventDescription3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:gravity="center"
-                        android:layout_marginBottom="10dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
+                        android:layout_marginBottom="10dp"
                         android:text="Taiwanese"/>
                     <TextView
                         android:id="@+id/eventDescription33"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
                         android:textSize="15dp"
                         android:text="Nothing brings family together the way Lunar New Year does - with delicious food and red envelopes! There is symbolism in every item on the dinner table - from the colour of the cloth, to the fish that’s present every year. Every member of the family, young and old, comes together for this special occasion that comes around once a year. "/>
 
@@ -207,16 +210,17 @@
                         android:id="@+id/eventDescription4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:layout_marginBottom="10dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
-                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
                         android:text="Korean"/>
                     <TextView
                         android:id="@+id/eventDescription44"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
                         android:textSize="15dp"
                         android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”."/>
 
@@ -224,15 +228,16 @@
                         android:id="@+id/eventDescription5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
-                        android:gravity="center"
                         android:text="Vietnamese"/>
                     <TextView
                         android:id="@+id/eventDescription55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:lineSpacingExtra="6sp"
                         android:textSize="15dp"
                         android:text="Decorating the house in red and yellow, lucky colours in Vietnamese culture, families prepare for Tết several days in advance. Houses are cleaned, and hair is cut in a symbolic renewal, to welcome another prosperous year to come. "/>
 

@@ -34,6 +34,7 @@
             android:layout_height="match_parent"
             android:gravity="bottom|center"
             android:text="Fun stop"
+            android:fontFamily="@font/neo_sans_two_regular"
             android:textColor="@color/textColorWhite"
             android:textSize="25sp" />
 
@@ -53,6 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="How to Play:"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:textSize="20dp"
@@ -61,7 +63,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/colorGray"
+                android:background="@drawable/button_border2"
                 android:layout_marginBottom="20dp">
 
 
@@ -97,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text="3. Earn points an dqualify for the draw for a $200 Visa gift card."/>
+                        android:text="3. Earn points and qualify for the draw for a $200 Visa gift card."/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -116,13 +118,13 @@
 
             <Button
                 android:id="@+id/startbtn"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:text="Start"
+                android:text="START"
+                android:fontFamily="@font/neo_sans_two_regular"
                 android:background="@drawable/login_border"
-                android:textColor="#E6B773"
-                app:fontFamily="@font/"/>
+                android:textColor="#E6B773" />
 
 
         </LinearLayout>
@@ -145,6 +147,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/colorOrange"
         android:background="@color/colorMain"
         app:headerLayout="@layout/nav_header_nav"
         app:menu="@menu/activity_nav_drawer" />

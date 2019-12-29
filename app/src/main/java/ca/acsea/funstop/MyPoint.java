@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,33 +13,23 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Html;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
-import org.w3c.dom.Text;
-import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -99,18 +88,12 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             qrValue = intent.getStringExtra("qrValue");
         }
 
-
         event = new Event(fragmentManager);
         map = new Map();
         quiz = new QuizStart(fragmentManager, mUser, db);
         //myPoint = new MyPoint(currentUser);
         //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About(fragmentManager);
-
-
-
-
-
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -123,7 +106,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
-
         //Display user's email in the navigation bar
         if(mUser != null) {
             NavigationView navView = findViewById(R.id.nav_view);
@@ -132,8 +114,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             userEmail.setText(mUser.getEmail());
         }
 
-
-
         //Point history button
         transactionBtn = (Button) findViewById(R.id.point_transaction);
         onPressTransaction();
@@ -141,9 +121,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         //Initialize AlertDialog
         alertDialog = new AlertDialog.Builder(MyPoint.this);
         alertDialog.setTitle("Transaction History");
-
-
-
 
         test = findViewById(R.id.test);
         getPoints();
@@ -165,7 +142,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     /**
      * Transaction button pressed event handler
-     */
+     **/
     public void onPressTransaction(){
         transactionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,14 +158,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         });
     }
 
-
-
     public void onPause() {
         super.onPause();
-
     }
-
-
 
     private void checkPoint() {
         if (points >= 150 && !joinDraw) {
@@ -215,7 +187,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         startActivity(intent);
     }
 
-
     private void savePoint(){
         SharedPreferences.Editor prefEditor = this.getSharedPreferences("prefs",0).edit();
         Gson gson = new Gson();
@@ -229,7 +200,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 //        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
 //        db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue(joinDraw);
     }
-
 
     private void getPoints() {
         points = (int) mUser.getPoint();
@@ -294,11 +264,9 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
             }else {
                 Toast.makeText(this,"Not enough point!",Toast.LENGTH_SHORT).show();
             }
-
         }
         savePoint();
     }
-
 
     private void addToPool() {
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");

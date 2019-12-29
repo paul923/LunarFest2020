@@ -28,33 +28,34 @@
                 //Linear layout for date and location
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="10dp">
-                    <!--                    android:orientation="vertical">-->
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_today_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Feb 2, 2020, 11AM~4PM"
-
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+
+                        android:textSize="16dp" >
                     </TextView>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginBottom="1dp">
+                    android:layout_height="50dp"
+                    android:background="@color/colorOrange"
+                    >
                     <!--                    android:orientation="vertical">-->
 
                     <ImageView
@@ -62,15 +63,17 @@
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/ic_my_location_24px"
                         android:layout_marginRight="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_gravity="center_vertical"
 
                         tools:ignore="VectorDrawableCompat" />
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Varley Art Gallery, 216 Main St Unionville, Unionville, ON L3R 2H1"
-                        android:layout_marginBottom="10dp"
+                        android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
-                        android:textSize="15dp" >
+                        android:textSize="16dp" >>
                     </TextView>
                 </LinearLayout>
 
@@ -78,28 +81,27 @@
                 //Linear layout for event picture
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="210dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
                     >
 
 
                     <ImageView
                         android:id="@+id/eventPicture7"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="178dp"
+                        android:scaleType="fitXY"
                         app:srcCompat="@drawable/t3"
                         >
                     </ImageView>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:text="click image to change"-->
-<!--                    android:gravity="center"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
                 //Linear layout for event title
                 <LinearLayout
@@ -112,7 +114,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="30dp"
-                        android:textColor="@color/textColorBlack"
+                        android:textColor="@color/colorOrange"
+                        android:textStyle="bold"
                         android:text="2020 LunarFest"
                         android:gravity="center"/>
                 </LinearLayout>
@@ -147,6 +150,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
+                        android:lineSpacingExtra="6sp"
                         android:text="The rat symbolizes intelligence and flexibility - celebrate the Year of the Rat in Unionville like no other! Play as a cute rat as it races through the different foods of the world in “Kitchen Runners”! Try your hand at arts and crafts to make your very own lantern to take home, or bring good luck by decorating a personalized lucky charm! Get a taste of how different cultures celebrate the new year! Join us for a celebration like no other!
 "/>
 

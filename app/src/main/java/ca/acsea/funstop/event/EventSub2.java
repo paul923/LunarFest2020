@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,7 +44,7 @@ public class EventSub2 extends Fragment {
 
         mapSub = new MapSub("Oakridge Centre",
                 "Jan 16 ~ Feb 10", new LatLng(49.232469, -123.117416));
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Oakridge Centre");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Oakridge Centre </font>"));
 
         view = inflater.inflate(R.layout.activity_event_sub2, container, false);
         onClickMap();

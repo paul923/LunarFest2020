@@ -2,25 +2,20 @@ package ca.acsea.funstop;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 
 import android.text.Html;
-import android.view.Gravity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 //import java.util.ArrayList;
@@ -93,8 +88,6 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnMap
             LatLng centerLocation = new LatLng(43.708336, -79.491058);
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(centerLocation, 10));
         }
-
-
     }
 
     @Override
@@ -102,7 +95,6 @@ public class Map extends Fragment implements OnMapReadyCallback, GoogleMap.OnMap
         mapView.onResume();
         super.onResume();
     }
-
 
     @Override
     public void onPause() {

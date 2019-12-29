@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class QuizStart extends Fragment {
         mUser = gson.fromJson(json, User.class);
 
         //Changes the actionbar's Title
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Daily Quiz");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Daily quiz </font>"));
 
 //        getIndex();
         view = inflater.inflate(R.layout.fragment_quiz_start, container, false);
