@@ -86,6 +86,7 @@
                     android:text="How to redeem:"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/neo_sans_two_regular"
                     android:textSize="20dp"
                     android:textColor="@color/textColorWhite"/>
 
@@ -101,7 +102,8 @@
                         android:id="@+id/imageView2"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
-                        android:background="@color/textColorWhite" />
+
+                        android:background="@drawable/button_border2" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -158,23 +160,25 @@
                 </RelativeLayout>
                 <Button
                     android:id="@+id/point_transaction"
-                    android:text="Transaction"
+                    android:text="TRANSACTION"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/login_border"
+                    android:fontFamily="@font/neo_sans_two_regular"
                     android:textColor="#E6B773"
-                    app:fontFamily="@font/" />
+                    />
                 <Button
                     android:id="@+id/redeembtn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:background="@drawable/login_border"
-                    android:text="Redeem"
+                    android:text="REDEEM"
+                    android:fontFamily="@font/neo_sans_two_regular"
                     android:textColor="#E6B773"
-                    app:fontFamily="@font/" />
+                    />
 
 
             </LinearLayout>
@@ -198,6 +202,9 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         android:background="@color/colorMain"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/colorOrange"
+
         app:headerLayout="@layout/nav_header_nav"
         app:menu="@menu/activity_nav_drawer" />
 
