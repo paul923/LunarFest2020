@@ -107,7 +107,6 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp">
 
-
                     <TextView
                         android:id="@+id/eventTitle1"
                         android:layout_width="match_parent"

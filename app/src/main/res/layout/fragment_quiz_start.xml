@@ -71,13 +71,6 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/textColorBlack"
                         android:layout_marginBottom="20dp"
-                        android:text=" "/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/textColorBlack"
-                        android:layout_marginBottom="20dp"
                         android:text="A one question quiz is available each day, use your knowledge and choose the correct answer!"/>
 
                     <TextView

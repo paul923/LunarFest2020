@@ -1,9 +1,6 @@
 package ca.acsea.funstop.event;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +22,7 @@ public class EventSub4 extends Fragment {
     ImageView mapImg;
     private ImageView imageView;
     private int state = 0;
-    private int numimg = 3;
+    private int numimg = 7;
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
     private MapSub mapSub;
@@ -61,35 +58,33 @@ public class EventSub4 extends Fragment {
 
         imageView = (ImageView) getView().findViewById(R.id.eventPicture4);
 
-        imageView.setOnClickListener(new  View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                state++;
-                state = state % numimg;
-
-                switch (state) {
-
-                    case 0:
-                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
-                        break;
-
-
-                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack2));
-                        break;
-
-                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack3));
-                        break;
-
-
-
-                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
-                }
-            }
-        });
-
-
-
+//        imageView.setOnClickListener(new  View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                state++;
+//                state = state % numimg;
+//
+//                switch (state) {
+//
+//                    case 0:
+//                        imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
+//                        break;
+//
+//
+//                    case 1:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack2));
+//                        break;
+//
+//                    case 2:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack3));
+//                        break;
+//
+//
+//
+//                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
+//                }
+//            }
+//        });
     }
 
     /**

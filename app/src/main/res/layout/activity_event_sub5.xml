@@ -42,7 +42,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Jan 25"
+                        android:text="Jan 25, 7:30PM"
                         android:layout_gravity="center_vertical"
                         android:gravity="center_vertical"
                         android:textColor="@color/textColorBlack"
