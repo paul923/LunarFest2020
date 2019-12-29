@@ -13,8 +13,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-//import com.bumptech.glide.Glide;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -27,7 +25,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
-
 
 import ca.acsea.funstop.event.Event;
 import ca.acsea.funstop.sponsorquiz.QuizEnd;
@@ -47,8 +44,6 @@ public class MainActivity extends AppCompatActivity
     private QuizEnd quizEnd;
     private QrCodeScanner qrCodeScanner;
     private DatabaseReference ref;
-    ImageView userPicture;
-    TextView userName;
     TextView userEmail;
     FirebaseUser currentUser;
     User mUser;
@@ -73,7 +68,6 @@ public class MainActivity extends AppCompatActivity
         sharedPreferences = getSharedPreferences("prefs", MODE_PRIVATE);
         String json = sharedPreferences.getString("userObject", "");
         mUser = gson.fromJson(json, User.class);
-        System.out.println("\n muser on onCreate------------------------"+ mUser + "\n");
 
         //Initialize user
 //        mUser = (User) getIntent().getSerializableExtra("user");
@@ -131,7 +125,6 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -144,20 +137,8 @@ public class MainActivity extends AppCompatActivity
 
         if(currentUser != null){
             userEmail = findViewById(R.id.userEmail);
-            System.out.println("\n ---------------------------"+ userEmail + "\n");
-            System.out.println("\n muser------------------------"+ mUser + "\n");
             userEmail.setText(mUser.getEmail());
-//            if(currentUser.getEmail() != null) {
-//                System.out.println("\n ----------------------------" + userEmail +"\n");
-//                userName = findViewById(R.id.userName);
-//                userName.setText(mUser.getEmail());
-//            }
-//            if(currentUser.getPhotoUrl() != null) {
-//                userPicture = findViewById(R.id.imageView);
-////                Glide.with(this).load(String.valueOf(currentUser.getPhotoUrl())).into(userPicture);
-//            }
         }
-
     }
 
     /**

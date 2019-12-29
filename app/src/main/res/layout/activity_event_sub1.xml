@@ -181,6 +181,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
                             android:layout_marginBottom="10dp"
+                            android:justificationMode="inter_word"
                             android:text="Riding around in a coffee cup, the Ratafoodie is ready to explore different cuisines and bring a cup of joy to his culinary adventure!"/>
 
                         <TextView
@@ -198,6 +199,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:textSize="15dp"
+                            android:justificationMode="inter_word"
                             android:text="Make your own adorable Ratafoodie lantern at LunarFest and see it race around food items from around the world!"/>
 
                         <TextView
@@ -215,6 +217,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:textSize="15dp"
+                            android:justificationMode="inter_word"
                             android:text="LunarFest is introducing the Longevity Noodles which come with onion sauce (happiness), preserved radish (luck), green onion (intelligence), meatball (union) and red pepper (blessed) – all the signs for a healthy year to come."/>
 
                         <TextView
@@ -231,6 +234,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:justificationMode="inter_word"
                             android:text="Find out what your fortune is and pray for good luck for the coming new year!"/>
 
                         <TextView
@@ -247,6 +251,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:justificationMode="inter_word"
                             android:text="In welcoming the Year of the Golden Rat in 2020, LunarFest has prepared coloured paper lucky bags, paper lanterns, red envelope fish, paper hydrangeas, and other handicraft workshops available for everybody to enjoy."/>
 
                         <TextView
@@ -263,6 +268,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:justificationMode="inter_word"
                             android:text="Artist Kuan-Chih Su of Taiwan created his own wallpaper with inspiration from the history of ancient wallpapers and with elements from each of the 12 animals, can you spot them all?"/>
 
                         <TextView
@@ -279,6 +285,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="15dp"
+                            android:justificationMode="inter_word"
                             android:text="How do cultures from around the world celebrate Lunar New Year and spend time with family at this time of year? Come visit the members of our community to find out!"/>
 
                     </LinearLayout>

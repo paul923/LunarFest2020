@@ -165,6 +165,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
+                        android:justificationMode="inter_word"
                         android:text="Inspired by Redefining Oakridge and its incredible transformation that challenges the concept of a city, “The Castles and The Lifestyles” exhibits four artistic representations of the Chinese, Taiwanese, Korean, and Vietnamese cultures that form composite imagery of grand castles and are representative of the diverse lifestyles in Canada."/>
                     <TextView
                         android:id="@+id/eventDescription2"
@@ -181,6 +182,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
+                        android:justificationMode="inter_word"
                         android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all.
 "/>
 
