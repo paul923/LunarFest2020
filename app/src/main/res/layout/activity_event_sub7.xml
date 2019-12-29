@@ -94,12 +94,12 @@
                     </ImageView>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:textSize="10dp"-->
-<!--                    android:text="click image to change"-->
-<!--                    android:gravity="center"/>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="click image to change"
+                    android:gravity="center"/>
 
                 //Linear layout for event title
                 <LinearLayout
@@ -112,7 +112,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="30dp"
-                        android:textColor="@color/textColorBlack"
+                        android:textColor="@color/colorOrange"
+                        android:textStyle="bold"
                         android:text="2020 LunarFest"
                         android:gravity="center"/>
                 </LinearLayout>
