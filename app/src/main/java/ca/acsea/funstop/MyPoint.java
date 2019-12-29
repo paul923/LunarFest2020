@@ -315,7 +315,6 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
         int id = item.getItemId();
 
         if (id == R.id.nav_event) {
-//            transaction.replace(R.id.frameLayout, event).commitAllowingStateLoss();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_map) {
