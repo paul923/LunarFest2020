@@ -26,9 +26,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/textColorBlack"
-                android:textSize="15sp"
-                android:text="Founded in March 2004, Asian-Canadian Special Events Association (ACSEA) continues to create sustainable projects in the areas of arts and culture, working with partners across British Columbia, Canada, and internationally following a threefold mandate:
-"
+                android:textSize="14sp"
+                android:justificationMode="inter_word"
+                android:text="Founded in March 2004, Asian-Canadian Special Events Association (ACSEA) continues to create sustainable projects in the areas of arts and culture, working with partners across British Columbia, Canada, and internationally following a threefold mandate:"
                 android:layout_gravity="center"/>
 
 
@@ -66,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/textColorBlack"
-                android:textSize="15sp"
+                android:textSize="14sp"
+                android:justificationMode="inter_word"
                 android:text="ACSEA’s signature events are spread throughout the year: the end of winter LunarFest, end of summer TAIWANfest and IPACI, and finally a brand new event in partnership with Canadian Heritage and Canada 150, We Are Canadians, Too!"
                 android:layout_gravity="center"/>
 
