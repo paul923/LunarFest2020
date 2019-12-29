@@ -489,15 +489,11 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
                 }
                 jackPoole.setChecked(true);
                 jackPooleB = true;
-
                 break;
-
             default:
                 if(!qrValue.isEmpty()) {
                     Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
                 }
-
-
         }
     }
 

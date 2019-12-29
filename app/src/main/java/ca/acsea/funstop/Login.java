@@ -24,12 +24,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseError;
+
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,15 +39,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import com.google.gson.Gson;
-import com.shobhitpuri.custombuttons.GoogleSignInButton;
-
-
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     public static final String NODE_USERS = "users";
@@ -67,10 +57,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private FirebaseUser currentUser;
-    Semaphore semaphore = new Semaphore(0);
+    //Semaphore semaphore = new Semaphore(0);
 
     private User mUser;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,13 +77,11 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
-
         mAuth = FirebaseAuth.getInstance();
         System.out.println("what is mAuth on login"+mAuth);
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
 
         emailInput = findViewById(R.id.email_input);
         passwordInput = findViewById(R.id.password_input);
@@ -120,39 +107,37 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 } else if (TextUtils.isEmpty(password)) {
                     passwordInput.setError("Please enter your password");
                     return;
-                } else if (!isValidEmail(email)) {
-                    Toast.makeText(Login.this, "Not a Proper Email Form ", Toast.LENGTH_SHORT).show();
-                } else if (!isValidPassword(password)) {
-                    Toast.makeText(Login.this, "Input More Than 6 digit Password ", Toast.LENGTH_SHORT).show();
                 }
+//                else if (!isValidEmail(email)) {
+//                    Toast.makeText(Login.this, "Not a Proper Email Form ", Toast.LENGTH_SHORT).show();
+//                } else if (!isValidPassword(password)) {
+//                    Toast.makeText(Login.this, "Input More Than 6 digit Password ", Toast.LENGTH_SHORT).show();
+//                }
                 createUser(email, password);
             }
 
-            private boolean isValidEmail(String email) {
-                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
-                    "[a-zA-Z0-9_+&*-]+)*@" +
-                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                    "A-Z]{2,7}$";
-
-                Pattern pat = Pattern.compile(emailRegex);
-
-                return pat.matcher(email).matches();
-            }
-
-            private boolean isValidPassword(String password) {
-                if (password.length() < 6) {
-                    return false;
-                }
-                return true;
-            }
-
+//            private boolean isValidEmail(String email) {
+//                String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+//                    "[a-zA-Z0-9_+&*-]+)*@" +
+//                    "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+//                    "A-Z]{2,7}$";
+//
+//                Pattern pat = Pattern.compile(emailRegex);
+//
+//                return pat.matcher(email).matches();
+//            }
+//
+//            private boolean isValidPassword(String password) {
+//                if (password.length() < 6) {
+//                    return false;
+//                }
+//                return true;
+//            }
         });
-
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
     }
 
     public void googleSignIn(){
@@ -195,7 +180,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
                     Intent intent = new Intent(getApplicationContext(), Location.class);
 //                    intent.putExtra("user", mUser);
-
                     Gson gson = new Gson();
                     String json = gson.toJson(mUser);
                     SharedPreferences sharedPreferences=getSharedPreferences("prefs",MODE_PRIVATE);
@@ -205,7 +189,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     editor.apply();
                     // mUser = gson.fromJson(json, User.class);
 
-
                     startActivity(intent);
                 } else {
                     Toast.makeText(Login.this, "google login fails", Toast.LENGTH_LONG).show();
@@ -213,7 +196,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             }
         });
     }
-
 
     public void createUser(final String email, final String password){
         // create user with email and password
@@ -226,7 +208,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
                     System.out.println("create user / task is successful");
                     new AlertDialog.Builder(Login.this).setTitle("Create New Account")
-
                             .setMessage("There is no such account. Do you want to create new account with the input id and password?")
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -241,12 +222,10 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                                     editor.apply();
 //                                    mDatabase.child("user-test").child(fUser.getUid()).setValue(mUser);
 
-
                                     Toast.makeText(Login.this, "New account is created.", Toast.LENGTH_SHORT).show();
                                     //InitValues(); // init values
                                     signIn(email, password);
 //                                    finish();
-
                                 }})
                             .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int whichButton) {
@@ -294,10 +273,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                     Intent submit_intent = new Intent(Login.this, Location.class);
 //                    submit_intent.putExtra("user", mUser);
 
-
                     json = gson.toJson(mUser);
-
-
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("userObject", json);
                     editor.apply();
@@ -312,7 +288,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 //                        }
 //                    });
 
-
                 }else{
                     Log.println(Log.VERBOSE,"Login Error", task.getException().getMessage());
                     Toast.makeText(Login.this, task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
@@ -320,8 +295,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             }
         });
     }
-
-
 
     private void getDataFromFirebase(final MyCallback callback){
         // Read from the database
@@ -331,12 +304,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 mUser = dataSnapshot.getValue(User.class);
-
                 Intent submit_intent = new Intent(Login.this, Location.class);
                 submit_intent.putExtra("user", mUser);
                 startActivity(submit_intent);
-
-
                 Log.d(TAG, "Value is: " + mUser);
             }
 
@@ -367,8 +337,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             i.putExtra("user", mUser);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
-
-
         }else{
             Toast.makeText(Login.this, "Please Sign In", Toast.LENGTH_LONG).show();
         }
@@ -382,9 +350,6 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 mUser = dataSnapshot.getValue(User.class);
-
-
-
                 callback.onCallback(mUser);
                 Log.d(TAG, "Value is: " + mUser);
             }

@@ -34,14 +34,13 @@ public class Landing extends AppCompatActivity {
 //            });
 //        }
 
-            btn_login = findViewById(R.id.login_button);
-            btn_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(Landing.this, Login.class);
-                    startActivity(intent);
-                }
-            });
-
+        btn_login = findViewById(R.id.login_button);
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Landing.this, Login.class);
+                startActivity(intent);
+            }
+        });
     }
 }

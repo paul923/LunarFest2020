@@ -11,7 +11,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -154,7 +153,7 @@ public class MainActivity extends AppCompatActivity
      }
      return super.onOptionsItemSelected(item);
      }
-     */
+     **/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
