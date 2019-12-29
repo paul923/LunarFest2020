@@ -168,6 +168,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
                         android:text="Inspired by Redefining Oakridge and its incredible transformation that challenges the concept of a city, “The Castles and The Lifestyles” exhibits four artistic representations of the Chinese, Taiwanese, Korean, and Vietnamese cultures that form composite imagery of grand castles and are representative of the diverse lifestyles in Canada."/>
                     <TextView
                         android:id="@+id/eventDescription2"
@@ -184,6 +185,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
                         android:text="As vast as the land itself, Chinese celebrations of Lunar New Year are diverse in every region. From North to South, from East to West, each family’s meals and traditions are unique. However, one thing remains consistent - wishing for prosperity and health for one’s family for the new year. The largest celebration of the year, Lunar New Year is one that marks a festive time for all."/>
 
                     <TextView
@@ -200,6 +202,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
                         android:textSize="15dp"
                         android:text="Nothing brings family together the way Lunar New Year does - with delicious food and red envelopes! There is symbolism in every item on the dinner table - from the colour of the cloth, to the fish that’s present every year. Every member of the family, young and old, comes together for this special occasion that comes around once a year. "/>
 
@@ -217,6 +220,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:lineSpacingExtra="6sp"
                         android:textSize="15dp"
                         android:text="Every year, millions of Koreans traverse long distances to gather together for the Lunar New Year, Seollal, having the chance of seeing relatives again after a long time. In addition to the special dishes made for this celebration such as new year ddeok, Korean families also play fun games together such as “Go Stop” or “Yut Nori”."/>
 
@@ -233,6 +237,7 @@
                         android:id="@+id/eventDescription55"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:lineSpacingExtra="6sp"
                         android:textSize="15dp"
                         android:text="Decorating the house in red and yellow, lucky colours in Vietnamese culture, families prepare for Tết several days in advance. Houses are cleaned, and hair is cut in a symbolic renewal, to welcome another prosperous year to come. "/>
 
