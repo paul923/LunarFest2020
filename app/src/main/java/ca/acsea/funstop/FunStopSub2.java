@@ -49,7 +49,6 @@ import ca.acsea.funstop.sponsorquiz.QuizStart;
 public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FragmentTransaction transaction;
-
     FragmentManager fragmentManager = getSupportFragmentManager();
 
     ImageView imageView;
@@ -61,7 +60,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     CheckBox station4;
     CheckBox station5;
     CheckBox station6;
-
 
     Boolean station1B;
     Boolean station2B;
@@ -82,8 +80,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     Map map;
     QuizStart quiz;
     About about;
-
-
 
     public void onCreate(Bundle saveInstanceState){
         setTitle(Html.fromHtml("<font color='#e6b773'>LunarFun - Toronto</font>"));
@@ -114,11 +110,9 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         //funStop = new FunStop(fragmentManager, currentUser, ref);
         about = new About();
 
-
         if (intent.getStringExtra("source").equals("QrCodeScanner")) {
             qrValue = intent.getStringExtra("qrValue");
         }
-
         prefs = getSharedPreferences("prefs", 0);
 
         //copy and paste from funstop sub1
@@ -136,8 +130,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         station4 = findViewById(R.id.station4);
         station5 = findViewById(R.id.station5);
         station6 = findViewById(R.id.station6);
-
-
 
         // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
         arrayList = new ArrayList<CheckBox>();
@@ -163,10 +155,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         arrayListBool.add(station4B);
         arrayListBool.add(station5B);
         arrayListBool.add(station6B);
-
-
 //        points = prefs.getInt("point", 20);
-
 
         int i;
         for (i = 0; i < arrayList.size(); i++) {
@@ -192,17 +181,14 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         prefs.apply();
     }
 
-
     public void onClickQR() {
         imageView = findViewById(R.id.qrScanner);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent i = new Intent(FunStopSub2.this, QrCodeScanner.class);
                 i.putExtra("previous", "FunStopSub2");
                 startActivity(i);
-
             }
         });
     }
@@ -211,7 +197,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         Intent intent = new Intent(FunStopSub2.this, MainActivity.class);
         startActivity(intent);
     }
-
 
     public void save() {
         SharedPreferences.Editor prefsEditor = prefs.edit();
@@ -222,7 +207,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         prefsEditor.putBoolean("tstation4B", station4B);
         prefsEditor.putBoolean("tstation5B", station5B);
         prefsEditor.putBoolean("tstation6B", station6B);
-
 
         prefsEditor.putInt("points", points);
         prefsEditor.apply();
@@ -247,7 +231,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         System.out.println("Station one status:" + station1B);
         points = prefs.getInt("point", 0);
     }
-
 
     private void checkQRCodeValue () {
         switch (qrValue) {
@@ -342,13 +325,8 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 //                station12.setChecked(true);
 //                station12B = true;
 //                break;
-
-
-
         }
     }
-
-
 
     @Override
     public boolean onNavigationItemSelected (MenuItem item){
