@@ -83,7 +83,7 @@ public class EventSub6 extends Fragment {
                     case 3:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t4));
                         break;
 
-                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t5));
+                    case 4:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t6));
                         break;
 
                     case 5:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.t6));
