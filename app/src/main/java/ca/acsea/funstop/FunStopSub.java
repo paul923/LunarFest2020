@@ -3,6 +3,7 @@ package ca.acsea.funstop;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -71,14 +72,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     CheckBox chinese;
     CheckBox vietnamese;
     CheckBox jackPoole;
-//    CheckBox salishSea1;
-//    CheckBox salishSea2;
-//    CheckBox loneWolf1;
-//    CheckBox loneWolf2;
-//    CheckBox redFawn1;
-//    CheckBox redFawn2;
-//    CheckBox protector1;
-//    CheckBox protector2;
+
     Boolean station1B;
     Boolean station2B;
     Boolean station3B;
@@ -96,14 +90,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
     Boolean chineseB;
     Boolean vietnameseB;
     Boolean jackPooleB;
-//    Boolean salishSea1B;
-//    Boolean salishSea2B;
-//    Boolean loneWolf1B;
-//    Boolean loneWolf2B;
-//    Boolean redFawn1B;
-//    Boolean redFawn2B;
-//    Boolean protector1B;
-//    Boolean protector2B;
+
     String qrValue = "";
     SharedPreferences prefs;
     int points;
@@ -120,7 +107,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("LunarFun - Vancouver");
+        setTitle(Html.fromHtml("<font color='#e6b773'>LunarFun - Vancouver</font>"));
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub);
@@ -193,14 +180,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         chinese = findViewById(R.id.chinese);
         vietnamese = findViewById(R.id.vietnamese);
         jackPoole = findViewById(R.id.jackPoole);
-        //salishSea1 = findViewById(R.id.salishSea1);
-        //salishSea2 = findViewById(R.id.salishSea2);
-        //loneWolf1 = findViewById(R.id.loneWolf1);
-        //loneWolf2 = findViewById(R.id.loneWolf2);
-        //redFawn1 = findViewById(R.id.redFawn1);
-        //redFawn2 = findViewById(R.id.redFawn2);
-        //protector1 = findViewById(R.id.protector1);
-        //protector2 = findViewById(R.id.protector2);
+
 
 
         // arrayList = Arrays.asList(Korean, chinese, loneWolf1);
@@ -209,15 +189,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(chinese);
         arrayList.add(taiwanese);
         arrayList.add(vietnamese);
-//        arrayList.add(jackPoole);
-      //  arrayList.add(loneWolf1);
-      //  arrayList.add(loneWolf2);
-      //  arrayList.add(protector1);
-      //  arrayList.add(protector2);
-       // arrayList.add(redFawn1);
-      // arrayList.add(redFawn2);
-       // arrayList.add(salishSea1);
-       // arrayList.add(salishSea2);
+
         arrayList.add(station1);
         arrayList.add(station2);
         arrayList.add(station3);
@@ -248,29 +220,13 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         chineseB = prefs.getBoolean("chineseB", false);
         vietnameseB = prefs.getBoolean("vietnameseB", false);
         jackPooleB = prefs.getBoolean("jackPooleB", false);
-        //salishSea1B = prefs.getBoolean("salishSea1B", false);
-        //salishSea2B = prefs.getBoolean("salishSea2B", false);
-        //loneWolf1B = prefs.getBoolean("loneWolf1B", false);
-        //loneWolf2B = prefs.getBoolean("loneWolf2B", false);
-        //redFawn1B = prefs.getBoolean("redFawn1B", false);
-        //redFawn2B = prefs.getBoolean("redFawn2B", false);
-        //protector1B = prefs.getBoolean("protector1B", false);
-        //protector2B = prefs.getBoolean("protector2B", false);
 
         arrayListBool = new ArrayList<Boolean>();
         arrayListBool.add(KoreanB);
         arrayListBool.add(chineseB);
         arrayListBool.add(taiwaneseB);
         arrayListBool.add(vietnameseB);
-//        arrayListBool.add(jackPooleB);
-      //  arrayListBool.add(loneWolf1B);
-      //  arrayListBool.add(loneWolf2B);
-      //  arrayListBool.add(protector1B);
-      //  arrayListBool.add(protector2B);
-      //  arrayListBool.add(redFawn1B);
-       // arrayListBool.add(redFawn2B);
-        //arrayListBool.add(salishSea1B);
-        //arrayListBool.add(salishSea2B);
+
         arrayListBool.add(station1B);
         arrayListBool.add(station2B);
         arrayListBool.add(station3B);
@@ -340,14 +296,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putBoolean("chineseB", chineseB);
         prefsEditor.putBoolean("taiwaneseB", taiwaneseB);
         prefsEditor.putBoolean("vietnameseB", vietnameseB);
-       // prefsEditor.putBoolean("loneWolf1B", loneWolf1B);
-       // prefsEditor.putBoolean("loneWolf2B", loneWolf2B);
-       // prefsEditor.putBoolean("protector1B", protector1B);
-       // prefsEditor.putBoolean("protector2B", protector2B);
-       // prefsEditor.putBoolean("redFawn1B", redFawn1B);
-       // prefsEditor.putBoolean("redFawn2B", redFawn2B);
-       // prefsEditor.putBoolean("salishSea1B", salishSea1B);
-       // prefsEditor.putBoolean("salishSea2B", salishSea2B);
+
         prefsEditor.putBoolean("station1B", station1B);
         prefsEditor.putBoolean("station2B", station2B);
         prefsEditor.putBoolean("station3B", station3B);
@@ -364,7 +313,6 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         prefsEditor.putInt("points", points);
 
         prefsEditor.apply();
-        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {

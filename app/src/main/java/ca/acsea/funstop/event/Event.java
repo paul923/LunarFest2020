@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,7 @@ public class Event extends Fragment {
 
         transaction = fragmentManager.beginTransaction();
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Event");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(Html.fromHtml("<font color='#e6b773'>Event </font>"));
 
         if(Globals.getInstance().getData() == 1){
             sub6 = new EventSub6();
@@ -112,13 +113,7 @@ public class Event extends Fragment {
                 }
             });
 
-//            event3=(ImageView) view.findViewById(R.id.event3inList);
-//            event3.setOnClickListener(new View.OnClickListener(){
-//                @Override
-//                public void onClick(View view) {
-//                    transaction.replace(R.id.frameLayout, sub3).addToBackStack("tag").commit();
-//                }
-//            });
+
 
             event4=(ImageView) view.findViewById(R.id.event4inList);
             event4.setOnClickListener(new View.OnClickListener(){
@@ -143,3 +138,11 @@ public class Event extends Fragment {
 
 
 }
+
+//            event3=(ImageView) view.findViewById(R.id.event3inList);
+//            event3.setOnClickListener(new View.OnClickListener(){
+//                @Override
+//                public void onClick(View view) {
+//                    transaction.replace(R.id.frameLayout, sub3).addToBackStack("tag").commit();
+//                }
+//            });
