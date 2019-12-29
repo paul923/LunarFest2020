@@ -82,10 +82,7 @@ public class EventSub4 extends Fragment {
                         break;
                     case 6:  imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack7));
                         break;
-
-
-
-                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack1));
+                    default: imageView.setImageDrawable(getResources().getDrawable(R.drawable.jack2));
                 }
             }
         });
