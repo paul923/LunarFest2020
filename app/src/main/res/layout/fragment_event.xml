@@ -12,8 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -23,157 +21,43 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="29dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="170dp"
-                    android:layout_weight="2"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp">
 
 
                     <ImageView
                         android:id="@+id/event1inList"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/icvag" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="left"
-                        android:layout_marginLeft="20dp"
-                        android:text="LunarFest Celebrations"
-                        android:textColor="@color/textColorBlack"
-                        android:textSize="20dp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="170dp"
-                    android:layout_weight="2"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp">
+                        app:srcCompat="@drawable/btn_vag" />
 
                     <ImageView
                         android:id="@+id/event2inList"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/icoak" />
+                        app:srcCompat="@drawable/btn_oakridge" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/textColorBlack"
-                        android:text="LunarFest
-                        Visual Arts"
-                        android:gravity="left"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="20dp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="fill_parent"-->
-                <!--                    android:layout_height="170dp"-->
-                <!--                    android:layout_weight="2"-->
-                <!--                    android:layout_margin="10dp">-->
-
-                <!--                    <ImageView-->
-                <!--                        android:id="@+id/event3inList"-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_margin="5dp"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        app:srcCompat="@drawable/icyvr" />-->
-
-                <!--                    <TextView-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="wrap_content"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:text="The Tunnel of Blessings"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:textColor="@color/textColorBlack"-->
-                <!--                        android:textSize="20dp"-->
-                <!--                        android:layout_gravity="center"/>-->
-                <!--                </LinearLayout>-->
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp">
 
                     <ImageView
                         android:id="@+id/event4inList"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/icjack" />
+                        app:srcCompat="@drawable/btn_jackpoole" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textColor="@color/textColorBlack"
-                        android:text="Coastal Lunar Lanterns"
-                        android:gravity="left"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="20dp"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginTop="5dp">
 
                     <ImageView
                         android:id="@+id/event5inList"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/icmb" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="A Musical Banquet"
-                        android:textSize="20dp"
-                        android:gravity="left"
-                        android:layout_marginLeft="20dp"
-                        android:textColor="@color/textColorBlack"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-
+                        app:srcCompat="@drawable/btn_qe" />
 
             </LinearLayout>
-
         </ScrollView>
 
-
-
-
-
-
     </LinearLayout>
-
 
 </LinearLayout>

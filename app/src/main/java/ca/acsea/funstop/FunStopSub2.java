@@ -3,6 +3,7 @@ package ca.acsea.funstop;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -60,12 +61,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     CheckBox station4;
     CheckBox station5;
     CheckBox station6;
-    //CheckBox station7;
-    //CheckBox station8;
-    //CheckBox station9;
-    //CheckBox station10;
-    //CheckBox station11;
-    //CheckBox station12;
+
 
     Boolean station1B;
     Boolean station2B;
@@ -73,12 +69,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
     Boolean station4B;
     Boolean station5B;
     Boolean station6B;
-//    Boolean station7B;
-//    Boolean station8B;
-//    Boolean station9B;
-//    Boolean station10B;
-//    Boolean station11B;
-//    Boolean station12B;
 
     String qrValue = "";
     SharedPreferences prefs;
@@ -96,7 +86,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
 
 
     public void onCreate(Bundle saveInstanceState){
-        setTitle("LunarFun - Toronto");
+        setTitle(Html.fromHtml("<font color='#e6b773'>LunarFun - Toronto</font>"));
 
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop_sub2);
@@ -146,12 +136,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         station4 = findViewById(R.id.station4);
         station5 = findViewById(R.id.station5);
         station6 = findViewById(R.id.station6);
-//        station7 = findViewById(R.id.station7);
-//        station8 = findViewById(R.id.station8);
-//        station9 = findViewById(R.id.station9);
-//        station10 = findViewById(R.id.station10);
-//        station11 = findViewById(R.id.station11);
-//        station12 = findViewById(R.id.station12);
+
 
 
         // arrayList = Arrays.asList(Korean, chinese, ladyHao, loneWolf1);
@@ -162,12 +147,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         arrayList.add(station4);
         arrayList.add(station5);
         arrayList.add(station6);
-//        arrayList.add(station7);
-//        arrayList.add(station8);
-//        arrayList.add(station9);
-//        arrayList.add(station10);
-//        arrayList.add(station11);
-//        arrayList.add(station12);
 
         station1B = prefs.getBoolean("tstation1B", false);
         station2B = prefs.getBoolean("tstation2B", false);
@@ -175,12 +154,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         station4B = prefs.getBoolean("tstation4B", false);
         station5B = prefs.getBoolean("tstation5B", false);
         station6B = prefs.getBoolean("tstation6B", false);
-//        station7B = prefs.getBoolean("station7B", false);
-//        station8B = prefs.getBoolean("station8B", false);
-//        station9B = prefs.getBoolean("station9B", false);
-//        station10B = prefs.getBoolean("station10B", false);
-//        station11B = prefs.getBoolean("station11B", false);
-//        station12B = prefs.getBoolean("station12B", false);
+
 
         arrayListBool = new ArrayList<Boolean>();
         arrayListBool.add(station1B);
@@ -189,12 +163,7 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         arrayListBool.add(station4B);
         arrayListBool.add(station5B);
         arrayListBool.add(station6B);
-//        arrayListBool.add(station7B);
-//        arrayListBool.add(station8B);
-//        arrayListBool.add(station9B);
-//        arrayListBool.add(station10B);
-//        arrayListBool.add(station11B);
-//        arrayListBool.add(station12B);
+
 
 //        points = prefs.getInt("point", 20);
 
@@ -253,16 +222,10 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         prefsEditor.putBoolean("tstation4B", station4B);
         prefsEditor.putBoolean("tstation5B", station5B);
         prefsEditor.putBoolean("tstation6B", station6B);
-//        prefsEditor.putBoolean("station7B", station7B);
-//        prefsEditor.putBoolean("station8B", station8B);
-//        prefsEditor.putBoolean("station9B", station9B);
-//        prefsEditor.putBoolean("station10B", station10B);
-//        prefsEditor.putBoolean("station11B", station11B);
-//        prefsEditor.putBoolean("station12B", station12B);
+
 
         prefsEditor.putInt("points", points);
         prefsEditor.apply();
-//        ref.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);
     }
     private void updatePoints(int point, String operation){
         if (operation.equals("Add")) {
@@ -290,28 +253,32 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
         switch (qrValue) {
 
             case "tstation1":
-                if(station1B) {
+                if(!station1B) {
                     updatePoints(30, "Add");
+                }else {
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station1.setChecked(true);
                 station1B = true;
                 break;
             case "tstation2":
-                if(station2B) {
+                if(!station2B) {
                     updatePoints(30, "Add");
+                }else {
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station2.setChecked(true);
                 station2B = true;
                 break;
-
             case "tstation3":
-                if(station3B) {
+                if(!station3B) {
                     updatePoints(30, "Add");
+                }else {
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station3.setChecked(true);
                 station3B = true;
                 break;
-
             case "tstation4":
                 if(!station4B) {
                     updatePoints(30, "Add");
@@ -324,7 +291,8 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
             case "tstation5":
                 if(!station5B) {
                     updatePoints(30, "Add");
-
+                }else {
+                    Toast.makeText(this,"You have scanned this station!",Toast.LENGTH_SHORT).show();
                 }
                 station5.setChecked(true);
                 station5B = true;
@@ -344,7 +312,6 @@ public class FunStopSub2 extends AppCompatActivity implements NavigationView.OnN
                 if(!qrValue.isEmpty())
                     Toast.makeText(this,"This is not a valid QR code",Toast.LENGTH_SHORT).show();
 
-            case "station7":
 
 //                updatePoints(10, "Add");
 //                station7.setChecked(true);

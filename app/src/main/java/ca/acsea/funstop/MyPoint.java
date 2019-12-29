@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -77,7 +78,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
 
     public void onCreate(Bundle saveInstanceState) {
-        setTitle("My Point");
+        setTitle(Html.fromHtml("<font color='#e6b773'>My Point</font>"));
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_my_point);
 
@@ -301,7 +302,7 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
 
     private void addToPool() {
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("joinDraw").setValue("Yes");
-        db.child("drawPool").setValue(mUser.getEmail());
+        db.child("drawPool").child("members").setValue(mUser.getEmail());
         joinDraw = true;
         modifyPoints(150, "Reduce");
         db.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("point").setValue(points);

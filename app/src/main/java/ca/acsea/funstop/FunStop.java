@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,7 +65,8 @@ public class FunStop extends AppCompatActivity implements NavigationView.OnNavig
         quiz = new QuizStart(fragmentManager, mUser, ref);
         about = new About(fragmentManager);
 
-        setTitle("LunarFun");
+
+        setTitle(Html.fromHtml("<font color='#e6b773'>LunarFun</font>"));
         super.onCreate(saveInstanceState);
         setContentView(R.layout.fragment_fun_stop);
 
