@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -17,6 +18,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.StyleSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -137,6 +141,15 @@ public class MyPoint extends AppCompatActivity implements NavigationView.OnNavig
                 startActivity(i);
             }
         });
+
+        //for making a letter bold.
+        SpannableStringBuilder sb = new SpannableStringBuilder();
+        String str = "To qualify for the $200 Visa gift card draw: <b>150</b> Points.";
+        sb.append(str);
+        sb.setSpan(new StyleSpan(Typeface.BOLD), 0, str.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        TextView tv_temp1 = findViewById(R.id.mypoint_tv1);
+        tv_temp1.setText(Html.fromHtml(sb+""));
+//        tv_temp1.setText(Html.fromHtml("<b>"+sb+"</b>"+""));
     }
 
 

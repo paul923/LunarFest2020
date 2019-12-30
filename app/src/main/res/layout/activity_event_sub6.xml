@@ -156,7 +156,8 @@
                         android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
-                        android:text="A Musical Banquet” by Chai Found Music Workshop/ Time: Feb 1st  7:30 PM"/>
+                        android:lineSpacingExtra="3dp"
+                        android:text="A Musical Banquet” by Chai Found Music Workshop \nTime: Feb 1st  7:30 PM"/>
                     <TextView
                         android:id="@+id/eventDescription22"
                         android:layout_width="match_parent"

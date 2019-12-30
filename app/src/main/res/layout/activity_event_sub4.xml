@@ -91,7 +91,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="178dp"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/jack1"
+                        app:srcCompat="@drawable/jack2"
                         >
                     </ImageView>
                 </LinearLayout>
@@ -221,7 +221,8 @@
                         android:fontFamily="@font/neo_sans_two_regular"
                         android:textStyle="bold"
                         android:layout_marginBottom="10dp"
-                        android:text="“Protector of the Mountain” - Zachary “SKOKAYLEM” George (Tsleil-Waututh/Vancouver) "/>
+                        android:lineSpacingExtra="3sp"
+                        android:text="“Protector of the Mountain” - Zachary “SKOKAYLEM” George(Tsleil-Waututh/Vancouver) "/>
                     <TextView
                         android:id="@+id/eventDescription55"
                         android:layout_width="match_parent"

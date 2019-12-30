@@ -112,10 +112,11 @@
                         android:layout_margin="20dp">
 
                         <TextView
+                            android:id="@+id/mypoint_tv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColorBlack"
-                            android:text="1. To qualify for the $200 Visa gift card draw: 150 Points."
+                            android:text="To qualify for the $200 Visa gift card draw: 150 Points."
                             android:textSize="15dp"
                             android:layout_marginBottom="20dp"/>
 
@@ -124,21 +125,21 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColorBlack"
                             android:layout_marginBottom="20dp"
-                            android:text="2. Other redemptions: See onsite information."/>
+                            android:text="Other redemptions: See onsite information."/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColorBlack"
                             android:layout_marginBottom="20dp"
-                            android:text="3. Click Redeem to scan the redemption QR Code"/>
+                            android:text="Click Redeem to scan the redemption QR Code"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColorBlack"
                             android:layout_marginBottom="20dp"
-                            android:text="P.S. Prizes are available while quantities last"/>
+                            android:text="(Prizes are available while quantities last)"/>
 
                         <!--                    <TextView-->
                         <!--                        android:layout_width="wrap_content"-->
