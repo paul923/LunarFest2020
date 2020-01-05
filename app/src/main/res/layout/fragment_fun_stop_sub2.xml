@@ -13,8 +13,7 @@
     tools:openDrawer="start">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:id="@+id/funstopSub2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -81,22 +80,21 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Living Arts Centre"
-                        android:fontFamily="@font/font_neo_sans_two_regular"
-                        android:textColor="@color/textColorBlack"
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
-                        android:textStyle="bold"
-                        android:textSize="25dp"  />
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/font_neo_sans_two_regular"
+                        android:text="Living Arts Centre &amp;  \nVarley Art Gallery"
+                        android:textColor="@color/textColorBlack"
+                        android:textSize="25dp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Feb 01 - Feb 02"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/font_neo_sans_two_regular"
                         android:textColor="@color/textColorBlack"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
                         android:textSize="17dp" />
                     //Linear layout for event title
                     <LinearLayout
