@@ -13,8 +13,7 @@
     tools:openDrawer="start">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:id="@+id/funstopSub"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -241,11 +240,12 @@
                             android:id="@+id/station12"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Pig"
-                            android:textSize="18dp"
                             android:layout_margin="5dp"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
+                            android:editable="false"
+                            android:text="Pig"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="18dp" />
                     </LinearLayout>
 
                     <TextView
@@ -281,38 +281,44 @@
                             android:id="@+id/chinese"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Chinese"
-                            android:textSize="18dp"
                             android:layout_margin="5dp"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
+                            android:editable="false"
+                            android:text="Chinese"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="18dp" />
+
                         <CheckBox
                             android:id="@+id/korean"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Korean"
-                            android:textSize="18dp"
                             android:layout_margin="5dp"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
+                            android:editable="false"
+                            android:text="Korean"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="18dp" />
+
                         <CheckBox
                             android:id="@+id/taiwanese"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Taiwanese"
-                            android:textSize="18dp"
                             android:layout_margin="5dp"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
+                            android:editable="false"
+                            android:text="Taiwanese"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="18dp" />
+
                         <CheckBox
                             android:id="@+id/vietnamese"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Vietnamese"
-                            android:textSize="18dp"
                             android:layout_margin="5dp"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
+                            android:text="Vietnamese"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="18dp" />
 
                     </LinearLayout>
 
@@ -349,11 +355,11 @@
                             android:id="@+id/jackPoole"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Coastal Lunar Lanterns"
-                            android:textSize="18dp"
                             android:layout_margin="5dp"
                             android:layout_marginLeft="10dp"
-                            android:textColor="@color/textColorBlack" />
+                            android:text="Coastal Lunar Lanterns"
+                            android:textColor="@color/textColorBlack"
+                            android:textSize="18dp" />
 
 
 

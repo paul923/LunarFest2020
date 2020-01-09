@@ -202,6 +202,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayList.add(station10);
         arrayList.add(station11);
         arrayList.add(station12);
+        arrayList.add(jackPoole);
 
         station1B = prefs.getBoolean("station1B", false);
         station2B = prefs.getBoolean("station2B", false);
@@ -239,6 +240,7 @@ public class FunStopSub extends AppCompatActivity implements NavigationView.OnNa
         arrayListBool.add(station10B);
         arrayListBool.add(station11B);
         arrayListBool.add(station12B);
+        arrayListBool.add(jackPooleB);
 //        points = prefs.getInt("point", 0);
 
 
